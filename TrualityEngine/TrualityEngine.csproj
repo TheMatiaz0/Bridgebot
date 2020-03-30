@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9A4D7498-1E1E-4AEA-885F-C0E033F793D4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BlazeEngine</RootNamespace>
+    <AssemblyName>BlazeEngine</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MonoGamePlatform>Windows</MonoGamePlatform>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\$(MonoGamePlatform)\$(Platform)\$(Configuration)\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;WINDOWS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\$(MonoGamePlatform)\$(Platform)\$(Configuration)\</OutputPath>
+    <DefineConstants>TRACE;WINDOWS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>flame.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Core\BaseType\IEvaluate.cs" />
+    <Compile Include="Core\BaseType\IniConverters\ColorConverter.cs" />
+    <Compile Include="Core\BaseType\IniConverters\DirectionConverter.cs" />
+    <Compile Include="Core\BaseType\IniConverters\RectConverter.cs" />
+    <Compile Include="Core\BaseType\IniConverters\ResolutionConverter.cs" />
+    <Compile Include="Core\BaseType\IniConverters\RotationConverter.cs" />
+    <Compile Include="Core\BaseType\IniConverters\SpriteConverter.cs" />
+    <Compile Include="Core\BaseType\IniConverters\Vect2IniConverter.cs" />
+    <Compile Include="Core\BaseType\Range.cs" />
+    <Compile Include="Core\Collision\Collider.cs" />
+    <Compile Include="Core\Collision\ColliderLayer.cs" />
+    <Compile Include="Core\Collision\PointFlag.cs" />
+    <Compile Include="Core\Data\Sprite.cs" />
+    <Compile Include="Core\EObject\Behaviour\Entity\CheckBox.cs" />
+    <Compile Include="Core\EObject\SingletionDataContainer.cs" />
+    <Compile Include="Core\EventArgs\ChangeCurrentDropdownEventArgs.cs" />
+    <Compile Include="Core\EObject\Behaviour\Entity\Dropdown.cs" />
+    <Compile Include="Core\EObject\Behaviour\Entity\DropdownElement.cs" />
+    <Compile Include="Core\EventArgs\BaseDropdownArgs.cs" />
+    <Compile Include="Core\EventArgs\DropdownElementSelectArgs.cs" />
+    <Compile Include="Core\Exceptions\WrongCreatingContextException.cs" />
+    <Compile Include="Core\Ini\IniManager.cs" />
+    <Compile Include="Core\General\LoadOnIniAttribute.cs" />
+    <Compile Include="Core\Ini\IIniConverter.cs" />
+    <Compile Include="Core\Input\ActionMarker.cs" />
+    <Compile Include="Core\Input\GamePadButton.cs" />
+    <Compile Include="Core\Input\UniversalKey.cs" />
+    <Compile Include="Core\Reflection\BindAttribute.cs" />
+    <Compile Include="Core\Reflection\TheReflection.cs" />
+    <Compile Include="Core\EObject\Behaviour\Components\Component.cs" />
+    <Compile Include="Core\EObject\IActivable.cs" />
+    <Compile Include="Core\EObject\IKillable.cs" />
+    <Compile Include="Core\EObject\PhysicsManager.cs" />
+    <Compile Include="Core\Extensions\ColorExtension.cs" />
+    <Compile Include="Core\Extensions\LinqExtension.cs" />
+    <Compile Include="Core\Extensions\PointExtension.cs" />
+    <Compile Include="Core\Extensions\Vector4Extension.cs" />
+    <Compile Include="Core\General\TheMath.cs" />
+    <Compile Include="Core\General\GameSettings.cs" />
+    <Compile Include="Core\Particle\ParticleColorByLife.cs" />
+    <Compile Include="Core\Particle\IParticleBehaviour.cs" />
+    <Compile Include="Core\Particle\ParticleRandomVelocity.cs" />
+    <Compile Include="Core\Particle\ParticleSetter.cs" />
+    <Compile Include="Core\Particle\ParticleElement.cs" />
+    <Compile Include="Core\Particle\ParticleGenerator.cs" />
+    <Compile Include="Core\Particle\ParticleSettings.cs" />
+    <Compile Include="Core\Particle\ParticleSizeByLife.cs" />
+    <Compile Include="Core\Random\Randomer.cs" />
+    <Compile Include="Core\Raycast\Raycast.cs" />
+    <Compile Include="Core\BaseType\BezierCurve.cs" />
+    <Compile Include="Core\BaseType\CInt.cs" />
+    <Compile Include="Core\BaseType\Gradient.cs" />
+    <Compile Include="Core\BaseType\Rect.cs" />
+    <Compile Include="Core\BaseType\Rotation.cs" />
+    <Compile Include="Core\BaseType\Vect2.cs" />
+    <Compile Include="Core\Task\TrualityContext.cs" />
+    <Compile Include="Core\Task\ICoroutineableExtension.cs" />
+    <Compile Include="Core\Task\IEnumeratorCoroutineableExtesnion.cs" />
+    <Compile Include="Core\Task\TaskExtension.cs" />
+    <Compile Include="Core\Tileset\MultiTileset.cs" />
+    <Compile Include="Core\PrefabCollection.cs" />
+    <Compile Include="Core\Data\Asset.cs" />
+    <Compile Include="Core\Data\BaseAsset.cs" />
+    <Compile Include="Core\Batch\FixedBatch.cs" />
+    <Compile Include="Core\Batch\TextRenderOptions.cs" />
+    <Compile Include="Core\Collision\CollisonInfoFactory.cs" />
+    <Compile Include="Core\Collision\ICollisionInfo.cs" />
+    <Compile Include="Core\Collision\NeverColliding.cs" />
+    <Compile Include="Core\Collision\RectangleExtension.cs" />
+    <Compile Include="Core\Coroutine\Corourtine.cs" />
+    <Compile Include="Core\Coroutine\ICorouteable.cs" />
+    <Compile Include="Core\Coroutine\Async.cs" />
+    <Compile Include="Core\Coroutine\YielUpdate.cs" />
+    <Compile Include="Core\CustomEvent\BEvent.cs" />
+    <Compile Include="Core\EntityElement\Animation\Animation.cs" />
+    <Compile Include="Core\EntityElement\Animation\AnimationCreator.cs" />
+    <Compile Include="Core\EntityElement\Animation\AnimationManager.cs" />
+    <Compile Include="Core\EntityElement\Animation\AnimationRuntime.cs" />
+    <Compile Include="Core\EntityElement\Animation\AnimFrame.cs" />
+    <Compile Include="Core\Data\IAsset.cs" />
+    <Compile Include="Core\Data\XmlAnimation.cs" />
+    <Compile Include="Core\Data\XmlFrame.cs" />
+    <Compile Include="Core\EntityElement\ColliderManager.cs" />
+    <Compile Include="Core\EntityElement\IEntityManager.cs" />
+    <Compile Include="Core\EntityElement\ITextableArgs.cs" />
+    <Compile Include="Core\EntityElement\SpriteCreator.cs" />
+    <Compile Include="Core\EntityElement\Tag.cs" />
+    <Compile Include="Core\EObject\ActivatedObject.cs" />
+    <Compile Include="Core\EObject\Behaviour\Behaviour.cs" />
+    <Compile Include="Core\EObject\Behaviour\Components\BaseComponent.cs" />
+    <Compile Include="Core\EObject\Behaviour\Components\ComponentManager.cs" />
+    <Compile Include="Core\EObject\Behaviour\EntityCaller.cs" />
+    <Compile Include="Core\EObject\Behaviour\Components\Button.cs" />
+    <Compile Include="Core\EObject\Behaviour\Entity\ColliderEntity.cs" />
+    <Compile Include="Core\EObject\Behaviour\Entity\Entity.cs" />
+    <Compile Include="Core\EObject\Behaviour\Entity\GroupLineEntity.cs" />
+    <Compile Include="Core\EObject\Behaviour\Entity\LineElement.cs" />
+    <Compile Include="Core\EObject\Behaviour\Entity\LineEntity.cs" />
+    <Compile Include="Core\EObject\Behaviour\Entity\MainEntity\Camera.cs" />
+    <Compile Include="Core\EObject\Behaviour\Entity\MainEntity\IMainEntity.cs" />
+    <Compile Include="Core\EObject\Behaviour\Entity\MainEntity\Listener.cs" />
+    <Compile Include="Core\EObject\Behaviour\Entity\MainEntity\MainEntity.cs" />
+    <Compile Include="Core\EObject\Behaviour\Entity\RenderEntity.cs" />
+    <Compile Include="Core\EObject\Behaviour\Entity\SpriteEntity.cs" />
+    <Compile Include="Core\EObject\Behaviour\Entity\TextEntity.cs" />
+    <Compile Include="Core\EObject\Behaviour\Scene\SceneRuntime.cs" />
+    <Compile Include="Core\EObject\EObject.cs" />
+    <Compile Include="Core\EventArgs\ActiveChangeArgs.cs" />
+    <Compile Include="Core\EventArgs\AddedComponentArgs.cs" />
+    <Compile Include="Core\EventArgs\BaseActivatedObjectArgs.cs" />
+    <Compile Include="Core\EventArgs\BaseBehaviourArgs.cs" />
+    <Compile Include="Core\EventArgs\BaseColliderEntityArg.cs" />
+    <Compile Include="Core\EventArgs\BaseEntityArgs.cs" />
+    <Compile Include="Core\EventArgs\BaseEntityCallerArgs.cs" />
+    <Compile Include="Core\EventArgs\CameraWillRenderChangeArgs.cs" />
+    <Compile Include="Core\EventArgs\CollisonArgs.cs" />
+    <Compile Include="Core\EventArgs\MouseCollisionArgs.cs" />
+    <Compile Include="Core\EventArgs\ValueInEntityChangedArgs.cs" />
+    <Compile Include="Core\Exceptions\ObjectIsDeactivedException.cs" />
+    <Compile Include="Core\Exceptions\ObjectIsKilledException.cs" />
+    <Compile Include="Core\Exceptions\ObjectStatusChangedException.cs" />
+    <Compile Include="Core\Extensions\Texture2DExtension.cs" />
+    <Compile Include="Core\Extensions\Vector2Extension.cs" />
+    <Compile Include="Core\General\TheGame.cs" />
+    <Compile Include="Core\General\GameManager.cs" />
+    <Compile Include="Core\General\MainGame.cs" />
+    <Compile Include="Core\General\Screen.cs" />
+    <Compile Include="Core\General\Time.cs" />
+    <Compile Include="Core\Input\Input.cs" />
+    <Compile Include="Core\Input\MouseButton.cs" />
+    <Compile Include="Core\Prefixs\IPrefix.cs" />
+    <Compile Include="Core\Prefixs\SceneBehaviour.cs" />
+    <Compile Include="Core\BaseType\Circle.cs" />
+    <Compile Include="Core\BaseType\Direction.cs" />
+    <Compile Include="Core\BaseType\Line.cs" />
+    <Compile Include="Core\BaseType\Precent.cs" />
+    <Compile Include="Core\BaseType\Resolution.cs" />
+    <Compile Include="Core\BaseType\ScalingLine.cs" />
+    <Compile Include="Core\BaseType\SimpleDirection.cs" />
+    <Compile Include="Core\BaseType\Stater.cs" />
+    <Compile Include="Core\Tileset\SingleTileset.cs" />
+    <Compile Include="Core\Tileset\TilesetLoader.cs" />
+    <Compile Include="Core\Tileset\TilesetSortMode.cs" />
+    <Compile Include="Core\Ini\IniProp.cs" />
+    <Compile Include="Core\Tween\Tween.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Core\XmlSerializer.cs" />
+    <Compile Include="Core\Simple\CManagerAction.cs" />
+    <Compile Include="Core\Simple\CollectionManager.cs" />
+    <Compile Include="Core\Simple\CollectionManagerArgs.cs" />
+    <Compile Include="Core\Simple\ICollectionManager.cs" />
+    <Compile Include="Core\Simple\Pair.cs" />
+    <Compile Include="Core\Simple\SimpleArgs.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="INIFileParser, Version=2.5.2.0, Culture=neutral, PublicKeyToken=79af7b307b65cf3c, processorArchitecture=MSIL">
+      <HintPath>..\packages\ini-parser.2.5.2\lib\net20\INIFileParser.dll</HintPath>
+    </Reference>
+    <Reference Include="MonoGame.Framework">
+      <HintPath>$(MonoGameInstallDirectory)\MonoGame\v3.0\Assemblies\Windows\MonoGame.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\AvatarMask.png" />
+    <Content Include="Content\EnemyLaser.png" />
+    <Content Include="Content\EnemyShip.png" />
+    <Content Include="Content\HeroLaser.png" />
+    <Content Include="Content\HeroShip.png" />
+    <Content Include="Content\Square.png" />
+    <Content Include="flame.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <MonoGameContentReference Include="Content\Content.mgcb" />
+    <None Include="app.manifest" />
+    <None Include="Content\Arial.spritefont" />
+    <None Include="Content\Arial_Black.spritefont" />
+    <None Include="Content\bin\DesktopGL\Content\Arial.xnb" />
+    <None Include="Content\bin\DesktopGL\Content\Arial_Black.xnb" />
+    <None Include="Content\bin\DesktopGL\Content\AvatarMask.xnb" />
+    <None Include="Content\bin\DesktopGL\Content\EnemyLaser.xnb" />
+    <None Include="Content\bin\DesktopGL\Content\EnemyShip.xnb" />
+    <None Include="Content\bin\DesktopGL\Content\HeroLaser.xnb" />
+    <None Include="Content\bin\DesktopGL\Content\HeroShip.xnb" />
+    <None Include="Content\bin\DesktopGL\Content\Square.xnb" />
+    <None Include="Content\bin\DesktopGL\Content\Unispace.xnb" />
+    <None Include="Content\bin\Windows\Content\Arial.xnb" />
+    <None Include="Content\bin\Windows\Content\Arial_Black.xnb" />
+    <None Include="Content\bin\Windows\Content\AvatarMask.xnb" />
+    <None Include="Content\bin\Windows\Content\EnemyLaser.xnb" />
+    <None Include="Content\bin\Windows\Content\EnemyShip.xnb" />
+    <None Include="Content\bin\Windows\Content\HeroLaser.xnb" />
+    <None Include="Content\bin\Windows\Content\HeroShip.xnb" />
+    <None Include="Content\bin\Windows\Content\Square.xnb" />
+    <None Include="Content\bin\Windows\Content\Unispace.xnb" />
+    <None Include="Content\obj\DesktopGL\Content\.mgcontent" />
+    <None Include="Content\obj\DesktopGL\Content\.mgstats" />
+    <None Include="Content\obj\DesktopGL\Content\Arial.mgcontent" />
+    <None Include="Content\obj\DesktopGL\Content\Arial_Black.mgcontent" />
+    <None Include="Content\obj\DesktopGL\Content\AvatarMask.mgcontent" />
+    <None Include="Content\obj\DesktopGL\Content\EnemyLaser.mgcontent" />
+    <None Include="Content\obj\DesktopGL\Content\EnemyShip.mgcontent" />
+    <None Include="Content\obj\DesktopGL\Content\HeroLaser.mgcontent" />
+    <None Include="Content\obj\DesktopGL\Content\HeroShip.mgcontent" />
+    <None Include="Content\obj\DesktopGL\Content\Square.mgcontent" />
+    <None Include="Content\obj\DesktopGL\Content\Unispace.mgcontent" />
+    <None Include="Content\obj\Windows\Content\.mgcontent" />
+    <None Include="Content\obj\Windows\Content\.mgstats" />
+    <None Include="Content\obj\Windows\Content\Arial.mgcontent" />
+    <None Include="Content\obj\Windows\Content\Arial_Black.mgcontent" />
+    <None Include="Content\obj\Windows\Content\AvatarMask.mgcontent" />
+    <None Include="Content\obj\Windows\Content\EnemyLaser.mgcontent" />
+    <None Include="Content\obj\Windows\Content\EnemyShip.mgcontent" />
+    <None Include="Content\obj\Windows\Content\HeroLaser.mgcontent" />
+    <None Include="Content\obj\Windows\Content\HeroShip.mgcontent" />
+    <None Include="Content\obj\Windows\Content\Square.mgcontent" />
+    <None Include="Content\obj\Windows\Content\Unispace.mgcontent" />
+    <None Include="Content\Unispace.spritefont" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
