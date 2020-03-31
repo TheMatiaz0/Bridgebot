@@ -35,7 +35,7 @@ public class Spawner : AutoInstanceBehaviour<Spawner>
 		return SpawnedEnemies.Count > 0;
 	}
 
-	private IEnumerator StartWave()
+	public IEnumerator StartWave()
 	{
 		while (CurrentState != SpawnState.SELECTING_BRIDGE)
 		{

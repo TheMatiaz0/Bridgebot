@@ -3,6 +3,7 @@ using Cyberevolver.Unity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class Enemy : MonoBehaviour
 {
@@ -20,6 +21,9 @@ public class Enemy : MonoBehaviour
 	[SerializeField]
 	private Cint takeDmg = 10;
 
+	[SerializeField]
+	private AIDestinationSetter setter;
+
 	public void GetDamage(Cint dmgValue)
 	{
 		CurrentHp -= dmgValue;
@@ -33,6 +37,8 @@ public class Enemy : MonoBehaviour
 	protected void Start()
 	{
 		CurrentHp = startHp;
+
+		setter.target = Player.Instance.transform;
 	}
 
 	protected void FixedUpdate()

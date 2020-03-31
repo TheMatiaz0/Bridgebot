@@ -1,5 +1,5 @@
-﻿using Cyberevolver.Unity;
-using Cyberevolver;
+﻿using Cyberevolver;
+using Cyberevolver.Unity;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ public class Player : AutoInstanceBehaviour<Player>
 {
     [SerializeField]
     private SerializedTimeSpan jumpDelay = TimeSpan.FromSeconds(1);
-    [SerializeField,ResetButton(1)]
+    [SerializeField, ResetButton(1)]
     private float MoveSize = 1;
     private Cyberevolver.Unity.CooldownController moveCooldown;
     [SerializeField, RequiresAny]
@@ -24,14 +24,14 @@ public class Player : AutoInstanceBehaviour<Player>
 
     InputActions inputActions;
     private Transform curShotPoint;
-    [SerializeField,Button("↺",Method =nameof(SetDefCamera))]
+    [SerializeField, Button("↺", Method = nameof(SetDefCamera))]
     private Camera cam;
     private void SetDefCamera()
     {
         cam = Camera.main;
     }
-   
-  
+
+
     protected override void Awake()
     {
         base.Awake();
@@ -65,12 +65,17 @@ public class Player : AutoInstanceBehaviour<Player>
 
         this.Renderer.flipX = !gunObj.Renderer.flipY;
         this.gunObj.transform.position = (!Renderer.flipX) ? leftPistolPos.position : rightPistolPos.position;
+
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            StartCoroutine(Spawner.Instance.StartWave());
+        }
     }
     public void TryMove(Direction dir)
     {
-        if(moveCooldown.Try())
+        if (moveCooldown.Try())
         {
-            this.Rigidbody2D.MovePosition(this.transform.Get2DPos() + dir.ToVector2()*MoveSize);
+            this.Rigidbody2D.MovePosition(this.transform.Get2DPos() + dir.ToVector2() * MoveSize);
         }
     }
     public Vector2 GetFrom()

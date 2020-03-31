@@ -133,7 +133,7 @@ MonoBehaviour:
   repathRate: 0.5
   canSearch: 1
   canMove: 1
-  maxSpeed: 5
+  maxSpeed: 2.5
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
@@ -199,6 +199,7 @@ MonoBehaviour:
   speed: 10
   takeDmg:
     _Value: 10
+  setter: {fileID: 7297082463388712593}
 --- !u!50 &96356461702647518
 Rigidbody2D:
   serializedVersion: 4
