@@ -1,3 +1,4 @@
+#pragma warning disable
 using UnityEngine;
 using System.Collections;
 using UnityEngine.Serialization;
