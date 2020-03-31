@@ -89,6 +89,7 @@ public sealed class Equipment : AutoInstanceBehaviour<Equipment>
 
         RefreshSelect();
     }
+  
     private void RefreshSelect()
     {
         

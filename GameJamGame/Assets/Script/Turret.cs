@@ -40,7 +40,7 @@ public class Turret : MonoBehaviour, IHpable
 			Enemy enemy = Spawner.Instance.GetClosestEnemy(shootPoint.transform.position, range);
 			if (enemy != null)
 			{
-				BulletManager.Instance.Shoot(bulletSpeed, bulletDamage, (Vector2)enemy.transform.position, shootPoint.position, CurrentTeam);
+				BulletManager.Instance.Shoot(bulletSpeed, bulletDamage,  enemy.transform.Get2DPos()-this.transform.Get2DPos(), shootPoint.position, CurrentTeam);
 			}
 
 			yield return Async.Wait(shootTimerMax.TimeSpan);
