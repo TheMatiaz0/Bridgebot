@@ -182,7 +182,7 @@ MonoBehaviour:
   startHp:
     _Value: 10
   rb2D: {fileID: 96356461702647518}
-  speed: 10
+  speed: 4
   seeker: {fileID: 7297082463388712592}
   Rigidbody2D: {fileID: 96356461702647518}
   MoveSize: 1

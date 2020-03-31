@@ -25,7 +25,10 @@ public class Bullet : MonoBehaviourPlus
 	public EventHandler<SimpleArgs<Bullet>> OnDestroy = delegate { };
 
 
-
+	protected void Start()
+	{
+		Invoke((m) => Destroy(this.gameObject), TimeSpan.FromSeconds(6));
+	}
 
 
 	protected virtual void Update()

@@ -21,20 +21,18 @@ public class Pistol : Item
     public override void OnUse()
     {
         base.OnUse();
-        if (Input.GetMouseButtonDown(0) && cooldownController.Try())
-        {
+        if (cooldownController.Try())
             BulletManager.Instance.Shoot(10, 1, Player.Instance.GetDirection(), Player.Instance.GetFrom(), Team.Good);
-        }
     }
     public override void OnStartSelect()
     {
         base.OnStartSelect();
-        Player.Instance.SetPistolVisibile(true);
+        Player.Instance.SetPistolVisible(true);
 
     }
     public override void OnEndSelect()
     {
         base.OnEndSelect();
-        Player.Instance.SetPistolVisibile(false);
+        Player.Instance.SetPistolVisible(false);
     }
 }

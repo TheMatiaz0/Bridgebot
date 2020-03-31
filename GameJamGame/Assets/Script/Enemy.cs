@@ -32,6 +32,9 @@ public class Enemy : MonoBehaviour, IHpable
 	private int currentWaypoint = 0;
 	private bool reachedEndOfPath;
 
+	private float repathRate = 0.5f;
+	private float lastRepath = float.NegativeInfinity;
+
 	[SerializeField, ResetButton(1)]
 	private float MoveSize = 1;
 
@@ -67,16 +70,31 @@ public class Enemy : MonoBehaviour, IHpable
 	{
 		Debug.Log("A path was calculated. Did it fail with an error? " + p.error);
 
+		p.Claim(this);
 		if (!p.error)
 		{
+			if (Path != null) Path.Release(this);
 			Path = p;
 			// Reset the waypoint counter so that we start to move towards the first point in the path
 			currentWaypoint = 0;
+		}
+		else
+		{
+			p.Release(this);
 		}
 	}
 
 	public void Update()
 	{
+		if (Time.time > lastRepath + repathRate && seeker.IsDone())
+		{
+			lastRepath = Time.time;
+
+			// Start a new path to the targetPosition, call the the OnPathComplete function
+			// when the path has been calculated (which may take a few frames depending on the complexity)
+			seeker.StartPath(transform.position, targetTransform.position, OnPathComplete);
+		}
+
 		if (Path == null)
 		{
 			// We have no path to follow yet, so don't do anything
@@ -121,11 +139,16 @@ public class Enemy : MonoBehaviour, IHpable
 
 		// Direction to the next waypoint
 		// Normalize it so that it has a length of 1 world unit
-		Direction dir = ((Vector2)(Path.vectorPath[currentWaypoint] - transform.position)).normalized;
+		Vector2 dir = (Path.vectorPath[currentWaypoint] - transform.position).normalized;
 
+		TryMove(dir);
+	}
+
+	private void TryMove(Vector2 dir)
+	{
 		if (moveCooldown.Try())
 		{
-			this.Rigidbody2D.MovePosition(this.transform.Get2DPos() + dir.ToVector2() * MoveSize);
+			this.Rigidbody2D.MovePosition(this.transform.Get2DPos() + dir * MoveSize);
 		}
 	}
 
@@ -134,6 +157,7 @@ public class Enemy : MonoBehaviour, IHpable
 		if (HpableExtension.IsFromWrongTeam(this, collision, out Bullet bullet))
 		{
 			this.Hp.TakeHp(bullet.Dmg, "Bullet");
+			Destroy(bullet.gameObject);
 		}
 	}
 
