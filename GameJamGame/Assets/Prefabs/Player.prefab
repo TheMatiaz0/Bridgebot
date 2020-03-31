@@ -229,6 +229,8 @@ GameObject:
   - component: {fileID: 8154490813324486480}
   - component: {fileID: 8154490813324486483}
   - component: {fileID: 8154490813324486482}
+  - component: {fileID: 4288493064703053605}
+  - component: {fileID: 6436578276791037398}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -363,6 +365,7 @@ MonoBehaviour:
   leftPistolPos: {fileID: 25721008}
   rightPistolPos: {fileID: 2078969967}
   gunObj: {fileID: 5860096598132733708}
+  startMaxHp: 10
   cam: {fileID: 0}
 --- !u!50 &8154490813324486482
 Rigidbody2D:
@@ -376,12 +379,44 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 100
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!58 &4288493064703053605
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8154490813324486495}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 5.465
+--- !u!58 &6436578276791037398
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8154490813324486495}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 5.465

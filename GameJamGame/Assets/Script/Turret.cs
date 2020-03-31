@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cyberevolver;
 
-public class Turret : MonoBehaviour
+public class Turret : MonoBehaviour, IHpable
 {
 	[SerializeField]
 	private float range = 40f;
@@ -24,6 +24,10 @@ public class Turret : MonoBehaviour
 	[SerializeField]
 	private Cint bulletDamage = 2;
 
+	public Team CurrentTeam { get; private set; } = Team.Good;
+
+	public Hp Hp { get; private set; }
+
 	protected void Start()
 	{
 		StartCoroutine(ShootWithDelay());
@@ -36,7 +40,7 @@ public class Turret : MonoBehaviour
 			Enemy enemy = Spawner.Instance.GetClosestEnemy(shootPoint.transform.position, range);
 			if (enemy != null)
 			{
-				BulletManager.Instance.Shoot(bulletSpeed, bulletDamage, (Vector2)enemy.transform.position, shootPoint.position, Team.Good);
+				BulletManager.Instance.Shoot(bulletSpeed, bulletDamage, (Vector2)enemy.transform.position, shootPoint.position, CurrentTeam);
 			}
 
 			yield return Async.Wait(shootTimerMax.TimeSpan);

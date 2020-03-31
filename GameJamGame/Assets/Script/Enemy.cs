@@ -3,13 +3,12 @@ using Cyberevolver.Unity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour, IHpable
 {
 	[SerializeField]
 	private Cint startHp = 10;
-
-	public Cint CurrentHp { get; private set; }
 
 	[SerializeField]
 	private Rigidbody2D rb2D = null;
@@ -20,24 +19,40 @@ public class Enemy : MonoBehaviour
 	[SerializeField]
 	private Cint takeDmg = 10;
 
-	public void GetDamage(Cint dmgValue)
-	{
-		CurrentHp -= dmgValue;
+	[SerializeField]
+	private AIDestinationSetter setter;
 
-		if (CurrentHp <= 0)
-		{
-			Destroy(this.gameObject);
-		}
+	public Team CurrentTeam { get; private set; } = Team.Bad;
+
+	public Hp Hp { get; private set; }
+
+
+	protected void Awake()
+	{
+		Hp = new Hp(startHp, 0, startHp);
+		Hp.OnValueChangeToMin += Hp_OnValueChangeToMin;
+	}
+
+	private void Hp_OnValueChangeToMin(object sender, Hp.HpChangedArgs e)
+	{
+		Destroy(this.gameObject);
 	}
 
 	protected void Start()
 	{
-		CurrentHp = startHp;
+		setter.target = Player.Instance.transform;
 	}
 
 	protected void FixedUpdate()
 	{
-		// rb2D.MovePosition((Vector2)transform.position + targetDirection * speed * Time.deltaTime);
+	}
+
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+		if (HpableExtension.IsFromWrongTeam(this, collision, out Bullet bullet))
+		{
+			this.Hp.TakeHp(bullet.Dmg, "Bullet");
+		}
 	}
 
 	private void OnCollisionEnter2D(Collision2D collision)

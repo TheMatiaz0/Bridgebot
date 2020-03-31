@@ -35,7 +35,7 @@ public class Spawner : AutoInstanceBehaviour<Spawner>
 		return SpawnedEnemies.Count > 0;
 	}
 
-	private IEnumerator StartWave()
+	public IEnumerator StartWave()
 	{
 		while (CurrentState != SpawnState.SELECTING_BRIDGE)
 		{
@@ -47,7 +47,10 @@ public class Spawner : AutoInstanceBehaviour<Spawner>
 
 			yield return new WaitWhile(AnyEnemyisAlive);
 
-			// yield return Async.Wait(timeBetweenWaves.TimeSpan);
+			CurrentState = SpawnState.SELECTING_BRIDGE;
+
+			yield return Async.Wait(timeBetweenWaves.TimeSpan);
+			CurrentState = SpawnState.SPAWNING;
 		}
 	}
 
