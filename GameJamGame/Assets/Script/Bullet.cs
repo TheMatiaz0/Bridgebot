@@ -21,22 +21,19 @@ public class Bullet : MonoBehaviourPlus
 	public Cint Dmg { get; set; }
 	public Team Team { get; set; }
 	public Direction Direction { get; set; }
-	public TimeSpan LifeTime { get; private set; }
 	public EventHandler<SimpleArgs<Bullet>> OnDestroy = delegate { };
 
 
 	protected void Start()
 	{
-	
+        Destroy(this.gameObject, 10);
 	}
 
 
 	protected virtual void Update()
 	{
 		this.transform.position += (Vector3)(Speed * Direction.ToVector2() * Time.deltaTime);
-		LifeTime += TimeSpan.FromSeconds(Time.deltaTime);
-		if (LifeTime > TimeSpan.FromSeconds(10))
-			Destroy(this.gameObject);
+	
 		this.transform.LookAt2D((Vector2)this.transform.position + Direction.ToVector2());
 	}
 
