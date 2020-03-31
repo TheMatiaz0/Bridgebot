@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d1514134bc4fbd41bb739b1b9a49231, type: 3}
-  m_Name: RuleTIle
+  m_Name: RuleTile
   m_EditorClassIdentifier: 
   m_DefaultSprite: {fileID: 2510352317394318056, guid: a728c1ecf6209d44cb3775cdb96838b9,
     type: 3}

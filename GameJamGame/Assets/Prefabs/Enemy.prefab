@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7297082463388712591}
   - component: {fileID: 7297082463388712592}
   - component: {fileID: 1073618881282620597}
-  - component: {fileID: 7297082463388712593}
   - component: {fileID: 480434729837658236}
   - component: {fileID: 1157404923677522690}
   - component: {fileID: 96356461702647518}
@@ -152,20 +151,6 @@ MonoBehaviour:
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
   constrainInsideGraph: 0
---- !u!114 &7297082463388712593
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1928130470648043647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 1
-  target: {fileID: 0}
 --- !u!58 &480434729837658236
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -198,9 +183,16 @@ MonoBehaviour:
     _Value: 10
   rb2D: {fileID: 96356461702647518}
   speed: 10
-  takeDmg:
-    _Value: 10
-  setter: {fileID: 7297082463388712593}
+  seeker: {fileID: 7297082463388712592}
+  Rigidbody2D: {fileID: 96356461702647518}
+  MoveSize: 1
+  jumpDelay:
+    miliseconds: 0
+    seconds: 1
+    minutes: 0
+    hour: 0
+    day: 0
+    precision: 2
 --- !u!50 &96356461702647518
 Rigidbody2D:
   serializedVersion: 4
