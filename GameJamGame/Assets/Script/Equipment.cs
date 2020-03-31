@@ -43,6 +43,8 @@ public sealed class Equipment : AutoInstanceBehaviour<Equipment>
             items.Add(item);
             RefreshGroup();
             OnItemAdded(this, new ItemAddedArg(item, this));
+            if (items.Count - 1 == selected)
+                item.OnStartSelect();
 
         }
            
@@ -52,12 +54,22 @@ public sealed class Equipment : AutoInstanceBehaviour<Equipment>
     {
         base.Awake();
         RefreshGroup();
+        
+    }
+    private void Start()
+    {
         AddItem(new Pistol(pistolDelay.TimeSpan).Apply(pistol));
     }
     private void Update()
     {
         if (Input.GetMouseButton(0))
             GetCurrent()?.OnUse();
+        if (Input.GetKey(KeyCode.Alpha1))
+            Select(0);
+        if (Input.GetKey(KeyCode.Alpha2))
+            Select(1);
+        if (Input.GetKey(KeyCode.Alpha3))
+            Select(2);
     }
     public Item GetCurrent()
     {
