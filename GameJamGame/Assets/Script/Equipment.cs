@@ -28,7 +28,10 @@ public sealed class Equipment : AutoInstanceBehaviour<Equipment>
     [SerializeField,BoxGroup(VALUES)]
     private SerializedTimeSpan pistolDelay = TimeSpan.FromSeconds(0.3f);
     private readonly List<Item> items = new List<Item>();
-
+    [SerializeField, AssetOnly]
+    private ItemAsset pistol;
+    [SerializeField,AssetOnly]
+    private ItemAsset turret;
     private Cint selected = 0;
     private HotBarElement[] elements = null;
     public event EventHandler<ItemAddedArg> OnItemAdded = delegate { };
@@ -49,7 +52,7 @@ public sealed class Equipment : AutoInstanceBehaviour<Equipment>
     {
         base.Awake();
         RefreshGroup();
-        AddItem(new Pistol(pistolDelay.TimeSpan));
+        AddItem(new Pistol(pistolDelay.TimeSpan).Apply(pistol));
     }
     private void Update()
     {

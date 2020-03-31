@@ -7,8 +7,8 @@ using Cyberevolver;
 using Cyberevolver.Unity;
 using UnityEngine;
 using System.Collections;
-[ShowCyberInspector]
-public class ItemAsset : MonoBehaviourPlus
+[ShowCyberInspector,CreateAssetMenu(fileName ="item",menuName ="item")]
+public class ItemAsset : ScriptableObject
 {
     [field:SerializeField]
     public string Name { get; private set; }
