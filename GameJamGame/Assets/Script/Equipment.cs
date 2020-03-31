@@ -21,13 +21,16 @@ public sealed class Equipment : AutoInstanceBehaviour<Equipment>
         }
     }
     protected const string PREFAB = "Prefabs";
-    private const string REFERENCE = "REFERENCE";
-    [SerializeField, AssetOnly,BoxGroup(PREFAB)]
-    private HotBarElement hotBarPrefab;
-    [SerializeField, AssetOnly, BoxGroup(REFERENCE),RequiresAny]
+    private const string REFERENCE = "Reference";
+    private const string VALUES = "Values";
+    [SerializeField, BoxGroup(REFERENCE),RequiresAny]
     private Transform eqParent;
+    [SerializeField,BoxGroup(VALUES)]
+    private SerializedTimeSpan pistolDelay = TimeSpan.FromSeconds(0.3f);
     private readonly List<Item> items = new List<Item>();
 
+    private Cint selected = 0;
+    private HotBarElement[] elements = null;
     public event EventHandler<ItemAddedArg> OnItemAdded = delegate { };
   
     public void AddItem(Item item)
@@ -41,15 +44,63 @@ public sealed class Equipment : AutoInstanceBehaviour<Equipment>
         }
            
     }
-    public void RefreshGroup()
+
+    protected override void Awake()
     {
-        eqParent.KillAllChild();
-        foreach(var item in items)
+        base.Awake();
+        RefreshGroup();
+        AddItem(new Pistol(pistolDelay.TimeSpan));
+    }
+    private void Update()
+    {
+        if (Input.GetMouseButton(0))
+            GetCurrent()?.OnUse();
+    }
+    public Item GetCurrent()
+    {
+        if (selected >= items.Count)
         {
-            var element = Instantiate(hotBarPrefab);
-            element.transform.SetParent(eqParent);
-            element.Item = item;
+            return null;
         }
+        else
+            return items[(int)(uint)selected];
+    }
+    public void Select(Cint index)
+    {
+
+        if (index == selected)
+            return;
+        selected = index;
+
+        RefreshSelect();
+    }
+    private void RefreshSelect()
+    {
+        
+        for(int i=0;i<3;i++)
+        {
+            elements[i].SetSelect(selected == i);
+        }
+
+    }
+    private void RefreshGroup()
+    {
+        int i = 0;
+        elements = new HotBarElement[3];
+       foreach(var gameObj in eqParent.GetAllChildren())
+        {
+            var hotBarItem= gameObj.GetComponent<HotBarElement>();
+            if (i<items.Count)
+            {
+                hotBarItem.SetItem(items[i]);
+            }
+            else
+                hotBarItem.SetItem(null);
+
+            elements[i] = hotBarItem;
+            i++;
+        }
+        RefreshSelect();
         
     }
 

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Player : MonoBehaviourPlus
+public class Player : AutoInstanceBehaviour<Player>
 {
     [SerializeField]
     private SerializedTimeSpan jumpDelay = TimeSpan.FromSeconds(1);
@@ -18,6 +18,10 @@ public class Player : MonoBehaviourPlus
 
     [Auto]
     public Rigidbody2D Rigidbody2D { get; private set; }
+    [SerializeField]
+    private ItemAsset pistol;
+    [SerializeField]
+    private ItemAsset turret;
     protected override void Awake()
     {
         base.Awake();
@@ -40,7 +44,7 @@ public class Player : MonoBehaviourPlus
     {
         if(moveCooldown.Try())
         {
-            this.Rigidbody2D.MovePosition(this.transform.Get2DPos() + dir.ToVector2());
+            this.Rigidbody2D.MovePosition(this.transform.Get2DPos() + dir.ToVector2()*MoveSize);
         }
     }
 
