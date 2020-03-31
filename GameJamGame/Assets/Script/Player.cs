@@ -31,13 +31,14 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
 
     InputActions inputActions;
     private Transform curShotPoint;
+
     [SerializeField, Button("↺", Method = nameof(SetDefCamera))]
     private Camera cam;
+
     private void SetDefCamera()
     {
         cam = Camera.main;
     }
-
 
     protected override void Awake()
     {
