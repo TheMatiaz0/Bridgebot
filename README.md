@@ -1,4 +1,4 @@
-# GameJamProject
+# Bridgebot
 A #ZostanWDomuRobGry Game Jam Project.
 
 Game made by:
