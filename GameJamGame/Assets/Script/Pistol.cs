@@ -22,7 +22,7 @@ public class Pistol : Item
     {
         base.OnUse();
         if (cooldownController.Try())
-            BulletManager.Instance.Shoot(10, 1, Player.Instance.GetDirection(), Player.Instance.GetFrom(), Team.Good);
+            BulletManager.Instance.Shoot(10, 1, Player.Instance.GetLookDirection(), Player.Instance.GetFrom(), Team.Good);
     }
     public override void OnStartSelect()
     {

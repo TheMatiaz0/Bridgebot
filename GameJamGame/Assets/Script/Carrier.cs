@@ -1,18 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class Carrier : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	public enum Behaviours { }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	[SerializeField]
+	private AIBase aiBase = null;
+
+	[SerializeField]
+	private Transform startIsland = null;
+
+	protected void Start()
+	{
+	}
+
+	private IEnumerator LaunchCarrier ()
+	{
+		yield return null;
+	}
 }

@@ -20,28 +20,7 @@ public class Enemy : MonoBehaviour, IHpable
 	private Transform targetTransform = null;
 
 	[SerializeField]
-	private Seeker seeker;
-
-	[SerializeField]
-	private Rigidbody2D Rigidbody2D;
-
-	public Path Path { get; private set; }
-
-	private float nextWaypointDistance = 3;
-
-	private int currentWaypoint = 0;
-	private bool reachedEndOfPath;
-
-	private float repathRate = 0.5f;
-	private float lastRepath = float.NegativeInfinity;
-
-	[SerializeField, ResetButton(1)]
-	private float MoveSize = 1;
-
-	private Cyberevolver.Unity.CooldownController moveCooldown;
-
-	[SerializeField]
-	private SerializedTimeSpan jumpDelay = TimeSpan.FromSeconds(1);
+	private AIBase aiBase;
 
 	public Team CurrentTeam { get; private set; } = Team.Bad;
 
@@ -50,7 +29,6 @@ public class Enemy : MonoBehaviour, IHpable
 
 	protected void Awake()
 	{
-		moveCooldown = new CooldownController(this, jumpDelay.TimeSpan);
 		Hp = new Hp(startHp, 0, startHp);
 		Hp.OnValueChangeToMin += Hp_OnValueChangeToMin;
 	}
@@ -62,99 +40,30 @@ public class Enemy : MonoBehaviour, IHpable
 
 	protected void Start()
 	{
-		targetTransform = Player.Instance.transform;
-		seeker.StartPath(transform.position, targetTransform.position, OnPathComplete);
-	}
-
-	public void OnPathComplete(Path p)
-	{
-		Debug.Log("A path was calculated. Did it fail with an error? " + p.error);
-
-		p.Claim(this);
-		if (!p.error)
+		if (Player.Instance != null)
 		{
-			if (Path != null) Path.Release(this);
-			Path = p;
-			// Reset the waypoint counter so that we start to move towards the first point in the path
-			currentWaypoint = 0;
-		}
-		else
-		{
-			p.Release(this);
+			targetTransform = Player.Instance.transform;
+			StartCoroutine(CheckPlayerPosition());
 		}
 	}
 
-	public void Update()
+	/*
+	protected void Update()
 	{
-		if (Time.time > lastRepath + repathRate && seeker.IsDone())
-		{
-			lastRepath = Time.time;
+		aiBase.destination = targetTransform.position;
+	}
+	*/
 
-			// Start a new path to the targetPosition, call the the OnPathComplete function
-			// when the path has been calculated (which may take a few frames depending on the complexity)
-			seeker.StartPath(transform.position, targetTransform.position, OnPathComplete);
-		}
-
-		if (Path == null)
-		{
-			// We have no path to follow yet, so don't do anything
-			return;
-		}
-
-		// Check in a loop if we are close enough to the current waypoint to switch to the next one.
-		// We do this in a loop because many waypoints might be close to each other and we may reach
-		// several of them in the same frame.
-		reachedEndOfPath = false;
-		// The distance to the next waypoint in the path
-		float distanceToWaypoint;
+	private IEnumerator CheckPlayerPosition ()
+	{
 		while (true)
 		{
-			// If you want maximum performance you can check the squared distance instead to get rid of a
-			// square root calculation. But that is outside the scope of this tutorial.
-			distanceToWaypoint = Vector3.Distance(transform.position, Path.vectorPath[currentWaypoint]);
-			if (distanceToWaypoint < nextWaypointDistance)
-			{
-				// Check if there is another waypoint or if we have reached the end of the path
-				if (currentWaypoint + 1 < Path.vectorPath.Count)
-				{
-					currentWaypoint++;
-				}
-				else
-				{
-					// Set a status variable to indicate that the agent has reached the end of the path.
-					// You can use this to trigger some special code if your game requires that.
-					reachedEndOfPath = true;
-					break;
-				}
-			}
-			else
-			{
-				break;
-			}
+			aiBase.destination = targetTransform.position;
+
+			yield return Async.Wait(TimeSpan.FromMilliseconds(600));
 		}
-		// Slow down smoothly upon approaching the end of the path
-		// This value will smoothly go from 1 to 0 as the agent approaches the last waypoint in the path.
-		// var speedFactor = reachedEndOfPath ? Mathf.Sqrt(distanceToWaypoint / nextWaypointDistance) : 1f;
 
-		// Direction to the next waypoint
-		// Normalize it so that it has a length of 1 world unit
-		// Vector3 dir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
-		// Multiply the direction by our desired speed to get a velocity
-		// Vector3 velocity = dir * speed * speedFactor;
-
-		// Direction to the next waypoint
-		// Normalize it so that it has a length of 1 world unit
-		Vector2 dir = (Path.vectorPath[currentWaypoint] - this.transform.position);
-
-		TryMove(dir);
-	}
-
-	private void TryMove(Vector2 dir)
-	{
-		if (moveCooldown.Try())
-		{
-			this.Rigidbody2D.MovePosition(this.transform.Get2DPos() + dir * MoveSize);
-		}
+		
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision)

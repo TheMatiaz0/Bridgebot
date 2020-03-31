@@ -5,18 +5,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class Player : AutoInstanceBehaviour<Player>, IHpable
 {
-    [SerializeField]
-    private SerializedTimeSpan jumpDelay = TimeSpan.FromSeconds(1);
-    [SerializeField, ResetButton(1)]
-    private float MoveSize = 1;
-    private Cyberevolver.Unity.CooldownController moveCooldown;
     [SerializeField, RequiresAny]
     private Transform leftShotPoint, rightShotPoint, leftPistolPos, rightPistolPos;
+
+    [field: Range(1, 10), SerializeField] public float Speed { get; set; } = 1;
+
     [SerializeField]
     private GunRepresent gunObj;
+
+    [Auto]
+    public Animator Animator { get; private set; }
+
     [Auto]
     public SpriteRenderer Renderer { get; private set; }
     [Auto]
@@ -35,6 +38,12 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
     [SerializeField, Button("↺", Method = nameof(SetDefCamera))]
     private Camera cam;
 
+    private Direction currentDirection = Direction.Right;
+    private bool vIsChanged = false;
+    public bool Moving { get; private set; }
+    private Vector2 movementInput = Vector2.zero;
+    public bool LockMovement { get; set; }
+
     private void SetDefCamera()
     {
         cam = Camera.main;
@@ -47,8 +56,6 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
         inputActions = new InputActions();
 
         Hp = new Hp(startMaxHp, 0, startMaxHp);
-
-        moveCooldown = new CooldownController(this, jumpDelay.TimeSpan);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -75,6 +82,17 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
     }
     private void Update()
     {
+        GunUpdate();
+        InputUpdate();
+    }
+
+    private void GunUpdate()
+    {
+        if (LockMovement)
+        {
+            return;
+        }
+
         Vector2 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         gunObj.transform.LookAt2D(mousePos);
 
@@ -84,34 +102,80 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
 
         this.Renderer.flipX = !gunObj.Renderer.flipY;
         this.gunObj.transform.position = (!Renderer.flipX) ? leftPistolPos.position : rightPistolPos.position;
+    }
+
+    private void InputUpdate()
+    {
+        if (vIsChanged)
+        {
+            this.Rigidbody2D.velocity = Vector2.zero;
+            vIsChanged = false;
+        }
+
+        if (LockMovement)
+        {
+            return;
+        }
+
+        Direction current = Direction.Empty;
+
+        Move(movementInput);
+        bool hasMoved;
+        if (hasMoved = (current != Direction.Empty))
+        {
+            this.currentDirection = current;
+        }
+
+        Moving = hasMoved;
+
+        // Animator.SetBool("Move", hasMoved);
 
         if (Input.GetKeyDown(KeyCode.J))
         {
             StartCoroutine(Spawner.Instance.StartWave());
         }
-    }
-    public void TryMove(Direction dir)
-    {
-        if (moveCooldown.Try())
+
+        if (Input.GetKeyDown(KeyCode.R))
         {
-            this.Rigidbody2D.MovePosition(this.transform.Get2DPos() + dir.ToVector2() * MoveSize);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            Debug.Log("Select a bridge...");
+
+        }
+
+        void Move(Direction dir)
+        {
+            this.Rigidbody2D.velocity += dir.ToVector2() * Speed;
+            current += dir;
+
+            vIsChanged = true;
         }
     }
+
+    private void OnMovement(InputValue value)
+    {
+        movementInput = value.Get<Vector2>();
+    }
+
     public Vector2 GetFrom()
     {
         return curShotPoint.position;
     }
-    public Direction GetDirection()
+    public Direction GetLookDirection()
     {
         return (Vector2)cam.ScreenToWorldPoint(Input.mousePosition) - this.transform.Get2DPos();
     }
-    private void OnMovement(InputValue value)
-    {
-        TryMove(value.Get<Vector2>());
-    }
 
-    private void OnShoot ()
+    private void OnShoot()
     {
+        if (LockMovement)
+        {
+            return;
+        }
+
         Equipment.Instance.GetCurrent()?.OnUse();
     }
 
