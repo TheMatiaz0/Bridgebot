@@ -43,6 +43,8 @@ public sealed class Equipment : AutoInstanceBehaviour<Equipment>
             items.Add(item);
             RefreshGroup();
             OnItemAdded(this, new ItemAddedArg(item, this));
+            if (items.Count - 1 == selected)
+                item.OnStartSelect();
 
         }
            
