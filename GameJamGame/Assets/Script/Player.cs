@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Player : AutoInstanceBehaviour<Player>
+public class Player : AutoInstanceBehaviour<Player>, IHpable
 {
     [SerializeField]
     private SerializedTimeSpan jumpDelay = TimeSpan.FromSeconds(1);
@@ -21,6 +21,13 @@ public class Player : AutoInstanceBehaviour<Player>
     public SpriteRenderer Renderer { get; private set; }
     [Auto]
     public Rigidbody2D Rigidbody2D { get; private set; }
+
+    public Team CurrentTeam { get; private set; } = Team.Good;
+
+    public Hp Hp { get; private set; }
+
+    [SerializeField]
+    private uint startMaxHp = 10;
 
     InputActions inputActions;
     private Transform curShotPoint;
@@ -38,7 +45,17 @@ public class Player : AutoInstanceBehaviour<Player>
         SetPistolVisibile(false);
         inputActions = new InputActions();
 
+        Hp = new Hp(startMaxHp, 0, startMaxHp);
+
         moveCooldown = new CooldownController(this, jumpDelay.TimeSpan);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (HpableExtension.IsFromWrongTeam(this, collision, out Bullet bullet))
+        {
+            this.Hp.TakeHp(bullet.Dmg, "Bullet");
+        }
     }
 
     protected void OnEnable()
