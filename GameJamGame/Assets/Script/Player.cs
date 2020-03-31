@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Player : AutoInstanceBehaviour<Player>
 {
@@ -12,6 +13,8 @@ public class Player : AutoInstanceBehaviour<Player>
     [SerializeField,ResetButton(1)]
     private float MoveSize = 1;
     private Cyberevolver.Unity.CooldownController moveCooldown;
+
+    InputActions inputActions;
 
     [Auto]
     public Rigidbody2D Rigidbody2D { get; private set; }
@@ -22,8 +25,21 @@ public class Player : AutoInstanceBehaviour<Player>
     protected override void Awake()
     {
         base.Awake();
+        inputActions = new InputActions();
+
         moveCooldown = new CooldownController(this, jumpDelay.TimeSpan);
     }
+
+    protected void OnEnable()
+    {
+        inputActions.Enable();
+    }
+
+    protected void OnDisable()
+    {
+        inputActions.Disable();
+    }
+
     public void TryMove(Direction dir)
     {
         if(moveCooldown.Try())
@@ -31,16 +47,10 @@ public class Player : AutoInstanceBehaviour<Player>
             this.Rigidbody2D.MovePosition(this.transform.Get2DPos() + dir.ToVector2()*MoveSize);
         }
     }
-    protected virtual void Update()
+
+    private void OnMovement(InputValue value)
     {
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
-            TryMove(Direction.Up);
-        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
-            TryMove(Direction.Down);
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
-            TryMove(Direction.Left);
-        if(Input.GetKey(KeyCode.D)||Input.GetKey(KeyCode.RightArrow))
-            TryMove(Direction.Right);
+        TryMove(value.Get<Vector2>());
     }
 
 }
