@@ -48,6 +48,9 @@ public class Spawner : AutoInstanceBehaviour<Spawner>
 			yield return new WaitWhile(AnyEnemyisAlive);
 
 			CurrentState = SpawnState.SELECTING_BRIDGE;
+
+			yield return Async.Wait(timeBetweenWaves.TimeSpan);
+			CurrentState = SpawnState.SPAWNING;
 		}
 	}
 
