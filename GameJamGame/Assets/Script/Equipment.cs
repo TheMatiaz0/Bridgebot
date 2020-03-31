@@ -1,19 +1,19 @@
-﻿using System;
+﻿using Cyberevolver;
+using Cyberevolver.Unity;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Cyberevolver;
-using Cyberevolver.Unity;
 using UnityEngine;
-using System.Collections;
 public sealed class Equipment : AutoInstanceBehaviour<Equipment>
 {
-    public class ItemAddedArg:EventArgs
+    public class ItemAddedArg : EventArgs
     {
         public Item Item { get; }
         public Equipment Equipment { get; }
-      
+
         public ItemAddedArg(Item item, Equipment equipment)
         {
             Item = item ?? throw new ArgumentNullException(nameof(item));
@@ -23,19 +23,19 @@ public sealed class Equipment : AutoInstanceBehaviour<Equipment>
     protected const string PREFAB = "Prefabs";
     private const string REFERENCE = "Reference";
     private const string VALUES = "Values";
-    [SerializeField, BoxGroup(REFERENCE),RequiresAny]
+    [SerializeField, BoxGroup(REFERENCE), RequiresAny]
     private Transform eqParent;
-    [SerializeField,BoxGroup(VALUES)]
+    [SerializeField, BoxGroup(VALUES)]
     private SerializedTimeSpan pistolDelay = TimeSpan.FromSeconds(0.3f);
     private readonly List<Item> items = new List<Item>();
     [SerializeField, AssetOnly]
     private ItemAsset pistol;
-    [SerializeField,AssetOnly]
+    [SerializeField, AssetOnly]
     private ItemAsset turret;
     private Cint selected = 0;
     private HotBarElement[] elements = null;
     public event EventHandler<ItemAddedArg> OnItemAdded = delegate { };
-  
+
     public void AddItem(Item item)
     {
         if (items.Contains(item) == false)
@@ -47,14 +47,14 @@ public sealed class Equipment : AutoInstanceBehaviour<Equipment>
                 item.OnStartSelect();
 
         }
-           
+
     }
 
     protected override void Awake()
     {
         base.Awake();
         RefreshGroup();
-        
+
     }
     private void Start()
     {
@@ -62,8 +62,6 @@ public sealed class Equipment : AutoInstanceBehaviour<Equipment>
     }
     private void Update()
     {
-        if (Input.GetMouseButton(0))
-            GetCurrent()?.OnUse();
         if (Input.GetKey(KeyCode.Alpha1))
             Select(0);
         if (Input.GetKey(KeyCode.Alpha2))
@@ -89,11 +87,11 @@ public sealed class Equipment : AutoInstanceBehaviour<Equipment>
 
         RefreshSelect();
     }
-  
+
     private void RefreshSelect()
     {
-        
-        for(int i=0;i<3;i++)
+
+        for (int i = 0; i < 3; i++)
         {
             elements[i].SetSelect(selected == i);
         }
@@ -103,10 +101,10 @@ public sealed class Equipment : AutoInstanceBehaviour<Equipment>
     {
         int i = 0;
         elements = new HotBarElement[3];
-       foreach(var gameObj in eqParent.GetAllChildren())
+        foreach (var gameObj in eqParent.GetAllChildren())
         {
-            var hotBarItem= gameObj.GetComponent<HotBarElement>();
-            if (i<items.Count)
+            var hotBarItem = gameObj.GetComponent<HotBarElement>();
+            if (i < items.Count)
             {
                 hotBarItem.SetItem(items[i]);
             }
@@ -117,7 +115,7 @@ public sealed class Equipment : AutoInstanceBehaviour<Equipment>
             i++;
         }
         RefreshSelect();
-        
+
     }
 
 }

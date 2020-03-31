@@ -43,7 +43,7 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
     protected override void Awake()
     {
         base.Awake();
-        SetPistolVisibile(false);
+        SetPistolVisible(false);
         inputActions = new InputActions();
 
         Hp = new Hp(startMaxHp, 0, startMaxHp);
@@ -56,6 +56,7 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
         if (HpableExtension.IsFromWrongTeam(this, collision, out Bullet bullet))
         {
             this.Hp.TakeHp(bullet.Dmg, "Bullet");
+            Destroy(bullet);
         }
     }
 
@@ -68,7 +69,7 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
     {
         inputActions.Disable();
     }
-    public void SetPistolVisibile(bool val)
+    public void SetPistolVisible(bool val)
     {
         gunObj.gameObject.SetActive(val);
     }
@@ -107,6 +108,11 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
     private void OnMovement(InputValue value)
     {
         TryMove(value.Get<Vector2>());
+    }
+
+    private void OnShoot ()
+    {
+        Equipment.Instance.GetCurrent()?.OnUse();
     }
 
 }
