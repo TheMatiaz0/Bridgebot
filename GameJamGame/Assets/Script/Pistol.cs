@@ -26,4 +26,15 @@ public class Pistol : Item
             BulletManager.Instance.Shoot(10, 1, Player.Instance.GetDirection(), Player.Instance.GetFrom(), Team.Good);
         }
     }
+    public override void OnStartSelect()
+    {
+        base.OnStartSelect();
+        Player.Instance.SetPistolVisibile(true);
+
+    }
+    public override void OnEndSelect()
+    {
+        base.OnEndSelect();
+        Player.Instance.SetPistolVisibile(false);
+    }
 }
