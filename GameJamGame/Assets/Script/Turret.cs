@@ -36,11 +36,7 @@ public class Turret : MonoBehaviour
 			Enemy enemy = Spawner.Instance.GetClosestEnemy(shootPoint.transform.position, range);
 			if (enemy != null)
 			{
-				GameObject bulletObj = Instantiate(bulletPrefab, shootPoint.transform.position, Quaternion.identity);
-				// Bullet bullet = bulletObj.GetComponent<Bullet>();
-				// bullet.TargetPosition = enemy.transform.position;
-				// bullet.BulletSpeed = bulletSpeed;
-				// bullet.BulletDamage = bulletDamage;
+				BulletManager.Instance.Shoot(bulletSpeed, bulletDamage, (Vector2)enemy.transform.position, shootPoint.position, Team.Good);
 			}
 
 			yield return Async.Wait(shootTimerMax.TimeSpan);

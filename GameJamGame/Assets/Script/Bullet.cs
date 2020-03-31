@@ -43,9 +43,9 @@ public class Bullet : MonoBehaviourPlus
 
 	}
     private bool destroying = false;
+
 	public  void Kill()
 	{
-
         if (destroying)
             return;
         OnKill();

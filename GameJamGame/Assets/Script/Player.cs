@@ -35,6 +35,7 @@ public class Player : AutoInstanceBehaviour<Player>
     protected override void Awake()
     {
         base.Awake();
+        SetPistolVisibile(false);
         inputActions = new InputActions();
 
         moveCooldown = new CooldownController(this, jumpDelay.TimeSpan);
@@ -48,6 +49,10 @@ public class Player : AutoInstanceBehaviour<Player>
     protected void OnDisable()
     {
         inputActions.Disable();
+    }
+    public void SetPistolVisibile(bool val)
+    {
+        gunObj.gameObject.SetActive(val);
     }
     private void Update()
     {

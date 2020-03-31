@@ -21,7 +21,7 @@ public class HotBarElement : MonoBehaviourPlus
     private Color selectBackColor;
 
     private Color baseBackColor;
-    private bool isSelect;
+    private bool? isSelect = null;
     public Item Item { get; private set; }
     protected override void Awake()
     {
@@ -49,6 +49,7 @@ public class HotBarElement : MonoBehaviourPlus
                 else
                     Item.OnEndSelect();
             }
+            isSelect = value;
         }
            
     }
