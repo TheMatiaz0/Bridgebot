@@ -29,10 +29,6 @@ namespace Cyberevolver.EditorUnity
                 (from item in collection
                  where item != null
                  select item).ToArray();
-
-
-
-
             TheEditor.DrawPropertyAsDropdownWithFixValue(property, CyberEdit.Current.CurrentField, content, style, elements,
                           (i) => property.objectReferenceValue = i as UnityEngine.Object, property.GetJustValue(), (element, index) => ((UnityEngine.Object)element).name, true);
 
