@@ -24,7 +24,7 @@ namespace Cyberevolver.Unity
 			float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
 			transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
 		}
-        public static IEnumerable<Transform> GetAllChild(this Transform transform)
+        public static IEnumerable<Transform> GetAllChildren(this Transform transform)
         {
             return transform.OfType<Transform>();
         }
