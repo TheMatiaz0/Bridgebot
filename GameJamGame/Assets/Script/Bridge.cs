@@ -2,13 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Cyberevolver.Unity;
+using Cyberevolver;
 
 public class Bridge : MonoBehaviour
 {
-	/*
-	private void OnMouseDown()
+	public bool IsFixed { get; private set; } = false;
+
+	[SerializeField]
+	private SerializedTimeSpan timeToFullRepair;
+
+	protected void Start()
 	{
-		Debug.Log("Jestem mostem, na na na");
 	}
-	*/
+
+
+	public void Repair ()
+	{
+		// AsyncStoper.MakeSimple(this, timeToFullRepair.TimeSpan, );
+	}
 }

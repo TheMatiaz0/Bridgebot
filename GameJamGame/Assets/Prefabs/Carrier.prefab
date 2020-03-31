@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7066927161872456445}
   - component: {fileID: 1351165612940913700}
   - component: {fileID: 1270969954557673367}
+  - component: {fileID: 8514928864346537232}
   m_Layer: 0
   m_Name: Carrier
   m_TagString: Untagged
@@ -142,9 +143,9 @@ MonoBehaviour:
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 360
-  slowdownDistance: 0.6
-  pickNextWaypointDist: 2
-  endReachedDistance: 0.2
+  slowdownDistance: 0.7
+  pickNextWaypointDist: 30
+  endReachedDistance: 0.45
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
@@ -187,3 +188,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83f20b7069e88f6428784726a8321d6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aiBase: {fileID: 7066927161872456445}
+  path: {fileID: 7066927161872456445}
+  resourcesPoint: {fileID: 0}
+--- !u!114 &8514928864346537232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8926157502099828154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb6a34d769a1e4ac7b0b30e433aa443c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  smoothType: 0
+  subdivisions: 2
+  iterations: 2
+  strength: 0.5
+  uniformLength: 1
+  maxSegmentLength: 2
+  bezierTangentLength: 0.4
+  offset: 0.2
+  factor: 0.1

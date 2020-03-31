@@ -44,6 +44,9 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
     private Vector2 movementInput = Vector2.zero;
     public bool LockMovement { get; set; }
 
+    [SerializeField]
+    private Carrier carrier;
+
     private void SetDefCamera()
     {
         cam = Camera.main;
@@ -142,8 +145,7 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
 
         if (Input.GetKeyDown(KeyCode.B))
         {
-            Debug.Log("Select a bridge...");
-
+            StartCoroutine(carrier.LaunchCarrier()); // WYBIERZ MOST ZANIM UŻYJESZ
         }
 
         void Move(Direction dir)

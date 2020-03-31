@@ -55,7 +55,7 @@ public class BridgeSelection : MonoBehaviour
 
 	public void OnDisable()
 	{
-		valueTween.cancel(this.gameObject);
+		LeanTween.cancelAll();
 		virtualCam.m_Lens.OrthographicSize = firstSizeValue;
 		Player.Instance.LockMovement = false;
 	}
