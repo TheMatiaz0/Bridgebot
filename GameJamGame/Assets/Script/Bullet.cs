@@ -27,7 +27,7 @@ public class Bullet : MonoBehaviourPlus
 
 	protected void Start()
 	{
-		Invoke((m) => Destroy(this.gameObject), TimeSpan.FromSeconds(6));
+	
 	}
 
 
