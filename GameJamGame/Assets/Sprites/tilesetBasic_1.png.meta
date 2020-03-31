@@ -50,6 +50,30 @@ TextureImporter:
   - first:
       213: 7125037122761904005
     second: tilesetBasic_1_15
+  - first:
+      213: -1770898165067615047
+    second: tilesetBasic_1_16
+  - first:
+      213: -3200851277716917567
+    second: tilesetBasic_1_17
+  - first:
+      213: -5882267222588344844
+    second: tilesetBasic_1_18
+  - first:
+      213: 2510352317394318056
+    second: tilesetBasic_1_19
+  - first:
+      213: 7862656615130833087
+    second: tilesetBasic_1_20
+  - first:
+      213: -6039572396051679102
+    second: tilesetBasic_1_21
+  - first:
+      213: 7299470023464207975
+    second: tilesetBasic_1_22
+  - first:
+      213: 1638037861795385251
+    second: tilesetBasic_1_23
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -112,7 +136,7 @@ TextureImporter:
     maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -124,7 +148,7 @@ TextureImporter:
     maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -139,7 +163,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 48
+        y: 80
         width: 16
         height: 16
       alignment: 0
@@ -160,7 +184,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 16
-        y: 48
+        y: 80
         width: 16
         height: 16
       alignment: 0
@@ -181,7 +205,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 48
+        y: 80
         width: 16
         height: 16
       alignment: 0
@@ -202,7 +226,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 48
-        y: 48
+        y: 80
         width: 16
         height: 16
       alignment: 0
@@ -222,8 +246,8 @@ TextureImporter:
       name: tilesetBasic_1_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
+        x: 64
+        y: 80
         width: 16
         height: 16
       alignment: 0
@@ -243,8 +267,8 @@ TextureImporter:
       name: tilesetBasic_1_5
       rect:
         serializedVersion: 2
-        x: 16
-        y: 32
+        x: 80
+        y: 80
         width: 16
         height: 16
       alignment: 0
@@ -264,8 +288,8 @@ TextureImporter:
       name: tilesetBasic_1_6
       rect:
         serializedVersion: 2
-        x: 32
-        y: 32
+        x: 0
+        y: 64
         width: 16
         height: 16
       alignment: 0
@@ -285,8 +309,8 @@ TextureImporter:
       name: tilesetBasic_1_7
       rect:
         serializedVersion: 2
-        x: 48
-        y: 32
+        x: 16
+        y: 64
         width: 16
         height: 16
       alignment: 0
@@ -306,8 +330,8 @@ TextureImporter:
       name: tilesetBasic_1_8
       rect:
         serializedVersion: 2
-        x: 0
-        y: 16
+        x: 32
+        y: 64
         width: 16
         height: 16
       alignment: 0
@@ -327,8 +351,8 @@ TextureImporter:
       name: tilesetBasic_1_9
       rect:
         serializedVersion: 2
-        x: 16
-        y: 16
+        x: 48
+        y: 64
         width: 16
         height: 16
       alignment: 0
@@ -348,8 +372,8 @@ TextureImporter:
       name: tilesetBasic_1_10
       rect:
         serializedVersion: 2
-        x: 32
-        y: 16
+        x: 64
+        y: 64
         width: 16
         height: 16
       alignment: 0
@@ -369,8 +393,8 @@ TextureImporter:
       name: tilesetBasic_1_11
       rect:
         serializedVersion: 2
-        x: 48
-        y: 16
+        x: 80
+        y: 64
         width: 16
         height: 16
       alignment: 0
@@ -391,7 +415,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 48
         width: 16
         height: 16
       alignment: 0
@@ -412,7 +436,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 16
-        y: 0
+        y: 48
         width: 16
         height: 16
       alignment: 0
@@ -433,7 +457,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 0
+        y: 48
         width: 16
         height: 16
       alignment: 0
@@ -454,7 +478,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 48
-        y: 0
+        y: 48
         width: 16
         height: 16
       alignment: 0
@@ -466,6 +490,174 @@ TextureImporter:
       bones: []
       spriteID: 58fc1b9538731e260800000000000000
       internalID: 7125037122761904005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesetBasic_1_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b4f0c160818c67e0800000000000000
+      internalID: -1770898165067615047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesetBasic_1_17
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c2f3d4c8ba4493d0800000000000000
+      internalID: -3200851277716917567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesetBasic_1_18
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f5b2bb602dfd5ea0800000000000000
+      internalID: -5882267222588344844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesetBasic_1_19
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e2fd5bd12096d220800000000000000
+      internalID: 2510352317394318056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesetBasic_1_20
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb0afb78884cd1d60800000000000000
+      internalID: 7862656615130833087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesetBasic_1_21
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 288b512a7e02f2ca0800000000000000
+      internalID: -6039572396051679102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesetBasic_1_22
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7664235ef4dec4560800000000000000
+      internalID: 7299470023464207975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesetBasic_1_23
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3af44f0b1ca7bb610800000000000000
+      internalID: 1638037861795385251
       vertices: []
       indices: 
       edges: []
