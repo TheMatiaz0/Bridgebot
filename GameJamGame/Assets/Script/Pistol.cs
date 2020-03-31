@@ -23,7 +23,7 @@ public class Pistol : Item
         base.OnUse();
         if(Input.GetMouseButtonDown(0)&&cooldownController.Try())
         {
-            BulletManager.Instance.Shoot(10, 1, Direction.Up, Player.Instance.transform.Get2DPos(), Team.Good);
+            BulletManager.Instance.Shoot(10, 1, Player.Instance.GetDirection(), Player.Instance.GetFrom(), Team.Good);
         }
     }
 }
