@@ -10,6 +10,16 @@ public class PauseMenu : MonoBehaviour
 	[SerializeField]
 	private FreezeMenu pauseManager = null;
 
+	protected void OnEnable()
+	{
+		Player.Instance.LockMovement = true;
+	}
+
+	protected void OnDisable()
+	{
+		Player.Instance.LockMovement = false;
+	}
+
 	public void ResumeBtn ()
 	{
 		pauseManager.EnableMenuWithPause(false);

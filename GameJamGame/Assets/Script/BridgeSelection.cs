@@ -35,7 +35,7 @@ public class BridgeSelection : MonoBehaviour
 
 	protected void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Escape))
+		if (Input.GetKeyDown(KeyCode.Q))
 		{
 			this.gameObject.SetActive(false);
 			return;

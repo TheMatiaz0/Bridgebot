@@ -245,7 +245,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: or press ESC to cancel
+  m_Text: or press Q to cancel
 --- !u!114 &1308610811131738464
 MonoBehaviour:
   m_ObjectHideFlags: 0

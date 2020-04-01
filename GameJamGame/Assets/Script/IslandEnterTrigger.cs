@@ -18,9 +18,10 @@ public class IslandEnterTrigger : MonoBehaviour
 			{
 				bridgeSelection.gameObject.SetActive(true);
 				hasActivated = true;
+				return;
 			}
 
-			else
+			else if (hasActivated == true && bridgeSelection.gameObject.activeSelf == false)
 			{
 				PopupText.Instance.MainGameObject.SetActive(true);
 				PopupText.Instance.BaseText.text = "Press 'F' to choose a bridge.";
@@ -29,14 +30,22 @@ public class IslandEnterTrigger : MonoBehaviour
 		}
 	}
 
+	private void OnTriggerExit2D(Collider2D collision)
+	{
+		PopupText.Instance?.MainGameObject?.SetActive(false);
+	}
+
 	protected void Update()
 	{
-		if (hasActivated == false && bridgeSelection.gameObject.activeSelf == true)
+		if (hasActivated == false || bridgeSelection.gameObject.activeSelf == true)
 		{
 			return;
 		}
 
 		if (Input.GetKeyDown(KeyCode.F))
+		{
 			bridgeSelection.gameObject.SetActive(true);
+			PopupText.Instance?.MainGameObject?.SetActive(false);
+		}
 	}
 }
