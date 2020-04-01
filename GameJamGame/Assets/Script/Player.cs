@@ -47,6 +47,9 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
     [SerializeField]
     private Carrier carrier;
 
+    [SerializeField]
+    private FreezeMenu pauseMenu;
+
     private void SetDefCamera()
     {
         cam = Camera.main;
@@ -179,6 +182,11 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
         }
 
         Equipment.Instance.GetCurrent()?.OnUse();
+    }
+
+    private void OnPause ()
+    {
+        pauseMenu.EnableMenuWithPause(!pauseMenu.IsPaused);
     }
 
 }

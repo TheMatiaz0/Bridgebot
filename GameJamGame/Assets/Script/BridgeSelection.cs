@@ -13,6 +13,9 @@ public class BridgeSelection : MonoBehaviour
 	private CinemachineVirtualCamera virtualCam = null;
 
 	[SerializeField]
+	private GameObject chooseBridgeObject = null;
+
+	[SerializeField]
 	private LeanTweenType cameraLeanTweenType = LeanTweenType.easeInQuad;
 
 	[SerializeField]
@@ -27,6 +30,7 @@ public class BridgeSelection : MonoBehaviour
 		Player.Instance.LockMovement = true;
 		firstSizeValue = virtualCam.m_Lens.OrthographicSize;
 		valueTween = LeanTween.value(firstSizeValue, maxPoint, 3).setOnUpdate((f) => virtualCam.m_Lens.OrthographicSize = f).setEase(cameraLeanTweenType);
+		chooseBridgeObject.SetActive(true);
 	}
 
 	protected void Update()
@@ -58,5 +62,6 @@ public class BridgeSelection : MonoBehaviour
 		LeanTween.cancelAll();
 		virtualCam.m_Lens.OrthographicSize = firstSizeValue;
 		Player.Instance.LockMovement = false;
+		chooseBridgeObject.SetActive(false);
 	}
 }
