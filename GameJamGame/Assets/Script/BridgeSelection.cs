@@ -4,9 +4,12 @@ using UnityEngine;
 using Cinemachine;
 using Cyberevolver.Unity;
 using System;
+using Cyberevolver;
 
-public class BridgeSelection : MonoBehaviour
+public class BridgeSelection : AutoInstanceBehaviour<BridgeSelection>
 {
+	public event EventHandler<SimpleArgs<GameObject>> OnBridgeSelected = delegate { };
+
 	public static GameObject SelectedBridge { get; private set; }
 
 	[SerializeField]
@@ -51,6 +54,7 @@ public class BridgeSelection : MonoBehaviour
 				if (cubeHit.collider.CompareTag("Bridge"))
 				{
 					SelectedBridge = cubeHit.collider.gameObject;
+					OnBridgeSelected.Invoke(this, SelectedBridge);
 					this.gameObject.SetActive(false);
 				}
 			}

@@ -10,5 +10,13 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 
 	public Phase CurrentPhase = Phase.EXPLORING;
 
+	protected void Awake()
+	{
+		BridgeSelection.Instance.OnBridgeSelected += OnBridgeSelected;
+	}
 
+	private void OnBridgeSelected(object sender, Cyberevolver.SimpleArgs<GameObject> e)
+	{
+		CurrentPhase = Phase.PREPARATION;
+	}
 }
