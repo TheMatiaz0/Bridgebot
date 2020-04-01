@@ -10,6 +10,9 @@ public class Bridge : MonoBehaviour
 	public bool IsFixed { get; private set; } = false;
 
 	[SerializeField]
+	private uint needResourcesCount = 20;
+
+	[SerializeField]
 	private SerializedTimeSpan timeToFullRepair;
 
 	protected void Start()

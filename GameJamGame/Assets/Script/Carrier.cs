@@ -5,11 +5,15 @@ using Pathfinding;
 using Cyberevolver.Unity;
 using System;
 
-public class Carrier : MonoBehaviour
+public class Carrier : MonoBehaviour, IHpable
 {
 	public enum Behaviours { IDLE, GETTING_RESOURCES, WALKING, BUILDING_BRIDGE}
 
 	public Behaviours CurrentBehaviour { get; private set; } = Behaviours.IDLE;
+
+	public Team CurrentTeam { get; private set; } = Team.Good;
+
+	public Hp Hp { get; private set; }
 
 	[SerializeField]
 	private AIBase aiBase = null;
@@ -20,10 +24,26 @@ public class Carrier : MonoBehaviour
 	[SerializeField]
 	private Transform resourcesPoint = null;
 
+	[SerializeField]
+	private uint startMaxHp;
+
+
 	protected void Start()
 	{
+		Hp = new Hp(startMaxHp, 0, startMaxHp);
+		Hp.OnValueChangeToMin += Hp_OnValueChangeToMin;
 	}
 
+	private IEnumerator PickupResources ()
+	{
+		yield return null;
+	}
+
+	private void Hp_OnValueChangeToMin(object sender, Hp.HpChangedArgs e)
+	{
+		// game over!
+		Debug.Log("R.I.P");
+	}
 
 	public IEnumerator LaunchCarrier ()
 	{
