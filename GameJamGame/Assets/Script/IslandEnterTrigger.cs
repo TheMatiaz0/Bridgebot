@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class IslandEnterTrigger : MonoBehaviour
 {
-	[SerializeField]
-	private BridgeSelection bridgeSelection = null;
-
 	private bool hasActivated = false;
+
+	[SerializeField]
+	private BridgeSelection selection;
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
@@ -16,18 +16,24 @@ public class IslandEnterTrigger : MonoBehaviour
 		{
 			if (hasActivated == false)
 			{
-				bridgeSelection.gameObject.SetActive(true);
+				ActivateBridgeSelection();
 				hasActivated = true;
 				return;
 			}
 
-			else if (hasActivated == true && bridgeSelection.gameObject.activeSelf == false)
+			else if (hasActivated == true && selection.gameObject.activeSelf == false)
 			{
 				PopupText.Instance.MainGameObject.SetActive(true);
 				PopupText.Instance.BaseText.text = "Press 'F' to choose a bridge.";
 			}
 
 		}
+	}
+
+	private void ActivateBridgeSelection ()
+	{
+		selection.gameObject.SetActive(true);
+		selection.Activate(this);
 	}
 
 	private void OnTriggerExit2D(Collider2D collision)
@@ -37,14 +43,14 @@ public class IslandEnterTrigger : MonoBehaviour
 
 	protected void Update()
 	{
-		if (hasActivated == false || bridgeSelection.gameObject.activeSelf == true)
+		if (hasActivated == false || selection.gameObject.activeSelf == true)
 		{
 			return;
 		}
 
 		if (Input.GetKeyDown(KeyCode.F))
 		{
-			bridgeSelection.gameObject.SetActive(true);
+			ActivateBridgeSelection();
 			PopupText.Instance?.MainGameObject?.SetActive(false);
 		}
 	}

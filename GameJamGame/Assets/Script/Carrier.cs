@@ -61,7 +61,7 @@ public class Carrier : MonoBehaviour, IHpable
 			Debug.Log("WYBIERZ MOST");
 			yield break;
 		}
-
+		
 		aiBase.destination = BridgeSelection.SelectedBridge.transform.position;
 		yield return Async.Wait(TimeSpan.FromSeconds(2));
 		yield return new WaitUntil(() => path.reachedEndOfPath == true);

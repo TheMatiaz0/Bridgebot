@@ -25,9 +25,19 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 	protected new void Awake()
 	{
 		base.Awake();
-		// BridgeSelection.Instance.OnBridgeSelected += OnBridgeSelected;
+
 
 		startTime = TimeSpan.FromSeconds(Time.time);
+	}
+
+	protected void OnEnable()
+	{
+		BridgeSelection.OnBridgeSelected += OnBridgeSelected;
+	}
+
+	protected void OnDisable()
+	{
+		BridgeSelection.OnBridgeSelected -= OnBridgeSelected;
 	}
 
 	private void OnBridgeSelected(object sender, Cyberevolver.SimpleArgs<GameObject> e)

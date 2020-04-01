@@ -6,17 +6,17 @@ using Cyberevolver.Unity;
 using System;
 using Cyberevolver;
 
-public class BridgeSelection : AutoInstanceBehaviour<BridgeSelection>
+public class BridgeSelection : MonoBehaviour
 {
-	public event EventHandler<SimpleArgs<GameObject>> OnBridgeSelected = delegate { };
-
-	public static GameObject SelectedBridge { get; private set; }
+	public static event EventHandler<SimpleArgs<GameObject>> OnBridgeSelected = delegate { };
+	public static GameObject SelectedBridge { get { return _SelectedBridge; } private set { _SelectedBridge = value;  } }
+	private static GameObject _SelectedBridge;
 
 	[SerializeField]
 	private CinemachineVirtualCamera virtualCam = null;
 
 	[SerializeField]
-	private GameObject chooseBridgeObject = null;
+	private GameObject chooseBridgeUI = null;
 
 	[SerializeField]
 	private LeanTweenType cameraLeanTweenType = LeanTweenType.easeInQuad;
@@ -26,14 +26,20 @@ public class BridgeSelection : AutoInstanceBehaviour<BridgeSelection>
 
 	private float firstSizeValue;
 
-	private LTDescr valueTween;
+	private IslandEnterTrigger lastIsland = null;
+
+	public void Activate (IslandEnterTrigger island)
+	{
+		this.gameObject.SetActive(true);
+		lastIsland = island;
+	}
 
 	public void OnEnable()
 	{
 		Player.Instance.LockMovement = true;
 		firstSizeValue = virtualCam.m_Lens.OrthographicSize;
-		valueTween = LeanTween.value(firstSizeValue, maxPoint, 3).setOnUpdate((f) => virtualCam.m_Lens.OrthographicSize = f).setEase(cameraLeanTweenType);
-		chooseBridgeObject.SetActive(true);
+		LeanTween.value(firstSizeValue, maxPoint, 3).setOnUpdate((f) => virtualCam.m_Lens.OrthographicSize = f).setEase(cameraLeanTweenType);
+		chooseBridgeUI.SetActive(true);
 	}
 
 	protected void Update()
@@ -54,8 +60,9 @@ public class BridgeSelection : AutoInstanceBehaviour<BridgeSelection>
 				if (cubeHit.collider.CompareTag("Bridge"))
 				{
 					SelectedBridge = cubeHit.collider.gameObject;
-					OnBridgeSelected.Invoke(this, SelectedBridge);
+					OnBridgeSelected.Invoke(null, SelectedBridge);
 					this.gameObject.SetActive(false);
+					Destroy(lastIsland.gameObject);
 				}
 			}
 		}
@@ -66,6 +73,6 @@ public class BridgeSelection : AutoInstanceBehaviour<BridgeSelection>
 		LeanTween.cancelAll();
 		virtualCam.m_Lens.OrthographicSize = firstSizeValue;
 		Player.Instance.LockMovement = false;
-		chooseBridgeObject.SetActive(false);
+		chooseBridgeUI.SetActive(false);
 	}
 }

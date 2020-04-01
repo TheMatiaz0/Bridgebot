@@ -1,12 +1,12 @@
-﻿using System;
+﻿using Cyberevolver;
+using Cyberevolver.Unity;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Cyberevolver;
-using Cyberevolver.Unity;
 using UnityEngine;
-using System.Collections;
 using UnityEngine.UI;
 
 public class HotBarElement : MonoBehaviourPlus
@@ -34,7 +34,7 @@ public class HotBarElement : MonoBehaviourPlus
         Item = item;
         icon.sprite = item?.Icon;
         text.text = item?.Name ?? "";
-        icon.SetAlpha((item == null) ? 0: 1); ;
+        icon.SetAlpha((item == null) ? 0 : 1);
 
     }
     public void SetSelect(bool value)
@@ -42,7 +42,7 @@ public class HotBarElement : MonoBehaviourPlus
         if (value != isSelect)
         {
             back.color = (value) ? selectBackColor : baseBackColor;
-            if(Item!=null)
+            if (Item != null)
             {
                 if (value)
                     Item.OnStartSelect();
@@ -51,7 +51,7 @@ public class HotBarElement : MonoBehaviourPlus
             }
             isSelect = value;
         }
-           
+
     }
-  
+
 }

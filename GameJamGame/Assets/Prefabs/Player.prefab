@@ -247,7 +247,7 @@ Transform:
   m_GameObject: {fileID: 8154490813324486495}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.516, y: -0.816, z: 0}
-  m_LocalScale: {x: 0.060451627, y: 0.060451627, z: 0.060451627}
+  m_LocalScale: {x: 0.1136124, y: 0.1136124, z: 0.1136124}
   m_Children:
   - {fileID: 4295918344337773845}
   - {fileID: 25721008}
@@ -294,9 +294,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 6439f39cc48a8c848acf340708eb9815, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5d015b8cc867b0e47ba3987aa3859a08, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 10.93, y: 10.44}
@@ -360,6 +360,8 @@ MonoBehaviour:
   gunObj: {fileID: 5860096598132733708}
   startMaxHp: 10
   cam: {fileID: 0}
+  carrier: {fileID: 0}
+  pauseMenu: {fileID: 0}
 --- !u!50 &8154490813324486482
 Rigidbody2D:
   serializedVersion: 4
@@ -380,7 +382,7 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &7209605249752530750
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -398,7 +400,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 7, y: 12}
+    oldSize: {x: 8, y: 8}
     newSize: {x: 10.93, y: 10.44}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -420,16 +422,16 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -4.476378}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 7, y: 12}
+    oldSize: {x: 8, y: 8}
     newSize: {x: 10.93, y: 10.44}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7, y: 12}
+  m_Size: {x: 7, y: 3.0472443}
   m_EdgeRadius: 0

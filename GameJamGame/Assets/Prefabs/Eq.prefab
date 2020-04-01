@@ -260,7 +260,8 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 182095110502842871, guid: 1aa6935004056354ab3befde5975a8af, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1aa6935004056354ab3befde5975a8af, type: 3}
 --- !u!224 &3855773997565483018 stripped
 RectTransform:
@@ -425,11 +426,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: HotElement
       objectReference: {fileID: 0}
-    - target: {fileID: 182095110195173197, guid: 1aa6935004056354ab3befde5975a8af,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
     - target: {fileID: 182095110195173198, guid: 1aa6935004056354ab3befde5975a8af,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -534,36 +530,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 182095110195173199, guid: 1aa6935004056354ab3befde5975a8af,
-        type: 3}
-      propertyPath: selectBackColor.r
-      value: 0.20784314
-      objectReference: {fileID: 0}
-    - target: {fileID: 182095110195173199, guid: 1aa6935004056354ab3befde5975a8af,
-        type: 3}
-      propertyPath: selectBackColor.g
-      value: 0.90588236
-      objectReference: {fileID: 0}
-    - target: {fileID: 182095110195173199, guid: 1aa6935004056354ab3befde5975a8af,
-        type: 3}
-      propertyPath: selectBackColor.b
-      value: 0.292129
-      objectReference: {fileID: 0}
-    - target: {fileID: 182095110502842869, guid: 1aa6935004056354ab3befde5975a8af,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 182095110865317955, guid: 1aa6935004056354ab3befde5975a8af,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 8672229448253785029, guid: 1aa6935004056354ab3befde5975a8af,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1aa6935004056354ab3befde5975a8af, type: 3}
