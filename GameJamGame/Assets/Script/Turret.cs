@@ -25,6 +25,7 @@ public class Turret : MonoBehaviour, IHpable
 
 	public Hp Hp { get; private set; }
 
+
 	protected void Start()
 	{
 		StartCoroutine(ShootWithDelay());
@@ -37,6 +38,7 @@ public class Turret : MonoBehaviour, IHpable
 			Enemy enemy = Spawner.Instance.GetClosestEnemy(shootPoint.transform.position, range);
 			if (enemy != null)
 			{
+				this.transform.LookAtNorth2D(enemy.transform.position);
 				BulletManager.Instance.Shoot(bulletSpeed, bulletDamage,  enemy.transform.Get2DPos()-this.transform.Get2DPos(), shootPoint.position, CurrentTeam);
 			}
 

@@ -70,7 +70,8 @@ public class Carrier : MonoBehaviourPlus, IHpable
             foreach (Transform item in Current.Points)
             {
                 bool end = false;
-                rb2D.MovePosition(rb2D.position + (Vector2)item.position * Time.fixedDeltaTime);
+                rb2D.MovePosition((Vector2)transform.position + (Vector2)item.position * speed * Time.deltaTime);
+                // rb2D.MovePosition(rb2D.position + (Vector2)item.position * Time.fixedDeltaTime);
                 //LTDescr tween = LeanTween.move(this.gameObject, item.position, Vector2.Distance(item.transform.position, item.position))
                     //.setOnComplete(() => end = true);
 
