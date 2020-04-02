@@ -17,12 +17,11 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 	private WaveTimer timer = null;
 
 	[SerializeField]
-	private Carrier carrier;
-
-	[SerializeField]
 	private SerializedTimeSpan timeToEndPreparation;
 
 	private TimeSpan startTime;
+
+	private Coroutine spawnEnemies;
 
 	public TimeSpan CurrentTimer { get { return _CurrentTimer; } private set { if (_CurrentTimer != value) { _CurrentTimer = value; } UpdateText(_CurrentTimer); } }
 	private TimeSpan _CurrentTimer;
@@ -47,8 +46,7 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 		switch (e)
 		{
 			case Phase.FIGHTING:
-				StartCoroutine(Spawner.Instance.StartWave());
-               // carrier.Launch();
+				spawnEnemies = StartCoroutine(Spawner.Instance.StartWave());
 				break;
 		}
 	}
@@ -68,7 +66,6 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 	private void OnBridgeSelected(object sender, Cyberevolver.SimpleArgs<GameObject> e)
 	{
 		CurrentPhase = Phase.PREPARATION;
-		// currentTimer = timeToEndPreparation.TimeSpan - (TimeSpan.FromSeconds(Time.time) - startTime);
 		enableUpdate = true;
 	}
 

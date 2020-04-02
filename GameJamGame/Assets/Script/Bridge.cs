@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using Cyberevolver.Unity;
 using Cyberevolver;
 
-public class Bridge : MonoBehaviour
+public class Bridge : MonoBehaviourPlus
 {
 	public bool IsFixed { get; private set; } = false;
 
@@ -14,8 +14,6 @@ public class Bridge : MonoBehaviour
     [SerializeField]
     private Resource next;
     public Resource Next => next;
-    [SerializeField]
-	private SerializedTimeSpan timeToFullRepair;
 
  
     [field:SerializeField]

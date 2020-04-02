@@ -16363,6 +16363,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1948345088}
     m_Modifications:
+    - target: {fileID: 126817799769891905, guid: d51150c15e289dd4abe93322b8269097,
+        type: 3}
+      propertyPath: timeToFullRepair.precision
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 171549310789218400, guid: d51150c15e289dd4abe93322b8269097,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16518,7 +16523,8 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 3.03
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 262329377997455133, guid: 8c7c88029279fed4f9efce531fcd8ffc, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8c7c88029279fed4f9efce531fcd8ffc, type: 3}
 --- !u!1001 &550473028218245600
 PrefabInstance:
@@ -17481,6 +17487,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1948345088}
     m_Modifications:
+    - target: {fileID: 1033927115, guid: b5dd9eb753152324bba75ca22ed49bc4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e482b9add81802640a03b810c6d3a37a,
+        type: 3}
     - target: {fileID: 1270969954557673367, guid: b5dd9eb753152324bba75ca22ed49bc4,
         type: 3}
       propertyPath: resourcesPoint
@@ -17570,6 +17581,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8926157502099828153, guid: b5dd9eb753152324bba75ca22ed49bc4,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8926157502099828153, guid: b5dd9eb753152324bba75ca22ed49bc4,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8926157502099828153, guid: b5dd9eb753152324bba75ca22ed49bc4,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8926157502099828154, guid: b5dd9eb753152324bba75ca22ed49bc4,
         type: 3}
