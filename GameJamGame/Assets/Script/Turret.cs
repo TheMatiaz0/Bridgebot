@@ -16,9 +16,6 @@ public class Turret : MonoBehaviour, IHpable
 	private Transform shootPoint = null;
 
 	[SerializeField]
-	private GameObject bulletPrefab = null;
-
-	[SerializeField]
 	private float bulletSpeed = 40;
 
 	[SerializeField]

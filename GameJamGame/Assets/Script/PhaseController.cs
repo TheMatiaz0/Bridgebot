@@ -19,8 +19,6 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 	[SerializeField]
 	private SerializedTimeSpan timeToEndPreparation;
 
-	private TimeSpan startTime;
-
 	private Coroutine spawnEnemies;
 
 	public TimeSpan CurrentTimer { get { return _CurrentTimer; } private set { if (_CurrentTimer != value) { _CurrentTimer = value; } UpdateText(_CurrentTimer); } }
@@ -30,7 +28,6 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 
 	protected void Start()
 	{
-		startTime = TimeSpan.FromSeconds(Time.time);
 		CurrentTimer = timeToEndPreparation.TimeSpan;
 	}
 

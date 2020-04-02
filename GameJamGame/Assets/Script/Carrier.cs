@@ -28,6 +28,13 @@ public class Carrier : MonoBehaviourPlus, IHpable
     public bool IsLaunched { get; private set; }
     private Coroutine logic = null;
     private Bridge bridge;
+
+    [SerializeField]
+    private float speed = 10;
+
+    [SerializeField]
+    private Rigidbody2D rb2D;
+
 	protected void Start()
 	{
 		Hp = new Hp(startMaxHp, 0, startMaxHp);
@@ -63,8 +70,9 @@ public class Carrier : MonoBehaviourPlus, IHpable
             foreach (Transform item in Current.Points)
             {
                 bool end = false;
-                var tween = LeanTween.move(this.gameObject, item.position, Vector2.Distance(item.transform.position, item.position))
-                    .setOnComplete(() => end = true);
+                rb2D.MovePosition(rb2D.position + (Vector2)item.position * Time.fixedDeltaTime);
+                //LTDescr tween = LeanTween.move(this.gameObject, item.position, Vector2.Distance(item.transform.position, item.position))
+                    //.setOnComplete(() => end = true);
 
 
                 yield return Async.While(() => end == false);
