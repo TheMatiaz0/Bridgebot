@@ -27,12 +27,11 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 	private TimeSpan _CurrentTimer;
 
 	private bool enableUpdate;
-	private bool onlyOnce = false;
 
 	protected void Start()
 	{
-		startTime = TimeSpan.Zero;
-		CurrentTimer = timeToEndPreparation.TimeSpan - TimeSpan.Zero - startTime;
+		startTime = TimeSpan.FromSeconds(Time.time);
+		CurrentTimer = timeToEndPreparation.TimeSpan;
 	}
 
 	protected void OnEnable()
@@ -90,6 +89,11 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 			return;
 		}
 
-		CurrentTimer = timeToEndPreparation.TimeSpan - (TimeSpan.FromSeconds(Time.time) - startTime);
+		CurrentTimer = CurrentTimerPrepare();
+	}
+
+	private TimeSpan CurrentTimerPrepare ()
+	{
+		return TimeSpan.FromSeconds(CurrentTimer.TotalSeconds - Time.deltaTime);
 	}
 }

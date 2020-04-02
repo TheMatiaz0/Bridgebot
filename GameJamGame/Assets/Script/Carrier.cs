@@ -60,7 +60,7 @@ public class Carrier : MonoBehaviourPlus, IHpable
             yield return Async.NextFrame;
             yield return AIPath.reachedEndOfPath;
             AIPath.canMove = false;
-            foreach (var item in Current.Points)
+            foreach (Transform item in Current.Points)
             {
                 bool end = false;
                 var tween = LeanTween.move(this.gameObject, item.position, Vector2.Distance(item.transform.position, item.position))

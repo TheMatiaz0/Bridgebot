@@ -9,7 +9,7 @@ public class Spawner : AutoInstanceBehaviour<Spawner>
 {
 	public List<Enemy> SpawnedEnemies { get; private set; } = new List<Enemy>();
 
-	public enum SpawnState { SPAWNING, WAITING_FOR_ENEMY_DEATH, SELECTING_BRIDGE };
+	public enum SpawnState { SPAWNING, WAITING_FOR_ENEMY_DEATH, IDLE };
 
 	[SerializeField]
 	private Transform[] enemySpawners;
@@ -35,9 +35,28 @@ public class Spawner : AutoInstanceBehaviour<Spawner>
 		return SpawnedEnemies.Count > 0;
 	}
 
+	protected new void Awake()
+	{
+		base.Awake();
+
+		PhaseController.Instance.OnPhaseChanged += OnPhaseChanged;
+	}
+
+	private void OnPhaseChanged(object sender, PhaseController.Phase e)
+	{
+		switch (e)
+		{
+			case PhaseController.Phase.EXPLORING:
+			case PhaseController.Phase.PREPARATION:
+				StopCoroutine(StartWave());
+				break;
+
+		}
+	}
+
 	public IEnumerator StartWave()
 	{
-		while (CurrentState != SpawnState.SELECTING_BRIDGE)
+		while (CurrentState != SpawnState.IDLE)
 		{
 			CurrentState = SpawnState.SPAWNING;
 
@@ -46,8 +65,6 @@ public class Spawner : AutoInstanceBehaviour<Spawner>
 			CurrentState = SpawnState.WAITING_FOR_ENEMY_DEATH;
 
 			yield return new WaitWhile(AnyEnemyisAlive);
-
-			CurrentState = SpawnState.SELECTING_BRIDGE;
 
 			yield return Async.Wait(timeBetweenWaves.TimeSpan);
 			CurrentState = SpawnState.SPAWNING;
@@ -68,7 +85,7 @@ public class Spawner : AutoInstanceBehaviour<Spawner>
 		Enemy bestTarget = null;
 		foreach (Enemy enemy in SpawnedEnemies)
 		{
-			if (enemy.gameObject == null)
+			if (enemy?.gameObject == null)
 			{
 				continue;
 			}
@@ -90,5 +107,6 @@ public class Spawner : AutoInstanceBehaviour<Spawner>
 		Enemy tempEnemy;
 		int t = UnityEngine.Random.Range(0, enemySpawners.Length);
 		SpawnedEnemies.Add(tempEnemy = Instantiate(enemyType, enemySpawners[t].position, Quaternion.identity).GetComponent<Enemy>());
+		tempEnemy.gameObject.layer = 11;
 	}
 }
