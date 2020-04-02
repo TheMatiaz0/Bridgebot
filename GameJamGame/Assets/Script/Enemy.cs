@@ -14,9 +14,6 @@ public class Enemy : MonoBehaviour, IHpable
 	[SerializeField]
 	private Rigidbody2D rb2D = null;
 
-	[SerializeField]
-	private float speed = 10;
-
 	private Transform targetTransform = null;
 
 	[SerializeField]
@@ -77,6 +74,10 @@ public class Enemy : MonoBehaviour, IHpable
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
+		if (collision.collider.GetComponent<Player>())
+		{
+
+		}
 	}
 
 	private void OnCollisionExit2D(Collision2D collision)
