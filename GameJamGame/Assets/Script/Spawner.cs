@@ -107,5 +107,6 @@ public class Spawner : AutoInstanceBehaviour<Spawner>
 		Enemy tempEnemy;
 		int t = UnityEngine.Random.Range(0, enemySpawners.Length);
 		SpawnedEnemies.Add(tempEnemy = Instantiate(enemyType, enemySpawners[t].position, Quaternion.identity).GetComponent<Enemy>());
+		tempEnemy.gameObject.layer = 11;
 	}
 }
