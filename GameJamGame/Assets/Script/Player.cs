@@ -101,10 +101,18 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
 
         gunObj.Renderer.flipY = ((Vector2)this.transform.position).x > mousePos.x;
         curShotPoint = gunObj.Renderer.flipY ? leftShotPoint : rightShotPoint;
-        gunObj.transform.position = curShotPoint.position;
+		//  gunObj.transform.position = curShotPoint.position;
 
-        this.Renderer.flipX = !gunObj.Renderer.flipY;
-        this.gunObj.transform.position = (!Renderer.flipX) ? leftPistolPos.position : rightPistolPos.position;
+		//  this.Renderer.flipX = !gunObj.Renderer.flipY;
+		if (movementInput == new Vector2(1, 0))
+		{
+			this.Renderer.flipX = true;
+		}
+		else if (movementInput == new Vector2(-1, 0))
+		{
+			this.Renderer.flipX = false;
+		}
+		//  this.gunObj.transform.position = (!Renderer.flipX) ? leftPistolPos.position : rightPistolPos.position;
     }
 
     private void InputUpdate()
