@@ -2044,7 +2044,7 @@ Transform:
   m_Children:
   - {fileID: 151872984}
   m_Father: {fileID: 1948345088}
-  m_RootOrder: 9
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -2455,7 +2455,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1948345088}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1325689635
 GameObject:
@@ -2934,7 +2934,7 @@ Transform:
   m_LocalScale: {x: 189.5804, y: 155.90245, z: 189.202}
   m_Children: []
   m_Father: {fileID: 1948345088}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1548795447
 SpriteRenderer:
@@ -3190,16 +3190,16 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 461469127}
   - {fileID: 1548795446}
+  - {fileID: 461469127}
   - {fileID: 1645755936}
   - {fileID: 1622512249}
-  - {fileID: 768431034}
   - {fileID: 1317458724}
+  - {fileID: 768431034}
+  - {fileID: 516576989}
   - {fileID: 1033927114}
   - {fileID: 1331832341}
   - {fileID: 1357625626}
-  - {fileID: 516576989}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4257,6 +4257,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1948345088}
     m_Modifications:
+    - target: {fileID: 7209605249752530750, guid: 4c95f45762ffc1a4fa801a887deabbef,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -3.1388786
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209605249752530750, guid: 4c95f45762ffc1a4fa801a887deabbef,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.8915696
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209605249752530750, guid: 4c95f45762ffc1a4fa801a887deabbef,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.19962764
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209605249752530750, guid: 4c95f45762ffc1a4fa801a887deabbef,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 3.9638824
+      objectReference: {fileID: 0}
     - target: {fileID: 8154490813324486483, guid: 4c95f45762ffc1a4fa801a887deabbef,
         type: 3}
       propertyPath: cam
