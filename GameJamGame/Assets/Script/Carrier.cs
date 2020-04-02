@@ -44,7 +44,7 @@ public class Carrier : MonoBehaviourPlus, IHpable
     {
         if (IsLaunched)
             return false;
-        if (BridgeSelection.SelectedBridge==null||BridgeSelection.SelectedBridge)
+        if (BridgeSelection.SelectedBridge is null||BridgeSelection.SelectedBridge.IsFixed)
             return false;
         IsLaunched = true;
         bridge = BridgeSelection.SelectedBridge;

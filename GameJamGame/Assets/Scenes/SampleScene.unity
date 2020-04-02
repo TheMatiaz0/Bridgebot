@@ -16513,6 +16513,11 @@ PrefabInstance:
       propertyPath: selection
       value: 
       objectReference: {fileID: 257774862}
+    - target: {fileID: 3102387396044944638, guid: 8c7c88029279fed4f9efce531fcd8ffc,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.03
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c7c88029279fed4f9efce531fcd8ffc, type: 3}
 --- !u!1001 &550473028218245600
