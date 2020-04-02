@@ -18,16 +18,14 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 
 	private TimeSpan startTime;
 
-	private TimeSpan currentTimer;
+	public TimeSpan CurrentTimer;
 
 	private bool enableUpdate;
 
-	protected new void Awake()
+	protected void Start()
 	{
-		base.Awake();
-
-
 		startTime = TimeSpan.FromSeconds(Time.time);
+		CurrentTimer = timeToEndPreparation.TimeSpan - (TimeSpan.FromSeconds(Time.time) - startTime);
 	}
 
 	protected void OnEnable()
@@ -59,13 +57,12 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 
 	private void CalculateTimer()
 	{
-		if (currentTimer <= TimeSpan.Zero == true)
+		if (CurrentTimer <= TimeSpan.Zero == true)
 		{
 			Debug.Log("End");
 			return;
 		}
 
-		currentTimer = timeToEndPreparation.TimeSpan - (TimeSpan.FromSeconds(Time.time) - startTime);
-		timer.TimerText.text = $"{currentTimer.Minutes}:{currentTimer.Seconds:00}";
+		CurrentTimer = timeToEndPreparation.TimeSpan - (TimeSpan.FromSeconds(Time.time) - startTime);
 	}
 }
