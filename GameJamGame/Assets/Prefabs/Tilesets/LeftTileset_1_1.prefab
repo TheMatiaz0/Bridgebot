@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 1686459126088482916}
   - component: {fileID: 976957366261443603}
   m_Layer: 0
-  m_Name: tilesetBasic_1_8
+  m_Name: LeftTileset_1_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1686459126088482916
 Transform:
