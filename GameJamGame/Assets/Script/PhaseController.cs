@@ -31,8 +31,8 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 
 	protected void Start()
 	{
-		startTime = TimeSpan.FromSeconds(Time.time);
-		CurrentTimer = timeToEndPreparation.TimeSpan - (TimeSpan.FromSeconds(Time.time) - startTime);
+		startTime = TimeSpan.Zero;
+		CurrentTimer = timeToEndPreparation.TimeSpan - TimeSpan.Zero - startTime;
 	}
 
 	protected void OnEnable()
@@ -46,7 +46,10 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 		switch (e)
 		{
 			case Phase.FIGHTING:
-				spawnEnemies = StartCoroutine(Spawner.Instance.StartWave());
+				if (spawnEnemies == null)
+				{
+					spawnEnemies = StartCoroutine(Spawner.Instance.StartWave());
+				}
 				break;
 		}
 	}
@@ -83,11 +86,7 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 	{
 		if (CurrentTimer <= TimeSpan.Zero == true)
 		{
-			if (onlyOnce == false)
-			{
-				CurrentPhase = Phase.FIGHTING;
-				onlyOnce = true;
-			}
+			CurrentPhase = Phase.FIGHTING;
 			return;
 		}
 

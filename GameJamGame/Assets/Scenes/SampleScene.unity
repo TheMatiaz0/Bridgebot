@@ -7005,7 +7005,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 806634800}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16, y: 0, z: 0}
+  m_LocalPosition: {x: 14, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 642674479}
@@ -12285,18 +12285,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1586381923}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1606171006 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1270969954557673367, guid: b5dd9eb753152324bba75ca22ed49bc4,
-    type: 3}
-  m_PrefabInstance: {fileID: 8926157502546531443}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83f20b7069e88f6428784726a8321d6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1618141335
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16286,7 +16274,7 @@ PrefabInstance:
     - target: {fileID: 171549310789218400, guid: d51150c15e289dd4abe93322b8269097,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 21
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 171549310789218400, guid: d51150c15e289dd4abe93322b8269097,
         type: 3}
@@ -16363,6 +16351,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1948345088}
     m_Modifications:
+    - target: {fileID: 1903886252, guid: 8c7c88029279fed4f9efce531fcd8ffc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 262329377997455122, guid: 8c7c88029279fed4f9efce531fcd8ffc,
         type: 3}
       propertyPath: m_Name
@@ -16371,7 +16363,7 @@ PrefabInstance:
     - target: {fileID: 262329377997455135, guid: 8c7c88029279fed4f9efce531fcd8ffc,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 262329377997455135, guid: 8c7c88029279fed4f9efce531fcd8ffc,
         type: 3}
@@ -17213,57 +17205,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1948345088}
     m_Modifications:
-    - target: {fileID: 279599564666701503, guid: 4c95f45762ffc1a4fa801a887deabbef,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: caf4288618ded084e9e77112acf1a24c,
-        type: 3}
-    - target: {fileID: 4295918344337773845, guid: 4c95f45762ffc1a4fa801a887deabbef,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4295918344337773845, guid: 4c95f45762ffc1a4fa801a887deabbef,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4295918344337773845, guid: 4c95f45762ffc1a4fa801a887deabbef,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7209605249752530750, guid: 4c95f45762ffc1a4fa801a887deabbef,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: -0.69
-      objectReference: {fileID: 0}
-    - target: {fileID: 7209605249752530750, guid: 4c95f45762ffc1a4fa801a887deabbef,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 6.55
-      objectReference: {fileID: 0}
-    - target: {fileID: 7209605249752530750, guid: 4c95f45762ffc1a4fa801a887deabbef,
-        type: 3}
-      propertyPath: m_Offset.x
-      value: -0.19962764
-      objectReference: {fileID: 0}
-    - target: {fileID: 7209605249752530750, guid: 4c95f45762ffc1a4fa801a887deabbef,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 5.48
-      objectReference: {fileID: 0}
     - target: {fileID: 8154490813324486483, guid: 4c95f45762ffc1a4fa801a887deabbef,
         type: 3}
       propertyPath: cam
       value: 
       objectReference: {fileID: 519420031}
-    - target: {fileID: 8154490813324486483, guid: 4c95f45762ffc1a4fa801a887deabbef,
-        type: 3}
-      propertyPath: carrier
-      value: 
-      objectReference: {fileID: 1606171006}
     - target: {fileID: 8154490813324486483, guid: 4c95f45762ffc1a4fa801a887deabbef,
         type: 3}
       propertyPath: pauseMenu

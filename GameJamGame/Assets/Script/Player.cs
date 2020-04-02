@@ -131,7 +131,7 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
 
         Moving = hasMoved;
 
-        // Animator.SetBool("Move", hasMoved);
+        Animator.SetBool("Move", hasMoved);
 
         if (Input.GetKeyDown(KeyCode.R))
         {
