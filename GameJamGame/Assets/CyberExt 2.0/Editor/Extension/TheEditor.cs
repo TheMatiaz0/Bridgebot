@@ -195,7 +195,7 @@ namespace Cyberevolver.EditorUnity
                             if (prop.isArray == false || prop.propertyType == SerializedPropertyType.String)
                             {
                                 var showCyberAtt = field?.FieldType.GetCustomAttribute<ShowCyberInspectorAttribute>();
-                                if (showCyberAtt == null)
+                                if (showCyberAtt == null||field.FieldType.IsSubclassOf(typeof(UnityEngine.Object)))
                                 {
                                     if (dontDrawNotDirect == false && (customStyle || (field?.GetCustomAttributes<CyberAttribute>().Any(atr => drawers[atr.GetType()] is IPrefixDrawer) ?? false)))
                                     {

@@ -158,7 +158,7 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
     }
     public Direction GetLookDirection()
     {
-        return (Vector2)cam.ScreenToWorldPoint(Input.mousePosition) - this.transform.Get2DPos();
+        return (Vector2)cam.ScreenToWorldPoint(Input.mousePosition) - gunObj.transform.Get2DPos();
     }
 
     private void OnShoot()

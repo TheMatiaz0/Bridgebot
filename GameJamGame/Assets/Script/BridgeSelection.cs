@@ -9,8 +9,8 @@ using Cyberevolver;
 public class BridgeSelection : MonoBehaviour
 {
 	public static event EventHandler<SimpleArgs<GameObject>> OnBridgeSelected = delegate { };
-	public static GameObject SelectedBridge { get { return _SelectedBridge; } private set { if (_SelectedBridge != value) { _SelectedBridge = value; } OnBridgeSelected.Invoke(null, _SelectedBridge); } }
-	private static GameObject _SelectedBridge;
+	public static Bridge SelectedBridge { get { return _SelectedBridge; } private set { if (_SelectedBridge != value) { _SelectedBridge = value; } OnBridgeSelected.Invoke(null, _SelectedBridge.gameObject); } }
+	private static Bridge _SelectedBridge;
 
 	[SerializeField]
 	private CinemachineVirtualCamera virtualCam = null;
@@ -59,7 +59,7 @@ public class BridgeSelection : MonoBehaviour
 			{
 				if (cubeHit.collider.CompareTag("Bridge"))
 				{
-					SelectedBridge = cubeHit.collider.gameObject;
+					SelectedBridge = cubeHit.collider.gameObject.GetComponent<Bridge>();
 					this.gameObject.SetActive(false);
 					Destroy(lastIsland.gameObject);
 				}

@@ -5,39 +5,88 @@ using Pathfinding;
 using Cyberevolver.Unity;
 using System;
 
-public class Carrier : MonoBehaviour, IHpable
+public class Carrier : MonoBehaviourPlus, IHpable
 {
-	public enum Behaviours { IDLE, GETTING_RESOURCES, WALKING, BUILDING_BRIDGE}
 
-	public Behaviours CurrentBehaviour { get; private set; } = Behaviours.IDLE;
+
+	
 
 	public Team CurrentTeam { get; private set; } = Team.Good;
 
 	public Hp Hp { get; private set; }
+    [Auto]
+   public AIPath AIPath { get; private set; }
 
-	[SerializeField]
-	private AIBase aiBase = null;
-
-	[SerializeField]
-	private AIPath path;
 
 	[SerializeField]
 	private Transform resourcesPoint = null;
-
+    [SerializeField,RequiresAny]
+    private Resource first;
+    public Resource Current { get; private set; }
 	[SerializeField]
 	private uint startMaxHp;
-
-
+    public bool IsLaunched { get; private set; }
+    private Coroutine logic = null;
+    private Bridge bridge;
 	protected void Start()
 	{
 		Hp = new Hp(startMaxHp, 0, startMaxHp);
 		Hp.OnValueChangeToMin += Hp_OnValueChangeToMin;
+      
 	}
+    protected override void Awake()
+    {
+        base.Awake();
+        Current = first;
+    }
+    [Button]
+    public bool Launch()
+    {
+        if (IsLaunched)
+            return false;
+        if (BridgeSelection.SelectedBridge==null||BridgeSelection.SelectedBridge)
+            return false;
+        IsLaunched = true;
+        bridge = BridgeSelection.SelectedBridge;
+        logic = StartCoroutine(Run());
+        return true;
+    }
+    private IEnumerator Run()
+    {
+        while(true)
+        {
+            AIPath.canMove = true;
+            AIPath.destination = Current.transform.position;
+            yield return Async.NextFrame;
+            yield return AIPath.reachedEndOfPath;
+            AIPath.canMove = false;
+            foreach (var item in Current.Points)
+            {
+                bool end = false;
+                var tween = LeanTween.move(this.gameObject, item.position, Vector2.Distance(item.transform.position, item.position))
+                    .setOnComplete(() => end = true);
 
-	private IEnumerator PickupResources ()
-	{
-		yield return null;
-	}
+
+                yield return Async.While(() => end == false);
+
+            }
+            AIPath.canMove = true;
+            AIPath.destination = bridge.transform.position;
+            yield return Async.NextFrame;
+            yield return AIPath.reachedEndOfPath;
+            if (bridge.RepairElement())
+            {
+                IsLaunched = false;
+                Current = bridge.Next;
+                bridge = null;
+                break;
+            }
+        }
+        
+
+    }
+
+	
 
 	private void Hp_OnValueChangeToMin(object sender, Hp.HpChangedArgs e)
 	{
@@ -45,30 +94,5 @@ public class Carrier : MonoBehaviour, IHpable
 		Debug.Log("R.I.P");
 	}
 
-	public IEnumerator LaunchCarrier ()
-	{
-		aiBase.destination = resourcesPoint.position;
-		CurrentBehaviour = Behaviours.WALKING;
 
-		yield return new WaitUntil(() => path.reachedEndOfPath == true);
-		aiBase.destination = Vector2.zero;
-
-		// animacja zbierania zasobów...
-		yield return Async.Wait(TimeSpan.FromSeconds(3));
-
-		if (BridgeSelection.SelectedBridge == null)
-		{
-			Debug.Log("WYBIERZ MOST");
-			yield break;
-		}
-		
-		aiBase.destination = BridgeSelection.SelectedBridge.transform.position;
-		yield return Async.Wait(TimeSpan.FromSeconds(2));
-		yield return new WaitUntil(() => path.reachedEndOfPath == true);
-		aiBase.destination = Vector2.zero;
-		// naprawa mostu...
-		yield return Async.Wait(TimeSpan.FromSeconds(3));
-
-		aiBase.destination = resourcesPoint.position;
-	}
 }

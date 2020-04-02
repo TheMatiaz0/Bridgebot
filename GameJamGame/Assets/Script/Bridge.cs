@@ -10,18 +10,36 @@ public class Bridge : MonoBehaviour
 	public bool IsFixed { get; private set; } = false;
 
 	[SerializeField]
-	private uint needResourcesCount = 20;
-
-	[SerializeField]
+	private uint needResourcesCount = 1;
+    [SerializeField]
+    private Resource next;
+    public Resource Next => next;
+    [SerializeField]
 	private SerializedTimeSpan timeToFullRepair;
+
+ 
+    [field:SerializeField]
+    public Transform BulidPoint { get; private set; }
 
 	protected void Start()
 	{
 	}
 
 
-	public void Repair ()
+	public bool RepairElement ()
 	{
-		// AsyncStoper.MakeSimple(this, timeToFullRepair.TimeSpan, );
+        if (needResourcesCount == 0)
+        {
+           
+             FullRepair();
+            return true;
+        }
+           
+        needResourcesCount--;
+        return false;
 	}
+    public void FullRepair()
+    {
+
+    }
 }

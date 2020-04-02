@@ -48,7 +48,7 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 		{
 			case Phase.FIGHTING:
 				StartCoroutine(Spawner.Instance.StartWave());
-				StartCoroutine(carrier.LaunchCarrier());
+               // carrier.Launch();
 				break;
 		}
 	}
