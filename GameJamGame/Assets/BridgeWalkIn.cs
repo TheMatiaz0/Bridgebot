@@ -6,7 +6,7 @@ public class BridgeWalkIn : MonoBehaviour
 {
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		collision.gameObject.layer = 8;
+		collision.gameObject.layer = 10;
 	}
 
 	private void OnTriggerExit2D(Collider2D collision)
