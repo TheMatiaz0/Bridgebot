@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6357647611718055721
+--- !u!1 &6251120518118564743
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6357647611718055720}
-  - component: {fileID: 6357647611718055727}
+  - component: {fileID: 6251120518118564742}
+  - component: {fileID: 6251120518118564741}
   m_Layer: 0
-  m_Name: SpawnManager
+  m_Name: BridgeManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
---- !u!4 &6357647611718055720
+  m_IsActive: 0
+--- !u!4 &6251120518118564742
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6357647611718055721}
+  m_GameObject: {fileID: 6251120518118564743}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -31,38 +31,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6357647611718055727
+--- !u!114 &6251120518118564741
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6357647611718055721}
+  m_GameObject: {fileID: 6251120518118564743}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: baadb7ade5894574d93dac631ed5d073, type: 3}
+  m_Script: {fileID: 11500000, guid: 1667da22172487547bb3d01df6d58ad7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpawners:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  enemyType: {fileID: 1157404923677522690, guid: dcc3074c1b703f3478bffa34c7d91d1e,
-    type: 3}
-  enemyCount:
-    _Value: 10
-  timeInterval:
-    miliseconds: 836
-    seconds: 0
-    minutes: 0
-    hour: 0
-    day: 0
-    precision: 1
-  timeBetweenWaves:
-    miliseconds: 0
-    seconds: 2
-    minutes: 0
-    hour: 0
-    day: 0
-    precision: 2
+  virtualCam: {fileID: 0}
+  chooseBridgeUI: {fileID: 0}
+  cameraLeanTweenType: 3
+  maxPoint: 8.2

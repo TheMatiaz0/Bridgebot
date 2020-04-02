@@ -85,7 +85,7 @@ public class Spawner : AutoInstanceBehaviour<Spawner>
 		Enemy bestTarget = null;
 		foreach (Enemy enemy in SpawnedEnemies)
 		{
-			if (enemy.gameObject == null)
+			if (enemy?.gameObject == null)
 			{
 				continue;
 			}
