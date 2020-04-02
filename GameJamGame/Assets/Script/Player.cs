@@ -45,6 +45,9 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
     public bool LockMovement { get; set; }
 
     [SerializeField]
+    private Carrier carrier;
+
+    [SerializeField]
     private FreezeMenu pauseMenu;
 
     private void SetDefCamera()
@@ -133,10 +136,19 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
 
         // Animator.SetBool("Move", hasMoved);
 
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            StartCoroutine(Spawner.Instance.StartWave());
+        }
 
         if (Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            StartCoroutine(carrier.LaunchCarrier()); // WYBIERZ MOST ZANIM UŻYJESZ
         }
 
         void Move(Direction dir)
