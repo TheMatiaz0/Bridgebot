@@ -8,7 +8,7 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 {
 	public enum Phase { EXPLORING, PREPARATION, FIGHTING }
 
-	public Phase CurrentPhase = Phase.EXPLORING;
+	public Phase CurrentPhase { get; private set; } = Phase.EXPLORING;
 
 	[SerializeField]
 	private WaveTimer timer = null;
@@ -18,7 +18,8 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 
 	private TimeSpan startTime;
 
-	public TimeSpan CurrentTimer;
+	public TimeSpan CurrentTimer { get { return _CurrentTimer; } private set {_CurrentTimer = value; UpdateText(_CurrentTimer); } }
+	private TimeSpan _CurrentTimer;
 
 	private bool enableUpdate;
 
@@ -41,7 +42,6 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 	private void OnBridgeSelected(object sender, Cyberevolver.SimpleArgs<GameObject> e)
 	{
 		CurrentPhase = Phase.PREPARATION;
-		// currentTimer = timeToEndPreparation.TimeSpan - (TimeSpan.FromSeconds(Time.time) - startTime);
 		enableUpdate = true;
 	}
 
@@ -53,6 +53,11 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 		}
 
 		CalculateTimer();
+	}
+
+	private void UpdateText (TimeSpan currentTimer)
+	{
+		timer.TimerText.text = $"{currentTimer.Minutes}:{currentTimer.Seconds:00}";
 	}
 
 	private void CalculateTimer()
