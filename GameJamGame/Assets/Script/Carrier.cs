@@ -82,7 +82,6 @@ public class Carrier : MonoBehaviourPlus, IHpable
     {
         while(true)
         {
-            Debug.Log("tEST");
             yield return GoToResources();
 
             // gather resources
@@ -90,10 +89,13 @@ public class Carrier : MonoBehaviourPlus, IHpable
 
             yield return GoPoints();
 
-            yield return GoToBridge();
+            // yield return GoToBridge();
 
             // fix the bridge
             yield return FixBridge(selectedBridge);
+            yield return Async.Until(() => selectedBridge.IsFixed);
+            Debug.Log("Hello world!");
+            
         }
     }
 
@@ -119,10 +121,10 @@ public class Carrier : MonoBehaviourPlus, IHpable
     {
         AIPath.canMove = true;
         AIPath.canSearch = true;
-        AIPath.destination = selectedBridge.transform.position;
+        AIPath.destination = selectedBridge.BuildPoint.position;
         Debug.Log("Coming to bridge...");
         yield return Async.NextFrame;
-        yield return Async.Until(() => bridgeOnTrigger);
+        yield return Async.Until(() => AIPath.reachedEndOfPath);
         Debug.Log("Bridge is here.");
     }
 
@@ -142,7 +144,12 @@ public class Carrier : MonoBehaviourPlus, IHpable
         {
             currentTarget = item;
             Debug.Log("Coming to point...");
-            yield return Async.Until(() => Vector2.Distance(this.transform.position, item.position) <= 2);
+            yield return Async.Until(() => Vector2.Distance(this.transform.position, item.position) <= 0.2f);
+        }
+
+        if (reverse)
+        {
+            Array.Reverse(transforms);
         }
 
         currentTarget = null;
@@ -161,7 +168,7 @@ public class Carrier : MonoBehaviourPlus, IHpable
 
     private IEnumerator FixBridge(Bridge bridge)
     {
-        while (CurrentResources > 0)
+        while (CurrentResources > 0 && bridge.IsFixed == false)
         {
             bridge.ResourcesAddedToBuild += 1;
             CurrentResources -= 1;
@@ -177,6 +184,7 @@ public class Carrier : MonoBehaviourPlus, IHpable
         yield break;
     }
 
+    /*
     protected void OnTriggerEnter2D(Collider2D collision)
     {
         Bridge bridge = null;
@@ -206,6 +214,7 @@ public class Carrier : MonoBehaviourPlus, IHpable
             }
         }
     }
+    */
 
     private void Hp_OnValueChangeToMin(object sender, Hp.HpChangedArgs e)
     {

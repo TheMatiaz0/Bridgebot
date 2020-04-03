@@ -16,7 +16,7 @@ public class Bridge : MonoBehaviourPlus
 	[SerializeField]
 	private uint needResourcesCount = 10;
 
-    public uint ResourcesAddedToBuild { get { return _ResourcesAddedToBuild; } set { if (_ResourcesAddedToBuild != value) _ResourcesAddedToBuild = value; ChangeSprite(_ResourcesAddedToBuild); } }
+    public uint ResourcesAddedToBuild { get { return _ResourcesAddedToBuild; } set { if (_ResourcesAddedToBuild != value) _ResourcesAddedToBuild = value; OnResourceChange(_ResourcesAddedToBuild); } }
     private uint _ResourcesAddedToBuild;
 
     [SerializeField]
@@ -29,9 +29,11 @@ public class Bridge : MonoBehaviourPlus
     [SerializeField]
     private Sprite underConstruction = null;
 
- 
-    // [field:SerializeField]
-    // public Transform BulidPoint { get; private set; }
+
+    [SerializeField]
+    private Transform buildPoint = null;
+
+    public Transform BuildPoint => buildPoint;
 
     [SerializeField]
     private BoxCollider2D triggerCollider = null;
@@ -46,15 +48,16 @@ public class Bridge : MonoBehaviourPlus
         spriteRender.sprite = totallyBroken;
     }
 
-    private void ChangeSprite (uint currentResources)
+    private void OnResourceChange (uint currentResources)
     {
         if (currentResources >= (needResourcesCount / 2))
         {
             spriteRender.sprite = underConstruction;
         }
 
-        else if (currentResources == needResourcesCount)
+        else if (currentResources >= needResourcesCount)
         {
+            currentResources = needResourcesCount;
             spriteRender.sprite = fullyFixed;
             OnBridgeBuilt.Invoke(this, this);
             IsFixed = true;

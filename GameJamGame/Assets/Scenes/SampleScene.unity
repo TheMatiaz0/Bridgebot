@@ -1707,18 +1707,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 184546608}
   m_PrefabAsset: {fileID: 0}
---- !u!61 &186433172 stripped
-BoxCollider2D:
-  m_CorrespondingSourceObject: {fileID: 186433172, guid: 8c7c88029279fed4f9efce531fcd8ffc,
-    type: 3}
-  m_PrefabInstance: {fileID: 262329377185089029}
-  m_PrefabAsset: {fileID: 0}
---- !u!212 &186433173 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 262329377997455132, guid: 8c7c88029279fed4f9efce531fcd8ffc,
-    type: 3}
-  m_PrefabInstance: {fileID: 262329377185089029}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &200811833
 GameObject:
   m_ObjectHideFlags: 0
@@ -19000,29 +18988,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1948345088}
     m_Modifications:
-    - target: {fileID: 1826171710, guid: 8c7c88029279fed4f9efce531fcd8ffc, type: 3}
-      propertyPath: spriteRender
-      value: 
-      objectReference: {fileID: 186433173}
-    - target: {fileID: 1826171710, guid: 8c7c88029279fed4f9efce531fcd8ffc, type: 3}
-      propertyPath: fullyFixed
-      value: 
-      objectReference: {fileID: 21300000, guid: 362a12cfe847e7c42ae6433916da47ed,
-        type: 3}
-    - target: {fileID: 1826171710, guid: 8c7c88029279fed4f9efce531fcd8ffc, type: 3}
-      propertyPath: totallyBroken
-      value: 
-      objectReference: {fileID: 21300000, guid: 4455e8eea4c54494abe44e2615f620cd,
-        type: 3}
-    - target: {fileID: 1826171710, guid: 8c7c88029279fed4f9efce531fcd8ffc, type: 3}
-      propertyPath: underConstruction
-      value: 
-      objectReference: {fileID: 21300000, guid: 36d6b747eadb6494ca239b64bd50520c,
-        type: 3}
-    - target: {fileID: 1826171710, guid: 8c7c88029279fed4f9efce531fcd8ffc, type: 3}
-      propertyPath: triggerCollider
-      value: 
-      objectReference: {fileID: 186433172}
     - target: {fileID: 262329377997455122, guid: 8c7c88029279fed4f9efce531fcd8ffc,
         type: 3}
       propertyPath: m_Name
