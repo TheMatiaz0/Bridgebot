@@ -31,12 +31,14 @@ public class Carrier : MonoBehaviourPlus, IHpable
 
     private Coroutine logic = null;
 
-    private Bridge bridge;
+    private Bridge selectedBridge;
 
     [SerializeField]
     private float speed = 10;
 
     private Transform currentTarget = null;
+
+    private bool bridgeOnTrigger = false;
 
     protected void Start()
     {
@@ -58,7 +60,7 @@ public class Carrier : MonoBehaviourPlus, IHpable
         if (BridgeSelection.SelectedBridge is null || BridgeSelection.SelectedBridge.IsFixed)
             return false;
         IsLaunched = true;
-        bridge = BridgeSelection.SelectedBridge;
+        selectedBridge = BridgeSelection.SelectedBridge;
         logic = StartCoroutine(Run());
 
         return true;
@@ -78,40 +80,70 @@ public class Carrier : MonoBehaviourPlus, IHpable
 
     private IEnumerator Run()
     {
-        while (true)
-        {
-            AIPath.canMove = true;
-            AIPath.canSearch = true;
-            AIPath.destination = Current.transform.position;
-            yield return Async.NextFrame;
-            yield return Async.Until(() => AIPath.reachedEndOfPath);
+        yield return GoToResources();
 
-            // gather resources
-            yield return GatherResources();
+        // gather resources
+        yield return GatherResources();
 
-            AIPath.canMove = false;
-            AIPath.canSearch = false;
-            foreach (Transform item in Current.Points)
-            {
-                currentTarget = item;
-                Debug.Log("Coming to point...");
-                yield return Async.Until(() => Vector2.Distance(this.transform.position, item.position) <= 2);
-            }
-            AIPath.canMove = true;
-            AIPath.canSearch = true;
-            AIPath.destination = bridge.transform.position;
-            Debug.Log("Coming to bridge...");
-            yield return Async.NextFrame;
-            yield return Async.Until(() => AIPath.reachedEndOfPath);
-            Debug.Log("Bridge is here.");
-            // fix the bridge
-            yield return FixBridge(bridge);
-        }
+        yield return GoPoints();
+        currentTarget = null;
 
+        yield return GoToBridge();
 
+        // fix the bridge
+        yield return FixBridge(selectedBridge);
     }
 
-    private IEnumerator GatherResources ()
+    /// <summary>
+    /// Pathfinding method.
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator GoToResources()
+    {
+        AIPath.canMove = true;
+        AIPath.canSearch = true;
+        AIPath.destination = Current.transform.position;
+        yield return Async.NextFrame;
+        yield return Async.Until(() => AIPath.reachedEndOfPath);
+    }
+
+
+    /// <summary>
+    /// Pathfinding method.
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator GoToBridge()
+    {
+        AIPath.canMove = true;
+        AIPath.canSearch = true;
+        AIPath.destination = selectedBridge.transform.position;
+        Debug.Log("Coming to bridge...");
+        yield return Async.NextFrame;
+        yield return Async.Until(() => bridgeOnTrigger);
+        Debug.Log("Bridge is here.");
+    }
+
+    private IEnumerator GoPoints(bool reverse = false)
+    {
+        AIPath.canMove = false;
+        AIPath.canSearch = false;
+
+        Transform[] transforms = Current.Points;
+
+        if (reverse)
+        {
+            Array.Reverse(transforms);
+        }
+
+        foreach (Transform item in transforms)
+        {
+            currentTarget = item;
+            Debug.Log("Coming to point...");
+            yield return Async.Until(() => Vector2.Distance(this.transform.position, item.position) <= 2);
+        }
+    }
+
+    private IEnumerator GatherResources()
     {
         while (CurrentResources < maxCapacity)
         {
@@ -122,7 +154,7 @@ public class Carrier : MonoBehaviourPlus, IHpable
         }
     }
 
-    private IEnumerator FixBridge (Bridge bridge)
+    private IEnumerator FixBridge(Bridge bridge)
     {
         while (CurrentResources > 0)
         {
@@ -133,15 +165,40 @@ public class Carrier : MonoBehaviourPlus, IHpable
             yield return Async.Wait(TimeSpan.FromMilliseconds(900));
         }
 
+        Debug.Log("O cholibka, skończyły mi się surowce.");
+        AIPath.canMove = false;
+        AIPath.canSearch = false;
+        yield return GoPoints(true);
         yield return Run();
     }
 
     protected void OnTriggerEnter2D(Collider2D collision)
     {
+        Bridge bridge = null;
+        if (bridge = collision.GetComponent<Bridge>())
+        {
+            if (bridge == selectedBridge)
+            {
+                bridgeOnTrigger = true;
+            }
+        }
+
         if (HpableExtension.IsFromWrongTeam(this, collision, out Bullet bullet))
         {
             this.Hp.TakeHp(bullet.Dmg, "Bullet");
             Destroy(bullet.gameObject);
+        }
+    }
+
+    protected void OnTriggerExit2D(Collider2D collision)
+    {
+        Bridge bridge = null;
+        if (bridge = collision.GetComponent<Bridge>())
+        {
+            if (bridge == selectedBridge)
+            {
+                bridgeOnTrigger = true;
+            }
         }
     }
 

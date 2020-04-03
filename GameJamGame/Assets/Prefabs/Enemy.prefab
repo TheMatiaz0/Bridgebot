@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
-  radius: 0.5
+  radius: 5.1
   height: 2
   repathRate: 0.5
   canSearch: 1
@@ -148,7 +148,7 @@ MonoBehaviour:
   slowdownDistance: 0.6
   pickNextWaypointDist: 2
   endReachedDistance: 0.2
-  alwaysDrawGizmos: 0
+  alwaysDrawGizmos: 1
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
   constrainInsideGraph: 0
@@ -183,8 +183,9 @@ MonoBehaviour:
   startHp:
     _Value: 10
   rb2D: {fileID: 96356461702647518}
-  speed: 1
   aiBase: {fileID: 1073618881282620597}
+  takeDmg:
+    _Value: 0
 --- !u!50 &96356461702647518
 Rigidbody2D:
   serializedVersion: 4
