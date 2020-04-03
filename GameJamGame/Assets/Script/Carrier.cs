@@ -1,33 +1,36 @@
-﻿using System.Collections;
+﻿using Cyberevolver.Unity;
+using Pathfinding;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Pathfinding;
-using Cyberevolver.Unity;
-using System;
 
 public class Carrier : MonoBehaviourPlus, IHpable
 {
+    [SerializeField]
+    private uint maxCapacity = 8;
 
+    public uint CurrentResources { get; private set; }
 
-	
+    public Team CurrentTeam { get; private set; } = Team.Good;
 
-	public Team CurrentTeam { get; private set; } = Team.Good;
-
-	public Hp Hp { get; private set; }
+    public Hp Hp { get; private set; }
     [Auto]
-   public AIPath AIPath { get; private set; }
+    public AIPath AIPath { get; private set; }
 
 
-	[SerializeField]
-	private Transform resourcesPoint = null;
-    [SerializeField,RequiresAny]
+    [SerializeField]
+    private Transform resourcesPoint = null;
+    [SerializeField, RequiresAny]
     private Resource first;
     public Resource Current { get; private set; }
 
-	[SerializeField]
-	private uint startMaxHp;
+    [SerializeField]
+    private uint startMaxHp;
     public bool IsLaunched { get; private set; }
+
     private Coroutine logic = null;
+
     private Bridge bridge;
 
     [SerializeField]
@@ -35,11 +38,11 @@ public class Carrier : MonoBehaviourPlus, IHpable
 
     private Transform currentTarget = null;
 
-	protected void Start()
-	{
-		Hp = new Hp(startMaxHp, 0, startMaxHp);
-		Hp.OnValueChangeToMin += Hp_OnValueChangeToMin;
-	}
+    protected void Start()
+    {
+        Hp = new Hp(startMaxHp, 0, startMaxHp);
+        Hp.OnValueChangeToMin += Hp_OnValueChangeToMin;
+    }
 
     protected override void Awake()
     {
@@ -75,12 +78,17 @@ public class Carrier : MonoBehaviourPlus, IHpable
 
     private IEnumerator Run()
     {
-        while(true)
+        while (true)
         {
             AIPath.canMove = true;
+            AIPath.canSearch = true;
             AIPath.destination = Current.transform.position;
             yield return Async.NextFrame;
             yield return Async.Until(() => AIPath.reachedEndOfPath);
+
+            // gather resources
+            yield return GatherResources();
+
             AIPath.canMove = false;
             AIPath.canSearch = false;
             foreach (Transform item in Current.Points)
@@ -95,34 +103,53 @@ public class Carrier : MonoBehaviourPlus, IHpable
             Debug.Log("Coming to bridge...");
             yield return Async.NextFrame;
             yield return Async.Until(() => AIPath.reachedEndOfPath);
-
-            if (bridge.RepairElement())
-            {
-                IsLaunched = false;
-                Current = bridge.Next;
-                bridge = null;
-                break;
-            }
+            Debug.Log("Bridge is here.");
+            // fix the bridge
+            yield return FixBridge(bridge);
         }
-        
 
+
+    }
+
+    private IEnumerator GatherResources ()
+    {
+        while (CurrentResources < maxCapacity)
+        {
+            CurrentResources += 1;
+            Debug.Log($"I have {CurrentResources} resources now");
+
+            yield return Async.Wait(TimeSpan.FromMilliseconds(600));
+        }
+    }
+
+    private IEnumerator FixBridge (Bridge bridge)
+    {
+        while (CurrentResources > 0)
+        {
+            bridge.ResourcesAddedToBuild += 1;
+            CurrentResources -= 1;
+            Debug.Log($"I added to the bridge {bridge.ResourcesAddedToBuild} resources. I have {CurrentResources} now");
+
+            yield return Async.Wait(TimeSpan.FromMilliseconds(900));
+        }
+
+        yield return Run();
     }
 
     protected void OnTriggerEnter2D(Collider2D collision)
     {
-
-        Bridge bridge = null; 
-        if (bridge = collision.GetComponent<Bridge>())
+        if (HpableExtension.IsFromWrongTeam(this, collision, out Bullet bullet))
         {
-            Debug.Log($"{bridge.name} is here.");
+            this.Hp.TakeHp(bullet.Dmg, "Bullet");
+            Destroy(bullet.gameObject);
         }
     }
 
     private void Hp_OnValueChangeToMin(object sender, Hp.HpChangedArgs e)
-	{
-		// game over!
-		Debug.Log("R.I.P");
-	}
+    {
+        // game over!
+        Debug.Log("R.I.P");
+    }
 
 
 }

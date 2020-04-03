@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1351165612940913700}
   - component: {fileID: 1270969954557673367}
   - component: {fileID: 8514928864346537232}
+  - component: {fileID: 179466286}
   m_Layer: 0
   m_Name: Carrier
   m_TagString: Untagged
@@ -191,15 +192,7 @@ MonoBehaviour:
   resourcesPoint: {fileID: 0}
   first: {fileID: 0}
   startMaxHp: 3
-  speed: 2
-  rb2D: {fileID: 0}
-  startWaitTime:
-    miliseconds: 0
-    seconds: 0
-    minutes: 0
-    hour: 0
-    day: 0
-    precision: 0
+  speed: 0.5
 --- !u!114 &8514928864346537232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,3 +215,24 @@ MonoBehaviour:
   bezierTangentLength: 0.4
   offset: 0.2
   factor: 0.1
+--- !u!50 &179466286
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8926157502099828154}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 4

@@ -23,6 +23,11 @@ public class Enemy : MonoBehaviour, IHpable
 
 	public Hp Hp { get; private set; }
 
+	[SerializeField]
+	private Cint takeDmg;
+
+	public Cint TakeDmg => takeDmg;
+
 
 	protected void Awake()
 	{
