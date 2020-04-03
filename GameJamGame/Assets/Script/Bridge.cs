@@ -7,10 +7,12 @@ using Cyberevolver;
 
 public class Bridge : MonoBehaviourPlus
 {
-	public bool IsFixed { get; private set; } = false;
+	public bool IsFixed { get { return _IsFixed; } private set { if (_IsFixed != value) { _IsFixed = value; RemoveTriggerOnFixed(); } } }
+    private bool _IsFixed;
 
 	[SerializeField]
 	private uint needResourcesCount = 1;
+
     [SerializeField]
     private Resource next;
     public Resource Next => next;
@@ -19,17 +21,19 @@ public class Bridge : MonoBehaviourPlus
     [field:SerializeField]
     public Transform BulidPoint { get; private set; }
 
-	protected void Start()
-	{
-	}
+    [SerializeField]
+    private BoxCollider2D triggerCollider = null;
 
+    private void RemoveTriggerOnFixed ()
+    {
+        Destroy(triggerCollider);
+    }
 
 	public bool RepairElement ()
 	{
         if (needResourcesCount == 0)
         {
-           
-             FullRepair();
+            FullRepair();
             return true;
         }
            

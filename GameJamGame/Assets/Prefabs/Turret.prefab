@@ -138,7 +138,6 @@ MonoBehaviour:
   bulletSpeed: 5
   bulletDamage:
     _Value: 2
-  circle: {fileID: 0}
 --- !u!61 &405170248
 BoxCollider2D:
   m_ObjectHideFlags: 0
