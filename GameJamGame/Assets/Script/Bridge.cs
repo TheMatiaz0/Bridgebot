@@ -37,6 +37,35 @@ public class Bridge : MonoBehaviourPlus
         Destroy(triggerCollider);
     }
 
+    protected void OnMouseEnter()
+    {
+        if (IsFixed)
+            return;
+
+        WorldUI.Instance.FirstActivate(true);
+    }
+
+
+    protected void OnMouseOver()
+    {
+        if (IsFixed)
+        {
+            return;
+        }
+
+        WorldUI.Instance.Move(Camera.main.WorldToScreenPoint(this.transform.position));
+    }
+
+    protected void OnMouseExit()
+    {
+        if (IsFixed)
+        {
+            return;
+        }
+
+        WorldUI.Instance.FirstActivate(false);
+    }
+
     protected void Start()
     {
         spriteRender.sprite = totallyBroken;

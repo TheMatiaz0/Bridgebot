@@ -30,7 +30,6 @@ public class BridgeSelection : MonoBehaviour
 
 	public void Activate (IslandEnterTrigger island)
 	{
-		this.gameObject.SetActive(true);
 		lastIsland = island;
 	}
 
@@ -61,6 +60,7 @@ public class BridgeSelection : MonoBehaviour
 				{
 					SelectedBridge = cubeHit.collider.gameObject.GetComponent<Bridge>();
 					this.gameObject.SetActive(false);
+					lastIsland.Carrier.transform.position = (Vector2)lastIsland.IslandCarrierSpawnPoint.position;
 					Destroy(lastIsland.gameObject);
 				}
 			}

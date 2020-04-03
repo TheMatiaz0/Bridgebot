@@ -36,7 +36,7 @@ public class Resource : MonoBehaviourPlus
 
         lineRender.SetPosition(0, (Vector2)this.transform.position);
 
-        for (int x = 1; x < Points.Length + 1; x++)
+        for (int x = 1; x < Points.Length; x++)
         {
             lineRender.SetPosition(x, (Vector2)Points[x - 1].position);
         }
@@ -54,12 +54,6 @@ public class Resource : MonoBehaviourPlus
 
     private void BridgeSelection_OnBridgeSelected(object sender, SimpleArgs<GameObject> e)
     {
-        /*
-        for (int x = -1; x < Points.Length - 1; x++)
-        {
-            Instantiate(pavementPrefab, (Vector2)Points[x + 1].position, Quaternion.identity);
-        }
-        */
     }
 
     private void OnDrawGizmos()

@@ -9,6 +9,16 @@ public class IslandEnterTrigger : MonoBehaviour
 	[SerializeField]
 	private BridgeSelection selection;
 
+	[SerializeField]
+	private Transform islandCarrierSpawnPoint = null;
+
+	public Transform IslandCarrierSpawnPoint => islandCarrierSpawnPoint;
+
+	[SerializeField]
+	private Carrier carrier = null;
+
+	public Carrier Carrier => carrier;
+
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 
