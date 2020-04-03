@@ -80,18 +80,21 @@ public class Carrier : MonoBehaviourPlus, IHpable
 
     private IEnumerator Run()
     {
-        yield return GoToResources();
+        while(true)
+        {
+            Debug.Log("tEST");
+            yield return GoToResources();
 
-        // gather resources
-        yield return GatherResources();
+            // gather resources
+            yield return GatherResources();
 
-        yield return GoPoints();
-        currentTarget = null;
+            yield return GoPoints();
 
-        yield return GoToBridge();
+            yield return GoToBridge();
 
-        // fix the bridge
-        yield return FixBridge(selectedBridge);
+            // fix the bridge
+            yield return FixBridge(selectedBridge);
+        }
     }
 
     /// <summary>
@@ -141,6 +144,8 @@ public class Carrier : MonoBehaviourPlus, IHpable
             Debug.Log("Coming to point...");
             yield return Async.Until(() => Vector2.Distance(this.transform.position, item.position) <= 2);
         }
+
+        currentTarget = null;
     }
 
     private IEnumerator GatherResources()
@@ -169,7 +174,7 @@ public class Carrier : MonoBehaviourPlus, IHpable
         AIPath.canMove = false;
         AIPath.canSearch = false;
         yield return GoPoints(true);
-        yield return Run();
+        yield break;
     }
 
     protected void OnTriggerEnter2D(Collider2D collision)
