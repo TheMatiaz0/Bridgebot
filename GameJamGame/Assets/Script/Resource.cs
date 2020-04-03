@@ -36,9 +36,9 @@ public class Resource : MonoBehaviourPlus
 
         lineRender.SetPosition(0, (Vector2)this.transform.position);
 
-        for (int x = 0; x < Points.Length - 1; x++)
+        for (int x = 1; x < Points.Length + 1; x++)
         {
-            lineRender.SetPosition(x, (Vector2)Points[x].position);
+            lineRender.SetPosition(x, (Vector2)Points[x - 1].position);
         }
     }
 
