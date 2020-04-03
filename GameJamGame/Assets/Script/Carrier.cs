@@ -185,7 +185,7 @@ public class Carrier : MonoBehaviourPlus, IHpable
     private void Hp_OnValueChangeToMin(object sender, Hp.HpChangedArgs e)
     {
         // game over!
-        Debug.Log("R.I.P");
+        Player.Instance.LaunchGameOver();
     }
 
 

@@ -47,6 +47,9 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
     [SerializeField]
     private FreezeMenu pauseMenu;
 
+    [SerializeField]
+    private FreezeMenu gameOver = null;
+
     private void SetDefCamera()
     {
         cam = Camera.main;
@@ -179,6 +182,11 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
     private void OnPause ()
     {
         pauseMenu.EnableMenuWithPause(!pauseMenu.IsPaused);
+    }
+
+    public void LaunchGameOver ()
+    {
+        gameOver.EnableMenuWithPause(true);
     }
 
 }

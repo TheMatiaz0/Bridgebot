@@ -49,13 +49,6 @@ public class Enemy : MonoBehaviour, IHpable
 		}
 	}
 
-	/*
-	protected void Update()
-	{
-		aiBase.destination = targetTransform.position;
-	}
-	*/
-
 	private IEnumerator CheckPlayerPosition ()
 	{
 		while (true)
