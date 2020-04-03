@@ -1,16 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 namespace Cyberevolver.Unity
 {
 	/// <summary>
 	/// Hides UI camera's culling layer after clicking specific key on keyboard.
 	/// </summary>
-	public class UIHider : MonoBehaviour
+	public class UIHider : AutoInstanceBehaviour<UIHider>
 	{
 		[SerializeField] private KeyCode keyCodeActive = KeyCode.F1;
+
+		[SerializeField]
+		private CanvasGroup uiElements = null; 
 		public bool IsHidden { get; private set; } = false;
 
 		protected void Update()
@@ -32,16 +35,16 @@ namespace Cyberevolver.Unity
 			HideUI(IsHidden);
 		}
 
-		public void HideUI (bool areUSure)
+		public void HideUI (bool isTrue)
 		{
-			if (!areUSure)
+			if (isTrue)
 			{
-				Camera.main.cullingMask = ~(0);
+				uiElements.alpha = 0f;
 			}
 
 			else
 			{
-				Camera.main.cullingMask = ~(1 << 5);
+				uiElements.alpha = 1f;
 			}
 		}
 	}

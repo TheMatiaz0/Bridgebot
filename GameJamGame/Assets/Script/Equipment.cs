@@ -80,7 +80,6 @@ public sealed class Equipment : AutoInstanceBehaviour<Equipment>
     }
     public void Select(Cint index)
     {
-
         if (index == selected)
             return;
         selected = index;
@@ -90,7 +89,6 @@ public sealed class Equipment : AutoInstanceBehaviour<Equipment>
 
     private void RefreshSelect()
     {
-
         for (int i = 0; i < 3; i++)
         {
             elements[i].SetSelect(selected == i);
@@ -101,9 +99,9 @@ public sealed class Equipment : AutoInstanceBehaviour<Equipment>
     {
         int i = 0;
         elements = new HotBarElement[3];
-        foreach (var gameObj in eqParent.GetAllChildren())
+        foreach (Transform gameObj in eqParent.GetAllChildren())
         {
-            var hotBarItem = gameObj.GetComponent<HotBarElement>();
+            HotBarElement hotBarItem = gameObj.GetComponent<HotBarElement>();
             if (i < items.Count)
             {
                 hotBarItem.SetItem(items[i]);

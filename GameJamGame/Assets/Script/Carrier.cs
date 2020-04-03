@@ -3,6 +3,7 @@ using Pathfinding;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Carrier : MonoBehaviourPlus, IHpable
@@ -18,9 +19,6 @@ public class Carrier : MonoBehaviourPlus, IHpable
     [Auto]
     public AIPath AIPath { get; private set; }
 
-
-    [SerializeField]
-    private Transform resourcesPoint = null;
     [SerializeField, RequiresAny]
     private Resource first;
     public Resource Current { get; private set; }
@@ -37,8 +35,6 @@ public class Carrier : MonoBehaviourPlus, IHpable
     private float speed = 10;
 
     private Transform currentTarget = null;
-
-    private bool bridgeOnTrigger = false;
 
     protected void Start()
     {
@@ -82,19 +78,15 @@ public class Carrier : MonoBehaviourPlus, IHpable
     {
         while(true)
         {
-            yield return GoToResources();
+            yield return GoToResource();
 
             // gather resources
             yield return GatherResources();
 
             yield return GoPoints();
 
-            // yield return GoToBridge();
-
             // fix the bridge
             yield return FixBridge(selectedBridge);
-            yield return Async.Until(() => selectedBridge.IsFixed);
-            Debug.Log("Hello world!");
             
         }
     }
@@ -103,29 +95,22 @@ public class Carrier : MonoBehaviourPlus, IHpable
     /// Pathfinding method.
     /// </summary>
     /// <returns></returns>
-    private IEnumerator GoToResources()
+    private IEnumerator GoToResource()
     {
-        AIPath.canMove = true;
-        AIPath.canSearch = true;
-        AIPath.destination = Current.transform.position;
-        yield return Async.NextFrame;
-        yield return Async.Until(() => AIPath.reachedEndOfPath);
-    }
+        Current = Resource.GetClosestResource(this.transform.position, 40);
 
-
-    /// <summary>
-    /// Pathfinding method.
-    /// </summary>
-    /// <returns></returns>
-    private IEnumerator GoToBridge()
-    {
-        AIPath.canMove = true;
-        AIPath.canSearch = true;
-        AIPath.destination = selectedBridge.BuildPoint.position;
-        Debug.Log("Coming to bridge...");
-        yield return Async.NextFrame;
-        yield return Async.Until(() => AIPath.reachedEndOfPath);
-        Debug.Log("Bridge is here.");
+        if (Current != null)
+        {
+            AIPath.canMove = true;
+            AIPath.canSearch = true;
+            AIPath.destination = Current.transform.position;
+            yield return Async.NextFrame;
+            yield return Async.Until(() => AIPath.reachedEndOfPath);
+        }
+        else
+        {
+            yield return StartCoroutine(GoToResource());
+        }
     }
 
     private IEnumerator GoPoints(bool reverse = false)
@@ -133,7 +118,7 @@ public class Carrier : MonoBehaviourPlus, IHpable
         AIPath.canMove = false;
         AIPath.canSearch = false;
 
-        Transform[] transforms = Current.Points;
+        Transform[] transforms = (Transform[])Current.Points.Clone();
 
         if (reverse)
         {
@@ -145,11 +130,6 @@ public class Carrier : MonoBehaviourPlus, IHpable
             currentTarget = item;
             Debug.Log("Coming to point...");
             yield return Async.Until(() => Vector2.Distance(this.transform.position, item.position) <= 0.2f);
-        }
-
-        if (reverse)
-        {
-            Array.Reverse(transforms);
         }
 
         currentTarget = null;
@@ -168,33 +148,32 @@ public class Carrier : MonoBehaviourPlus, IHpable
 
     private IEnumerator FixBridge(Bridge bridge)
     {
-        while (CurrentResources > 0 && bridge.IsFixed == false)
+        if (bridge.IsFixed == false)
         {
-            bridge.ResourcesAddedToBuild += 1;
-            CurrentResources -= 1;
-            Debug.Log($"I added to the bridge {bridge.ResourcesAddedToBuild} resources. I have {CurrentResources} now");
+            while (CurrentResources > 0)
+            {
+                bridge.ResourcesAddedToBuild += 1;
+                CurrentResources -= 1;
+                Debug.Log($"I added to the bridge {bridge.ResourcesAddedToBuild} resources. I have {CurrentResources} now");
 
-            yield return Async.Wait(TimeSpan.FromMilliseconds(900));
+                yield return Async.Wait(TimeSpan.FromMilliseconds(900));
+            }
+
+            Debug.Log("O cholibka, skończyły mi się surowce.");
+
+            yield return GoPoints(true);
+            yield break;
         }
 
-        Debug.Log("O cholibka, skończyły mi się surowce.");
-        AIPath.canMove = false;
-        AIPath.canSearch = false;
-        yield return GoPoints(true);
-        yield break;
+        else
+        {
+            Debug.Log("THE END.");
+            StopAllCoroutines();
+        }
     }
 
-    /*
     protected void OnTriggerEnter2D(Collider2D collision)
     {
-        Bridge bridge = null;
-        if (bridge = collision.GetComponent<Bridge>())
-        {
-            if (bridge == selectedBridge)
-            {
-                bridgeOnTrigger = true;
-            }
-        }
 
         if (HpableExtension.IsFromWrongTeam(this, collision, out Bullet bullet))
         {
@@ -202,19 +181,6 @@ public class Carrier : MonoBehaviourPlus, IHpable
             Destroy(bullet.gameObject);
         }
     }
-
-    protected void OnTriggerExit2D(Collider2D collision)
-    {
-        Bridge bridge = null;
-        if (bridge = collision.GetComponent<Bridge>())
-        {
-            if (bridge == selectedBridge)
-            {
-                bridgeOnTrigger = true;
-            }
-        }
-    }
-    */
 
     private void Hp_OnValueChangeToMin(object sender, Hp.HpChangedArgs e)
     {
