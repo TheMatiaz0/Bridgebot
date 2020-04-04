@@ -74,6 +74,14 @@ public class Spawner : AutoInstanceBehaviour<Spawner>
 		}
 	}
 
+	public void KillAllEnemies()
+	{
+		foreach (Enemy item in SpawnedEnemies)
+		{
+			Destroy(item.gameObject);
+		}
+	}
+
 	private IEnumerator SpawnWave()
 	{
 		for (int i = 0; i < enemyCount; i++)

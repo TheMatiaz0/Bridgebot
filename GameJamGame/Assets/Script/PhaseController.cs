@@ -62,6 +62,7 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 				break;
 
 			case Phase.EXPLORING:
+				Spawner.Instance.KillAllEnemies();
 				enableUpdate = false;
 				battleUI.SetActive(false);
 				timer.gameObject.SetActive(false);

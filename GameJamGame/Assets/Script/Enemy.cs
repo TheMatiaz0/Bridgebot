@@ -79,9 +79,9 @@ public class Enemy : MonoBehaviour, IHpable
 		}
 	}
 
-	public bool CanSeePlayer ()
+	public bool CanSeeTarget ()
 	{
-		float dis = Vector2.Distance(Player.Instance.transform.position, this.transform.position);
+		float dis = Vector2.Distance(targetTransform.position, this.transform.position);
 		return dis <= minDistance;
 	}
 

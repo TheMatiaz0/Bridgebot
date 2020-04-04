@@ -2587,6 +2587,11 @@ PrefabInstance:
       propertyPath: <Points>k__BackingField.Array.data[5]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2207671982658554186, guid: bd610ac11470bda47bb47e4f926275e7,
+        type: 3}
+      propertyPath: resourceCount
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 2207671982658554230, guid: bd610ac11470bda47bb47e4f926275e7,
         type: 3}
       propertyPath: m_Name
@@ -5080,7 +5085,7 @@ PrefabInstance:
     - target: {fileID: 3964461299274324485, guid: 8ed8ebfb045b04d4d9b8046b2576ad68,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -433.2
+      value: -435
       objectReference: {fileID: 0}
     - target: {fileID: 3964461299274324485, guid: 8ed8ebfb045b04d4d9b8046b2576ad68,
         type: 3}
@@ -34861,7 +34866,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2073779593
 RectTransform:
   m_ObjectHideFlags: 0
@@ -37248,7 +37253,7 @@ PrefabInstance:
     - target: {fileID: 6357647611718055727, guid: d988518869a6468409e59d4421faff0e,
         type: 3}
       propertyPath: enemyCount._Value
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d988518869a6468409e59d4421faff0e, type: 3}
@@ -37528,6 +37533,11 @@ PrefabInstance:
       propertyPath: timeToEndPreparation.minutes
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6875935166602366696, guid: ca047b4d9a0ff9b4092208cb9a92a891,
+        type: 3}
+      propertyPath: battleUI
+      value: 
+      objectReference: {fileID: 1422742397}
     - target: {fileID: 6875935166602366698, guid: ca047b4d9a0ff9b4092208cb9a92a891,
         type: 3}
       propertyPath: m_Name

@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cyberevolver;
+using System;
+using System.Linq;
 
 public class HurtTurret : MonoBehaviour, IHpable
 {

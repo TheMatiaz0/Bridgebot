@@ -73,3 +73,7 @@ MonoBehaviour:
   selection: {fileID: 0}
   islandCarrierSpawnPoint: {fileID: 0}
   carrier: {fileID: 0}
+  carrierPrefab: {fileID: 8926157502099828154, guid: b5dd9eb753152324bba75ca22ed49bc4,
+    type: 3}
+  resourcesOnIsland: []
+  enemyPoints: []

@@ -17,7 +17,7 @@ public class Shooter : Enemy
 	{
 		base.Update();
 
-		if (base.CanSeePlayer())
+		if (base.CanSeeTarget())
 		{
 			AIBase.canMove = false;
 			if (cooldownShoot.Try())

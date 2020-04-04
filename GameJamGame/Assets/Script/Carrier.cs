@@ -19,8 +19,6 @@ public class Carrier : MonoBehaviourPlus, IHpable
     [Auto]
     public AIPath AIPath { get; private set; }
 
-    [SerializeField, RequiresAny]
-    private Resource first;
     public Resource Current { get; private set; }
 
     [SerializeField]
@@ -65,6 +63,7 @@ public class Carrier : MonoBehaviourPlus, IHpable
 
     private void Bridge_OnBridgeBuilt(object sender, Cyberevolver.SimpleArgs<Bridge> e)
     {
+        IsLaunched = false;
         StopAllCoroutines();
     }
 
@@ -82,12 +81,6 @@ public class Carrier : MonoBehaviourPlus, IHpable
                 Launch();
                 break;
         }
-    }
-
-    protected override void Awake()
-    {
-        base.Awake();
-        Current = first;
     }
 
     // [Button]
