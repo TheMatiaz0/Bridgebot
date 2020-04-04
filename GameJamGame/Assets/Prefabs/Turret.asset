@@ -15,3 +15,5 @@ MonoBehaviour:
   <Name>k__BackingField: Turret
   <Icon>k__BackingField: {fileID: 21300000, guid: 30ec28316ccd7d74a81aa5ab5985f2a7,
     type: 3}
+  <Prefab>k__BackingField: {fileID: 7393782866098524233, guid: 45285af339c37af438391118d6c9794d,
+    type: 3}

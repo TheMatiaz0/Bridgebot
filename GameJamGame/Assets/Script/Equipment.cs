@@ -20,7 +20,7 @@ public sealed class Equipment : AutoInstanceBehaviour<Equipment>
             Equipment = equipment ?? throw new ArgumentNullException(nameof(equipment));
         }
     }
-    protected const string PREFAB = "Prefabs";
+    private const string PREFAB = "Prefabs";
     private const string REFERENCE = "Reference";
     private const string VALUES = "Values";
     [SerializeField, BoxGroup(REFERENCE), RequiresAny]
@@ -50,6 +50,17 @@ public sealed class Equipment : AutoInstanceBehaviour<Equipment>
 
         }
 
+    }
+
+    public void RemoveItem (Item item)
+    {
+        if (items.Contains(item) == true)
+        {
+            items.Remove(item);
+            RefreshGroup();
+            if (items.Count - 1 == selected)
+                item.OnEndSelect();
+        }
     }
 
     protected override void Awake()

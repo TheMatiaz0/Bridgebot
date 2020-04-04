@@ -187,7 +187,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startHp:
     _Value: 10
-  rb2D: {fileID: 96356461702647518}
   aiBase: {fileID: 1073618881282620597}
   dmg:
     _Value: 1
@@ -255,16 +254,16 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.97507715, y: 0}
+  m_Offset: {x: -0.2234397, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
+    oldSize: {x: 8, y: 8}
     newSize: {x: 0.04, y: 0.04}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.8566337, y: 8}
+  m_Size: {x: 5.4987173, y: 8}
   m_EdgeRadius: 0

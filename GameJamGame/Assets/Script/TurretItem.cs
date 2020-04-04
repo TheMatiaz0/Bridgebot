@@ -9,23 +9,24 @@ public class TurretItem : Item
     public TurretItem(TimeSpan delay)
     {
         Delay = delay;
-        cooldownController = new CooldownController(Equipment.Instance, delay);
+        // cooldownController = new CooldownController(Equipment.Instance, delay);
     }
 
     public TimeSpan Delay { get; }
-    private readonly CooldownController cooldownController;
 
     public override void OnUse()
     {
         base.OnUse();
-        PlacementController.Instance.OnPlace();
-
+        if (PlacementController.Instance.CanBuild)
+        {
+            PlacementController.Instance.OnPlace();
+            Equipment.Instance.RemoveItem(this);
+        }
     }
     public override void OnStartSelect()
     {
         base.OnStartSelect();
         PlacementController.Instance.Activate(Prefab);
-
     }
     public override void OnEndSelect()
     {

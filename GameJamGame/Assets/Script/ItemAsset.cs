@@ -16,5 +16,5 @@ public class ItemAsset : ScriptableObject
     public Sprite Icon { get; private set; }
 
     [field: SerializeField]
-    public GameObject prefab { get; private set; }
+    public GameObject Prefab { get; private set; }
 }

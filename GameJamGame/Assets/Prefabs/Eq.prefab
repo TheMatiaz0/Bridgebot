@@ -57,8 +57,15 @@ MonoBehaviour:
     hour: 0
     day: 0
     precision: 2
+  turretDelay:
+    miliseconds: 600
+    seconds: 0
+    minutes: 0
+    hour: 0
+    day: 0
+    precision: 2
   pistol: {fileID: 11400000, guid: 7236d7dff364a524897e2dfab0f57f6f, type: 2}
-  turret: {fileID: 0}
+  turret: {fileID: 11400000, guid: 8261cf38ebed0b0418509e5c0e2a5802, type: 2}
 --- !u!1 &3964461300639535051
 GameObject:
   m_ObjectHideFlags: 0

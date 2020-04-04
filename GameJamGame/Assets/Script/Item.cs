@@ -23,7 +23,7 @@ public abstract class Item
         }
         Name = asset.name;
         Icon = asset.Icon;
-        Prefab = asset.prefab;
+        Prefab = asset.Prefab;
         return this;
     }
     
