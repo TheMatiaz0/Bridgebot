@@ -6,3 +6,7 @@ Game made by:
 - TheMatiaz0 (Mateusz Kusionowicz).
 - kurroneko (Rad Szwugier).
 - w4ty (Bruno T.).
+
+Under Cyberevolver_Studios.
+
+All Rights Reserved.
