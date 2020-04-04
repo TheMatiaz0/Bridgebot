@@ -10,6 +10,8 @@ public class PlacementController : AutoInstanceBehaviour<PlacementController>
 	private SpriteRenderer spriteRender = null;
 	private Collider2D col2D = null;
 
+	private RaycastHit2D hit;
+
 	public bool CanBuild { get; private set; }
 
 	public void Activate (GameObject prefab)
@@ -31,14 +33,13 @@ public class PlacementController : AutoInstanceBehaviour<PlacementController>
 
 		currentObject.transform.position = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-		RaycastHit2D hit = currentObject.Ray2DWithoutThis(currentObject.transform.position, Vector2.zero, 15);
+		hit = currentObject.Ray2DWithoutThis(currentObject.transform.position, Vector2.zero, 15);
 		if (hit.collider != null)
 		{ 
 			if (hit.collider.CompareTag("BuildingPlace"))
 			{
 				spriteRender.color = Color.green;
 				CanBuild = true;
-				hit.collider.tag = "";
 				return;
 			}
 		}
@@ -50,6 +51,7 @@ public class PlacementController : AutoInstanceBehaviour<PlacementController>
 	public void OnPlace ()
 	{
 		spriteRender.color = Color.white;
+		hit.collider.tag = "Untagged";
 		col2D.isTrigger = false;
 		currentObject = null;
 	}

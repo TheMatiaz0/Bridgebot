@@ -17,11 +17,20 @@ public class TurretItem : Item
     public override void OnUse()
     {
         base.OnUse();
-        if (PlacementController.Instance.CanBuild)
+        if (PhaseController.Instance.CurrentPhase == PhaseController.Phase.PREPARATION)
         {
-            PlacementController.Instance.OnPlace();
-            Equipment.Instance.RemoveItem(this);
+            if (PlacementController.Instance.CanBuild)
+            {
+                PlacementController.Instance.OnPlace();
+                Equipment.Instance.RemoveItem(this);
+            }
         }
+
+        else
+        {
+            Debug.Log("Building allowed only during Preparation.");
+        }
+
     }
     public override void OnStartSelect()
     {
