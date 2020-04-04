@@ -12,13 +12,13 @@ GameObject:
   - component: {fileID: 7297082463388712591}
   - component: {fileID: 7297082463388712592}
   - component: {fileID: 1073618881282620597}
-  - component: {fileID: 1157404923677522690}
   - component: {fileID: 96356461702647518}
+  - component: {fileID: 4771697028159701392}
   - component: {fileID: 4330210078118129173}
   - component: {fileID: 8917574850798056550}
   - component: {fileID: 414130967782520919}
   m_Layer: 11
-  m_Name: Enemy
+  m_Name: Shooter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -134,7 +134,7 @@ MonoBehaviour:
   repathRate: 0.5
   canSearch: 1
   canMove: 1
-  maxSpeed: 2
+  maxSpeed: 1
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
@@ -152,24 +152,6 @@ MonoBehaviour:
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
   constrainInsideGraph: 0
---- !u!114 &1157404923677522690
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1928130470648043647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8dad69f620bf85245829492ac9c1dea7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startHp:
-    _Value: 10
-  rb2D: {fileID: 96356461702647518}
-  aiBase: {fileID: 1073618881282620597}
-  takeDmg:
-    _Value: 4
 --- !u!50 &96356461702647518
 Rigidbody2D:
   serializedVersion: 4
@@ -191,6 +173,33 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &4771697028159701392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1928130470648043647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01a2f9716c3efef4aa9d91992facdc5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startHp:
+    _Value: 10
+  rb2D: {fileID: 96356461702647518}
+  aiBase: {fileID: 1073618881282620597}
+  dmg:
+    _Value: 1
+  minDistance: 5
+  timeForShoot:
+    miliseconds: 714
+    seconds: 0
+    minutes: 0
+    hour: 0
+    day: 0
+    precision: 1
+  bulletSpeed: 5
 --- !u!114 &4330210078118129173
 MonoBehaviour:
   m_ObjectHideFlags: 0

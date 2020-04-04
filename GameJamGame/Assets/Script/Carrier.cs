@@ -179,7 +179,7 @@ public class Carrier : MonoBehaviourPlus, IHpable
         if (HpableExtension.IsFromWrongTeam(this, collision, out Bullet bullet))
         {
             this.Hp.TakeHp(bullet.Dmg, "Bullet");
-            Destroy(bullet.gameObject);
+            bullet.Kill();
         }
     }
 

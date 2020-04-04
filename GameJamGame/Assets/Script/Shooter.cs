@@ -19,10 +19,16 @@ public class Shooter : Enemy
 
 		if (base.CanSeePlayer())
 		{
+			AIBase.canMove = false;
 			if (cooldownShoot.Try())
 			{
 				Shoot();
 			}
+		}
+
+		else
+		{
+			AIBase.canMove = true;
 		}
 	}
 

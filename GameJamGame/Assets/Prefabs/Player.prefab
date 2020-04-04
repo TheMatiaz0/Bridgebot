@@ -382,6 +382,7 @@ MonoBehaviour:
   startMaxHp: 10
   cam: {fileID: 0}
   pauseMenu: {fileID: 0}
+  gameOver: {fileID: 0}
 --- !u!50 &8154490813324486482
 Rigidbody2D:
   serializedVersion: 4

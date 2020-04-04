@@ -19,6 +19,8 @@ public class Enemy : MonoBehaviour, IHpable
 	[SerializeField]
 	private AIBase aiBase;
 
+	public AIBase AIBase => aiBase;
+
 	public Team CurrentTeam { get; private set; } = Team.Bad;
 
 	public Hp Hp { get; private set; }
@@ -78,7 +80,7 @@ public class Enemy : MonoBehaviour, IHpable
 		if (HpableExtension.IsFromWrongTeam(this, collision, out Bullet bullet))
 		{
 			this.Hp.TakeHp(bullet.Dmg, "Bullet");
-			Destroy(bullet.gameObject);
+			bullet.Kill();
 		}
 	}
 

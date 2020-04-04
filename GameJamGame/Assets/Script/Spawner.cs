@@ -15,7 +15,7 @@ public class Spawner : AutoInstanceBehaviour<Spawner>
 	private Transform[] enemySpawners;
 
 	[SerializeField]
-	private Enemy enemyType;
+	private Enemy[] enemyTypes;
 
 	[SerializeField]
 	private Cint enemyCount = 1;
@@ -105,8 +105,9 @@ public class Spawner : AutoInstanceBehaviour<Spawner>
 	private void SpawnEnemy()
 	{
 		Enemy tempEnemy;
+		int k = UnityEngine.Random.Range(0, enemyTypes.Length);
 		int t = UnityEngine.Random.Range(0, enemySpawners.Length);
-		SpawnedEnemies.Add(tempEnemy = Instantiate(enemyType, enemySpawners[t].position, Quaternion.identity).GetComponent<Enemy>());
+		SpawnedEnemies.Add(tempEnemy = Instantiate(enemyTypes[k], enemySpawners[t].position, Quaternion.identity).GetComponent<Enemy>());
 		tempEnemy.gameObject.layer = 11;
 	}
 }

@@ -69,7 +69,7 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
         if (HpableExtension.IsFromWrongTeam(this, collision, out Bullet bullet))
         {
             this.Hp.TakeHp(bullet.Dmg, "Bullet");
-            Destroy(bullet);
+            bullet.Kill();
         }
     }
 
