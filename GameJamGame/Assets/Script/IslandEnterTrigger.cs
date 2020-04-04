@@ -19,6 +19,11 @@ public class IslandEnterTrigger : MonoBehaviour
 
 	public Carrier Carrier => carrier;
 
+	[SerializeField]
+	private Resource[] resourcesOnIsland;
+
+	public Resource[] ResourcesOnIsland => resourcesOnIsland;
+
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 

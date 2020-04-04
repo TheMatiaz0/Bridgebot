@@ -190,10 +190,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxCapacity: 8
-  resourcesPoint: {fileID: 0}
   first: {fileID: 0}
   startMaxHp: 3
   speed: 5
+  spriteRender: {fileID: 1033927115}
 --- !u!114 &8514928864346537232
 MonoBehaviour:
   m_ObjectHideFlags: 0
