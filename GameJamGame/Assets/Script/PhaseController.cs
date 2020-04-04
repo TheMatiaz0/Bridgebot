@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PhaseController : AutoInstanceBehaviour<PhaseController>
 {
@@ -15,6 +16,9 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 
 	[SerializeField]
 	private WaveTimer timer = null;
+
+	[SerializeField]
+	private GameObject battleUI = null;
 
 	[SerializeField]
 	private SerializedTimeSpan timeToEndPreparation;
@@ -49,6 +53,7 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 		{
 			case Phase.FIGHTING:
 				enableUpdate = false;
+				battleUI.SetActive(true);
 				timer.gameObject.SetActive(false);
 				if (spawnEnemies == null)
 				{
@@ -58,12 +63,14 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 
 			case Phase.EXPLORING:
 				enableUpdate = false;
+				battleUI.SetActive(false);
 				timer.gameObject.SetActive(false);
 				StopAllCoroutines();
 				break;
 
 			case Phase.PREPARATION:
 				enableUpdate = true;
+				battleUI.SetActive(false);
 				timer.gameObject.SetActive(true);
 				StopAllCoroutines();
 				break;
@@ -80,7 +87,26 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 
 	private void UpdateText(TimeSpan currentTimer)
 	{
-		timer.TimerText.text = $"{currentTimer.Minutes}:{currentTimer.Seconds:00}";
+		if (currentTimer <= TimeSpan.FromSeconds(5))
+		{
+			timer.TimerText.text = GenerateTimeInfo(currentTimer, true);
+			return;
+		}
+
+		timer.TimerText.text = GenerateTimeInfo(currentTimer);
+	}
+
+	private string GenerateTimeInfo(TimeSpan currentTimer, bool ending = false)
+	{
+		if (ending == true)
+		{
+			return $"<color=red>{currentTimer.Minutes}:{currentTimer.Seconds:00}</color>";
+		}
+
+		else
+		{
+			return $"{currentTimer.Minutes}:{currentTimer.Seconds:00}";
+		}
 	}
 
 	private void OnBridgeSelected(object sender, Cyberevolver.SimpleArgs<GameObject> e)
@@ -100,7 +126,7 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 
 	private void CalculateTimer()
 	{
-		if (CurrentTimer <= TimeSpan.Zero == true)
+		if (CurrentTimer <= TimeSpan.Zero)
 		{
 			CurrentPhase = Phase.FIGHTING;
 			return;
@@ -109,7 +135,7 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 		CurrentTimer = CurrentTimerPrepare();
 	}
 
-	private TimeSpan CurrentTimerPrepare ()
+	private TimeSpan CurrentTimerPrepare()
 	{
 		return TimeSpan.FromSeconds(CurrentTimer.TotalSeconds - Time.deltaTime);
 	}

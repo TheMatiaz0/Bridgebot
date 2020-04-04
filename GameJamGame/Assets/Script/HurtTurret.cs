@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cyberevolver;
 
-public class Turret : MonoBehaviour, IHpable
+public class HurtTurret : MonoBehaviour, IHpable
 {
 	[SerializeField]
 	private float range = 40f;

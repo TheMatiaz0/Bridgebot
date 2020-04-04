@@ -9,7 +9,6 @@ public class TurretItem : Item
     public TurretItem(TimeSpan delay)
     {
         Delay = delay;
-        // cooldownController = new CooldownController(Equipment.Instance, delay);
     }
 
     public TimeSpan Delay { get; }
@@ -28,7 +27,8 @@ public class TurretItem : Item
 
         else
         {
-            Debug.Log("Building allowed only during Preparation.");
+            InfoManager.Instance.InfoObject.SetActive(true);
+            InfoManager.Instance.InfoText.text = "Building allowed only during Preparation.";
         }
 
     }

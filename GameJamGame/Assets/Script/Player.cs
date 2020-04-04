@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Player : AutoInstanceBehaviour<Player>, IHpable
 {
@@ -55,6 +56,15 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
     [SerializeField]
     private BridgeSelection selection = null;
 
+    [SerializeField]
+    private GameObject hpSingleObject = null;
+
+    [SerializeField] private Color lifeColor = Color.green;
+    [SerializeField] private Color deadColor = Color.red;
+
+    [SerializeField]
+    private Transform parentForHp = null;
+
     private void SetDefCamera()
     {
         cam = Camera.main;
@@ -82,6 +92,34 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
     {
         Bridge.AllBridgeBuilt = 0;
         Enemy.AllKilledEnemies = new List<Enemy>();
+
+        Hp.OnValueChangeToMin += Hp_OnValueChangeToMin;
+        Hp.OnValueChanged += Hp_OnValueChanged;
+        Refresh();
+    }
+
+    private void Hp_OnValueChanged(object sender, Hp.HpChangedArgs e)
+    {
+        Refresh();
+    }
+
+    public void Refresh()
+    {
+        if (Hp == null)
+            return;
+
+        int index = 0;
+        foreach (Transform item in parentForHp)
+        {
+            index++;
+            item.GetComponent<Image>().color = (index > Hp.Value) ? deadColor : lifeColor;
+        }
+    }
+
+    private void Hp_OnValueChangeToMin(object sender, Hp.HpChangedArgs e)
+    {
+        Debug.Log("You are dead");
+        Destroy(this.gameObject);
     }
 
     protected void OnEnable()

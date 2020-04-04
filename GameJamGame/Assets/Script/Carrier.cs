@@ -48,6 +48,12 @@ public class Carrier : MonoBehaviourPlus, IHpable
     {
         Hp = new Hp(startMaxHp, 0, startMaxHp);
         Hp.OnValueChangeToMin += Hp_OnValueChangeToMin;
+        Hp.OnValueChanged += Hp_OnValueChanged;
+
+    }
+
+    private void Hp_OnValueChanged(object sender, Hp.HpChangedArgs e)
+    {
 
     }
 
