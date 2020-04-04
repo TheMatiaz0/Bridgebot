@@ -49,6 +49,11 @@ public class BridgeSelection : MonoBehaviour
 
 	public void ConfirmSelection()
 	{
+		if (!this.gameObject.activeSelf)
+		{
+			return;
+		}
+
 		Vector2 cubeRay = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		RaycastHit2D cubeHit = Physics2D.Raycast(cubeRay, Vector2.zero);
 
@@ -57,9 +62,9 @@ public class BridgeSelection : MonoBehaviour
 			if (cubeHit.collider.CompareTag("Bridge"))
 			{
 				SelectedBridge = cubeHit.collider.gameObject.GetComponent<Bridge>();
-				this.gameObject.SetActive(false);
 				lastIsland.Carrier.transform.position = (Vector2)lastIsland.IslandCarrierSpawnPoint.position;
 				Destroy(lastIsland.gameObject);
+				this.gameObject.SetActive(false);
 			}
 		}
 	}
