@@ -49,11 +49,16 @@ public class Enemy : MonoBehaviour, IHpable
 
 	protected virtual void Start()
 	{
-		if (Player.Instance != null)
+		targetTransform = GameObject.FindGameObjectWithTag("Carrier").transform;
+		StartCoroutine(CheckTargetPosition());
+
+		/*
+		if (Player.Instance.transform != null)
 		{
 			targetTransform = Player.Instance.transform;
 			StartCoroutine(CheckPlayerPosition());
 		}
+		*/
 	}
 
 	protected virtual void Update()
@@ -69,7 +74,7 @@ public class Enemy : MonoBehaviour, IHpable
 		}
 	}
 
-	private IEnumerator CheckPlayerPosition()
+	private IEnumerator CheckTargetPosition()
 	{
 		while (true)
 		{

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Bridge
   - BuildingPlace
+  - Carrier
   layers:
   - Default
   - TransparentFX

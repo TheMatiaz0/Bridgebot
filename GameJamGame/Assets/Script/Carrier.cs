@@ -42,6 +42,18 @@ public class Carrier : MonoBehaviourPlus, IHpable
     [SerializeField]
     private Sprite fullWood = null;
 
+    [SerializeField]
+    private float gatherRange = 40;
+
+    [SerializeField]
+    private float distanceBetweenPoints = 0.2f;
+
+    [SerializeField]
+    private SerializedTimeSpan gatherCooldown;
+
+    [SerializeField]
+    private SerializedTimeSpan fixCooldown;
+
     protected void Start()
     {
         Hp = new Hp(startMaxHp, 0, startMaxHp);
@@ -119,6 +131,23 @@ public class Carrier : MonoBehaviourPlus, IHpable
         //rb2D.MovePosition((Vector2)transform.position + (Vector2)currentTarget.position * speed * Time.fixedDeltaTime);
     }
 
+    protected void OnMouseEnter()
+    {
+        WorldUI.Instance.FirstActivate(true);
+    }
+
+    protected void OnMouseOver()
+    {
+        Vector2 vect = new Vector2(this.transform.position.x, this.transform.position.y + 20);
+
+        WorldUI.Instance.Move(Camera.main.WorldToScreenPoint(vect));
+    }
+
+    protected void OnMouseExit()
+    {
+        WorldUI.Instance.FirstActivate(false);
+    }
+
     private IEnumerator Run()
     {
         while (true)
@@ -143,7 +172,7 @@ public class Carrier : MonoBehaviourPlus, IHpable
     /// <returns></returns>
     private IEnumerator GoToResource()
     {
-        Current = Resource.GetClosestResource(this.transform.position, 40);
+        Current = Resource.GetClosestResource(this.transform.position, gatherRange);
 
         if (Current == null)
         {
@@ -155,17 +184,6 @@ public class Carrier : MonoBehaviourPlus, IHpable
         AIPath.destination = Current.transform.position;
         yield return Async.NextFrame;
         yield return Async.Until(() => AIPath.reachedEndOfPath);
-
-        /*
-        if (Current != null)
-        {
-
-        }
-            else
-            {
-                yield return StartCoroutine(GoToResource());
-            }
-            */
     }
 
     private IEnumerator GoPoints(bool reverse = false)
@@ -183,8 +201,8 @@ public class Carrier : MonoBehaviourPlus, IHpable
         foreach (Transform item in transforms)
         {
             currentTarget = item;
-            Debug.Log("Coming to point...");
-            yield return Async.Until(() => Vector2.Distance(this.transform.position, item.position) <= 0.2f);
+            // Debug.Log("Coming to point...");
+            yield return Async.Until(() => Vector2.Distance(this.transform.position, item.position) <= distanceBetweenPoints);
         }
 
         currentTarget = null;
@@ -196,9 +214,9 @@ public class Carrier : MonoBehaviourPlus, IHpable
         {
             resource.ResourceCount -= 1;
             CurrentResources += 1;
-            Debug.Log($"I have {CurrentResources} resources now");
+            // Debug.Log($"I have {CurrentResources} resources now");
 
-            yield return Async.Wait(TimeSpan.FromMilliseconds(600));
+            yield return Async.Wait(gatherCooldown.TimeSpan);
         }
 
         yield return StartCoroutine(GoToResource());
@@ -210,13 +228,12 @@ public class Carrier : MonoBehaviourPlus, IHpable
         {
             bridge.ResourcesAddedToBuild += 1;
             CurrentResources -= 1;
-            Debug.Log($"I added to the bridge {bridge.ResourcesAddedToBuild} resources. I have {CurrentResources} now");
+            // Debug.Log($"I added to the bridge {bridge.ResourcesAddedToBuild} resources. I have {CurrentResources} now");
 
-            yield return Async.Wait(TimeSpan.FromMilliseconds(900));
+            yield return Async.Wait(fixCooldown.TimeSpan);
         }
 
         woodSpriteRender.sprite = null;
-        Debug.Log("O cholibka, skończyły mi się surowce.");
 
         yield return GoPoints(true);
         yield break;
@@ -224,7 +241,6 @@ public class Carrier : MonoBehaviourPlus, IHpable
 
     protected void OnTriggerEnter2D(Collider2D collision)
     {
-
         if (HpableExtension.IsFromWrongTeam(this, collision, out Bullet bullet))
         {
             this.Hp.TakeHp(bullet.Dmg, "Bullet");
@@ -234,7 +250,6 @@ public class Carrier : MonoBehaviourPlus, IHpable
 
     private void Hp_OnValueChangeToMin(object sender, Hp.HpChangedArgs e)
     {
-        // game over!
         Player.Instance.LaunchGameOver();
     }
 

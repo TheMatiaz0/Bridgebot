@@ -48,7 +48,7 @@ public class Bridge : MonoBehaviourPlus
     private void RemoveTriggerOnFixed ()
     {
         Destroy(triggerCollider);
-        WorldUI.Instance.FirstActivate(false);
+        WorldUI.Instance?.FirstActivate(false);
     }
 
     protected void OnMouseEnter()

@@ -36853,9 +36853,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2520956426205740012, guid: 4969c24a44ffcd54ea167aa1d220e36e,
         type: 3}
+      propertyPath: blockOtherFreezes.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520956426205740012, guid: 4969c24a44ffcd54ea167aa1d220e36e,
+        type: 3}
       propertyPath: objectToOpen
       value: 
       objectReference: {fileID: 277902219}
+    - target: {fileID: 2520956426205740012, guid: 4969c24a44ffcd54ea167aa1d220e36e,
+        type: 3}
+      propertyPath: blockOtherFreezes.Array.data[0]
+      value: 
+      objectReference: {fileID: 219007418}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4969c24a44ffcd54ea167aa1d220e36e, type: 3}
 --- !u!1001 &4727594624823518727
@@ -37817,6 +37827,26 @@ PrefabInstance:
       propertyPath: first
       value: 
       objectReference: {fileID: 1645755939}
+    - target: {fileID: 1270969954557673367, guid: b5dd9eb753152324bba75ca22ed49bc4,
+        type: 3}
+      propertyPath: gatherCooldown.precision
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1270969954557673367, guid: b5dd9eb753152324bba75ca22ed49bc4,
+        type: 3}
+      propertyPath: fixCooldown.precision
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1270969954557673367, guid: b5dd9eb753152324bba75ca22ed49bc4,
+        type: 3}
+      propertyPath: gatherCooldown.miliseconds
+      value: 154
+      objectReference: {fileID: 0}
+    - target: {fileID: 1270969954557673367, guid: b5dd9eb753152324bba75ca22ed49bc4,
+        type: 3}
+      propertyPath: fixCooldown.miliseconds
+      value: 577
+      objectReference: {fileID: 0}
     - target: {fileID: 8926157502099828153, guid: b5dd9eb753152324bba75ca22ed49bc4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -37875,6 +37905,11 @@ PrefabInstance:
     - target: {fileID: 8926157502099828154, guid: b5dd9eb753152324bba75ca22ed49bc4,
         type: 3}
       propertyPath: m_Name
+      value: Carrier
+      objectReference: {fileID: 0}
+    - target: {fileID: 8926157502099828154, guid: b5dd9eb753152324bba75ca22ed49bc4,
+        type: 3}
+      propertyPath: m_TagString
       value: Carrier
       objectReference: {fileID: 0}
     m_RemovedComponents: []

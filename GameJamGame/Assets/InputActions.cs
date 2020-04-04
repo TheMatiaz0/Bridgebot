@@ -27,7 +27,7 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Shoot"",
+                    ""name"": ""Rotation"",
                     ""type"": ""Button"",
                     ""id"": ""0b65c86a-8ea2-4417-b52a-5d5f95fd292c"",
                     ""expectedControlType"": """",
@@ -35,7 +35,7 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Pause"",
+                    ""name"": ""Shoot"",
                     ""type"": ""Button"",
                     ""id"": ""5612e937-6689-49c8-8d22-acca1496c3e6"",
                     ""expectedControlType"": """",
@@ -43,7 +43,7 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""CancelSelection"",
+                    ""name"": ""Pause"",
                     ""type"": ""Button"",
                     ""id"": ""a04595d4-f805-49c0-b283-8f10ba39ede3"",
                     ""expectedControlType"": """",
@@ -51,7 +51,7 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""ConfirmSelection"",
+                    ""name"": ""CancelSelection"",
                     ""type"": ""Button"",
                     ""id"": ""584f7be9-1f7e-4cd9-bc2e-9f1db61ae1d6"",
                     ""expectedControlType"": """",
@@ -59,9 +59,17 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Interaction"",
+                    ""name"": ""ConfirmSelection"",
                     ""type"": ""Button"",
                     ""id"": ""0f06927a-e636-4e80-a636-13e318001830"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Interaction"",
+                    ""type"": ""Button"",
+                    ""id"": ""25f71da5-8292-45d3-8c49-2d6637102bcb"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
@@ -180,6 +188,17 @@ public class @InputActions : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""33570e8e-b5dd-41d1-8fb7-55ea06906307"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""330a2f81-d742-481d-b093-871d27b8c4cc"",
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
@@ -230,6 +249,17 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Interaction"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""387309da-2c44-412c-90a0-49c158f99ceb"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotation"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -344,6 +374,7 @@ public class @InputActions : IInputActionCollection, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
+        m_Player_Rotation = m_Player.FindAction("Rotation", throwIfNotFound: true);
         m_Player_Shoot = m_Player.FindAction("Shoot", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
         m_Player_CancelSelection = m_Player.FindAction("CancelSelection", throwIfNotFound: true);
@@ -406,6 +437,7 @@ public class @InputActions : IInputActionCollection, IDisposable
     private readonly InputActionMap m_Player;
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Movement;
+    private readonly InputAction m_Player_Rotation;
     private readonly InputAction m_Player_Shoot;
     private readonly InputAction m_Player_Pause;
     private readonly InputAction m_Player_CancelSelection;
@@ -416,6 +448,7 @@ public class @InputActions : IInputActionCollection, IDisposable
         private @InputActions m_Wrapper;
         public PlayerActions(@InputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
+        public InputAction @Rotation => m_Wrapper.m_Player_Rotation;
         public InputAction @Shoot => m_Wrapper.m_Player_Shoot;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputAction @CancelSelection => m_Wrapper.m_Player_CancelSelection;
@@ -433,6 +466,9 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @Movement.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
                 @Movement.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
                 @Movement.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
+                @Rotation.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotation;
+                @Rotation.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotation;
+                @Rotation.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRotation;
                 @Shoot.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShoot;
                 @Shoot.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShoot;
                 @Shoot.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShoot;
@@ -455,6 +491,9 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @Movement.started += instance.OnMovement;
                 @Movement.performed += instance.OnMovement;
                 @Movement.canceled += instance.OnMovement;
+                @Rotation.started += instance.OnRotation;
+                @Rotation.performed += instance.OnRotation;
+                @Rotation.canceled += instance.OnRotation;
                 @Shoot.started += instance.OnShoot;
                 @Shoot.performed += instance.OnShoot;
                 @Shoot.canceled += instance.OnShoot;
@@ -542,6 +581,7 @@ public class @InputActions : IInputActionCollection, IDisposable
     public interface IPlayerActions
     {
         void OnMovement(InputAction.CallbackContext context);
+        void OnRotation(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
         void OnCancelSelection(InputAction.CallbackContext context);
