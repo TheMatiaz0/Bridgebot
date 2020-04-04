@@ -78,6 +78,12 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
         }
     }
 
+    protected void Start()
+    {
+        Bridge.AllBridgeBuilt = 0;
+        Enemy.AllKilledEnemies = new List<Enemy>();
+    }
+
     protected void OnEnable()
     {
         inputActions.Enable();

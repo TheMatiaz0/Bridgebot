@@ -257,15 +257,45 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 182095110502842869, guid: 1aa6935004056354ab3befde5975a8af,
+        type: 3}
+      propertyPath: m_Name
+      value: Icon3
+      objectReference: {fileID: 0}
     - target: {fileID: 182095110865317955, guid: 1aa6935004056354ab3befde5975a8af,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 182095110865317955, guid: 1aa6935004056354ab3befde5975a8af,
+        type: 3}
+      propertyPath: m_Name
+      value: Text3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8071716771742341883, guid: 1aa6935004056354ab3befde5975a8af,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8071716771742341883, guid: 1aa6935004056354ab3befde5975a8af,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8071716771742341883, guid: 1aa6935004056354ab3befde5975a8af,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8672229448253785029, guid: 1aa6935004056354ab3befde5975a8af,
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 8672229448253785029, guid: 1aa6935004056354ab3befde5975a8af,
         type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      propertyPath: m_Name
+      value: Image3
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 182095110502842871, guid: 1aa6935004056354ab3befde5975a8af, type: 3}
@@ -403,15 +433,55 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 182095110502842869, guid: 1aa6935004056354ab3befde5975a8af,
+        type: 3}
+      propertyPath: m_Name
+      value: Icon2
+      objectReference: {fileID: 0}
     - target: {fileID: 182095110865317955, guid: 1aa6935004056354ab3befde5975a8af,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 182095110865317955, guid: 1aa6935004056354ab3befde5975a8af,
+        type: 3}
+      propertyPath: m_Name
+      value: Text2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5223486961304577541, guid: 1aa6935004056354ab3befde5975a8af,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.6691481
+      objectReference: {fileID: 0}
+    - target: {fileID: 5223486961304577541, guid: 1aa6935004056354ab3befde5975a8af,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8071716771742341883, guid: 1aa6935004056354ab3befde5975a8af,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8071716771742341883, guid: 1aa6935004056354ab3befde5975a8af,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8071716771742341883, guid: 1aa6935004056354ab3befde5975a8af,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8672229448253785029, guid: 1aa6935004056354ab3befde5975a8af,
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 8672229448253785029, guid: 1aa6935004056354ab3befde5975a8af,
         type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      propertyPath: m_Name
+      value: Image2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1aa6935004056354ab3befde5975a8af, type: 3}

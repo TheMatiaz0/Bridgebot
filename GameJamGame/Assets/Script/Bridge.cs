@@ -8,7 +8,7 @@ using System;
 
 public class Bridge : MonoBehaviourPlus
 {
-    public static Cint AllBridgeBuilt { get; private set; }
+    public static Cint AllBridgeBuilt { get; set; }
 
     [SerializeField]
     private bool isFixedInit = false;

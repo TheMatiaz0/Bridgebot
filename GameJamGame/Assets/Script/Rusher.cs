@@ -1,22 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cyberevolver;
+using Cyberevolver.Unity;
+using System;
 
 public class Rusher : Enemy
 {
-	protected override void OnCollisionEnter2D(Collision2D collision)
+	[SerializeField]
+	private SerializedTimeSpan attackCooldown;
+
+	protected override void OnTriggerEnter2D(Collider2D collider)
 	{
 		Player player = null;
 		Carrier carrier = null;
 
-		if ((player = collision.collider.GetComponent<Player>()))
+		if (player = collider.GetComponent<Player>())
 		{
-			player.Hp.TakeHp(Dmg, "Rusher");
+			TakeDamage(player);
 		}
 
-		if ((carrier = collision.collider.GetComponent<Carrier>()))
+		if (carrier = collider.GetComponent<Carrier>())
 		{
-			carrier.Hp.TakeHp(Dmg, "Rusher");
+			TakeDamage(carrier);
 		}
+	}
+
+	private IEnumerator TakeDamage (IHpable entity)
+	{
+		entity.Hp.TakeHp(Dmg, "Rusher");
+		yield return Async.Wait(attackCooldown.TimeSpan);
 	}
 }

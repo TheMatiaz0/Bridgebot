@@ -8,6 +8,8 @@ using System;
 
 public class Enemy : MonoBehaviour, IHpable
 {
+	public static List<Enemy> AllKilledEnemies { get; set; }
+
 	[SerializeField]
 	private Cint startHp = 10;
 

@@ -38,6 +38,11 @@ public class Carrier : MonoBehaviourPlus, IHpable
 
     [SerializeField]
     private SpriteRenderer spriteRender = null;
+    [SerializeField]
+    private SpriteRenderer woodSpriteRender = null;
+
+    [SerializeField]
+    private Sprite fullWood = null;
 
     protected void Start()
     {
@@ -123,6 +128,7 @@ public class Carrier : MonoBehaviourPlus, IHpable
 
             // gather resources
             yield return GatherResources(Current);
+            woodSpriteRender.sprite = fullWood;
 
             yield return GoPoints();
 
@@ -210,6 +216,7 @@ public class Carrier : MonoBehaviourPlus, IHpable
             yield return Async.Wait(TimeSpan.FromMilliseconds(900));
         }
 
+        woodSpriteRender.sprite = null;
         Debug.Log("O cholibka, skończyły mi się surowce.");
 
         yield return GoPoints(true);
