@@ -19,6 +19,8 @@ public class Resource : MonoBehaviourPlus
     [SerializeField]
     private GameObject pavementPrefab = null;
 
+    private static GameObject lineObject = null;
+
     [SerializeField]
     private uint resourceCount = 10;
 
@@ -29,19 +31,6 @@ public class Resource : MonoBehaviourPlus
     {
         ResourceCount = resourceCount;
         ResourceList.Add(this);
-
-        GameObject line = Instantiate(pavementPrefab);
-
-        LineRenderer lineRender = line.GetComponent<LineRenderer>();
-
-        lineRender.positionCount = Points.Length + 1;
-
-        lineRender.SetPosition(0, (Vector2)this.transform.position);
-
-        for (int x = 1; x < Points.Length + 1; x++)
-        {
-            lineRender.SetPosition(x, (Vector2)Points[x - 1].position);
-        }
     }
 
     private void OnEnable()
@@ -54,8 +43,32 @@ public class Resource : MonoBehaviourPlus
         BridgeSelection.OnBridgeSelected -= BridgeSelection_OnBridgeSelected;
     }
 
+    public void DrawLine ()
+    {
+        lineObject = Instantiate(pavementPrefab, this.transform);
+
+        LineRenderer lineRender = lineObject.GetComponent<LineRenderer>();
+
+        lineRender.SetColor(UnityEngine.Random.ColorHSV());
+
+        lineRender.positionCount = Points.Length + 1;
+
+        lineRender.SetPosition(0, (Vector2)this.transform.position);
+
+        for (int x = 1; x < Points.Length + 1; x++)
+        {
+            lineRender.SetPosition(x, (Vector2)Points[x - 1].position);
+        }
+    }
+
+    public static void RemoveAllLines ()
+    {
+        Destroy(lineObject);
+    }
+
     private void BridgeSelection_OnBridgeSelected(object sender, SimpleArgs<GameObject> e)
     {
+
     }
 
     private void OnDrawGizmos()

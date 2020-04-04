@@ -34,7 +34,13 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 	protected void OnEnable()
 	{
 		BridgeSelection.OnBridgeSelected += OnBridgeSelected;
+		Bridge.OnBridgeBuilt += Bridge_OnBridgeBuilt;
 		OnPhaseChanged += PhaseController_OnPhaseChanged;
+	}
+
+	private void Bridge_OnBridgeBuilt(object sender, Cyberevolver.SimpleArgs<Bridge> e)
+	{
+		CurrentPhase = Phase.EXPLORING;
 	}
 
 	private void PhaseController_OnPhaseChanged(object sender, Phase e)
@@ -42,10 +48,24 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 		switch (e)
 		{
 			case Phase.FIGHTING:
+				enableUpdate = false;
+				timer.gameObject.SetActive(false);
 				if (spawnEnemies == null)
 				{
 					spawnEnemies = StartCoroutine(Spawner.Instance.StartWave());
 				}
+				break;
+
+			case Phase.EXPLORING:
+				enableUpdate = false;
+				timer.gameObject.SetActive(false);
+				StopAllCoroutines();
+				break;
+
+			case Phase.PREPARATION:
+				enableUpdate = true;
+				timer.gameObject.SetActive(true);
+				StopAllCoroutines();
 				break;
 		}
 	}
@@ -55,6 +75,7 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 	{
 		OnPhaseChanged -= PhaseController_OnPhaseChanged;
 		BridgeSelection.OnBridgeSelected -= OnBridgeSelected;
+		Bridge.OnBridgeBuilt -= Bridge_OnBridgeBuilt;
 	}
 
 	private void UpdateText(TimeSpan currentTimer)
@@ -65,7 +86,6 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 	private void OnBridgeSelected(object sender, Cyberevolver.SimpleArgs<GameObject> e)
 	{
 		CurrentPhase = Phase.PREPARATION;
-		enableUpdate = true;
 	}
 
 	protected void Update()

@@ -64,6 +64,13 @@ public class BridgeSelection : MonoBehaviour
 				SelectedBridge = cubeHit.collider.gameObject.GetComponent<Bridge>();
 				lastIsland.Carrier.transform.position = (Vector2)lastIsland.IslandCarrierSpawnPoint.position;
 				Destroy(lastIsland.gameObject);
+
+				Resource.RemoveAllLines();
+				foreach (Resource item in lastIsland.ResourcesOnIsland)
+				{
+					item.DrawLine();
+				}
+
 				this.gameObject.SetActive(false);
 			}
 		}

@@ -38,6 +38,7 @@ public class PlacementController : AutoInstanceBehaviour<PlacementController>
 			{
 				spriteRender.color = Color.green;
 				CanBuild = true;
+				hit.collider.tag = "";
 				return;
 			}
 		}

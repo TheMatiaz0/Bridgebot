@@ -36,10 +36,34 @@ public class Carrier : MonoBehaviourPlus, IHpable
 
     private Transform currentTarget = null;
 
+    [SerializeField]
+    private SpriteRenderer spriteRender = null;
+
     protected void Start()
     {
         Hp = new Hp(startMaxHp, 0, startMaxHp);
         Hp.OnValueChangeToMin += Hp_OnValueChangeToMin;
+
+    }
+
+    protected void OnEnable()
+    {
+        PhaseController.Instance.OnPhaseChanged += Instance_OnPhaseChanged;
+    }
+
+    protected void OnDisable()
+    {
+        PhaseController.Instance.OnPhaseChanged -= Instance_OnPhaseChanged;
+    }
+
+    private void Instance_OnPhaseChanged(object sender, PhaseController.Phase e)
+    {
+        switch (e)
+        {
+            case PhaseController.Phase.FIGHTING:
+                Launch();
+                break;
+        }
     }
 
     protected override void Awake()
@@ -48,7 +72,7 @@ public class Carrier : MonoBehaviourPlus, IHpable
         Current = first;
     }
 
-    [Button]
+    // [Button]
     public bool Launch()
     {
         if (IsLaunched)
@@ -64,6 +88,16 @@ public class Carrier : MonoBehaviourPlus, IHpable
 
     protected void Update()
     {
+        if (AIPath.destination.x > 1)
+        {
+            spriteRender.flipX = true;
+        }
+
+        else if (AIPath.destination.x < -1)
+        {
+            spriteRender.flipX = false;
+        }
+
         if (currentTarget == null)
         {
             return;
@@ -76,7 +110,7 @@ public class Carrier : MonoBehaviourPlus, IHpable
 
     private IEnumerator Run()
     {
-        while(true)
+        while (true)
         {
             yield return GoToResource();
 
@@ -87,7 +121,7 @@ public class Carrier : MonoBehaviourPlus, IHpable
 
             // fix the bridge
             yield return FixBridge(selectedBridge);
-            
+
         }
     }
 
@@ -99,18 +133,27 @@ public class Carrier : MonoBehaviourPlus, IHpable
     {
         Current = Resource.GetClosestResource(this.transform.position, 40);
 
+        if (Current == null)
+        {
+            throw new Exception("No resource to gather.");
+        }
+
+        AIPath.canMove = true;
+        AIPath.canSearch = true;
+        AIPath.destination = Current.transform.position;
+        yield return Async.NextFrame;
+        yield return Async.Until(() => AIPath.reachedEndOfPath);
+
+        /*
         if (Current != null)
         {
-            AIPath.canMove = true;
-            AIPath.canSearch = true;
-            AIPath.destination = Current.transform.position;
-            yield return Async.NextFrame;
-            yield return Async.Until(() => AIPath.reachedEndOfPath);
+
         }
-        else
-        {
-            yield return StartCoroutine(GoToResource());
-        }
+            else
+            {
+                yield return StartCoroutine(GoToResource());
+            }
+            */
     }
 
     private IEnumerator GoPoints(bool reverse = false)
@@ -137,7 +180,7 @@ public class Carrier : MonoBehaviourPlus, IHpable
 
     private IEnumerator GatherResources(Resource resource)
     {
-        while (CurrentResources < maxCapacity)
+        while (CurrentResources < maxCapacity && Current != null)
         {
             resource.ResourceCount -= 1;
             CurrentResources += 1;
@@ -145,6 +188,8 @@ public class Carrier : MonoBehaviourPlus, IHpable
 
             yield return Async.Wait(TimeSpan.FromMilliseconds(600));
         }
+
+        yield return StartCoroutine(GoToResource());
     }
 
     private IEnumerator FixBridge(Bridge bridge)
@@ -168,7 +213,6 @@ public class Carrier : MonoBehaviourPlus, IHpable
 
         else
         {
-            Debug.Log("THE END.");
             StopAllCoroutines();
         }
     }
