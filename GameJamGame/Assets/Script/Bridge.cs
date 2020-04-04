@@ -8,6 +8,10 @@ using System;
 
 public class Bridge : MonoBehaviourPlus
 {
+
+    [SerializeField]
+    private bool isFixedInit = false;
+
 	public bool IsFixed { get { return _IsFixed; } private set { if (_IsFixed != value) { _IsFixed = value; RemoveTriggerOnFixed(); } } }
     private bool _IsFixed;
 
@@ -28,6 +32,9 @@ public class Bridge : MonoBehaviourPlus
     private Sprite totallyBroken = null;
     [SerializeField]
     private Sprite underConstruction = null;
+
+    [SerializeField]
+    private GameObject fullyFixedTrigger;
 
     [SerializeField]
     private BoxCollider2D triggerCollider = null;
@@ -66,19 +73,37 @@ public class Bridge : MonoBehaviourPlus
         WorldUI.Instance.FirstActivate(false);
     }
 
+    protected new void Awake()
+    {
+        base.Awake();
+        IsFixed = isFixedInit;
+    }
+
     protected void Start()
     {
+        if (IsFixed)
+        {
+            return;
+        }
+
         spriteRender.sprite = totallyBroken;
+        fullyFixedTrigger.SetActive(false);
     }
 
     private void OnResourceChange (uint currentResources)
     {
+        if (IsFixed)
+        {
+            return;
+        }
+
         if (currentResources >= needResourcesCount)
         {
             currentResources = needResourcesCount;
             spriteRender.sprite = fullyFixed;
             OnBridgeBuilt.Invoke(this, this);
             IsFixed = true;
+            fullyFixedTrigger.SetActive(true);
         }
 
         else if (currentResources >= (needResourcesCount / 2))

@@ -301,6 +301,7 @@ MonoBehaviour:
   fullyFixed: {fileID: 21300000, guid: 362a12cfe847e7c42ae6433916da47ed, type: 3}
   totallyBroken: {fileID: 21300000, guid: 4455e8eea4c54494abe44e2615f620cd, type: 3}
   underConstruction: {fileID: 21300000, guid: 36d6b747eadb6494ca239b64bd50520c, type: 3}
+  fullyFixedTrigger: {fileID: 1041273137}
   triggerCollider: {fileID: 186433172}
 --- !u!61 &186433172
 BoxCollider2D:

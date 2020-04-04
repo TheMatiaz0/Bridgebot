@@ -1,15 +1,12 @@
-﻿using Cyberevolver;
-using Cyberevolver.Unity;
+﻿using Cyberevolver.Unity;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
-public class Pistol : Item
+
+public class TurretItem : Item
 {
-    public Pistol(TimeSpan delay)
+    public TurretItem(TimeSpan delay)
     {
         Delay = delay;
         cooldownController = new CooldownController(Equipment.Instance, delay);
@@ -21,18 +18,18 @@ public class Pistol : Item
     public override void OnUse()
     {
         base.OnUse();
-        if (cooldownController.Try())
-            BulletManager.Instance.Shoot(10, 1, Player.Instance.GetLookDirection(), Player.Instance.GetFrom(), Team.Good);
+        PlacementController.Instance.OnPlace();
+
     }
     public override void OnStartSelect()
     {
         base.OnStartSelect();
-        Player.Instance.SetPistolVisible(true);
+        PlacementController.Instance.Activate(Prefab);
 
     }
     public override void OnEndSelect()
     {
         base.OnEndSelect();
-        Player.Instance.SetPistolVisible(false);
+        PlacementController.Instance.Deactive();
     }
 }

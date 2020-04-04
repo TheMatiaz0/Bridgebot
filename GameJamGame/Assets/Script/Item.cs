@@ -11,6 +11,7 @@ public abstract class Item
 {
     public  string Name { get; set; }
     public  Sprite Icon { get; set; }
+    public GameObject Prefab { get; set; }
     public virtual void OnStartSelect() { }
     public virtual void OnUse() { }
     public virtual void OnEndSelect() { }
@@ -22,6 +23,7 @@ public abstract class Item
         }
         Name = asset.name;
         Icon = asset.Icon;
+        Prefab = asset.prefab;
         return this;
     }
     

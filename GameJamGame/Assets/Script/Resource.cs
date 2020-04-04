@@ -22,7 +22,8 @@ public class Resource : MonoBehaviourPlus
     [SerializeField]
     private uint resourceCount = 10;
 
-    public uint ResourceCount { get; set; }
+    public uint ResourceCount { get { return _ResourceCount; } set { if (_ResourceCount <= 0) { Destroy(this.gameObject); } _ResourceCount = value; } }
+    private uint _ResourceCount = 10;
 
     protected void Start()
     {

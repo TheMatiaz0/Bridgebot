@@ -27,6 +27,8 @@ public sealed class Equipment : AutoInstanceBehaviour<Equipment>
     private Transform eqParent;
     [SerializeField, BoxGroup(VALUES)]
     private SerializedTimeSpan pistolDelay = TimeSpan.FromSeconds(0.3f);
+    [SerializeField, BoxGroup(VALUES)]
+    private SerializedTimeSpan turretDelay = TimeSpan.FromSeconds(0.6f);
     private readonly List<Item> items = new List<Item>();
     [SerializeField, AssetOnly]
     private ItemAsset pistol;
@@ -59,6 +61,7 @@ public sealed class Equipment : AutoInstanceBehaviour<Equipment>
     private void Start()
     {
         AddItem(new Pistol(pistolDelay.TimeSpan).Apply(pistol));
+        AddItem(new TurretItem(turretDelay.TimeSpan).Apply(turret));
     }
     private void Update()
     {

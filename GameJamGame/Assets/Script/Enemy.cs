@@ -11,9 +11,6 @@ public class Enemy : MonoBehaviour, IHpable
 	[SerializeField]
 	private Cint startHp = 10;
 
-	[SerializeField]
-	private Rigidbody2D rb2D = null;
-
 	private Transform targetTransform = null;
 
 	[SerializeField]
@@ -86,13 +83,18 @@ public class Enemy : MonoBehaviour, IHpable
 		return dis <= minDistance;
 	}
 
-	private void OnTriggerEnter2D(Collider2D collision)
+	protected virtual void OnTriggerEnter2D(Collider2D collision)
 	{
 		if (HpableExtension.IsFromWrongTeam(this, collision, out Bullet bullet))
 		{
 			this.Hp.TakeHp(bullet.Dmg, "Bullet");
 			bullet.Kill();
 		}
+	}
+
+	protected virtual void OnTriggerExit2D(Collider2D collision)
+	{
+
 	}
 
 
