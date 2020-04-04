@@ -14,6 +14,8 @@ public class Spawner : AutoInstanceBehaviour<Spawner>
 	[SerializeField]
 	private Transform[] enemySpawners;
 
+	public Transform[] EnemySpawners { get; set; }
+
 	[SerializeField]
 	private Enemy[] enemyTypes;
 
@@ -38,6 +40,7 @@ public class Spawner : AutoInstanceBehaviour<Spawner>
 	protected new void Awake()
 	{
 		base.Awake();
+		EnemySpawners = enemySpawners;
 
 		PhaseController.Instance.OnPhaseChanged += OnPhaseChanged;
 	}

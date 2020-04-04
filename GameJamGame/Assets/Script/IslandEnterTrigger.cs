@@ -24,6 +24,11 @@ public class IslandEnterTrigger : MonoBehaviour
 
 	public Resource[] ResourcesOnIsland => resourcesOnIsland;
 
+	[SerializeField]
+	private Transform[] enemyPoints = null;
+
+	public Transform[] EnemyPoints => enemyPoints;
+
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 

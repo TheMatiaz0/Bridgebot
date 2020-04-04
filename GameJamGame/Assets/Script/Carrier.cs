@@ -49,11 +49,18 @@ public class Carrier : MonoBehaviourPlus, IHpable
     protected void OnEnable()
     {
         PhaseController.Instance.OnPhaseChanged += Instance_OnPhaseChanged;
+        Bridge.OnBridgeBuilt += Bridge_OnBridgeBuilt;
+    }
+
+    private void Bridge_OnBridgeBuilt(object sender, Cyberevolver.SimpleArgs<Bridge> e)
+    {
+        StopAllCoroutines();
     }
 
     protected void OnDisable()
     {
         PhaseController.Instance.OnPhaseChanged -= Instance_OnPhaseChanged;
+        Bridge.OnBridgeBuilt -= Bridge_OnBridgeBuilt;
     }
 
     private void Instance_OnPhaseChanged(object sender, PhaseController.Phase e)
@@ -194,27 +201,19 @@ public class Carrier : MonoBehaviourPlus, IHpable
 
     private IEnumerator FixBridge(Bridge bridge)
     {
-        if (bridge.IsFixed == false)
+        while (CurrentResources > 0)
         {
-            while (CurrentResources > 0)
-            {
-                bridge.ResourcesAddedToBuild += 1;
-                CurrentResources -= 1;
-                Debug.Log($"I added to the bridge {bridge.ResourcesAddedToBuild} resources. I have {CurrentResources} now");
+            bridge.ResourcesAddedToBuild += 1;
+            CurrentResources -= 1;
+            Debug.Log($"I added to the bridge {bridge.ResourcesAddedToBuild} resources. I have {CurrentResources} now");
 
-                yield return Async.Wait(TimeSpan.FromMilliseconds(900));
-            }
-
-            Debug.Log("O cholibka, skończyły mi się surowce.");
-
-            yield return GoPoints(true);
-            yield break;
+            yield return Async.Wait(TimeSpan.FromMilliseconds(900));
         }
 
-        else
-        {
-            StopAllCoroutines();
-        }
+        Debug.Log("O cholibka, skończyły mi się surowce.");
+
+        yield return GoPoints(true);
+        yield break;
     }
 
     protected void OnTriggerEnter2D(Collider2D collision)

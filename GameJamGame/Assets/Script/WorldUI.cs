@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cyberevolver;
 using Cyberevolver.Unity;
+using UnityEngine.UI;
 
 public class WorldUI : AutoInstanceBehaviour<WorldUI>
 {
 	[SerializeField] private GameObject objectToLaunch = null;
 
+	[SerializeField]
+	private Text resourceCounter = null;
+
+	public Text ResourceCounter => resourceCounter;
 
 	public void FirstActivate (bool isTrue)
 	{

@@ -33,23 +33,16 @@ public class Resource : MonoBehaviourPlus
         ResourceList.Add(this);
     }
 
-    private void OnEnable()
-    {
-        BridgeSelection.OnBridgeSelected += BridgeSelection_OnBridgeSelected;
-    }
-
-    protected void OnDisable()
-    {
-        BridgeSelection.OnBridgeSelected -= BridgeSelection_OnBridgeSelected;
-    }
-
     public void DrawLine ()
     {
         lineObject = Instantiate(pavementPrefab, this.transform);
 
         LineRenderer lineRender = lineObject.GetComponent<LineRenderer>();
 
-        lineRender.SetColor(UnityEngine.Random.ColorHSV());
+        Color color = UnityEngine.Random.ColorHSV();
+
+        lineRender.startColor = color;
+        lineRender.endColor = color;
 
         lineRender.positionCount = Points.Length + 1;
 
@@ -66,9 +59,21 @@ public class Resource : MonoBehaviourPlus
         Destroy(lineObject);
     }
 
-    private void BridgeSelection_OnBridgeSelected(object sender, SimpleArgs<GameObject> e)
+    protected void OnMouseEnter()
     {
+        WorldUI.Instance.FirstActivate(true);
+    }
 
+    protected void OnMouseExit()
+    {
+        WorldUI.Instance.FirstActivate(false);
+    }
+
+    protected void OnMouseOver()
+    {
+        Vector2 vect = new Vector2(this.transform.position.x, this.transform.position.y + 15);
+
+        WorldUI.Instance.Move(Camera.main.WorldToScreenPoint(vect));
     }
 
     private void OnDrawGizmos()

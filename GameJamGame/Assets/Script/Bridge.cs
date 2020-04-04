@@ -40,6 +40,11 @@ public class Bridge : MonoBehaviourPlus
     [SerializeField]
     private BoxCollider2D triggerCollider = null;
 
+    public string ResourceNumbers ()
+    {
+        return $"{ResourcesAddedToBuild}/{needResourcesCount}";
+    }
+
     private void RemoveTriggerOnFixed ()
     {
         Destroy(triggerCollider);
@@ -89,6 +94,8 @@ public class Bridge : MonoBehaviourPlus
 
         spriteRender.sprite = totallyBroken;
         fullyFixedTrigger.SetActive(false);
+
+        WorldUI.Instance.ResourceCounter.text = ResourceNumbers();
     }
 
     private void OnResourceChange (uint currentResources)
@@ -97,6 +104,8 @@ public class Bridge : MonoBehaviourPlus
         {
             return;
         }
+
+        WorldUI.Instance.ResourceCounter.text = ResourceNumbers();
 
         if (currentResources >= needResourcesCount)
         {
