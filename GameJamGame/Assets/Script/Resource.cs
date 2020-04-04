@@ -22,10 +22,11 @@ public class Resource : MonoBehaviourPlus
     [SerializeField]
     private uint resourceCount = 10;
 
-    public uint ResourceCount => resourceCount;
+    public uint ResourceCount { get; set; }
 
     protected void Start()
     {
+        ResourceCount = resourceCount;
         ResourceList.Add(this);
 
         GameObject line = Instantiate(pavementPrefab);
@@ -36,7 +37,7 @@ public class Resource : MonoBehaviourPlus
 
         lineRender.SetPosition(0, (Vector2)this.transform.position);
 
-        for (int x = 1; x < Points.Length; x++)
+        for (int x = 1; x < Points.Length + 1; x++)
         {
             lineRender.SetPosition(x, (Vector2)Points[x - 1].position);
         }

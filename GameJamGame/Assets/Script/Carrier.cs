@@ -81,7 +81,7 @@ public class Carrier : MonoBehaviourPlus, IHpable
             yield return GoToResource();
 
             // gather resources
-            yield return GatherResources();
+            yield return GatherResources(Current);
 
             yield return GoPoints();
 
@@ -135,10 +135,11 @@ public class Carrier : MonoBehaviourPlus, IHpable
         currentTarget = null;
     }
 
-    private IEnumerator GatherResources()
+    private IEnumerator GatherResources(Resource resource)
     {
         while (CurrentResources < maxCapacity)
         {
+            resource.ResourceCount -= 1;
             CurrentResources += 1;
             Debug.Log($"I have {CurrentResources} resources now");
 

@@ -24,12 +24,15 @@ public class Enemy : MonoBehaviour, IHpable
 	public Hp Hp { get; private set; }
 
 	[SerializeField]
-	private Cint takeDmg;
+	private Cint dmg;
 
-	public Cint TakeDmg => takeDmg;
+	public Cint Dmg => dmg;
+
+	[SerializeField]
+	private float minDistance = 5;
 
 
-	protected void Awake()
+	protected virtual void Awake()
 	{
 		Hp = new Hp(startHp, 0, startHp);
 		Hp.OnValueChangeToMin += Hp_OnValueChangeToMin;
@@ -40,7 +43,7 @@ public class Enemy : MonoBehaviour, IHpable
 		Destroy(this.gameObject);
 	}
 
-	protected void Start()
+	protected virtual void Start()
 	{
 		if (Player.Instance != null)
 		{
@@ -49,7 +52,12 @@ public class Enemy : MonoBehaviour, IHpable
 		}
 	}
 
-	private IEnumerator CheckPlayerPosition ()
+	protected virtual void Update()
+	{
+		
+	}
+
+	private IEnumerator CheckPlayerPosition()
 	{
 		while (true)
 		{
@@ -57,8 +65,12 @@ public class Enemy : MonoBehaviour, IHpable
 
 			yield return Async.Wait(TimeSpan.FromMilliseconds(600));
 		}
+	}
 
-		
+	public bool CanSeePlayer ()
+	{
+		float dis = Vector2.Distance(Player.Instance.transform.position, this.transform.position);
+		return dis <= minDistance;
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision)
@@ -70,15 +82,12 @@ public class Enemy : MonoBehaviour, IHpable
 		}
 	}
 
-	private void OnCollisionEnter2D(Collision2D collision)
-	{
-		if (collision.collider.GetComponent<Player>())
-		{
 
-		}
+	protected virtual void OnCollisionEnter2D(Collision2D collision)
+	{
 	}
 
-	private void OnCollisionExit2D(Collision2D collision)
+	protected virtual void OnCollisionExit2D(Collision2D collision)
 	{
 	}
 }
