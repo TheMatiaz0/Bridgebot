@@ -33,6 +33,9 @@ public class Enemy : MonoBehaviour, IHpable
 	[SerializeField]
 	private float minDistance = 5;
 
+	[SerializeField]
+	private SpriteRenderer spriteRender = null;
+
 
 	protected virtual void Awake()
 	{
@@ -56,7 +59,15 @@ public class Enemy : MonoBehaviour, IHpable
 
 	protected virtual void Update()
 	{
-		
+		if (aiBase.destination.x > 1)
+		{
+			spriteRender.flipX = true;
+		}
+
+		else if (aiBase.destination.x < -1)
+		{
+			spriteRender.flipX = false;
+		}
 	}
 
 	private IEnumerator CheckPlayerPosition()
