@@ -1,10 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using Cinemachine;
+﻿using Cinemachine;
+using Cyberevolver;
 using Cyberevolver.Unity;
 using System;
-using Cyberevolver;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class BridgeSelection : MonoBehaviour
 {
@@ -28,9 +28,10 @@ public class BridgeSelection : MonoBehaviour
 
 	private IslandEnterTrigger lastIsland = null;
 
-	public void Activate (IslandEnterTrigger island)
+	public void Activate(IslandEnterTrigger island)
 	{
 		lastIsland = island;
+		Player.Instance.lastIsland = island;
 	}
 
 	public void OnEnable()
@@ -41,28 +42,24 @@ public class BridgeSelection : MonoBehaviour
 		chooseBridgeUI.SetActive(true);
 	}
 
-	protected void Update()
+	public void CancelSelection()
 	{
-		if (Input.GetKeyDown(KeyCode.Q))
-		{
-			this.gameObject.SetActive(false);
-			return;
-		}
+		this.gameObject.SetActive(false);
+	}
 
-		if (Input.GetMouseButtonDown(0))
-		{
-			Vector2 cubeRay = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-			RaycastHit2D cubeHit = Physics2D.Raycast(cubeRay, Vector2.zero);
+	public void ConfirmSelection()
+	{
+		Vector2 cubeRay = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		RaycastHit2D cubeHit = Physics2D.Raycast(cubeRay, Vector2.zero);
 
-			if (cubeHit.collider != null)
+		if (cubeHit.collider != null)
+		{
+			if (cubeHit.collider.CompareTag("Bridge"))
 			{
-				if (cubeHit.collider.CompareTag("Bridge"))
-				{
-					SelectedBridge = cubeHit.collider.gameObject.GetComponent<Bridge>();
-					this.gameObject.SetActive(false);
-					lastIsland.Carrier.transform.position = (Vector2)lastIsland.IslandCarrierSpawnPoint.position;
-					Destroy(lastIsland.gameObject);
-				}
+				SelectedBridge = cubeHit.collider.gameObject.GetComponent<Bridge>();
+				this.gameObject.SetActive(false);
+				lastIsland.Carrier.transform.position = (Vector2)lastIsland.IslandCarrierSpawnPoint.position;
+				Destroy(lastIsland.gameObject);
 			}
 		}
 	}

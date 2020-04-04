@@ -44,11 +44,16 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
     private Vector2 movementInput = Vector2.zero;
     public bool LockMovement { get; set; }
 
+    public IslandEnterTrigger lastIsland = null;
+
     [SerializeField]
     private FreezeMenu pauseMenu;
 
     [SerializeField]
     private FreezeMenu gameOver = null;
+
+    [SerializeField]
+    private BridgeSelection selection = null;
 
     private void SetDefCamera()
     {
@@ -185,10 +190,25 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
         pauseMenu.EnableMenuWithPause(!pauseMenu.IsPaused);
     }
 
+    private void OnInteraction ()
+    {
+        lastIsland?.Interaction();
+    }
+
     public void LaunchGameOver ()
     {
         gameOver.EnableMenuWithPause(true);
         LockMovement = true;
+    }
+
+    private void OnConfirmSelection()
+    {
+        selection?.ConfirmSelection();
+    }
+
+    private void OnCancelSelection ()
+    {
+        selection?.CancelSelection();
     }
 
 }

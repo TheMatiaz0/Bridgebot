@@ -51,17 +51,14 @@ public class IslandEnterTrigger : MonoBehaviour
 		PopupText.Instance?.MainGameObject?.SetActive(false);
 	}
 
-	protected void Update()
+	public void Interaction ()
 	{
 		if (hasActivated == false || selection.gameObject.activeSelf == true)
 		{
 			return;
 		}
 
-		if (Input.GetKeyDown(KeyCode.F))
-		{
-			ActivateBridgeSelection();
-			PopupText.Instance?.MainGameObject?.SetActive(false);
-		}
+		ActivateBridgeSelection();
+		PopupText.Instance?.MainGameObject?.SetActive(false);
 	}
 }

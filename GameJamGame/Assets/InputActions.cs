@@ -41,6 +41,30 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""CancelSelection"",
+                    ""type"": ""Button"",
+                    ""id"": ""a04595d4-f805-49c0-b283-8f10ba39ede3"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""ConfirmSelection"",
+                    ""type"": ""Button"",
+                    ""id"": ""584f7be9-1f7e-4cd9-bc2e-9f1db61ae1d6"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Interaction"",
+                    ""type"": ""Button"",
+                    ""id"": ""0f06927a-e636-4e80-a636-13e318001830"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -175,6 +199,39 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c931ea2b-ae7a-4645-8be6-ef8fc22e258b"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CancelSelection"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""29c56c42-7bdf-4f6b-b038-30f53fd9aade"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ConfirmSelection"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2400f360-d2d6-4af0-8b23-3029cd4d68c0"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interaction"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -289,6 +346,9 @@ public class @InputActions : IInputActionCollection, IDisposable
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Shoot = m_Player.FindAction("Shoot", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
+        m_Player_CancelSelection = m_Player.FindAction("CancelSelection", throwIfNotFound: true);
+        m_Player_ConfirmSelection = m_Player.FindAction("ConfirmSelection", throwIfNotFound: true);
+        m_Player_Interaction = m_Player.FindAction("Interaction", throwIfNotFound: true);
         // Main Menu
         m_MainMenu = asset.FindActionMap("Main Menu", throwIfNotFound: true);
         m_MainMenu_Click = m_MainMenu.FindAction("Click", throwIfNotFound: true);
@@ -348,6 +408,9 @@ public class @InputActions : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_Shoot;
     private readonly InputAction m_Player_Pause;
+    private readonly InputAction m_Player_CancelSelection;
+    private readonly InputAction m_Player_ConfirmSelection;
+    private readonly InputAction m_Player_Interaction;
     public struct PlayerActions
     {
         private @InputActions m_Wrapper;
@@ -355,6 +418,9 @@ public class @InputActions : IInputActionCollection, IDisposable
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @Shoot => m_Wrapper.m_Player_Shoot;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
+        public InputAction @CancelSelection => m_Wrapper.m_Player_CancelSelection;
+        public InputAction @ConfirmSelection => m_Wrapper.m_Player_ConfirmSelection;
+        public InputAction @Interaction => m_Wrapper.m_Player_Interaction;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -373,6 +439,15 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @Pause.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                @CancelSelection.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCancelSelection;
+                @CancelSelection.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCancelSelection;
+                @CancelSelection.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCancelSelection;
+                @ConfirmSelection.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnConfirmSelection;
+                @ConfirmSelection.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnConfirmSelection;
+                @ConfirmSelection.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnConfirmSelection;
+                @Interaction.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteraction;
+                @Interaction.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteraction;
+                @Interaction.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteraction;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -386,6 +461,15 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
+                @CancelSelection.started += instance.OnCancelSelection;
+                @CancelSelection.performed += instance.OnCancelSelection;
+                @CancelSelection.canceled += instance.OnCancelSelection;
+                @ConfirmSelection.started += instance.OnConfirmSelection;
+                @ConfirmSelection.performed += instance.OnConfirmSelection;
+                @ConfirmSelection.canceled += instance.OnConfirmSelection;
+                @Interaction.started += instance.OnInteraction;
+                @Interaction.performed += instance.OnInteraction;
+                @Interaction.canceled += instance.OnInteraction;
             }
         }
     }
@@ -460,6 +544,9 @@ public class @InputActions : IInputActionCollection, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+        void OnCancelSelection(InputAction.CallbackContext context);
+        void OnConfirmSelection(InputAction.CallbackContext context);
+        void OnInteraction(InputAction.CallbackContext context);
     }
     public interface IMainMenuActions
     {
