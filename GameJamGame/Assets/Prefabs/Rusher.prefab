@@ -192,6 +192,7 @@ MonoBehaviour:
   dmg:
     _Value: 4
   minDistance: 5
+  spriteRender: {fileID: 7297082463388712591}
 --- !u!114 &4330210078118129173
 MonoBehaviour:
   m_ObjectHideFlags: 0

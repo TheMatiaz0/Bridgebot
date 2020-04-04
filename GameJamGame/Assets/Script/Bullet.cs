@@ -26,7 +26,7 @@ public class Bullet : MonoBehaviourPlus
 
 	protected void Start()
 	{
-        Destroy(this.gameObject, 10);
+        Destroy(this.gameObject, 8);
 	}
 
 

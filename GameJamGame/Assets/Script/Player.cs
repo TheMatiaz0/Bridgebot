@@ -125,6 +125,7 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
 
         if (LockMovement)
         {
+            Animator.SetBool("Move", false);
             return;
         }
 
@@ -187,6 +188,7 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
     public void LaunchGameOver ()
     {
         gameOver.EnableMenuWithPause(true);
+        LockMovement = true;
     }
 
 }
