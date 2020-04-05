@@ -120,20 +120,20 @@ public class Carrier : MonoBehaviourPlus, IHpable
 
     protected void Update()
     {
-        if (AIPath.destination.x > 1)
-        {
-            spriteRender.flipX = true;
-        }
-
-        else if (AIPath.destination.x < -1)
-        {
-            spriteRender.flipX = false;
-        }
-
         if (currentTarget == null)
         {
             animator.SetBool("Walk", false);
             return;
+        }
+
+        if (currentTarget.position.x > 1)
+        {
+            spriteRender.flipX = true;
+        }
+
+        else if (currentTarget.position.x < -1)
+        {
+            spriteRender.flipX = false;
         }
 
         transform.position = Vector2.MoveTowards(transform.position, currentTarget.position, speed * Time.deltaTime);
@@ -166,8 +166,10 @@ public class Carrier : MonoBehaviourPlus, IHpable
             yield return GoToResource();
 
             // gather resources
+            animator.SetBool("ChopChop", true);
             yield return GatherResources(Current);
             woodSpriteRender.sprite = fullWood;
+            animator.SetBool("ChopChop", false);
 
             yield return GoPoints();
 
