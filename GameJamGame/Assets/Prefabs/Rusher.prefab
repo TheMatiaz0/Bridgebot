@@ -187,12 +187,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startHp:
     _Value: 10
-  rb2D: {fileID: 96356461702647518}
   aiBase: {fileID: 1073618881282620597}
   dmg:
-    _Value: 4
+    _Value: 1
   minDistance: 5
   spriteRender: {fileID: 7297082463388712591}
+  attackCooldown:
+    miliseconds: 0
+    seconds: 3
+    minutes: 0
+    hour: 0
+    day: 0
+    precision: 2
 --- !u!114 &4330210078118129173
 MonoBehaviour:
   m_ObjectHideFlags: 0

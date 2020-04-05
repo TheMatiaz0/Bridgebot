@@ -10,6 +10,14 @@ public class Rusher : Enemy
 	[SerializeField]
 	private SerializedTimeSpan attackCooldown;
 
+	private CooldownController cooldown = null;
+
+	protected new void Start()
+	{
+		base.Start();
+		cooldown = new CooldownController(this, attackCooldown.TimeSpan);
+	}
+
 	protected override void OnTriggerEnter2D(Collider2D collider)
 	{
 		base.OnTriggerEnter2D(collider);
@@ -19,18 +27,20 @@ public class Rusher : Enemy
 
 		if (player = collider.GetComponent<Player>())
 		{
-			TakeDamage(player);
+			Bite(player);
 		}
 
 		if (carrier = collider.GetComponent<Carrier>())
 		{
-			TakeDamage(carrier);
+			Bite(carrier);
 		}
 	}
 
-	private IEnumerator TakeDamage (IHpable entity)
+	private void Bite (IHpable entity)
 	{
-		entity.Hp.TakeHp(Dmg, "Rusher");
-		yield return Async.Wait(attackCooldown.TimeSpan);
+		if (cooldown.Try())
+		{
+			entity.Hp.TakeHp(Dmg, "Rusher");
+		}
 	}
 }
