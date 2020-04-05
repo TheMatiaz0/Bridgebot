@@ -15,9 +15,9 @@
                 },
                 {
                     "name": "Rotation",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "0b65c86a-8ea2-4417-b52a-5d5f95fd292c",
-                    "expectedControlType": "",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
                 },
@@ -197,8 +197,30 @@
                 },
                 {
                     "name": "",
+                    "id": "f53422c1-f4a2-4f43-8761-e019a3683eb5",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "e52b06c7-fab1-4c8d-891f-2ac61f8865de",
                     "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4aeab817-2e92-4722-920c-0e8d0eb97527",
+                    "path": "<Gamepad>/start",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -219,6 +241,17 @@
                 },
                 {
                     "name": "",
+                    "id": "98ea7923-de58-42c0-8a44-d2496dbd9b6a",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CancelSelection",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "29c56c42-7bdf-4f6b-b038-30f53fd9aade",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
@@ -230,8 +263,30 @@
                 },
                 {
                     "name": "",
+                    "id": "ab717eed-8b66-4372-85ec-2a4359df5684",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ConfirmSelection",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "2400f360-d2d6-4af0-8b23-3029cd4d68c0",
                     "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interaction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d25acae4-c8d0-4699-80d7-5cabfe5ac097",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

@@ -65,6 +65,10 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
     [SerializeField]
     private Transform parentForHp = null;
 
+    private Vector2 lookPosition;
+
+    private Direction lastDirection = Direction.Right;
+
     private void SetDefCamera()
     {
         cam = Camera.main;
@@ -75,6 +79,7 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
         base.Awake();
         SetPistolVisible(false);
         inputActions = new InputActions();
+        inputActions.Player.Rotation.performed += ctx => lookPosition = ctx.ReadValue<Vector2>();
 
         Hp = new Hp(startMaxHp, 0, startMaxHp);
     }
@@ -148,7 +153,25 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
             return;
         }
 
-        Vector2 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 mousePos;
+
+        if (Gamepad.current != null)
+        {
+            if (lookPosition == Vector2.zero)
+            {
+                lookPosition = lastDirection;
+            }
+
+            lastDirection = lookPosition.ToDirection();
+
+            mousePos = lookPosition + this.transform.Get2DPos();
+        }
+
+        else
+        {
+            mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        }
+
         gunObj.transform.LookAt2D(mousePos);
 
         gunObj.Renderer.flipY = ((Vector2)this.transform.position).x > mousePos.x;
@@ -216,7 +239,24 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
     }
     public Direction GetLookDirection()
     {
-        return (Vector2)cam.ScreenToWorldPoint(Input.mousePosition) - gunObj.transform.Get2DPos();
+        if (Gamepad.current != null)
+        {
+            if (lookPosition == Vector2.zero)
+            {
+                lookPosition = lastDirection;
+            }
+
+            lastDirection = lookPosition.ToDirection();
+
+            return (Vector2)(lookPosition);
+        }
+
+        else
+        {
+            return ((Vector2)(Camera.main.ScreenToWorldPoint(
+            Input.mousePosition) - this.gunObj.transform.position))
+            .ToDirection();
+        }
     }
 
     private void OnShoot()

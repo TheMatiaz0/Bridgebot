@@ -63,7 +63,7 @@ public class IslandEnterTrigger : MonoBehaviour
 
 	public void Interaction ()
 	{
-		if (hasActivated == false || selection.gameObject.activeSelf == true)
+		if (hasActivated == false || PopupText.Instance.MainGameObject.activeSelf == false)
 		{
 			return;
 		}
