@@ -31,7 +31,7 @@ public class BridgeSelection : MonoBehaviour
 	public void Activate(IslandEnterTrigger island)
 	{
 		lastIsland = island;
-		Player.Instance.lastIsland = island;
+		Player.Instance.LastIsland = island;
 	}
 
 	public void OnEnable()

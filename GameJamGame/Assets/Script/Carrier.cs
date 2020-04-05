@@ -22,7 +22,7 @@ public class Carrier : MonoBehaviourPlus, IHpable
     public Resource Current { get; private set; }
 
     [SerializeField]
-    private uint startMaxHp;
+    private uint startMaxHp = 10;
     public bool IsLaunched { get; private set; }
 
     private Coroutine logic = null;
@@ -57,12 +57,16 @@ public class Carrier : MonoBehaviourPlus, IHpable
     [SerializeField]
     private Animator animator;
 
+    [SerializeField]
+    private HpManager hpManager = null;
+
     protected void Start()
     {
         Hp = new Hp(startMaxHp, 0, startMaxHp);
+        hpManager.CurHealth = Hp;
         Hp.OnValueChangeToMin += Hp_OnValueChangeToMin;
         Hp.OnValueChanged += Hp_OnValueChanged;
-
+        hpManager.Refresh();
     }
 
     private void Hp_OnValueChanged(object sender, Hp.HpChangedArgs e)

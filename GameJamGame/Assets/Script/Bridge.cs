@@ -11,8 +11,7 @@ public class Bridge : MonoBehaviourPlus
     [SerializeField]
     private bool isFixedInit = false;
 
-	public bool IsFixed { get { return _IsFixed; } private set { if (_IsFixed != value) { _IsFixed = value; RemoveTriggerOnFixed(); } } }
-    private bool _IsFixed;
+	public bool IsFixed { get; private set; }
 
     public static event EventHandler<SimpleArgs<Bridge>> OnBridgeBuilt = delegate { };
 
@@ -88,6 +87,7 @@ public class Bridge : MonoBehaviourPlus
     {
         if (IsFixed)
         {
+            RemoveTriggerOnFixed();
             return;
         }
 
