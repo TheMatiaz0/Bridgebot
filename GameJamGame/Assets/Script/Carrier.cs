@@ -54,6 +54,9 @@ public class Carrier : MonoBehaviourPlus, IHpable
     [SerializeField]
     private SerializedTimeSpan fixCooldown;
 
+    [SerializeField]
+    private Animator animator;
+
     protected void Start()
     {
         Hp = new Hp(startMaxHp, 0, startMaxHp);
@@ -64,7 +67,7 @@ public class Carrier : MonoBehaviourPlus, IHpable
 
     private void Hp_OnValueChanged(object sender, Hp.HpChangedArgs e)
     {
-
+        
     }
 
     protected void OnEnable()
@@ -76,6 +79,8 @@ public class Carrier : MonoBehaviourPlus, IHpable
     private void Bridge_OnBridgeBuilt(object sender, Cyberevolver.SimpleArgs<Bridge> e)
     {
         IsLaunched = false;
+        CurrentResources = 0;
+        woodSpriteRender.sprite = null;
         StopAllCoroutines();
     }
 
@@ -123,10 +128,12 @@ public class Carrier : MonoBehaviourPlus, IHpable
 
         if (currentTarget == null)
         {
+            animator.SetBool("Walk", false);
             return;
         }
 
         transform.position = Vector2.MoveTowards(transform.position, currentTarget.position, speed * Time.deltaTime);
+        animator.SetBool("Walk", true);
 
         //rb2D.MovePosition((Vector2)transform.position + (Vector2)currentTarget.position * speed * Time.fixedDeltaTime);
     }
@@ -138,7 +145,7 @@ public class Carrier : MonoBehaviourPlus, IHpable
 
     protected void OnMouseOver()
     {
-        Vector2 vect = new Vector2(this.transform.position.x, this.transform.position.y + 20);
+        Vector2 vect = new Vector2(this.transform.position.x, this.transform.position.y + 5);
 
         WorldUI.Instance.Move(Camera.main.WorldToScreenPoint(vect));
     }

@@ -8,12 +8,11 @@ using System;
 
 public class Enemy : MonoBehaviour, IHpable
 {
-	public static List<Enemy> AllKilledEnemies { get; set; }
-
 	[SerializeField]
 	private Cint startHp = 10;
 
-	private Transform targetTransform = null;
+	protected Transform carrierEntity = null;
+	protected Transform playerEntity = null;
 
 	[SerializeField]
 	private AIBase aiBase;
@@ -49,16 +48,9 @@ public class Enemy : MonoBehaviour, IHpable
 
 	protected virtual void Start()
 	{
-		targetTransform = GameObject.FindGameObjectWithTag("Carrier").transform;
-		StartCoroutine(CheckTargetPosition());
+		carrierEntity = GameObject.FindGameObjectWithTag("Carrier").transform;
 
-		/*
-		if (Player.Instance.transform != null)
-		{
-			targetTransform = Player.Instance.transform;
-			StartCoroutine(CheckPlayerPosition());
-		}
-		*/
+		StartCoroutine(CheckTargetPosition(carrierEntity));
 	}
 
 	protected virtual void Update()
@@ -74,19 +66,19 @@ public class Enemy : MonoBehaviour, IHpable
 		}
 	}
 
-	private IEnumerator CheckTargetPosition()
+	protected IEnumerator CheckTargetPosition(Transform transform)
 	{
 		while (true)
 		{
-			aiBase.destination = targetTransform.position;
+			aiBase.destination = transform.position;
 
 			yield return Async.Wait(TimeSpan.FromMilliseconds(600));
 		}
 	}
 
-	public bool CanSeeTarget ()
+	protected bool CanSeeTarget (Transform transform)
 	{
-		float dis = Vector2.Distance(targetTransform.position, this.transform.position);
+		float dis = Vector2.Distance(transform.position, this.transform.position);
 		return dis <= minDistance;
 	}
 
@@ -97,6 +89,11 @@ public class Enemy : MonoBehaviour, IHpable
 			this.Hp.TakeHp(bullet.Dmg, "Bullet");
 			bullet.Kill();
 		}
+	}
+
+	protected void OnDestroy()
+	{
+		Statistics.Instance.AllKilledEnemies.Add(this);
 	}
 
 	protected virtual void OnTriggerExit2D(Collider2D collision)

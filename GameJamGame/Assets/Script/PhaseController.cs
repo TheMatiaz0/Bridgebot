@@ -30,11 +30,6 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 
 	private bool enableUpdate;
 
-	protected void Start()
-	{
-		CurrentTimer = timeToEndPreparation.TimeSpan;
-	}
-
 	protected void OnEnable()
 	{
 		BridgeSelection.OnBridgeSelected += OnBridgeSelected;
@@ -70,6 +65,7 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 				break;
 
 			case Phase.PREPARATION:
+				CurrentTimer = timeToEndPreparation.TimeSpan;
 				enableUpdate = true;
 				battleUI.SetActive(false);
 				timer.gameObject.SetActive(true);

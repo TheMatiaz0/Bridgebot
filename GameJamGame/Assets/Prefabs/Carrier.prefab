@@ -97,9 +97,10 @@ GameObject:
   - component: {fileID: 1270969954557673367}
   - component: {fileID: 8514928864346537232}
   - component: {fileID: 179466286}
+  - component: {fileID: 4457974478483677732}
   m_Layer: 0
   m_Name: Carrier
-  m_TagString: Untagged
+  m_TagString: Carrier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -272,12 +273,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxCapacity: 8
-  first: {fileID: 0}
   startMaxHp: 3
   speed: 5
   spriteRender: {fileID: 1033927115}
   woodSpriteRender: {fileID: 488767042}
   fullWood: {fileID: 21300000, guid: 1dcb2867e0f1e594cbcd3d526ca9f011, type: 3}
+  gatherRange: 40
+  distanceBetweenPoints: 0.2
+  gatherCooldown:
+    miliseconds: 154
+    seconds: 0
+    minutes: 0
+    hour: 0
+    day: 0
+    precision: 1
+  fixCooldown:
+    miliseconds: 577
+    seconds: 0
+    minutes: 0
+    hour: 0
+    day: 0
+    precision: 1
 --- !u!114 &8514928864346537232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -321,3 +337,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!95 &4457974478483677732
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8926157502099828154}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: adbb994e512d0d44db3261cdddcbaa3b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

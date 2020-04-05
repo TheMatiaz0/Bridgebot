@@ -17,12 +17,12 @@ public class Shooter : Enemy
 	{
 		base.Update();
 
-		if (base.CanSeeTarget())
+		if (base.CanSeeTarget(playerEntity))
 		{
 			AIBase.canMove = false;
 			if (cooldownShoot.Try())
 			{
-				Shoot();
+				Shoot(playerEntity);
 			}
 		}
 
@@ -32,15 +32,17 @@ public class Shooter : Enemy
 		}
 	}
 
-	private void Shoot ()
+	private void Shoot (Transform target)
 	{
-		BulletManager.Instance.Shoot(bulletSpeed, Dmg, ((Vector2)(Player.Instance.transform.position - this.transform.position)).ToDirection(), this.transform.position, CurrentTeam);
+		BulletManager.Instance.Shoot(bulletSpeed, Dmg, ((Vector2)(target.position - this.transform.position)).ToDirection(), this.transform.position, CurrentTeam);
 	}
 	
 	protected override void Start()
 	{
-		base.Start();
+		playerEntity = Player.Instance.transform;
 
 		cooldownShoot = new CooldownController(this, timeForShoot.TimeSpan);
+
+		StartCoroutine(CheckTargetPosition(playerEntity));
 	}
 }

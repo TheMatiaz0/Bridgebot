@@ -8,8 +8,6 @@ using System;
 
 public class Bridge : MonoBehaviourPlus
 {
-    public static Cint AllBridgeBuilt { get; set; }
-
     [SerializeField]
     private bool isFixedInit = false;
 
@@ -115,7 +113,7 @@ public class Bridge : MonoBehaviourPlus
             OnBridgeBuilt.Invoke(this, this);
             IsFixed = true;
             fullyFixedTrigger.SetActive(true);
-            AllBridgeBuilt += 1;
+            Statistics.Instance.AllBridgeBuilt += 1;
         }
 
         else if (currentResources >= (needResourcesCount / 2))

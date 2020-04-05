@@ -33,6 +33,9 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
     [SerializeField]
     private uint startMaxHp = 10;
 
+    [SerializeField]
+    private HpManager hpManager = null;
+
     InputActions inputActions;
     private Transform curShotPoint;
 
@@ -55,15 +58,6 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
 
     [SerializeField]
     private BridgeSelection selection = null;
-
-    [SerializeField]
-    private GameObject hpSingleObject = null;
-
-    [SerializeField] private Color lifeColor = Color.green;
-    [SerializeField] private Color deadColor = Color.red;
-
-    [SerializeField]
-    private Transform parentForHp = null;
 
     private Vector2 lookPosition;
 
@@ -95,30 +89,26 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
 
     protected void Start()
     {
-        Bridge.AllBridgeBuilt = 0;
-        Enemy.AllKilledEnemies = new List<Enemy>();
+        // Bridge.AllBridgeBuilt = 0;
+        // Enemy.AllKilledEnemies = new List<Enemy>();
 
+        Hp = new Hp(startMaxHp, 0, startMaxHp);
+        hpManager.CurHealth = Hp;
+        Hp.OnHpTaken += Hp_OnHpTaken;
         Hp.OnValueChangeToMin += Hp_OnValueChangeToMin;
-        Hp.OnValueChanged += Hp_OnValueChanged;
-        Refresh();
+        hpManager.Refresh();
+        // hpManager.CurHealth.OnHpGiven += CurHealth_OnHpGiven;
+    }
+    private void Hp_OnHpTaken(object sender, Hp.HpChangedArgs e)
+    {
+        /*
+        if (e.Actual != 0)
+            RespDmgNumberEffect(e.Last - e.Actual);
+            */
     }
 
     private void Hp_OnValueChanged(object sender, Hp.HpChangedArgs e)
     {
-        Refresh();
-    }
-
-    public void Refresh()
-    {
-        if (Hp == null)
-            return;
-
-        int index = 0;
-        foreach (Transform item in parentForHp)
-        {
-            index++;
-            item.GetComponent<Image>().color = (index > Hp.Value) ? deadColor : lifeColor;
-        }
     }
 
     private void Hp_OnValueChangeToMin(object sender, Hp.HpChangedArgs e)
