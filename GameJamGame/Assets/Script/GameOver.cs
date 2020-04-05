@@ -2,34 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
-	Statistics playerStats;
 	public Text statText;
 
 	private void Start()
 	{
-		playerStats = GetComponent<Statistics>();
 		GetStats();
 	}
 
 	public void GetStats()
 	{
-		statText.text = $"Bridges built: { playerStats.AllBridgeBuilt}\n Enemies defeated: {playerStats.AllKilledEnemies}";
+		statText.text = $"Bridges built: { Statistics.Instance.AllBridgeBuilt}\nEnemies defeated: {Statistics.Instance.AllKilledEnemies.Count}";
 	}
 
 	public void OnRetry()
 	{
-
+		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 
 	public void OnMenu()
 	{
-
-	}
-	void Update()
-	{
-		Debug.Log(playerStats.AllKilledEnemies + "/" + playerStats.AllBridgeBuilt);
+		SceneManager.LoadScene("MainMenu");
 	}
 }
