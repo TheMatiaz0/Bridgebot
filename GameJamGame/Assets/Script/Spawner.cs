@@ -9,8 +9,6 @@ public class Spawner : AutoInstanceBehaviour<Spawner>
 {
 	public List<Enemy> SpawnedEnemies { get; private set; } = new List<Enemy>();
 
-	public enum SpawnState { SPAWNING, WAITING_FOR_ENEMY_DEATH, IDLE };
-
 	[SerializeField]
 	private Transform[] enemySpawners;
 
@@ -22,26 +20,29 @@ public class Spawner : AutoInstanceBehaviour<Spawner>
 	[SerializeField]
 	private Cint enemyCount = 1;
 
-	public SpawnState CurrentState { get; private set; } = SpawnState.SPAWNING;
-
 	[SerializeField]
 	private SerializedTimeSpan timeInterval;
 
 	[SerializeField]
 	private SerializedTimeSpan timeBetweenWaves;
 
+	/*
 	private bool AnyEnemyisAlive()
 	{
 		SpawnedEnemies = SpawnedEnemies.Where(e => e != null).ToList();
 
 		return SpawnedEnemies.Count > 0;
 	}
+	*/
 
 	protected new void Awake()
 	{
 		base.Awake();
 		EnemySpawners = enemySpawners;
+	}
 
+	protected void Start()
+	{
 		PhaseController.Instance.OnPhaseChanged += OnPhaseChanged;
 	}
 
@@ -52,6 +53,7 @@ public class Spawner : AutoInstanceBehaviour<Spawner>
 			case PhaseController.Phase.EXPLORING:
 			case PhaseController.Phase.PREPARATION:
 				StopCoroutine(StartWave());
+				KillAllEnemies();
 				break;
 
 		}
@@ -59,18 +61,13 @@ public class Spawner : AutoInstanceBehaviour<Spawner>
 
 	public IEnumerator StartWave()
 	{
-		while (CurrentState != SpawnState.IDLE)
+		while (true)
 		{
-			CurrentState = SpawnState.SPAWNING;
-
 			yield return SpawnWave();
 
-			CurrentState = SpawnState.WAITING_FOR_ENEMY_DEATH;
-
-			yield return new WaitWhile(AnyEnemyisAlive);
+			// yield return new WaitWhile(AnyEnemyisAlive);
 
 			yield return Async.Wait(timeBetweenWaves.TimeSpan);
-			CurrentState = SpawnState.SPAWNING;
 		}
 	}
 
@@ -78,6 +75,11 @@ public class Spawner : AutoInstanceBehaviour<Spawner>
 	{
 		foreach (Enemy item in SpawnedEnemies)
 		{
+			if (item == null)
+			{
+				continue;
+			}
+
 			Destroy(item.gameObject);
 		}
 	}
@@ -117,8 +119,8 @@ public class Spawner : AutoInstanceBehaviour<Spawner>
 	{
 		Enemy tempEnemy;
 		int k = UnityEngine.Random.Range(0, enemyTypes.Length);
-		int t = UnityEngine.Random.Range(0, enemySpawners.Length);
-		SpawnedEnemies.Add(tempEnemy = Instantiate(enemyTypes[k], enemySpawners[t].position, Quaternion.identity).GetComponent<Enemy>());
+		int t = UnityEngine.Random.Range(0, EnemySpawners.Length);
+		SpawnedEnemies.Add(tempEnemy = Instantiate(enemyTypes[k], EnemySpawners[t].position, Quaternion.identity).GetComponent<Enemy>());
 		tempEnemy.gameObject.layer = 11;
 	}
 }

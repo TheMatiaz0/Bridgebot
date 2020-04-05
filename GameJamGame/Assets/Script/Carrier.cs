@@ -60,6 +60,8 @@ public class Carrier : MonoBehaviourPlus, IHpable
     [SerializeField]
     private HpManager hpManager = null;
 
+    private WorldUI carrierUI = null;
+
     protected void Start()
     {
         Hp = new Hp(startMaxHp, 0, startMaxHp);
@@ -67,6 +69,8 @@ public class Carrier : MonoBehaviourPlus, IHpable
         Hp.OnValueChangeToMin += Hp_OnValueChangeToMin;
         Hp.OnValueChanged += Hp_OnValueChanged;
         hpManager.Refresh();
+        PhaseController.Instance.OnPhaseChanged += Instance_OnPhaseChanged;
+        carrierUI = GameObject.FindGameObjectWithTag("CarrierUI").GetComponent<WorldUI>();
     }
 
     private void Hp_OnValueChanged(object sender, Hp.HpChangedArgs e)
@@ -76,7 +80,6 @@ public class Carrier : MonoBehaviourPlus, IHpable
 
     protected void OnEnable()
     {
-        PhaseController.Instance.OnPhaseChanged += Instance_OnPhaseChanged;
         Bridge.OnBridgeBuilt += Bridge_OnBridgeBuilt;
     }
 
@@ -90,7 +93,6 @@ public class Carrier : MonoBehaviourPlus, IHpable
 
     protected void OnDisable()
     {
-        PhaseController.Instance.OnPhaseChanged -= Instance_OnPhaseChanged;
         Bridge.OnBridgeBuilt -= Bridge_OnBridgeBuilt;
     }
 
@@ -144,19 +146,21 @@ public class Carrier : MonoBehaviourPlus, IHpable
 
     protected void OnMouseEnter()
     {
-        WorldUI.Instance.FirstActivate(true);
+        carrierUI.FirstActivate(true);
+        // WorldUI.Instance.FirstActivate(true);
     }
 
     protected void OnMouseOver()
     {
-        Vector2 vect = new Vector2(this.transform.position.x, this.transform.position.y + 5);
-
-        WorldUI.Instance.Move(Camera.main.WorldToScreenPoint(vect));
+        Vector2 vect = new Vector2(this.transform.position.x, this.transform.position.y + 0.5f);
+        carrierUI.Move(Camera.main.WorldToScreenPoint(vect));
+        // WorldUI.Instance.Move(Camera.main.WorldToScreenPoint(vect));
     }
 
     protected void OnMouseExit()
     {
-        WorldUI.Instance.FirstActivate(false);
+        carrierUI.FirstActivate(false);
+        // WorldUI.Instance.FirstActivate(false);
     }
 
     private IEnumerator Run()

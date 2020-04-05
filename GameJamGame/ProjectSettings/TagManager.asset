@@ -7,6 +7,8 @@ TagManager:
   - Bridge
   - BuildingPlace
   - Carrier
+  - BridgeUI
+  - CarrierUI
   layers:
   - Default
   - TransparentFX

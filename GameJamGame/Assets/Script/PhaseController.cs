@@ -32,9 +32,9 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 
 	protected void OnEnable()
 	{
+		OnPhaseChanged += PhaseController_OnPhaseChanged;
 		BridgeSelection.OnBridgeSelected += OnBridgeSelected;
 		Bridge.OnBridgeBuilt += Bridge_OnBridgeBuilt;
-		OnPhaseChanged += PhaseController_OnPhaseChanged;
 	}
 
 	private void Bridge_OnBridgeBuilt(object sender, Cyberevolver.SimpleArgs<Bridge> e)
@@ -57,6 +57,7 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 				break;
 
 			case Phase.EXPLORING:
+				spawnEnemies = null;
 				Spawner.Instance.KillAllEnemies();
 				enableUpdate = false;
 				battleUI.SetActive(false);
@@ -65,6 +66,7 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 				break;
 
 			case Phase.PREPARATION:
+				spawnEnemies = null;
 				CurrentTimer = timeToEndPreparation.TimeSpan;
 				enableUpdate = true;
 				battleUI.SetActive(false);

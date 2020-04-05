@@ -59,23 +59,6 @@ public class Resource : MonoBehaviourPlus
         Destroy(lineObject);
     }
 
-    protected void OnMouseEnter()
-    {
-        WorldUI.Instance.FirstActivate(true);
-    }
-
-    protected void OnMouseExit()
-    {
-        WorldUI.Instance.FirstActivate(false);
-    }
-
-    protected void OnMouseOver()
-    {
-        Vector2 vect = new Vector2(this.transform.position.x, this.transform.position.y + 15);
-
-        WorldUI.Instance.Move(Camera.main.WorldToScreenPoint(vect));
-    }
-
     private void OnDrawGizmos()
     {
         try

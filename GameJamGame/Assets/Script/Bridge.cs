@@ -32,10 +32,12 @@ public class Bridge : MonoBehaviourPlus
     private Sprite underConstruction = null;
 
     [SerializeField]
-    private GameObject fullyFixedTrigger;
+    private GameObject fullyFixedTrigger = null;
 
     [SerializeField]
     private BoxCollider2D triggerCollider = null;
+
+    private WorldUI worldUI = null;
 
     public string ResourceNumbers ()
     {
@@ -45,7 +47,7 @@ public class Bridge : MonoBehaviourPlus
     private void RemoveTriggerOnFixed ()
     {
         Destroy(triggerCollider);
-        WorldUI.Instance?.FirstActivate(false);
+        worldUI?.FirstActivate(false);
     }
 
     protected void OnMouseEnter()
@@ -53,7 +55,7 @@ public class Bridge : MonoBehaviourPlus
         if (IsFixed)
             return;
 
-        WorldUI.Instance.FirstActivate(true);
+        worldUI.FirstActivate(true);
     }
 
 
@@ -64,7 +66,7 @@ public class Bridge : MonoBehaviourPlus
             return;
         }
 
-        WorldUI.Instance.Move(Camera.main.WorldToScreenPoint(this.transform.position));
+        worldUI.Move(Camera.main.WorldToScreenPoint(this.transform.position));
     }
 
     protected void OnMouseExit()
@@ -74,13 +76,14 @@ public class Bridge : MonoBehaviourPlus
             return;
         }
 
-        WorldUI.Instance.FirstActivate(false);
+        worldUI.FirstActivate(false);
     }
 
     protected new void Awake()
     {
         base.Awake();
         IsFixed = isFixedInit;
+        worldUI = GameObject.FindGameObjectWithTag("BridgeUI").GetComponent<WorldUI>();
     }
 
     protected void Start()
@@ -94,7 +97,7 @@ public class Bridge : MonoBehaviourPlus
         spriteRender.sprite = totallyBroken;
         fullyFixedTrigger.SetActive(false);
 
-        WorldUI.Instance.ResourceCounter.text = ResourceNumbers();
+        worldUI.ResourceCounter.text = ResourceNumbers();
     }
 
     private void OnResourceChange (uint currentResources)
@@ -104,7 +107,7 @@ public class Bridge : MonoBehaviourPlus
             return;
         }
 
-        WorldUI.Instance.ResourceCounter.text = ResourceNumbers();
+        worldUI.ResourceCounter.text = ResourceNumbers();
 
         if (currentResources >= needResourcesCount)
         {

@@ -43,7 +43,7 @@ public class Enemy : MonoBehaviour, IHpable
 
 	private void Hp_OnValueChangeToMin(object sender, Hp.HpChangedArgs e)
 	{
-		Statistics.Instance.AllKilledEnemies.Add(this);
+		Statistics.Instance.AllKilledEnemies += 1;
 		Destroy(this.gameObject);
 	}
 

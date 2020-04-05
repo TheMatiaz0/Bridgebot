@@ -6,16 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
-	public Text statText;
+	[SerializeField]
+	private Text statText;
 
 	private void Start()
 	{
-		GetStats();
-	}
-
-	public void GetStats()
-	{
-		statText.text = $"Bridges built: { Statistics.Instance.AllBridgeBuilt}\nEnemies defeated: {Statistics.Instance.AllKilledEnemies.Count}";
+		statText.text = Statistics.Instance.GetStats();
 	}
 
 	public void OnRetry()

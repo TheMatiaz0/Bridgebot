@@ -5,7 +5,7 @@ using Cyberevolver;
 using Cyberevolver.Unity;
 using UnityEngine.UI;
 
-public class WorldUI : AutoInstanceBehaviour<WorldUI>
+public class WorldUI : MonoBehaviour
 {
 	[SerializeField] private GameObject objectToLaunch = null;
 

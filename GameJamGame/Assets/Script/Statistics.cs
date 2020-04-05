@@ -8,5 +8,10 @@ public class Statistics : AutoInstanceBehaviour<Statistics>
 {
 	public Cint AllBridgeBuilt { get; set; }
 
-	public List<Enemy> AllKilledEnemies { get; set; } = new List<Enemy>();
+	public Cint AllKilledEnemies { get; set; }
+
+	public string GetStats()
+	{
+		return $"Bridges built: {AllBridgeBuilt}\nEnemies defeated: {AllKilledEnemies}";
+	}
 }

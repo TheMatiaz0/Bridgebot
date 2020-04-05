@@ -92,14 +92,13 @@ GameObject:
   - component: {fileID: 1621850692496015637}
   - component: {fileID: 7035039759208388549}
   - component: {fileID: 5906623000084937451}
-  - component: {fileID: 3238119059707813092}
   m_Layer: 5
   m_Name: GameOver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1621850692496015636
 RectTransform:
   m_ObjectHideFlags: 0
@@ -176,11 +175,33 @@ MonoBehaviour:
   - <ButtonText>k__BackingField: {fileID: 3061755848652926334}
     <OnClick>k__BackingField:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 5906623000084937451}
+          m_MethodName: OnRetry
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - <ButtonText>k__BackingField: {fileID: 871139508923079797}
     <OnClick>k__BackingField:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 5906623000084937451}
+          m_MethodName: OnMenu
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   selectColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   nonSelectColor: {r: 1, g: 1, b: 1, a: 1}
   currentMenuType: 0
@@ -196,18 +217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d28150b808d6174bb5f36cbd04231a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3238119059707813092
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1621850692496015635}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce2b0689ca7390943b30271a20302e75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  statText: {fileID: 2632754347338296263}
 --- !u!1 &2539397378825311720
 GameObject:
   m_ObjectHideFlags: 0
