@@ -48,7 +48,7 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
     private Vector2 movementInput = Vector2.zero;
     public bool LockMovement { get; set; }
 
-    public IslandEnterTrigger lastIsland = null;
+    public IslandEnterTrigger LastIsland { get; set; } = null;
 
     [SerializeField]
     private FreezeMenu pauseMenu;
@@ -89,9 +89,6 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
 
     protected void Start()
     {
-        // Bridge.AllBridgeBuilt = 0;
-        // Enemy.AllKilledEnemies = new List<Enemy>();
-
         Hp = new Hp(startMaxHp, 0, startMaxHp);
         hpManager.CurHealth = Hp;
         Hp.OnHpTaken += Hp_OnHpTaken;
@@ -266,7 +263,7 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
 
     private void OnInteraction ()
     {
-        lastIsland?.Interaction();
+        LastIsland?.Interaction();
     }
 
     public void LaunchGameOver ()

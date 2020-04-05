@@ -43,6 +43,7 @@ public class Enemy : MonoBehaviour, IHpable
 
 	private void Hp_OnValueChangeToMin(object sender, Hp.HpChangedArgs e)
 	{
+		Statistics.Instance.AllKilledEnemies.Add(this);
 		Destroy(this.gameObject);
 	}
 
@@ -89,11 +90,6 @@ public class Enemy : MonoBehaviour, IHpable
 			this.Hp.TakeHp(bullet.Dmg, "Bullet");
 			bullet.Kill();
 		}
-	}
-
-	protected void OnDestroy()
-	{
-		Statistics.Instance.AllKilledEnemies.Add(this);
 	}
 
 	protected virtual void OnTriggerExit2D(Collider2D collision)
