@@ -4738,7 +4738,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &235432619
 Transform:
@@ -14939,7 +14939,7 @@ GameObject:
   - component: {fileID: 825172740}
   m_Layer: 0
   m_Name: CarrierUIManager
-  m_TagString: Untagged
+  m_TagString: CarrierUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -14970,8 +14970,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4393adc4ccc88ca4c921b6279e255467, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToLaunch: {fileID: 0}
-  resourceCounter: {fileID: 0}
+  objectToLaunch: {fileID: 1221251274}
+  resourceCounter: {fileID: 1031018936}
 --- !u!1001 &827288535
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37698,6 +37698,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5906623000084937451, guid: 881b4f213d640d54e9a4b757c0062991,
+        type: 3}
+      propertyPath: gameOverManager
+      value: 
+      objectReference: {fileID: 1651174830}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 881b4f213d640d54e9a4b757c0062991, type: 3}
 --- !u!1001 &2207671983161358185
@@ -37869,7 +37874,17 @@ PrefabInstance:
     - target: {fileID: 2520956426205740012, guid: 4969c24a44ffcd54ea167aa1d220e36e,
         type: 3}
       propertyPath: blockOtherFreezes.Array.size
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520956426205740012, guid: 4969c24a44ffcd54ea167aa1d220e36e,
+        type: 3}
+      propertyPath: afterBeingPaused.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520956426205740012, guid: 4969c24a44ffcd54ea167aa1d220e36e,
+        type: 3}
+      propertyPath: afterBeingUnpaused.m_PersistentCalls.m_Calls.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2520956426205740012, guid: 4969c24a44ffcd54ea167aa1d220e36e,
         type: 3}
@@ -37885,6 +37900,61 @@ PrefabInstance:
         type: 3}
       propertyPath: blockOtherFreezes.Array.data[1]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520956426205740012, guid: 4969c24a44ffcd54ea167aa1d220e36e,
+        type: 3}
+      propertyPath: afterBeingPaused.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520956426205740012, guid: 4969c24a44ffcd54ea167aa1d220e36e,
+        type: 3}
+      propertyPath: afterBeingPaused.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520956426205740012, guid: 4969c24a44ffcd54ea167aa1d220e36e,
+        type: 3}
+      propertyPath: afterBeingPaused.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1359004382}
+    - target: {fileID: 2520956426205740012, guid: 4969c24a44ffcd54ea167aa1d220e36e,
+        type: 3}
+      propertyPath: afterBeingPaused.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: HideUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520956426205740012, guid: 4969c24a44ffcd54ea167aa1d220e36e,
+        type: 3}
+      propertyPath: afterBeingPaused.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520956426205740012, guid: 4969c24a44ffcd54ea167aa1d220e36e,
+        type: 3}
+      propertyPath: afterBeingPaused.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520956426205740012, guid: 4969c24a44ffcd54ea167aa1d220e36e,
+        type: 3}
+      propertyPath: afterBeingUnpaused.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520956426205740012, guid: 4969c24a44ffcd54ea167aa1d220e36e,
+        type: 3}
+      propertyPath: afterBeingUnpaused.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520956426205740012, guid: 4969c24a44ffcd54ea167aa1d220e36e,
+        type: 3}
+      propertyPath: afterBeingUnpaused.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1359004382}
+    - target: {fileID: 2520956426205740012, guid: 4969c24a44ffcd54ea167aa1d220e36e,
+        type: 3}
+      propertyPath: afterBeingUnpaused.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: HideUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520956426205740012, guid: 4969c24a44ffcd54ea167aa1d220e36e,
+        type: 3}
+      propertyPath: afterBeingUnpaused.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4969c24a44ffcd54ea167aa1d220e36e, type: 3}
@@ -38240,7 +38310,7 @@ PrefabInstance:
     - target: {fileID: 6357647611718055727, guid: d988518869a6468409e59d4421faff0e,
         type: 3}
       propertyPath: enemyTypes.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6357647611718055727, guid: d988518869a6468409e59d4421faff0e,
         type: 3}
@@ -38283,7 +38353,7 @@ PrefabInstance:
     - target: {fileID: 6357647611718055727, guid: d988518869a6468409e59d4421faff0e,
         type: 3}
       propertyPath: enemyCount._Value
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6357647611718055727, guid: d988518869a6468409e59d4421faff0e,
         type: 3}
@@ -38479,6 +38549,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 958269687}
     m_Modifications:
+    - target: {fileID: 6857100383014660008, guid: 00891763ad5dac34abfa35fa67e74f08,
+        type: 3}
+      propertyPath: enemyBullet
+      value: 
+      objectReference: {fileID: 3947736645364196638, guid: d48f5a47aeae15b4fbaaf3da6c83a0dc,
+        type: 3}
     - target: {fileID: 6857100383014660009, guid: 00891763ad5dac34abfa35fa67e74f08,
         type: 3}
       propertyPath: m_LocalPosition.x

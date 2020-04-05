@@ -9,14 +9,26 @@ public class PauseMenu : MonoBehaviour
 {
 	[SerializeField]
 	private FreezeMenu pauseManager = null;
+	private bool wasActivated = false;
 
 	protected void OnEnable()
 	{
+		if (Player.Instance.LockMovement == true)
+		{
+			wasActivated = true;
+			return;
+		}
+
 		Player.Instance.LockMovement = true;
 	}
 
 	protected void OnDisable()
 	{
+		if (wasActivated == true)
+		{
+			return;
+		}
+
 		Player.Instance.LockMovement = false;
 	}
 

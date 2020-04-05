@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Cyberevolver.Unity;
 
 public class GameOver : MonoBehaviour
 {
 	[SerializeField]
 	private Text statText;
+
+	[SerializeField]
+	private FreezeMenu gameOverManager = null;
 
 	private void Start()
 	{
@@ -16,6 +20,7 @@ public class GameOver : MonoBehaviour
 
 	public void OnRetry()
 	{
+		gameOverManager.EnableMenuWithPause(false);
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 

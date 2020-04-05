@@ -47,6 +47,8 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 		switch (e)
 		{
 			case Phase.FIGHTING:
+				InfoManager.Instance.InfoObject.SetActive(true);
+				InfoManager.Instance.InfoText.text = "Fighting phase. Monsters are coming!";
 				enableUpdate = false;
 				battleUI.SetActive(true);
 				timer.gameObject.SetActive(false);
@@ -57,6 +59,8 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 				break;
 
 			case Phase.EXPLORING:
+				InfoManager.Instance.InfoObject.SetActive(true);
+				InfoManager.Instance.InfoText.text = "Exploring phase. Easy... you can relax now.";
 				spawnEnemies = null;
 				Spawner.Instance.KillAllEnemies();
 				enableUpdate = false;
@@ -66,6 +70,8 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 				break;
 
 			case Phase.PREPARATION:
+				InfoManager.Instance.InfoObject.SetActive(true);
+				InfoManager.Instance.InfoText.text = "Preparation phase. Better buckle your pants and hurry!";
 				spawnEnemies = null;
 				CurrentTimer = timeToEndPreparation.TimeSpan;
 				enableUpdate = true;

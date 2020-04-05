@@ -11,7 +11,8 @@ public class Carrier : MonoBehaviourPlus, IHpable
     [SerializeField]
     private uint maxCapacity = 8;
 
-    public uint CurrentResources { get; private set; }
+    public uint CurrentResources { get { return _CurrentResources; } private set { if (_CurrentResources != value) _CurrentResources = value; OnResourceChange(_CurrentResources); } }
+    private uint _CurrentResources;
 
     public Team CurrentTeam { get; private set; } = Team.Good;
 
@@ -62,6 +63,11 @@ public class Carrier : MonoBehaviourPlus, IHpable
 
     private WorldUI carrierUI = null;
 
+    private void OnResourceChange (uint newValue)
+    {
+        carrierUI.ResourceCounter.text = newValue.ToString();
+    }
+
     protected void Start()
     {
         Hp = new Hp(startMaxHp, 0, startMaxHp);
@@ -71,6 +77,7 @@ public class Carrier : MonoBehaviourPlus, IHpable
         hpManager.Refresh();
         PhaseController.Instance.OnPhaseChanged += Instance_OnPhaseChanged;
         carrierUI = GameObject.FindGameObjectWithTag("CarrierUI").GetComponent<WorldUI>();
+        carrierUI.ResourceCounter.text = 0.ToString();
     }
 
     private void Hp_OnValueChanged(object sender, Hp.HpChangedArgs e)
@@ -152,7 +159,7 @@ public class Carrier : MonoBehaviourPlus, IHpable
 
     protected void OnMouseOver()
     {
-        Vector2 vect = new Vector2(this.transform.position.x, this.transform.position.y + 0.5f);
+        Vector2 vect = new Vector2(this.transform.position.x, this.transform.position.y + 1.3f);
         carrierUI.Move(Camera.main.WorldToScreenPoint(vect));
         // WorldUI.Instance.Move(Camera.main.WorldToScreenPoint(vect));
     }
