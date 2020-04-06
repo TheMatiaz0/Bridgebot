@@ -13,6 +13,16 @@ public class ResourceUIActivator
         ResourceUI.ResourceCounter.text = 0.ToString();
     }
 
+    public void OnResourceChange (uint resourceCount)
+    {
+        if (ResourceUI == null)
+        {
+            return;
+        }
+
+        ResourceUI.ResourceCounter.text = resourceCount.ToString();
+    }
+
     protected void OnMouseEnter()
     {
         ResourceUI.FirstActivate(true);

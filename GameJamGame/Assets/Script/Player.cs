@@ -124,8 +124,7 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
 
     private void Hp_OnValueChangeToMin(object sender, Hp.HpChangedArgs e)
     {
-        Debug.Log("You are dead");
-        Destroy(this.gameObject);
+        LaunchGameOver();
     }
 
     protected void OnEnable()

@@ -27,7 +27,7 @@ public class Resource : MonoBehaviourPlus
     [SerializeField]
     private ResourceUIActivator resourceUIActivator = null;
 
-    public uint ResourceCount { get { return _ResourceCount; } set { if (_ResourceCount != value) { _ResourceCount = value; } OnResourceChange(); } }
+    public uint ResourceCount { get { return _ResourceCount; } set { if (_ResourceCount != value) { _ResourceCount = value; } OnResourceChange(_ResourceCount); } }
     private uint _ResourceCount = 10;
 
     protected void Start()
@@ -36,9 +36,9 @@ public class Resource : MonoBehaviourPlus
         ResourceList.Add(this);
     }
 
-    private void OnResourceChange ()
+    private void OnResourceChange (uint resourceCount)
     {
-        resourceUIActivator.ResourceUI.ResourceCounter.text = ResourceCount.ToString();
+        resourceUIActivator.OnResourceChange(resourceCount);
 
         if (_ResourceCount <= 0) 
         { 
