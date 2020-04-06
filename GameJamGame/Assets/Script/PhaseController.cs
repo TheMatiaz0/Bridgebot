@@ -28,7 +28,7 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 	public TimeSpan CurrentTimer { get { return _CurrentTimer; } private set { if (_CurrentTimer != value) { _CurrentTimer = value; } UpdateText(_CurrentTimer); } }
 	private TimeSpan _CurrentTimer;
 
-	public bool enableUpdate;
+	private bool enableUpdate;
 
 	protected void OnEnable()
 	{
