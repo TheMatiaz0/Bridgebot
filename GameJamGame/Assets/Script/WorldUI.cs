@@ -22,16 +22,10 @@ public class WorldUI : MonoBehaviour
     {
         this.transform.localScale = new Vector2(0.1f, 0.1f);
     }
-    private void OnEnable()
+    private void Start()
     {
         Player.Instance.OnCorrectEnds += Instance_OnCorrectEnds;
     }
-
-    private void OnDisable()
-    {
-        Player.Instance.OnCorrectEnds -= Instance_OnCorrectEnds;
-    }
-
 
     private void Instance_OnCorrectEnds(object sender, EventArgs e)
     {
