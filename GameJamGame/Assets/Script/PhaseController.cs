@@ -28,7 +28,7 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 	public TimeSpan CurrentTimer { get { return _CurrentTimer; } private set { if (_CurrentTimer != value) { _CurrentTimer = value; } UpdateText(_CurrentTimer); } }
 	private TimeSpan _CurrentTimer;
 
-	public bool enableUpdate;
+	private bool enableUpdate;
 
 	protected void OnEnable()
 	{
@@ -60,7 +60,7 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 
 			case Phase.EXPLORING:
 				InfoManager.Instance.InfoObject.SetActive(true);
-				InfoManager.Instance.InfoText.text = "Exploring phase. You can relax now.";
+				InfoManager.Instance.InfoText.text = "Exploring phase. Easy... you can relax now.";
 				spawnEnemies = null;
 				Spawner.Instance.KillAllEnemies();
 				enableUpdate = false;
@@ -71,7 +71,7 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 
 			case Phase.PREPARATION:
 				InfoManager.Instance.InfoObject.SetActive(true);
-				InfoManager.Instance.InfoText.text = "Preparation phase. Get ready!";
+				InfoManager.Instance.InfoText.text = "Preparation phase. Better buckle your pants and hurry!";
 				spawnEnemies = null;
 				CurrentTimer = timeToEndPreparation.TimeSpan;
 				enableUpdate = true;

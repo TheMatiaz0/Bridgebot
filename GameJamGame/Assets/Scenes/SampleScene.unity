@@ -1117,8 +1117,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 313.75, y: -556.6}
-  m_SizeDelta: {x: 727.5, y: 32}
+  m_AnchoredPosition: {x: 918, y: 358}
+  m_SizeDelta: {x: 802.6, y: 148.6}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &45485446
 MonoBehaviour:
@@ -12545,18 +12545,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 645768157}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &652399631 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6875935166602366696, guid: ca047b4d9a0ff9b4092208cb9a92a891,
-    type: 3}
-  m_PrefabInstance: {fileID: 6875935166757115026}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0aebb425a6fa0445b8f04171b1497a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &658236114
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18264,35 +18252,17 @@ MonoBehaviour:
   - Remember that you control your movement using the WASD keys.
   - Your drone will follow you automatically, but you need to fire it manually using
     the Left Mouse Button.
-  - We will lock your movement for now. Your durability (in HP) is shown in the lower
-    left corner.
+  - Your durability (in HP) is shown in the lower left corner.
   - This is Carrier.
   - Carrier will help with gathering materials and rebuilding bridges, while you,
     Fighter, will have to protect Carrier at all cost from anything that you might
     face.
-  - Now press Space and go through the bridge on your right. Your movement will unlock.
-  - 'This message should not appear.
-
-    w4ty is an idiot.'
-  - After selecting a bridge, you'll enter the Preparation Phase. During this time,
-    you may prepare to fight off any enemies which you might face (for example by
-    building turrets)
-  - To build turrets, you have to press the number key representing them on the hotbar.
-    For now you only have a turret on your 2 key. You can build the turrets on the
-    gray spots on the ground (when the turret turns green).
-  - There's now a timer on the lower right side of your vision. It'll tell you how
-    much preparation time you have left. After it runs out, enemies will come.
-  - 'Right now though, as this is only tutorial, you''ll have to press Space one
-    more time to end the preparation phase instead. Good luck Bridgebots!
-
-'
-  - 'This message should not appear.
-
-    w4ty is an idiot.'
+  - Go through the bridge on your right.
+  - test
+  - test2
   arrowObj: {fileID: 202657092}
   player: {fileID: 1336926805}
   carrier: {fileID: 1264788030}
-  phase: {fileID: 652399631}
 --- !u!1001 &969382439
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25812,7 +25782,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1488, y: -882}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!1001 &1424189928
@@ -28536,7 +28506,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.000061035156, y: 0}
-  m_SizeDelta: {x: 727.5, y: 148.6}
+  m_SizeDelta: {x: 802.6, y: 148.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1605277370
 MonoBehaviour:
@@ -28558,10 +28528,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: c10677770a09b9d43bef8b5ce28cf8b1, type: 3}
-    m_FontSize: 32
+    m_FontSize: 44
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 1
+    m_MinSize: 10
     m_MaxSize: 48
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -34860,7 +34830,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -38, y: -85}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1965254840
@@ -36942,7 +36912,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1488, y: -882.00006}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2073779594
