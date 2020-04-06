@@ -14,7 +14,6 @@ public class Tutorial : MonoBehaviour
 	[SerializeField] private GameObject arrowObj = null;
 	[SerializeField] private GameObject player = null;
 	[SerializeField] private GameObject carrier = null;
-	[SerializeField] private PhaseController phase;
 	// public GameObject tutTrigger;
 	private int tutStatus;
 
@@ -62,10 +61,10 @@ public class Tutorial : MonoBehaviour
 				break;
 			case 10:
 				arrowObj.SetActive(false);
-				phase.enableUpdate = false;
+				PhaseController.Instance.enableUpdate = false;
 				break;
 			case 14:
-				phase.enableUpdate = true;
+				PhaseController.Instance.enableUpdate = true;
 				tutorialObj.SetActive(false);
 				Destroy(this);
 				break;
@@ -89,7 +88,7 @@ public class Tutorial : MonoBehaviour
 
 	private void BattleTutorial()
 	{
-		Debug.LogError("BATTLE TUTORIAL");
+		// Debug.LogError("BATTLE TUTORIAL");
 		tutorialObj.SetActive(true);
 		tutStatus = 2;
 		num = 10;
