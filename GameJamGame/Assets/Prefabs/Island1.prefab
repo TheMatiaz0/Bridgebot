@@ -16604,6 +16604,11 @@ PrefabInstance:
       propertyPath: <Points>k__BackingField.Array.data[14]
       value: 
       objectReference: {fileID: 1598747730}
+    - target: {fileID: 2207671982658554186, guid: bd610ac11470bda47bb47e4f926275e7,
+        type: 3}
+      propertyPath: resourceCount
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 2207671982658554230, guid: bd610ac11470bda47bb47e4f926275e7,
         type: 3}
       propertyPath: m_Name
@@ -16613,6 +16618,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2340201946697369023, guid: bd610ac11470bda47bb47e4f926275e7,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd610ac11470bda47bb47e4f926275e7, type: 3}
