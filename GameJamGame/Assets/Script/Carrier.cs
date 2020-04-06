@@ -68,9 +68,10 @@ public class Carrier : MonoBehaviourPlus, IHpable
     private WorldUI carrierUI = null;
     private bool isGoingToResource;
 
-    private void OnResourceChange (uint newValue)
+    private void OnResourceChange(uint newValue)
     {
-        carrierUI.ResourceCounter.text = newValue.ToString();
+        if (carrierUI != null)
+            carrierUI.ResourceCounter.text = newValue.ToString();
     }
 
     protected void Start()
@@ -82,7 +83,7 @@ public class Carrier : MonoBehaviourPlus, IHpable
         hpManager.Refresh();
         PhaseController.Instance.OnPhaseChanged += Instance_OnPhaseChanged;
         carrierUI = GameObject.FindGameObjectWithTag("CarrierUI").GetComponent<WorldUI>();
-      
+
     }
 
     private void Hp_OnValueChanged(object sender, Hp.HpChangedArgs e)
@@ -94,7 +95,7 @@ public class Carrier : MonoBehaviourPlus, IHpable
             LeanTween.color(this.gameObject, Color.red, 1f)
                 .setOnComplete(() => LeanTween.color(this.gameObject, Color.white, 1f));
         }
-            
+
     }
 
     protected void OnEnable()
@@ -165,7 +166,7 @@ public class Carrier : MonoBehaviourPlus, IHpable
 
     protected void OnMouseEnter()
     {
-        carrierUI.FirstActivate(true,CurrentResources.ToString());
+        carrierUI.FirstActivate(true, CurrentResources.ToString());
         // WorldUI.Instance.FirstActivate(true);
     }
 
@@ -187,7 +188,7 @@ public class Carrier : MonoBehaviourPlus, IHpable
         while (true)
         {
             isGoingToResource = true;
-           
+
             yield return GoToResource();
             isGoingToResource = false;
 
@@ -200,9 +201,9 @@ public class Carrier : MonoBehaviourPlus, IHpable
             yield return GoPoints();
 
             // fix the bridge
-         
+
             yield return FixBridge(selectedBridge);
-         
+
 
         }
     }
@@ -266,7 +267,7 @@ public class Carrier : MonoBehaviourPlus, IHpable
 
     private IEnumerator FixBridge(Bridge bridge)
     {
-     
+
         while (CurrentResources > 0)
         {
             Animator.SetBool("ChopChop", true);
@@ -281,7 +282,7 @@ public class Carrier : MonoBehaviourPlus, IHpable
         woodSpriteRender.sprite = null;
 
         yield return GoPoints(true);
-    
+
         yield break;
     }
 

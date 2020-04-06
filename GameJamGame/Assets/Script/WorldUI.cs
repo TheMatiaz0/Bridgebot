@@ -1,21 +1,21 @@
-﻿using System.Collections;
+﻿using Cyberevolver;
+using Cyberevolver.Unity;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Cyberevolver;
-using Cyberevolver.Unity;
 using UnityEngine.UI;
-using System;
 
 public class WorldUI : MonoBehaviour
 {
-	[SerializeField] private GameObject objectToLaunch = null;
+    [SerializeField] private GameObject objectToLaunch = null;
 
-	[SerializeField]
-	private Text resourceCounter = null;
+    [SerializeField]
+    private Text resourceCounter = null;
     [SerializeField]
     private LeanTweenType anim = LeanTweenType.punch;
 
-	public Text ResourceCounter => resourceCounter;
+    public Text ResourceCounter => resourceCounter;
 
     bool deactiving = false;
     private void Awake()
@@ -26,7 +26,7 @@ public class WorldUI : MonoBehaviour
     {
         Player.Instance.OnCorrectEnds += Instance_OnCorrectEnds;
     }
-  
+
     private void OnDisable()
     {
         Player.Instance.OnCorrectEnds -= Instance_OnCorrectEnds;
@@ -38,8 +38,8 @@ public class WorldUI : MonoBehaviour
         Destroy(objectToLaunch.gameObject);
     }
 
-    public void FirstActivate (bool isTrue,string val="")
-	{
+    public void FirstActivate(bool isTrue, string val = "")
+    {
         if (objectToLaunch == false)
             return;
         if (Time.timeScale == 0 && isTrue)
@@ -49,28 +49,28 @@ public class WorldUI : MonoBehaviour
         deactiving = false;
         if (isTrue)
         {
-           
+
             objectToLaunch.SetActive(true);
             LeanTween.scale(objectToLaunch.gameObject, new Vector2(1, 1), 0.15f).setEase(anim);
         }
-          
+
         else
         {
             deactiving = true;
             LeanTween.scale(objectToLaunch.gameObject, new Vector3(0.1f, 0.1f), 0.15f).setEase(anim)
-             .setOnComplete(() => { objectToLaunch.SetActive(false);deactiving = false; });
+             .setOnComplete(() => { objectToLaunch.SetActive(false); deactiving = false; });
 
         }
 
     }
 
-	public void Move (Vector2 position)
-	{
+    public void Move(Vector2 position)
+    {
 
         if (deactiving || objectToLaunch == null)
             return;
 
         objectToLaunch.transform.position = position;
-		
-	}
+
+    }
 }
