@@ -29,11 +29,15 @@ public class IslandEnterTrigger : MonoBehaviour
 
 	public Transform[] EnemyPoints => enemyPoints;
 
+	private bool inRange = false;
+
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 
 		if (collision.GetComponent<Player>())
 		{
+			inRange = true;
+
 			if (hasActivated == false)
 			{
 				ActivateBridgeSelection();
@@ -59,11 +63,12 @@ public class IslandEnterTrigger : MonoBehaviour
 	private void OnTriggerExit2D(Collider2D collision)
 	{
 		PopupText.Instance?.MainGameObject?.SetActive(false);
+		inRange = false;
 	}
 
 	public void Interaction ()
 	{
-		if (hasActivated == false || PopupText.Instance.MainGameObject.activeSelf == false)
+		if (hasActivated == false || inRange == false)
 		{
 			return;
 		}

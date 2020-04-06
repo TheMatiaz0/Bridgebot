@@ -44,10 +44,10 @@ public class HotBarElement : MonoBehaviourPlus
             back.color = (value) ? selectBackColor : baseBackColor;
             if (Item != null)
             {
-                if (value)
-                    Item.OnStartSelect();
-                else
+                if (!value)
                     Item.OnEndSelect();
+                else
+                    Item.OnStartSelect();
             }
             isSelect = value;
         }
