@@ -62,6 +62,7 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
     private Vector2 lookPosition;
 
     private Direction lastDirection = Direction.Right;
+    private ItemOnTrigger itemTrigger = null;
 
     private void SetDefCamera()
     {
@@ -78,14 +79,27 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
         Hp = new Hp(startMaxHp, 0, startMaxHp);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected void OnTriggerEnter2D(Collider2D collision)
     {
         if (HpableExtension.IsFromWrongTeam(this, collision, out Bullet bullet))
         {
             this.Hp.TakeHp(bullet.Dmg, "Bullet");
             bullet.Kill();
         }
+
+        if (itemTrigger = collision.GetComponent<ItemOnTrigger>())
+        {
+            return;
+        }
     }
+
+    protected void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.GetComponent<ItemOnTrigger>())
+            itemTrigger = null;
+    }
+
+
 
     protected void Start()
     {
@@ -264,6 +278,7 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
     private void OnInteraction ()
     {
         LastIsland?.Interaction();
+        itemTrigger?.Interaction();
     }
 
     public void LaunchGameOver ()
@@ -281,5 +296,4 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
     {
         selection?.CancelSelection();
     }
-
 }
