@@ -9,13 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2769994952245185046}
+  - component: {fileID: 2278963725247513419}
   m_Layer: 8
-eaab52325a09af6b8b23b3dd3873571af82d60b2
   m_Name: Tiles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &2769994952245185046
 Transform:

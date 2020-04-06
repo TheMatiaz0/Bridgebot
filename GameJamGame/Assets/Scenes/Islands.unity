@@ -272,6 +272,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 930741865668970709, guid: 65614db6cef04504ab3d2c0ce8384c50,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 930741865668970709, guid: 65614db6cef04504ab3d2c0ce8384c50,
+        type: 3}
+      propertyPath: m_Name
+      value: Tiles
+      objectReference: {fileID: 0}
     - target: {fileID: 930741867131690624, guid: 65614db6cef04504ab3d2c0ce8384c50,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -459,6 +469,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 2769994952245185045, guid: d581c203a95393e4196e7cae72a6f410,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2769994953555362437, guid: d581c203a95393e4196e7cae72a6f410,
         type: 3}
