@@ -258,7 +258,6 @@ public class Carrier : MonoBehaviourPlus, IHpable
         {
             resource.ResourceCount -= 1;
             CurrentResources += 1;
-            // Debug.Log($"I have {CurrentResources} resources now");
 
             yield return Async.Wait(gatherCooldown.TimeSpan);
         }
@@ -274,7 +273,6 @@ public class Carrier : MonoBehaviourPlus, IHpable
             Animator.SetBool("ChopChop", true);
             bridge.ResourcesAddedToBuild += 1;
             CurrentResources -= 1;
-            // Debug.Log($"I added to the bridge {bridge.ResourcesAddedToBuild} resources. I have {CurrentResources} now");
 
             yield return Async.Wait(fixCooldown.TimeSpan);
             Animator.SetBool("ChopChop", false);
