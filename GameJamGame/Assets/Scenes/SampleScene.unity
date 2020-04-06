@@ -11704,103 +11704,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 8926157502546531443}
   m_PrefabAsset: {fileID: 0}
---- !u!82 &1264788031
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1264788030}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 452910074432265237, guid: 1366695b5377d7744bf2534ea6e680ed,
-    type: 2}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1001 &1297472562
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20857,6 +20760,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8154490813324486483, guid: 4c95f45762ffc1a4fa801a887deabbef,
         type: 3}
+      propertyPath: hpManager
+      value: 
+      objectReference: {fileID: 1965254840}
+    - target: {fileID: 8154490813324486483, guid: 4c95f45762ffc1a4fa801a887deabbef,
+        type: 3}
       propertyPath: cam
       value: 
       objectReference: {fileID: 519420031}
@@ -20877,40 +20785,14 @@ PrefabInstance:
       objectReference: {fileID: 257774862}
     - target: {fileID: 8154490813324486483, guid: 4c95f45762ffc1a4fa801a887deabbef,
         type: 3}
-      propertyPath: hpSingleObject
+      propertyPath: audioSource
       value: 
-      objectReference: {fileID: 4727594624325207090, guid: a901feded373efc449f4629670fbe0e8,
-        type: 3}
+      objectReference: {fileID: 8154490812980597402}
     - target: {fileID: 8154490813324486483, guid: 4c95f45762ffc1a4fa801a887deabbef,
         type: 3}
-      propertyPath: parentForHp
+      propertyPath: shoot
       value: 
-      objectReference: {fileID: 60218555}
-    - target: {fileID: 8154490813324486483, guid: 4c95f45762ffc1a4fa801a887deabbef,
-        type: 3}
-      propertyPath: lifeColor.r
-      value: 0.96098113
-      objectReference: {fileID: 0}
-    - target: {fileID: 8154490813324486483, guid: 4c95f45762ffc1a4fa801a887deabbef,
-        type: 3}
-      propertyPath: deadColor.r
-      value: 0.6792453
-      objectReference: {fileID: 0}
-    - target: {fileID: 8154490813324486483, guid: 4c95f45762ffc1a4fa801a887deabbef,
-        type: 3}
-      propertyPath: deadColor.g
-      value: 0.6696333
-      objectReference: {fileID: 0}
-    - target: {fileID: 8154490813324486483, guid: 4c95f45762ffc1a4fa801a887deabbef,
-        type: 3}
-      propertyPath: deadColor.b
-      value: 0.6696333
-      objectReference: {fileID: 0}
-    - target: {fileID: 8154490813324486483, guid: 4c95f45762ffc1a4fa801a887deabbef,
-        type: 3}
-      propertyPath: hpManager
-      value: 
-      objectReference: {fileID: 1965254840}
+      objectReference: {fileID: 8300000, guid: 1b353d9bfb6af04488eb8480f1026ef5, type: 3}
     - target: {fileID: 8154490813324486494, guid: 4c95f45762ffc1a4fa801a887deabbef,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -20973,6 +20855,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c95f45762ffc1a4fa801a887deabbef, type: 3}
+--- !u!82 &8154490812980597402 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7510760360236251989, guid: 4c95f45762ffc1a4fa801a887deabbef,
+    type: 3}
+  m_PrefabInstance: {fileID: 8154490812980597401}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8926157502546531443
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20985,26 +20873,6 @@ PrefabInstance:
       propertyPath: hpManager
       value: 
       objectReference: {fileID: 1247886796}
-    - target: {fileID: 1270969954557673367, guid: b5dd9eb753152324bba75ca22ed49bc4,
-        type: 3}
-      propertyPath: gatherCooldown.miliseconds
-      value: 468
-      objectReference: {fileID: 0}
-    - target: {fileID: 1270969954557673367, guid: b5dd9eb753152324bba75ca22ed49bc4,
-        type: 3}
-      propertyPath: fixCooldown.miliseconds
-      value: 736
-      objectReference: {fileID: 0}
-    - target: {fileID: 1270969954557673367, guid: b5dd9eb753152324bba75ca22ed49bc4,
-        type: 3}
-      propertyPath: distanceBetweenPoints
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 1270969954557673367, guid: b5dd9eb753152324bba75ca22ed49bc4,
-        type: 3}
-      propertyPath: speed
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 8926157502099828153, guid: b5dd9eb753152324bba75ca22ed49bc4,
         type: 3}
       propertyPath: m_LocalPosition.x

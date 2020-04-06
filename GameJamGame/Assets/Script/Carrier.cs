@@ -202,9 +202,11 @@ public class Carrier : MonoBehaviourPlus, IHpable
             // gather resources
 
             Animator.SetBool("ChopChop", true);
+            audioSource.PlayOneShot(gatheringSound);
             yield return GatherResources(Current);
             woodSpriteRender.sprite = fullWood;
             Animator.SetBool("ChopChop", false);
+            audioSource.Stop();
 
             yield return GoPoints();
 

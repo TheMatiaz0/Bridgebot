@@ -64,6 +64,13 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
     private Direction lastDirection = Direction.Right;
     private ItemOnTrigger itemTrigger = null;
     public event EventHandler OnCorrectEnds = delegate { };
+
+    [SerializeField]
+    private AudioSource audioSource = null;
+
+    [SerializeField]
+    private AudioClip shoot = null;
+
     private void SetDefCamera()
     {
         cam = Camera.main;
