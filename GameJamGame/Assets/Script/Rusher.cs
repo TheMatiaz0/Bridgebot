@@ -21,7 +21,7 @@ public class Rusher : Enemy
 	{
 		base.Start();
 		cooldown = new CooldownController(this, attackCooldown.TimeSpan);
-		cooldown = new CooldownController(this, attackCooldown.TimeSpan);
+		// cooldown = new CooldownController(this, attackCooldown.TimeSpan);
       
 
 	}

@@ -27,6 +27,7 @@ public class ItemOnTrigger : MonoBehaviourPlus
 		Item item = (Item)Activator.CreateInstance(itemClass);
 		item.Apply(itemAsset);
 		Equipment.Instance.AddItem(item);
+		Destroy(this.gameObject);
 	}
 
 	protected void OnTriggerExit2D(Collider2D collision)

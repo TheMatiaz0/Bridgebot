@@ -10,7 +10,7 @@ using UnityEngine;
 public class Pistol : Item
 {
 
-    private readonly TimeSpan delay = TimeSpan.FromSeconds(1);
+    private readonly TimeSpan delay = TimeSpan.FromSeconds(0.5);
     private readonly CooldownController cooldownController;
 
     public Pistol()
