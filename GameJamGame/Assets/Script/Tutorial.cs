@@ -5,14 +5,18 @@ using UnityEngine.UI;
 
 public class Tutorial : MonoBehaviour
 {
-	public Text tutMessage;
-	public string[] messages;
+	[SerializeField] private Text tutMessage = null;
+	[SerializeField]
+	private GameObject tutorialObj = null;
+
+	[TextArea] [SerializeField] private string[] messages;
 	private int num;
-	public GameObject arrowObj;
-	public GameObject player;
-	public GameObject carrier;
-	public GameObject tutTrigger;
+	[SerializeField] private GameObject arrowObj = null;
+	[SerializeField] private GameObject player = null;
+	[SerializeField] private GameObject carrier = null;
+	// public GameObject tutTrigger;
 	private bool tutAllowed;
+
 
 	void UpdateMessage()
 	{
@@ -20,6 +24,10 @@ public class Tutorial : MonoBehaviour
 
 		switch (num)
 		{
+			case 0:
+				Player.Instance.LockMovement = true;
+				break;
+
 			case 2:
 				arrowObj.SetActive(true);
 				arrowObj.transform.position = new Vector2(player.transform.position.x, player.transform.position.y + 1);
@@ -38,10 +46,32 @@ public class Tutorial : MonoBehaviour
 				arrowObj.transform.rotation = Quaternion.Euler(0, 0, 90);
 				break;
 
+			case 9:
+				Player.Instance.LockMovement = false;
+				arrowObj.SetActive(false);
+				tutorialObj.SetActive(false);
+				break;
+
+
 		}
 	}
 
-	void Start()
+	protected void OnEnable()
+	{
+		BridgeSelection.OnBridgeSelected += BridgeSelection_OnBridgeSelected;
+	}
+
+	private void BridgeSelection_OnBridgeSelected(object sender, Cyberevolver.SimpleArgs<GameObject> e)
+	{
+
+	}
+
+	protected void OnDisable()
+	{
+		BridgeSelection.OnBridgeSelected -= BridgeSelection_OnBridgeSelected;
+	}
+
+	private void Start()
 	{
 		UpdateMessage();
 	}

@@ -1705,7 +1705,7 @@ RectTransform:
   - {fileID: 2027378380}
   - {fileID: 882648268}
   m_Father: {fileID: 1359004381}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3407,7 +3407,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 0
 --- !u!4 &202657093
 Transform:
@@ -4654,7 +4654,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!224 &230942182
 RectTransform:
@@ -4672,13 +4672,13 @@ RectTransform:
   - {fileID: 611986657}
   - {fileID: 1845328208}
   m_Father: {fileID: 1359004381}
-  m_RootOrder: 8
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -490}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!1001 &233432440
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11892,7 +11892,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!224 &611986657
 RectTransform:
@@ -15974,7 +15974,7 @@ RectTransform:
   - {fileID: 1659321321}
   - {fileID: 1838740720}
   m_Father: {fileID: 1359004381}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -18213,7 +18213,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &966736236
 Transform:
@@ -18243,6 +18243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutMessage: {fileID: 2026812300}
+  tutorialObj: {fileID: 230942181}
   messages:
   - Welcome to the pre-programmed tutorial for your mission, Bridgebots.
   - As you already know, your objective is to rebuild the destroyed bridges, and
@@ -18256,10 +18257,12 @@ MonoBehaviour:
   - Carrier will help with gathering materials and rebuilding bridges, while you,
     Fighter, will have to protect Carrier at all cost from anything that you might
     face.
+  - Go through the bridge on your right.
+  - test
+  - test2
   arrowObj: {fileID: 202657092}
   player: {fileID: 1336926805}
-  carrier: {fileID: 0}
-  tutTrigger: {fileID: 0}
+  carrier: {fileID: 1264788030}
 --- !u!1001 &969382439
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20166,7 +20169,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 8926157502546531443}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1264788030}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 83f20b7069e88f6428784726a8321d6b, type: 3}
@@ -22331,7 +22334,7 @@ RectTransform:
   - {fileID: 1031018935}
   - {fileID: 593057072}
   m_Father: {fileID: 1359004381}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -23118,6 +23121,12 @@ Transform:
   m_Father: {fileID: 816662064}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1264788030 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8926157502099828154, guid: b5dd9eb753152324bba75ca22ed49bc4,
+    type: 3}
+  m_PrefabInstance: {fileID: 8926157502546531443}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1271380686
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24547,12 +24556,12 @@ RectTransform:
   - {fileID: 108638378}
   - {fileID: 1191819726}
   - {fileID: 367356697}
+  - {fileID: 230942182}
   - {fileID: 89492965}
   - {fileID: 1221251275}
   - {fileID: 854722575}
   - {fileID: 277902220}
   - {fileID: 1068143994}
-  - {fileID: 230942182}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -32889,7 +32898,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!224 &1845328208
 RectTransform:
@@ -36169,7 +36178,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!224 &2026812299
 RectTransform:
@@ -36809,7 +36818,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!224 &2072893087
 RectTransform:
@@ -36848,8 +36857,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -38574,7 +38583,7 @@ PrefabInstance:
     - target: {fileID: 1621850692496015636, guid: 881b4f213d640d54e9a4b757c0062991,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1621850692496015636, guid: 881b4f213d640d54e9a4b757c0062991,
         type: 3}
@@ -39682,7 +39691,7 @@ PrefabInstance:
     - target: {fileID: 6398539926959561999, guid: fd7c99ce9257eed4191075511fce8ea8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6398539926959561999, guid: fd7c99ce9257eed4191075511fce8ea8,
         type: 3}
