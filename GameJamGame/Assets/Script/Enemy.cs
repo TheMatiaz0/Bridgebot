@@ -6,7 +6,7 @@ using UnityEngine;
 using Pathfinding;
 using System;
 
-public class Enemy : MonoBehaviour, IHpable
+public class Enemy : MonoBehaviourPlus, IHpable
 {
 	[SerializeField]
 	private Cint startHp = 10;
@@ -35,8 +35,9 @@ public class Enemy : MonoBehaviour, IHpable
 	private SpriteRenderer spriteRender = null;
 
 
-	protected virtual void Awake()
+	protected override void Awake()
 	{
+        base.Awake();
 		Hp = new Hp(startHp, 0, startHp);
 		Hp.OnValueChangeToMin += Hp_OnValueChangeToMin;
 	}

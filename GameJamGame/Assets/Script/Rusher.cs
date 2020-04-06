@@ -4,6 +4,7 @@ using UnityEngine;
 using Cyberevolver;
 using Cyberevolver.Unity;
 using System;
+using Pathfinding;
 
 public class Rusher : Enemy
 {
@@ -11,14 +12,27 @@ public class Rusher : Enemy
 	private SerializedTimeSpan attackCooldown;
 
 	private CooldownController cooldown = null;
+    [Auto]
+    public AIPath Path { get; private set; }
+    [Auto]
+    public Animator Animator { get; protected set; }
 
 	protected new void Start()
 	{
 		base.Start();
 		cooldown = new CooldownController(this, attackCooldown.TimeSpan);
-	}
+		cooldown = new CooldownController(this, attackCooldown.TimeSpan);
+      
 
-	protected override void OnTriggerEnter2D(Collider2D collider)
+	}
+    protected override void Update()
+    {
+        base.Update();
+        Animator.SetBool("Move", !Path.reachedEndOfPath);
+
+    }
+
+    protected override void OnTriggerEnter2D(Collider2D collider)
 	{
 		base.OnTriggerEnter2D(collider);
 
