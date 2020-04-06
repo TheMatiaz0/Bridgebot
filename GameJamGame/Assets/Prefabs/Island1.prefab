@@ -1111,6 +1111,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1094478692685630472}
+  - component: {fileID: 1307286392}
   m_Layer: 8
   m_Name: Tiles
   m_TagString: Untagged
@@ -1387,6 +1388,35 @@ Transform:
   m_Father: {fileID: 1094478690922356120}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!68 &1307286392
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094478692685630487}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: 6.233733, y: -3.3333864}
+  - {x: 6.2131643, y: 3.1445277}
+  - {x: -1.6217923, y: 3.3812559}
+  - {x: -1.7563643, y: 6.1632333}
+  - {x: -7.3085647, y: 6.2410345}
+  - {x: -7.3899484, y: -0.69789886}
+  - {x: -10.270763, y: -0.84144783}
+  - {x: -10.441292, y: -5.313655}
+  - {x: -9.292641, y: -5.3230124}
+  - {x: -9.398167, y: -6.2424107}
+  - {x: -2.8167596, y: -6.290473}
+  - {x: -2.681501, y: -3.2311049}
+  - {x: 6.288232, y: -3.3276834}
 --- !u!1 &1587781750253950558
 GameObject:
   m_ObjectHideFlags: 0
