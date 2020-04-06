@@ -152,7 +152,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Choose a bridge
+  m_Text: Choose a bridge to rebuild
 --- !u!114 &1308610810596518157
 MonoBehaviour:
   m_ObjectHideFlags: 0
