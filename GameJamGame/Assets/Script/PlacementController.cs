@@ -7,7 +7,6 @@ using Cyberevolver;
 public class PlacementController : AutoInstanceBehaviour<PlacementController>
 {
 	private GameObject currentObject = null;
-	private GameObject lastObject = null;
 	private SpriteRenderer spriteRender = null;
 	private Collider2D col2D = null;
 	private Building building = null;
@@ -63,10 +62,7 @@ public class PlacementController : AutoInstanceBehaviour<PlacementController>
 
 	public void Deactive ()
 	{
-		if (lastObject == currentObject)
-		{
-			return;
-		}
 		Destroy(currentObject);
+		currentObject = null;
 	}
 }

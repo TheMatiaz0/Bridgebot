@@ -20,9 +20,9 @@ public class HealingStation : Building
 		cooldownController = new CooldownController(this, cooldown.TimeSpan);
 	}
 
-	protected override void OnTriggerEnter2D(Collider2D collision)
+	protected override void OnTriggerStay2D(Collider2D collision)
 	{
-		base.OnTriggerEnter2D(collision);
+		base.OnTriggerStay2D(collision);
 
 		Player player = null;
 		Carrier carrier = null;

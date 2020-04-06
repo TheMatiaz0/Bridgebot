@@ -69,6 +69,12 @@ public class Carrier : MonoBehaviourPlus, IHpable
     private WorldUI carrierUI = null;
     private bool isGoingToResource;
 
+    [SerializeField]
+    private AudioClip gatheringSound = null;
+
+    [SerializeField]
+    private AudioSource audioSource = null;
+
     private void OnResourceChange(uint newValue)
     {
         if (carrierUI != null)
@@ -194,6 +200,7 @@ public class Carrier : MonoBehaviourPlus, IHpable
             isGoingToResource = false;
 
             // gather resources
+
             Animator.SetBool("ChopChop", true);
             yield return GatherResources(Current);
             woodSpriteRender.sprite = fullWood;
