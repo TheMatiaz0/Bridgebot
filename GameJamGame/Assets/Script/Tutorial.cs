@@ -11,6 +11,8 @@ public class Tutorial : MonoBehaviour
 	public GameObject arrowObj;
 	public GameObject player;
 	public GameObject carrier;
+	public GameObject tutTrigger;
+	private bool tutAllowed;
 
 	void UpdateMessage()
 	{
@@ -35,6 +37,7 @@ public class Tutorial : MonoBehaviour
 				arrowObj.transform.position = new Vector2(6f, 0.50f);
 				arrowObj.transform.rotation = Quaternion.Euler(0, 0, 90);
 				break;
+
 		}
 	}
 
