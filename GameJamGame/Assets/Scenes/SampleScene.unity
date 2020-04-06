@@ -20793,6 +20793,11 @@ PrefabInstance:
       propertyPath: shoot
       value: 
       objectReference: {fileID: 8300000, guid: 1b353d9bfb6af04488eb8480f1026ef5, type: 3}
+    - target: {fileID: 8154490813324486483, guid: 4c95f45762ffc1a4fa801a887deabbef,
+        type: 3}
+      propertyPath: startMaxHp
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8154490813324486494, guid: 4c95f45762ffc1a4fa801a887deabbef,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -20873,6 +20878,11 @@ PrefabInstance:
       propertyPath: hpManager
       value: 
       objectReference: {fileID: 1247886796}
+    - target: {fileID: 1270969954557673367, guid: b5dd9eb753152324bba75ca22ed49bc4,
+        type: 3}
+      propertyPath: startMaxHp
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8926157502099828153, guid: b5dd9eb753152324bba75ca22ed49bc4,
         type: 3}
       propertyPath: m_LocalPosition.x

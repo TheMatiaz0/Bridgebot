@@ -31,7 +31,7 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
     public Hp Hp { get; private set; }
 
     [SerializeField]
-    private uint startMaxHp = 10;
+    private uint startMaxHp = 20;
 
     [SerializeField]
     private HpManager hpManager = null;
