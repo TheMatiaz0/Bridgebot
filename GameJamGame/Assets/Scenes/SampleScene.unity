@@ -20458,7 +20458,7 @@ PrefabInstance:
     - target: {fileID: 6357647611718055727, guid: d988518869a6468409e59d4421faff0e,
         type: 3}
       propertyPath: timeBetweenWaves.seconds
-      value: 9
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d988518869a6468409e59d4421faff0e, type: 3}
@@ -20737,7 +20737,7 @@ PrefabInstance:
     - target: {fileID: 6875935166602366696, guid: ca047b4d9a0ff9b4092208cb9a92a891,
         type: 3}
       propertyPath: timeToEndPreparation.seconds
-      value: 8
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 6875935166602366696, guid: ca047b4d9a0ff9b4092208cb9a92a891,
         type: 3}
