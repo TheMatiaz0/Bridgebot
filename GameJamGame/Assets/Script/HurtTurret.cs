@@ -6,7 +6,7 @@ using Cyberevolver;
 using System;
 using System.Linq;
 
-public class HurtTurret : MonoBehaviour, IHpable
+public class HurtTurret : Building
 {
 	[SerializeField]
 	private float range = 40f;
@@ -23,13 +23,9 @@ public class HurtTurret : MonoBehaviour, IHpable
 	[SerializeField]
 	private Cint bulletDamage = 2;
 
-	public Team CurrentTeam { get; private set; } = Team.Good;
-
-	public Hp Hp { get; private set; }
-
-
-	protected void Start()
+	public override void OnPlace()
 	{
+		base.OnPlace();
 		StartCoroutine(ShootWithDelay());
 	}
 

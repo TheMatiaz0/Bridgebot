@@ -39,6 +39,9 @@ public class CanvasMenu : MonoBehaviourPlus
     private Color nonSelectColor = Color.white;
 
     [SerializeField]
+    private bool changeColor = true;
+
+    [SerializeField]
     private MenuType currentMenuType = MenuType.UpDown;
 
     private InputActions inputAction;
@@ -94,8 +97,13 @@ public class CanvasMenu : MonoBehaviourPlus
         if (selectId >= buttons.Length)
             selectId = (Cint)(uint)(buttons.Length - 1);
 
-        for (int x = 0; x < buttons.Length; x++)
-            buttons[x].ButtonText.color = (selectId == x) ? selectColor : nonSelectColor;
+
+        if (changeColor == true)
+        {
+            for (int x = 0; x < buttons.Length; x++)
+                buttons[x].ButtonText.color = (selectId == x) ? selectColor : nonSelectColor;
+        }
+
 
         if (inputAction.MainMenu.Click.triggered)
             buttons[selectId].OnClick.Invoke();
