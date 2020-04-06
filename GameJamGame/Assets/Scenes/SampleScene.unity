@@ -8233,7 +8233,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: aa01e1b89d40a1440be75b6bf6768934, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.428
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -13145,7 +13145,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 83794ec0abd84bd439db741245513f5b, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.428
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -19656,11 +19656,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameOver
-      objectReference: {fileID: 0}
-    - target: {fileID: 1621850692496015635, guid: 881b4f213d640d54e9a4b757c0062991,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1621850692496015636, guid: 881b4f213d640d54e9a4b757c0062991,
         type: 3}

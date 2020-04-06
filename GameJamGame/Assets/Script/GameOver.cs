@@ -13,9 +13,16 @@ public class GameOver : MonoBehaviour
 	[SerializeField]
 	private FreezeMenu gameOverManager = null;
 
+	[SerializeField]
+	private AudioSource audioSource = null;
+
+	[SerializeField]
+	private AudioClip gameOverSound = null;
+
 	private void Start()
 	{
 		statText.text = Statistics.Instance.GetStats();
+		audioSource.PlayOneShot(gameOverSound);
 	}
 
 	public void OnRetry()

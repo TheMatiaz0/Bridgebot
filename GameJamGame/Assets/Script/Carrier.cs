@@ -75,6 +75,9 @@ public class Carrier : MonoBehaviourPlus, IHpable
     [SerializeField]
     private AudioSource audioSource = null;
 
+    [SerializeField]
+    private AudioClip fixing = null;
+
     private void OnResourceChange(uint newValue)
     {
         if (carrierUI != null)
@@ -211,7 +214,6 @@ public class Carrier : MonoBehaviourPlus, IHpable
             yield return GoPoints();
 
             // fix the bridge
-
             yield return FixBridge(selectedBridge);
 
 
@@ -279,12 +281,15 @@ public class Carrier : MonoBehaviourPlus, IHpable
 
         while (CurrentResources > 0)
         {
+            audioSource.PlayOneShot(fixing);
             Animator.SetBool("ChopChop", true);
             bridge.ResourcesAddedToBuild += 1;
             CurrentResources -= 1;
 
             yield return Async.Wait(fixCooldown.TimeSpan);
+
             Animator.SetBool("ChopChop", false);
+            audioSource.Stop();
         }
 
         woodSpriteRender.sprite = null;

@@ -301,6 +301,7 @@ MonoBehaviour:
   hpManager: {fileID: 0}
   gatheringSound: {fileID: 8300000, guid: 45bbea7cccd367e4ca60ef91409914e8, type: 3}
   audioSource: {fileID: 1264788031}
+  fixing: {fileID: 8300000, guid: b7159a122126d12498bb69c142b7527e, type: 3}
 --- !u!114 &8514928864346537232
 MonoBehaviour:
   m_ObjectHideFlags: 0
