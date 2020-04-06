@@ -9,12 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2769994952245185046}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tiles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2769994952245185046
 Transform:
@@ -367,8 +367,132 @@ Transform:
   - {fileID: 2769994953492043789}
   - {fileID: 2769994952744206902}
   - {fileID: 1826691889047592938}
+  - {fileID: 2853308464288109209}
+  - {fileID: 6049085261668768922}
+  - {fileID: 8206669124561098044}
+  - {fileID: 7624533753532737981}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3476707912348530867
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7624533753532737981}
+  m_Layer: 0
+  m_Name: Spawner (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7624533753532737981
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3476707912348530867}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -31.11121, y: 17.199999, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2769994953555362438}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3639421203175094747
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6049085261668768922}
+  m_Layer: 0
+  m_Name: Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6049085261668768922
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3639421203175094747}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -10.10121, y: -0.049999982, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2769994953555362438}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4755496468758928210
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8206669124561098044}
+  m_Layer: 0
+  m_Name: Spawner (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8206669124561098044
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4755496468758928210}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -31.29121, y: -1.74, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2769994953555362438}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5185636674436148074
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2853308464288109209}
+  m_Layer: 8
+  m_Name: CarrierSpawnPoint (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &2853308464288109209
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5185636674436148074}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.95, y: -5.98, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2769994953555362438}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1545221276367003872
 PrefabInstance:
@@ -436,6 +560,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MiddleTileset_1_0 (65)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
@@ -587,6 +716,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DownTileset_1_0 (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: 8a7c222caf3ce5d488f487c742296c3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a7c222caf3ce5d488f487c742296c3f, type: 3}
 --- !u!4 &8498417654894910338 stripped
@@ -737,6 +871,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiddleTileset_1_0 (72)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
 --- !u!4 &5218174509696547074 stripped
@@ -811,6 +950,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MiddleTileset_1_0 (73)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
@@ -962,6 +1106,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UpTileset_1_0 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: eb4af2750cddcac4a929ae4226177504,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb4af2750cddcac4a929ae4226177504, type: 3}
 --- !u!4 &5345978809255538878 stripped
@@ -1036,6 +1185,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RightTileset_1_0 (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: 3743c5277a3d8d24aba091fc42fd1407,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3743c5277a3d8d24aba091fc42fd1407, type: 3}
@@ -1112,6 +1266,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiddleTileset_1_0 (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
 --- !u!4 &5345978809245188739 stripped
@@ -1187,6 +1346,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiddleTileset_1_0 (54)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
 --- !u!4 &5345978809242633300 stripped
@@ -1261,6 +1425,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MiddleTileset_1_0 (59)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
@@ -1412,6 +1581,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DownTileset_1_0 (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: 8a7c222caf3ce5d488f487c742296c3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a7c222caf3ce5d488f487c742296c3f, type: 3}
 --- !u!4 &5345978809226647368 stripped
@@ -1486,6 +1660,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MiddleTileset_1_0 (57)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
@@ -1562,6 +1741,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiddleTileset_1_0 (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
 --- !u!4 &5345978809191946121 stripped
@@ -1636,6 +1820,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DownTileset_1_0 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: 8a7c222caf3ce5d488f487c742296c3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a7c222caf3ce5d488f487c742296c3f, type: 3}
@@ -1712,6 +1901,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiddleTileset_1_0 (27)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
 --- !u!4 &5345978809177548773 stripped
@@ -1786,6 +1980,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MiddleTileset_1_0 (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
@@ -1862,6 +2061,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiddleTileset_1_0 (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
 --- !u!4 &5345978809148240955 stripped
@@ -1936,6 +2140,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MiddleTileset_1_0 (53)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
@@ -2012,6 +2221,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiddleTileset_1_0 (56)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
 --- !u!4 &5345978809133214001 stripped
@@ -2086,6 +2300,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LeftDownTileset (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: 6e127186b1b181e43bdf8d2f5bb4cf4e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e127186b1b181e43bdf8d2f5bb4cf4e, type: 3}
@@ -2162,6 +2381,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiddleTileset_1_0 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
 --- !u!4 &5345978809086897717 stripped
@@ -2181,6 +2405,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LeftTileset_1_1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 394982327309255127, guid: 1ab77dbe4cdeae6488f83aefe845974d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1686459126088482916, guid: 1ab77dbe4cdeae6488f83aefe845974d,
         type: 3}
@@ -2387,6 +2616,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiddleTileset_1_0 (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
 --- !u!4 &5345978809054222390 stripped
@@ -2462,6 +2696,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiddleTileset_1_0 (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
 --- !u!4 &5345978809044420045 stripped
@@ -2536,6 +2775,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RightTileset_1_0 (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: 3743c5277a3d8d24aba091fc42fd1407,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3743c5277a3d8d24aba091fc42fd1407, type: 3}
@@ -2762,6 +3006,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiddleTileset_1_0 (34)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
 --- !u!4 &5345978809005610734 stripped
@@ -2836,6 +3085,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DownTileset_1_0 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: 8a7c222caf3ce5d488f487c742296c3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a7c222caf3ce5d488f487c742296c3f, type: 3}
@@ -2912,6 +3166,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RightTileset_1_0 (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: 3743c5277a3d8d24aba091fc42fd1407,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3743c5277a3d8d24aba091fc42fd1407, type: 3}
 --- !u!4 &5345978808980317623 stripped
@@ -2986,6 +3245,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UpTileset_1_0 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: eb4af2750cddcac4a929ae4226177504,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb4af2750cddcac4a929ae4226177504, type: 3}
@@ -3137,6 +3401,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LeftDownTileset (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: 6e127186b1b181e43bdf8d2f5bb4cf4e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e127186b1b181e43bdf8d2f5bb4cf4e, type: 3}
 --- !u!4 &5345978808951708876 stripped
@@ -3212,6 +3481,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiddleTileset_1_0 (51)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
 --- !u!4 &5345978808950252285 stripped
@@ -3286,6 +3560,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RightTileset_1_0 (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: 3743c5277a3d8d24aba091fc42fd1407,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3743c5277a3d8d24aba091fc42fd1407, type: 3}
@@ -3437,6 +3716,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiddleTileset_1_0 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
 --- !u!4 &5345978808936742801 stripped
@@ -3511,6 +3795,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RightDownTileset (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: 218788568836f6f4eb17ae683136fe93,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 218788568836f6f4eb17ae683136fe93, type: 3}
@@ -3587,6 +3876,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiddleTileset_1_0 (62)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
 --- !u!4 &5345978808928750819 stripped
@@ -3661,6 +3955,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DownTileset_1_0 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: 8a7c222caf3ce5d488f487c742296c3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a7c222caf3ce5d488f487c742296c3f, type: 3}
@@ -3737,6 +4036,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RightUpTileset
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: c4a5a098f7fc0a844abf65d8e171da3c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4a5a098f7fc0a844abf65d8e171da3c, type: 3}
 --- !u!4 &5345978808926810825 stripped
@@ -3756,6 +4060,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LeftTileset_1_1 (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 394982327309255127, guid: 1ab77dbe4cdeae6488f83aefe845974d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1686459126088482916, guid: 1ab77dbe4cdeae6488f83aefe845974d,
         type: 3}
@@ -3887,6 +4196,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DownTileset_1_0 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: 8a7c222caf3ce5d488f487c742296c3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a7c222caf3ce5d488f487c742296c3f, type: 3}
 --- !u!4 &5345978808918218212 stripped
@@ -3961,6 +4275,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UpTileset_1_0 (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: eb4af2750cddcac4a929ae4226177504,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb4af2750cddcac4a929ae4226177504, type: 3}
@@ -4037,6 +4356,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiddleTileset_1_0 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
 --- !u!4 &5345978808822789644 stripped
@@ -4111,6 +4435,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MiddleTileset_1_0 (55)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
@@ -4187,6 +4516,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiddleTileset_1_0 (32)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
 --- !u!4 &5345978808801543139 stripped
@@ -4261,6 +4595,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DownTileset_1_0 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: 8a7c222caf3ce5d488f487c742296c3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a7c222caf3ce5d488f487c742296c3f, type: 3}
@@ -4337,6 +4676,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RightUpLeftTileset
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: 7f7b23aa4c4214d4ab40366fb06c8584,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f7b23aa4c4214d4ab40366fb06c8584, type: 3}
 --- !u!4 &5345978808779536309 stripped
@@ -4356,6 +4700,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LeftTileset_1_1 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 394982327309255127, guid: 1ab77dbe4cdeae6488f83aefe845974d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1686459126088482916, guid: 1ab77dbe4cdeae6488f83aefe845974d,
         type: 3}
@@ -4637,6 +4986,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DownLeftRightTileset
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: bdd447ceeacec0a4d869eb997775871d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdd447ceeacec0a4d869eb997775871d, type: 3}
 --- !u!4 &5345978809802768568 stripped
@@ -4656,6 +5010,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LeftTileset_1_1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 394982327309255127, guid: 1ab77dbe4cdeae6488f83aefe845974d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1686459126088482916, guid: 1ab77dbe4cdeae6488f83aefe845974d,
         type: 3}
@@ -4731,6 +5090,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LeftTileset_1_1 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 394982327309255127, guid: 1ab77dbe4cdeae6488f83aefe845974d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1686459126088482916, guid: 1ab77dbe4cdeae6488f83aefe845974d,
         type: 3}
@@ -4862,6 +5226,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RightDownTileset (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: 218788568836f6f4eb17ae683136fe93,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 218788568836f6f4eb17ae683136fe93, type: 3}
 --- !u!4 &5345978809771482070 stripped
@@ -4936,6 +5305,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MiddleTileset_1_0 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
@@ -5087,6 +5461,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiddleTileset_1_0 (49)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
 --- !u!4 &5345978809756897906 stripped
@@ -5161,6 +5540,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MiddleTileset_1_0 (45)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
@@ -5237,6 +5621,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DownTileset_1_0 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: 8a7c222caf3ce5d488f487c742296c3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a7c222caf3ce5d488f487c742296c3f, type: 3}
 --- !u!4 &5345978809747324766 stripped
@@ -5311,6 +5700,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RightTileset_1_0 (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: 3743c5277a3d8d24aba091fc42fd1407,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3743c5277a3d8d24aba091fc42fd1407, type: 3}
@@ -5387,6 +5781,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DownTileset_1_0 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: 8a7c222caf3ce5d488f487c742296c3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a7c222caf3ce5d488f487c742296c3f, type: 3}
 --- !u!4 &5345978809731095815 stripped
@@ -5461,6 +5860,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RightUpTileset
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: c4a5a098f7fc0a844abf65d8e171da3c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4a5a098f7fc0a844abf65d8e171da3c, type: 3}
@@ -5687,6 +6091,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DownTileset_1_0 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: 8a7c222caf3ce5d488f487c742296c3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a7c222caf3ce5d488f487c742296c3f, type: 3}
 --- !u!4 &5345978809627851688 stripped
@@ -5837,6 +6246,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiddleTileset_1_0 (44)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
 --- !u!4 &5345978809575104836 stripped
@@ -5911,6 +6325,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MiddleTileset_1_0 (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
@@ -5987,6 +6406,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RightTileset_1_0 (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: 3743c5277a3d8d24aba091fc42fd1407,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3743c5277a3d8d24aba091fc42fd1407, type: 3}
 --- !u!4 &5345978809540323405 stripped
@@ -6062,6 +6486,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiddleTileset_1_0 (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
 --- !u!4 &5345978809534161790 stripped
@@ -6081,6 +6510,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LeftTileset_1_1 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 394982327309255127, guid: 1ab77dbe4cdeae6488f83aefe845974d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1686459126088482916, guid: 1ab77dbe4cdeae6488f83aefe845974d,
         type: 3}
@@ -6212,6 +6646,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiddleTileset_1_0 (35)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
 --- !u!4 &5345978809515873089 stripped
@@ -6287,6 +6726,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiddleTileset_1_0 (42)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
 --- !u!4 &5345978809514274985 stripped
@@ -6306,6 +6750,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LeftTileset_1_1 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 394982327309255127, guid: 1ab77dbe4cdeae6488f83aefe845974d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1686459126088482916, guid: 1ab77dbe4cdeae6488f83aefe845974d,
         type: 3}
@@ -6512,6 +6961,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UpTileset_1_0 (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: eb4af2750cddcac4a929ae4226177504,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb4af2750cddcac4a929ae4226177504, type: 3}
 --- !u!4 &5345978809480904193 stripped
@@ -6531,6 +6985,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LeftTileset_1_1 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 394982327309255127, guid: 1ab77dbe4cdeae6488f83aefe845974d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1686459126088482916, guid: 1ab77dbe4cdeae6488f83aefe845974d,
         type: 3}
@@ -6661,6 +7120,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MiddleTileset_1_0 (61)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
@@ -6812,6 +7276,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RightTileset_1_0 (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: 3743c5277a3d8d24aba091fc42fd1407,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3743c5277a3d8d24aba091fc42fd1407, type: 3}
 --- !u!4 &5345978809422764445 stripped
@@ -6886,6 +7355,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UpTileset_1_0 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: eb4af2750cddcac4a929ae4226177504,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb4af2750cddcac4a929ae4226177504, type: 3}
@@ -7112,6 +7586,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiddleTileset_1_0 (47)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
 --- !u!4 &5345978809385739810 stripped
@@ -7337,6 +7816,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiddleTileset_1_0 (46)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
 --- !u!4 &5345978809356152218 stripped
@@ -7411,6 +7895,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LeftDownTileset
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: 6e127186b1b181e43bdf8d2f5bb4cf4e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e127186b1b181e43bdf8d2f5bb4cf4e, type: 3}
@@ -7562,6 +8051,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UpTileset_1_0 (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: eb4af2750cddcac4a929ae4226177504,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb4af2750cddcac4a929ae4226177504, type: 3}
 --- !u!4 &5345978809335926591 stripped
@@ -7637,6 +8131,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DownTileset_1_0 (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: 8a7c222caf3ce5d488f487c742296c3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a7c222caf3ce5d488f487c742296c3f, type: 3}
 --- !u!4 &5345978809326829638 stripped
@@ -7711,6 +8210,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MiddleTileset_1_0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
@@ -7806,6 +8310,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LeftTileset_1_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 394982327309255127, guid: 1ab77dbe4cdeae6488f83aefe845974d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1686459126088482916, guid: 1ab77dbe4cdeae6488f83aefe845974d,
         type: 3}
@@ -7937,6 +8446,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiddleTileset_1_0 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
 --- !u!4 &5345978809305511743 stripped
@@ -8031,6 +8545,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LeftTileset_1_1 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 394982327309255127, guid: 1ab77dbe4cdeae6488f83aefe845974d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1686459126088482916, guid: 1ab77dbe4cdeae6488f83aefe845974d,
         type: 3}
@@ -8237,6 +8756,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiddleTileset_1_0 (28)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
 --- !u!4 &5345978810352025040 stripped
@@ -8387,6 +8911,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DownLeftRightTileset (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: bdd447ceeacec0a4d869eb997775871d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdd447ceeacec0a4d869eb997775871d, type: 3}
 --- !u!4 &5345978810309746301 stripped
@@ -8461,6 +8990,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MiddleTileset_1_0 (33)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
@@ -8612,6 +9146,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DownLeftRightTileset (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: bdd447ceeacec0a4d869eb997775871d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdd447ceeacec0a4d869eb997775871d, type: 3}
 --- !u!4 &5345978810272473874 stripped
@@ -8686,6 +9225,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MiddleTileset_1_0 (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
@@ -8837,6 +9381,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UpTileset_1_0 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: eb4af2750cddcac4a929ae4226177504,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb4af2750cddcac4a929ae4226177504, type: 3}
 --- !u!4 &5345978810260121924 stripped
@@ -8911,6 +9460,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MiddleTileset_1_0 (43)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
@@ -8987,6 +9541,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiddleTileset_1_0 (30)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
 --- !u!4 &5345978810233823463 stripped
@@ -9061,6 +9620,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RightTileset_1_0 (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: 3743c5277a3d8d24aba091fc42fd1407,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3743c5277a3d8d24aba091fc42fd1407, type: 3}
@@ -9137,6 +9701,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiddleTileset_1_0 (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
 --- !u!4 &5345978810218948086 stripped
@@ -9211,6 +9780,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DownRightLeftTileset
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: 4ccce8b60a3f1104a83cf0b3b1b76573,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ccce8b60a3f1104a83cf0b3b1b76573, type: 3}
@@ -9287,6 +9861,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UpTileset_1_0 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: eb4af2750cddcac4a929ae4226177504,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb4af2750cddcac4a929ae4226177504, type: 3}
 --- !u!4 &5345978810213502512 stripped
@@ -9361,6 +9940,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MiddleTileset_1_0 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
@@ -9437,6 +10021,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiddleTileset_1_0 (40)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
 --- !u!4 &5345978810181711440 stripped
@@ -9512,6 +10101,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiddleTileset_1_0 (58)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
 --- !u!4 &5345978810180654835 stripped
@@ -9586,6 +10180,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MiddleTileset_1_0 (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
@@ -9737,6 +10336,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiddleTileset_1_0 (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
 --- !u!4 &5345978810117640720 stripped
@@ -9811,6 +10415,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MiddleTileset_1_0 (52)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
@@ -9962,6 +10571,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiddleTileset_1_0 (38)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
 --- !u!4 &5345978810094368587 stripped
@@ -10036,6 +10650,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DownTileset_1_0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: 8a7c222caf3ce5d488f487c742296c3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a7c222caf3ce5d488f487c742296c3f, type: 3}
@@ -10117,6 +10736,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
 --- !u!4 &5345978810087360054 stripped
@@ -10192,6 +10816,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DownTileset_1_0 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: 8a7c222caf3ce5d488f487c742296c3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a7c222caf3ce5d488f487c742296c3f, type: 3}
 --- !u!4 &5345978810045191269 stripped
@@ -10266,6 +10895,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MiddleTileset_1_0 (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
@@ -10497,6 +11131,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DownTileset_1_0 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: 8a7c222caf3ce5d488f487c742296c3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a7c222caf3ce5d488f487c742296c3f, type: 3}
 --- !u!4 &5345978809985487944 stripped
@@ -10647,6 +11286,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiddleTileset_1_0 (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
 --- !u!4 &5345978809971149748 stripped
@@ -10722,6 +11366,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RightTileset_1_0 (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: 3743c5277a3d8d24aba091fc42fd1407,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3743c5277a3d8d24aba091fc42fd1407, type: 3}
 --- !u!4 &5345978809964651729 stripped
@@ -10796,6 +11445,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UpTileset_1_0 (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: eb4af2750cddcac4a929ae4226177504,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb4af2750cddcac4a929ae4226177504, type: 3}
@@ -10947,6 +11601,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiddleTileset_1_0 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
 --- !u!4 &5345978809904881218 stripped
@@ -11097,6 +11756,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DownTileset_1_0 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: 8a7c222caf3ce5d488f487c742296c3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a7c222caf3ce5d488f487c742296c3f, type: 3}
 --- !u!4 &5345978809888662144 stripped
@@ -11171,6 +11835,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UpTileset_1_0 (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: eb4af2750cddcac4a929ae4226177504,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb4af2750cddcac4a929ae4226177504, type: 3}
@@ -11247,6 +11916,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiddleTileset_1_0 (60)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
 --- !u!4 &5345978809869543116 stripped
@@ -11321,6 +11995,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MiddleTileset_1_0 (48)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
@@ -11397,6 +12076,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiddleTileset_1_0 (37)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
 --- !u!4 &5345978809854338589 stripped
@@ -11472,6 +12156,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiddleTileset_1_0 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
 --- !u!4 &5345978809842084929 stripped
@@ -11546,6 +12235,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MiddleTileset_1_0 (29)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
@@ -11697,6 +12391,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiddleTileset_1_0 (36)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
 --- !u!4 &5345978810843111600 stripped
@@ -11771,6 +12470,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RightDownTileset (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: 218788568836f6f4eb17ae683136fe93,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 218788568836f6f4eb17ae683136fe93, type: 3}
@@ -11847,6 +12551,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiddleTileset_1_0 (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
 --- !u!4 &5345978810822741675 stripped
@@ -11922,6 +12631,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiddleTileset_1_0 (39)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
 --- !u!4 &5345978810818275663 stripped
@@ -11996,6 +12710,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MiddleTileset_1_0 (31)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
@@ -12147,6 +12866,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiddleTileset_1_0 (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
 --- !u!4 &5345978810788098021 stripped
@@ -12221,6 +12945,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RightTileset_1_0 (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: 3743c5277a3d8d24aba091fc42fd1407,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3743c5277a3d8d24aba091fc42fd1407, type: 3}
@@ -12372,6 +13101,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UpTileset_1_0 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: eb4af2750cddcac4a929ae4226177504,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb4af2750cddcac4a929ae4226177504, type: 3}
 --- !u!4 &5345978810730142075 stripped
@@ -12447,6 +13181,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiddleTileset_1_0 (50)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
 --- !u!4 &5345978810725047605 stripped
@@ -12466,6 +13205,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LeftTileset_1_1 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 394982327309255127, guid: 1ab77dbe4cdeae6488f83aefe845974d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1686459126088482916, guid: 1ab77dbe4cdeae6488f83aefe845974d,
         type: 3}
@@ -12596,6 +13340,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UpTileset_1_0 (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: eb4af2750cddcac4a929ae4226177504,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb4af2750cddcac4a929ae4226177504, type: 3}
@@ -12972,6 +13721,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RightTileset_1_0 (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: 3743c5277a3d8d24aba091fc42fd1407,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3743c5277a3d8d24aba091fc42fd1407, type: 3}
 --- !u!4 &5345978810621503492 stripped
@@ -13046,6 +13800,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RightTileset_1_0 (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: 3743c5277a3d8d24aba091fc42fd1407,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3743c5277a3d8d24aba091fc42fd1407, type: 3}
@@ -13122,6 +13881,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UpTileset_1_0 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: eb4af2750cddcac4a929ae4226177504,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb4af2750cddcac4a929ae4226177504, type: 3}
 --- !u!4 &5345978810602178505 stripped
@@ -13196,6 +13960,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UpTileset_1_0 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: eb4af2750cddcac4a929ae4226177504,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb4af2750cddcac4a929ae4226177504, type: 3}
@@ -13272,6 +14041,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiddleTileset_1_0 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
 --- !u!4 &5345978810564280944 stripped
@@ -13346,6 +14120,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UpTileset_1_0 (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: eb4af2750cddcac4a929ae4226177504,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb4af2750cddcac4a929ae4226177504, type: 3}
@@ -13422,6 +14201,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LeftUpTileset
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: 3676a468afaf32f459c8a626679a3654,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3676a468afaf32f459c8a626679a3654, type: 3}
 --- !u!4 &5345978810553444018 stripped
@@ -13496,6 +14280,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LeftDownTileset (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: 6e127186b1b181e43bdf8d2f5bb4cf4e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e127186b1b181e43bdf8d2f5bb4cf4e, type: 3}
@@ -13647,6 +14436,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UpTileset_1_0 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: eb4af2750cddcac4a929ae4226177504,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb4af2750cddcac4a929ae4226177504, type: 3}
 --- !u!4 &5345978810539652535 stripped
@@ -13722,6 +14516,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UpTileset_1_0
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: eb4af2750cddcac4a929ae4226177504,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb4af2750cddcac4a929ae4226177504, type: 3}
 --- !u!4 &5345978810537013084 stripped
@@ -13741,6 +14540,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LeftTileset_1_1 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 394982327309255127, guid: 1ab77dbe4cdeae6488f83aefe845974d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1686459126088482916, guid: 1ab77dbe4cdeae6488f83aefe845974d,
         type: 3}
@@ -13947,6 +14751,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiddleTileset_1_0 (41)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
 --- !u!4 &5345978810493075115 stripped
@@ -14022,6 +14831,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DownRightLeftTileset (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: 4ccce8b60a3f1104a83cf0b3b1b76573,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ccce8b60a3f1104a83cf0b3b1b76573, type: 3}
 --- !u!4 &5345978810478769904 stripped
@@ -14096,6 +14910,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UpTileset_1_0 (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: eb4af2750cddcac4a929ae4226177504,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb4af2750cddcac4a929ae4226177504, type: 3}
@@ -14246,6 +15065,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DownTileset_1_0 (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: 8a7c222caf3ce5d488f487c742296c3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a7c222caf3ce5d488f487c742296c3f, type: 3}
@@ -14492,6 +15316,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LeftTileset_1_1 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 394982327309255127, guid: 1ab77dbe4cdeae6488f83aefe845974d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1686459126088482916, guid: 1ab77dbe4cdeae6488f83aefe845974d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14697,6 +15526,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LeftUpRightTileset
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: 4a3327afcb813784695c5758f3f7991b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a3327afcb813784695c5758f3f7991b, type: 3}
 --- !u!4 &4726128599040361075 stripped
@@ -14772,6 +15606,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiddleTileset_1_0 (63)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
 --- !u!4 &4766744980509571574 stripped
@@ -14846,6 +15685,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MiddleTileset_1_0 (69)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
@@ -14997,6 +15841,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UpTileset_1_0 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: eb4af2750cddcac4a929ae4226177504,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb4af2750cddcac4a929ae4226177504, type: 3}
 --- !u!4 &6900514520741584286 stripped
@@ -15071,6 +15920,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MiddleTileset_1_0 (70)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
@@ -15372,6 +16226,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiddleTileset_1_0 (66)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
 --- !u!4 &2785904203532632283 stripped
@@ -15521,6 +16380,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DownRightLeftTileset (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: 4ccce8b60a3f1104a83cf0b3b1b76573,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ccce8b60a3f1104a83cf0b3b1b76573, type: 3}
@@ -15672,6 +16536,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiddleTileset_1_0 (68)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
 --- !u!4 &3891368041157055497 stripped
@@ -15747,6 +16616,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiddleTileset_1_0 (67)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
 --- !u!4 &3952965077162852518 stripped
@@ -15821,6 +16695,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RightUpLeftTileset (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: 7f7b23aa4c4214d4ab40366fb06c8584,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f7b23aa4c4214d4ab40366fb06c8584, type: 3}
@@ -16047,6 +16926,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RightUpTileset (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: c4a5a098f7fc0a844abf65d8e171da3c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4a5a098f7fc0a844abf65d8e171da3c, type: 3}
 --- !u!4 &447325545387355222 stripped
@@ -16196,6 +17080,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MiddleTileset_1_0 (64)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
@@ -16347,6 +17236,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LeftUpTileset (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: 3676a468afaf32f459c8a626679a3654,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3676a468afaf32f459c8a626679a3654, type: 3}
 --- !u!4 &1800094727249623853 stripped
@@ -16497,6 +17391,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RightDownTileset (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: 218788568836f6f4eb17ae683136fe93,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 218788568836f6f4eb17ae683136fe93, type: 3}
 --- !u!4 &1914403752262367413 stripped
@@ -16571,6 +17470,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MiddleTileset_1_0 (71)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9105301161943601809, guid: a4421d29582000943b75a30893713d3f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4421d29582000943b75a30893713d3f, type: 3}
