@@ -22,6 +22,8 @@ public class Bullet : MonoBehaviourPlus
 	public Team Team { get; set; }
 	public Direction Direction { get; set; }
 	public EventHandler<SimpleArgs<Bullet>> OnDestroy = delegate { };
+    [SerializeField]
+    private Transform effectPoint;
 
 
 	protected void Start()
@@ -50,8 +52,8 @@ public class Bullet : MonoBehaviourPlus
 		OnKill();
 		OnDestroy.Invoke(this, this);
 		destroying = true;
-		if (effect != null)
-			Instantiate(effect).transform.position = this.transform.position;
+        if (effect != null)
+            Instantiate(effect).transform.position = effectPoint.position;
 		Destroy(this.gameObject);
 	}
 	protected virtual void OnKill()

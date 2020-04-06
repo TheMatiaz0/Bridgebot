@@ -16,6 +16,8 @@ public class Enemy : MonoBehaviourPlus, IHpable
 
 	[SerializeField]
 	private AIBase aiBase;
+    [SerializeField,AssetOnly]
+    private GameObject deathEffect = null;
 
 	public AIBase AIBase => aiBase;
 
@@ -45,6 +47,10 @@ public class Enemy : MonoBehaviourPlus, IHpable
 	private void Hp_OnValueChangeToMin(object sender, Hp.HpChangedArgs e)
 	{
 		Statistics.Instance.AllKilledEnemies += 1;
+        if(deathEffect!=null)
+        {
+            Instantiate(deathEffect).transform.position = this.transform.position;
+        }
 		Destroy(this.gameObject);
 	}
 

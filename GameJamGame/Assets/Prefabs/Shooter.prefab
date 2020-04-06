@@ -188,6 +188,7 @@ MonoBehaviour:
   startHp:
     _Value: 10
   aiBase: {fileID: 1073618881282620597}
+  deathEffect: {fileID: 0}
   dmg:
     _Value: 1
   minDistance: 5
@@ -250,7 +251,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1928130470648043647}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: cf80719dca03ad74abffcfdbaf8524a5, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
