@@ -259,6 +259,7 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
         }
 
         Equipment.Instance?.GetCurrent()?.OnUse();
+        audioSource.PlayOneShot(shoot);
     }
 
     private void OnPause()
