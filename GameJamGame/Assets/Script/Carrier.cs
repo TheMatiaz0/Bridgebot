@@ -200,7 +200,9 @@ public class Carrier : MonoBehaviourPlus, IHpable
             yield return GoPoints();
 
             // fix the bridge
+         
             yield return FixBridge(selectedBridge);
+         
 
         }
     }
@@ -264,18 +266,22 @@ public class Carrier : MonoBehaviourPlus, IHpable
 
     private IEnumerator FixBridge(Bridge bridge)
     {
+     
         while (CurrentResources > 0)
         {
+            Animator.SetBool("ChopChop", true);
             bridge.ResourcesAddedToBuild += 1;
             CurrentResources -= 1;
             // Debug.Log($"I added to the bridge {bridge.ResourcesAddedToBuild} resources. I have {CurrentResources} now");
 
             yield return Async.Wait(fixCooldown.TimeSpan);
+            Animator.SetBool("ChopChop", false);
         }
 
         woodSpriteRender.sprite = null;
 
         yield return GoPoints(true);
+    
         yield break;
     }
 

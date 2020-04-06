@@ -63,7 +63,7 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
 
     private Direction lastDirection = Direction.Right;
     private ItemOnTrigger itemTrigger = null;
-
+    public event EventHandler OnCorrectEnds = delegate { };
     private void SetDefCamera()
     {
         cam = Camera.main;
@@ -286,6 +286,7 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
         if (end)
             return;
         end = true;
+        OnCorrectEnds(this, EventArgs.Empty);
         Invoke((_) => gameOver.EnableMenuWithPause(true),0.2f);
     
         LockMovement = true;

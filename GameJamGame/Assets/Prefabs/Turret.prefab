@@ -126,10 +126,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77339aba975798c46a50e40dd0f389fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 40
+  range: 30
   shootTimerMax:
-    miliseconds: 454
-    seconds: 0
+    miliseconds: 100
+    seconds: 1
     minutes: 0
     hour: 0
     day: 0

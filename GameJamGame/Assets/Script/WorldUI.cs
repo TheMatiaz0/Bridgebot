@@ -22,8 +22,28 @@ public class WorldUI : MonoBehaviour
     {
         this.transform.localScale = new Vector2(0.1f, 0.1f);
     }
+    private void OnEnable()
+    {
+        Player.Instance.OnCorrectEnds += Instance_OnCorrectEnds;
+    }
+  
+    private void OnDisable()
+    {
+        Player.Instance.OnCorrectEnds -= Instance_OnCorrectEnds;
+    }
+
+
+    private void Instance_OnCorrectEnds(object sender, EventArgs e)
+    {
+        Destroy(objectToLaunch.gameObject);
+    }
+
     public void FirstActivate (bool isTrue,string val="")
 	{
+        if (objectToLaunch == false)
+            return;
+        if (Time.timeScale == 0 && isTrue)
+            return;
         ResourceCounter.text = val;
         LeanTween.cancel(objectToLaunch.gameObject);
         deactiving = false;
@@ -46,8 +66,11 @@ public class WorldUI : MonoBehaviour
 
 	public void Move (Vector2 position)
 	{
-        if (deactiving == false)
-            objectToLaunch.transform.position = position;
+
+        if (deactiving || objectToLaunch == null)
+            return;
+
+        objectToLaunch.transform.position = position;
 		
 	}
 }

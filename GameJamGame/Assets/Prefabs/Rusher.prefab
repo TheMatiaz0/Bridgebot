@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startHp:
-    _Value: 2
+    _Value: 4
   aiBase: {fileID: 1073618881282620597}
   deathEffect: {fileID: 8702461840096759764, guid: 4ce9aa22f3ab49744a96c8097911661c,
     type: 3}
