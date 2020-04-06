@@ -1,4 +1,5 @@
-﻿using Cyberevolver.Unity;
+﻿using Cyberevolver;
+using Cyberevolver.Unity;
 using Pathfinding;
 using System;
 using System.Collections;
@@ -11,8 +12,8 @@ public class Carrier : MonoBehaviourPlus, IHpable
     [SerializeField]
     private uint maxCapacity = 8;
 
-    public uint CurrentResources { get { return _CurrentResources; } private set { if (_CurrentResources != value) _CurrentResources = value; OnResourceChange(_CurrentResources); } }
-    private uint _CurrentResources;
+    public Cint CurrentResources { get { return _CurrentResources; } private set { if (_CurrentResources != value) _CurrentResources = value; OnResourceChange(_CurrentResources); } }
+    private Cint _CurrentResources;
 
     public Team CurrentTeam { get; private set; } = Team.Good;
 
