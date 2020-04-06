@@ -17,6 +17,7 @@ public class PlacementController : AutoInstanceBehaviour<PlacementController>
 
 	public void Activate (GameObject prefab)
 	{
+		Deactive();
 		// delay?
 		currentObject = Instantiate(prefab,	Vector2.zero, Quaternion.identity);
 		spriteRender = currentObject.GetComponent<SpriteRenderer>();
@@ -62,5 +63,6 @@ public class PlacementController : AutoInstanceBehaviour<PlacementController>
 	public void Deactive ()
 	{
 		Destroy(currentObject);
+		currentObject = null;
 	}
 }

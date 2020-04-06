@@ -29,7 +29,7 @@ public class Rusher : Enemy
     {
         base.Update();
         Animator.SetBool("Move", !Path.reachedEndOfPath);
-        if (bitter != null)
+        if (((UnityEngine.Object)bitter) != null)
             TryBite(bitter);
 
     }

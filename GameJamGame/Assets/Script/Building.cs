@@ -29,4 +29,20 @@ public class Building : MonoBehaviour, IHpable
 			bullet.Kill();
 		}
 	}
+
+	protected virtual void OnTriggerExit2D (Collider2D collsion)
+	{
+		if (IsPlaced == false)
+		{
+			return;
+		}
+	}
+
+	protected virtual void OnTriggerStay2D (Collider2D collision)
+	{
+		if (IsPlaced == false)
+		{
+			return;
+		}
+	}
 }

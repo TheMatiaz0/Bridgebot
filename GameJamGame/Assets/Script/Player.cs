@@ -99,27 +99,12 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
             itemTrigger = null;
     }
 
-
-
     protected void Start()
     {
         Hp = new Hp(startMaxHp, 0, startMaxHp);
         hpManager.CurHealth = Hp;
-        Hp.OnHpTaken += Hp_OnHpTaken;
         Hp.OnValueChangeToMin += Hp_OnValueChangeToMin;
         hpManager.Refresh();
-        // hpManager.CurHealth.OnHpGiven += CurHealth_OnHpGiven;
-    }
-    private void Hp_OnHpTaken(object sender, Hp.HpChangedArgs e)
-    {
-        /*
-        if (e.Actual != 0)
-            RespDmgNumberEffect(e.Last - e.Actual);
-            */
-    }
-
-    private void Hp_OnValueChanged(object sender, Hp.HpChangedArgs e)
-    {
     }
 
     private void Hp_OnValueChangeToMin(object sender, Hp.HpChangedArgs e)
@@ -129,16 +114,16 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
 
     protected void OnEnable()
     {
-        inputActions.Enable();
+        inputActions?.Enable();
     }
 
     protected void OnDisable()
     {
-        inputActions.Disable();
+        inputActions?.Disable();
     }
     public void SetPistolVisible(bool val)
     {
-        gunObj.gameObject.SetActive(val);
+        gunObj?.gameObject?.SetActive(val);
     }
     private void Update()
     {
@@ -177,14 +162,14 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
         gunObj.Renderer.flipY = ((Vector2)this.transform.position).x > mousePos.x;
         curShotPoint = gunObj.Renderer.flipY ? leftShotPoint : rightShotPoint;
 
-		if (movementInput == Vector2.right)
-		{
-			this.Renderer.flipX = true;
-		}
-		else if (movementInput == Vector2.left)
-		{
-			this.Renderer.flipX = false;
-		}
+        if (movementInput == Vector2.right)
+        {
+            this.Renderer.flipX = true;
+        }
+        else if (movementInput == Vector2.left)
+        {
+            this.Renderer.flipX = false;
+        }
     }
 
     private void InputUpdate()
@@ -266,29 +251,29 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
             return;
         }
 
-        Equipment.Instance.GetCurrent()?.OnUse();
+        Equipment.Instance?.GetCurrent()?.OnUse();
     }
 
-    private void OnPause ()
+    private void OnPause()
     {
-        pauseMenu.EnableMenuWithPause(!pauseMenu.IsPaused);
+        pauseMenu?.EnableMenuWithPause(!pauseMenu.IsPaused);
     }
 
-    private void OnInteraction ()
+    private void OnInteraction()
     {
         LastIsland?.Interaction();
         itemTrigger?.Interaction();
     }
 
-   
-    public void LaunchGameOver ()
+
+    public void LaunchGameOver()
     {
         if (end)
             return;
         end = true;
         OnCorrectEnds(this, EventArgs.Empty);
-        Invoke((_) => gameOver.EnableMenuWithPause(true),0.2f);
-    
+        Invoke((_) => gameOver?.EnableMenuWithPause(true), 0.2f);
+
         LockMovement = true;
     }
 
@@ -297,7 +282,7 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
         selection?.ConfirmSelection();
     }
 
-    private void OnCancelSelection ()
+    private void OnCancelSelection()
     {
         selection?.CancelSelection();
     }
