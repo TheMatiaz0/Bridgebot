@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2769994952245185046}
+  - component: {fileID: 2278963725247513419}
   m_Layer: 0
   m_Name: Tiles
   m_TagString: Untagged
@@ -186,6 +187,45 @@ Transform:
   m_Father: {fileID: 2769994953555362438}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!68 &2278963725247513419
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2769994952245185045}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -6.3725204, y: 2.4007895}
+  - {x: -6.34219, y: -0.4620272}
+  - {x: -2.471652, y: -0.43698645}
+  - {x: -2.464589, y: -5.584413}
+  - {x: -3.44732, y: -5.5754094}
+  - {x: -3.3649406, y: -8.47048}
+  - {x: 5.51832, y: -8.455555}
+  - {x: 5.530905, y: -9.397842}
+  - {x: 15.345102, y: -9.425937}
+  - {x: 15.418501, y: -8.419814}
+  - {x: 16.25499, y: -8.40517}
+  - {x: 16.291908, y: -4.7248425}
+  - {x: 12.509502, y: -4.6815915}
+  - {x: 12.426104, y: -1.5563983}
+  - {x: 8.707129, y: -1.6032944}
+  - {x: 8.660366, y: -4.6506042}
+  - {x: 6.4069424, y: -4.6327014}
+  - {x: 6.3923817, y: -0.688432}
+  - {x: 3.651989, y: -0.69616914}
+  - {x: 3.6118813, y: -4.630342}
+  - {x: 1.3886681, y: -4.643688}
+  - {x: 1.3281403, y: 2.387305}
+  - {x: -6.3375454, y: 2.3772523}
 --- !u!1 &2769994952744206901
 GameObject:
   m_ObjectHideFlags: 0

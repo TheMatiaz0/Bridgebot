@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1094478690922356120}
+  - component: {fileID: 5486948396246501588}
   m_Layer: 0
   m_Name: Island1
   m_TagString: Untagged
@@ -35,6 +36,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!68 &5486948396246501588
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094478690922356071}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: 6.360264, y: 3.5185595}
+  - {x: -1.6074342, y: 3.4248152}
+  - {x: -1.6686878, y: 6.3758554}
+  - {x: -7.511588, y: 6.41767}
+  - {x: -7.471434, y: -0.48805213}
+  - {x: -10.347185, y: -0.58861756}
+  - {x: -10.447356, y: -5.430499}
+  - {x: -9.434402, y: -5.41865}
+  - {x: -9.322678, y: -6.5015507}
+  - {x: -2.6319032, y: -6.4031973}
+  - {x: -2.695564, y: -3.2710404}
+  - {x: 6.3491683, y: -3.440955}
+  - {x: 6.380501, y: 3.5394974}
 --- !u!1 &1094478691196103928
 GameObject:
   m_ObjectHideFlags: 0
