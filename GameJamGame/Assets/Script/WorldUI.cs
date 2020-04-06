@@ -22,9 +22,10 @@ public class WorldUI : MonoBehaviour
     {
         this.transform.localScale = new Vector2(0.1f, 0.1f);
     }
-    public void FirstActivate (bool isTrue)
+    public void FirstActivate (bool isTrue,string val="")
 	{
-        LeanTween.cancel(this.gameObject);
+        ResourceCounter.text = val;
+        LeanTween.cancel(objectToLaunch.gameObject);
         deactiving = false;
         if (isTrue)
         {

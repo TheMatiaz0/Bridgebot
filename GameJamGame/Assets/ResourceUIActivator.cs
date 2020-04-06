@@ -12,20 +12,17 @@ public class ResourceUIActivator
         ResourceUI = GameObject.FindGameObjectWithTag("ResourceUI").GetComponent<WorldUI>();
         ResourceUI.ResourceCounter.text = 0.ToString();
     }
-
+    private string val;
     public void OnResourceChange (uint resourceCount)
     {
-        if (ResourceUI == null)
-        {
-            return;
-        }
+        
 
-        ResourceUI.ResourceCounter.text = resourceCount.ToString();
+        val = resourceCount.ToString();
     }
 
     protected void OnMouseEnter()
     {
-        ResourceUI.FirstActivate(true);
+        ResourceUI.FirstActivate(true,val);
     }
 
     protected void OnMouseOver()

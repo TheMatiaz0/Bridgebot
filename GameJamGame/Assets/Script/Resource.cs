@@ -34,6 +34,7 @@ public class Resource : MonoBehaviourPlus
     {
         ResourceCount = resourceCount;
         ResourceList.Add(this);
+        OnResourceChange(resourceCount);
     }
 
     private void OnResourceChange (uint resourceCount)

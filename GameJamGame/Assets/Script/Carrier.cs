@@ -55,8 +55,8 @@ public class Carrier : MonoBehaviourPlus, IHpable
     [SerializeField]
     private SerializedTimeSpan fixCooldown;
 
-    [SerializeField]
-    private Animator animator;
+    [Auto]
+    public Animator Animator { get; private set; }
     [SerializeField]
     private GameObject dmgEffect;
     [SerializeField]
@@ -66,6 +66,7 @@ public class Carrier : MonoBehaviourPlus, IHpable
     private HpManager hpManager = null;
 
     private WorldUI carrierUI = null;
+    private bool isGoingToResource;
 
     private void OnResourceChange (uint newValue)
     {
@@ -81,7 +82,7 @@ public class Carrier : MonoBehaviourPlus, IHpable
         hpManager.Refresh();
         PhaseController.Instance.OnPhaseChanged += Instance_OnPhaseChanged;
         carrierUI = GameObject.FindGameObjectWithTag("CarrierUI").GetComponent<WorldUI>();
-        carrierUI.ResourceCounter.text = 0.ToString();
+      
     }
 
     private void Hp_OnValueChanged(object sender, Hp.HpChangedArgs e)
@@ -142,7 +143,7 @@ public class Carrier : MonoBehaviourPlus, IHpable
     {
         if (currentTarget == null)
         {
-            animator.SetBool("Walk", false);
+            Animator.SetBool("Walk", false);
             return;
         }
 
@@ -157,14 +158,14 @@ public class Carrier : MonoBehaviourPlus, IHpable
         }
 
         transform.position = Vector2.MoveTowards(transform.position, currentTarget.position, speed * Time.deltaTime);
-        animator.SetBool("Walk", true);
+        Animator.SetBool("Walk", true);
 
         //rb2D.MovePosition((Vector2)transform.position + (Vector2)currentTarget.position * speed * Time.fixedDeltaTime);
     }
 
     protected void OnMouseEnter()
     {
-        carrierUI.FirstActivate(true);
+        carrierUI.FirstActivate(true,CurrentResources.ToString());
         // WorldUI.Instance.FirstActivate(true);
     }
 
@@ -185,13 +186,16 @@ public class Carrier : MonoBehaviourPlus, IHpable
     {
         while (true)
         {
+            isGoingToResource = true;
+           
             yield return GoToResource();
+            isGoingToResource = false;
 
             // gather resources
-            animator.SetBool("ChopChop", true);
+            Animator.SetBool("ChopChop", true);
             yield return GatherResources(Current);
             woodSpriteRender.sprite = fullWood;
-            animator.SetBool("ChopChop", false);
+            Animator.SetBool("ChopChop", false);
 
             yield return GoPoints();
 
@@ -208,6 +212,7 @@ public class Carrier : MonoBehaviourPlus, IHpable
     private IEnumerator GoToResource()
     {
         Current = Resource.GetClosestResource(this.transform.position, gatherRange);
+        currentTarget = Current.transform;
 
         if (Current == null)
         {

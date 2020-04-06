@@ -5720,6 +5720,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectToLaunch: {fileID: 854722574}
   resourceCounter: {fileID: 1659321322}
+  anim: 32
 --- !u!1001 &264765476
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6065,7 +6066,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectToLaunch: {fileID: 89492964}
   resourceCounter: {fileID: 882648269}
-  anim: 34
+  anim: 32
 --- !u!1 &305808742
 GameObject:
   m_ObjectHideFlags: 0
@@ -15383,7 +15384,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectToLaunch: {fileID: 1221251274}
   resourceCounter: {fileID: 1031018936}
-  anim: 34
+  anim: 32
 --- !u!1001 &827288535
 PrefabInstance:
   m_ObjectHideFlags: 0

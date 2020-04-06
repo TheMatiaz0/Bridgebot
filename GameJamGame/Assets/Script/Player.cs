@@ -27,7 +27,7 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
     public Rigidbody2D Rigidbody2D { get; private set; }
 
     public Team CurrentTeam { get; private set; } = Team.Good;
-
+    bool end = false;
     public Hp Hp { get; private set; }
 
     [SerializeField]
@@ -280,9 +280,14 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
         itemTrigger?.Interaction();
     }
 
+   
     public void LaunchGameOver ()
     {
-        gameOver.EnableMenuWithPause(true);
+        if (end)
+            return;
+        end = true;
+        Invoke((_) => gameOver.EnableMenuWithPause(true),0.2f);
+    
         LockMovement = true;
     }
 
