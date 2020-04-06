@@ -24,6 +24,14 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 	private SerializedTimeSpan timeToEndPreparation;
 
 	private Coroutine spawnEnemies;
+	// [SerializeField]
+	//private AudioSource audioSource1 = null;
+
+	[SerializeField]
+	private AudioSource audioSource2 = null;
+
+	[SerializeField]
+	private AudioSource audioSource3 = null;
 
 	public TimeSpan CurrentTimer { get { return _CurrentTimer; } private set { if (_CurrentTimer != value) { _CurrentTimer = value; } UpdateText(_CurrentTimer); } }
 	private TimeSpan _CurrentTimer;
@@ -47,6 +55,7 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 		switch (e)
 		{
 			case Phase.FIGHTING:
+				audioSource3.Play();
 				InfoManager.Instance.InfoObject.SetActive(true);
 				InfoManager.Instance.InfoText.text = "Fighting phase. Monsters are coming!";
 				enableUpdate = false;
@@ -59,6 +68,8 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 				break;
 
 			case Phase.EXPLORING:
+				audioSource2.Stop();
+				audioSource3.Stop();
 				InfoManager.Instance.InfoObject.SetActive(true);
 				InfoManager.Instance.InfoText.text = "Exploring phase. You can relax now.";
 				spawnEnemies = null;
@@ -70,6 +81,7 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 				break;
 
 			case Phase.PREPARATION:
+				audioSource2.Play();
 				InfoManager.Instance.InfoObject.SetActive(true);
 				InfoManager.Instance.InfoText.text = "Preparation phase. Get ready!";
 				spawnEnemies = null;

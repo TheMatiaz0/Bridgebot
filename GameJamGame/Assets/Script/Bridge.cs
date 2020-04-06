@@ -39,6 +39,12 @@ public class Bridge : MonoBehaviourPlus
 
     private WorldUI worldUI = null;
 
+    [SerializeField]
+    private AudioSource audioSource = null;
+
+    [SerializeField]
+    private AudioClip bridgeBuilt = null;
+
     public string ResourceNumbers ()
     {
         return $"{ResourcesAddedToBuild}/{needResourcesCount}";
@@ -90,6 +96,7 @@ public class Bridge : MonoBehaviourPlus
 
     protected void Start()
     {
+        OnBridgeBuilt += Bridge_OnBridgeBuilt;
         if (IsFixed)
         {
             RemoveTriggerOnFixed();
@@ -100,6 +107,11 @@ public class Bridge : MonoBehaviourPlus
         fullyFixedTrigger.SetActive(false);
 
        
+    }
+
+    private void Bridge_OnBridgeBuilt(object sender, SimpleArgs<Bridge> e)
+    {
+        audioSource.PlayOneShot(bridgeBuilt);
     }
 
     private void OnResourceChange (uint currentResources)

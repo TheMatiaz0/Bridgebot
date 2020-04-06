@@ -44,6 +44,9 @@ public class HealingStation : Building
 
 	private void Heal (IHpable hpable)
 	{
-		hpable.Hp.GiveHp(hpAdd, "Healing Station");
+		if (IsPlaced == true)
+		{
+			hpable.Hp.GiveHp(hpAdd, "Healing Station");
+		}	
 	}
 }

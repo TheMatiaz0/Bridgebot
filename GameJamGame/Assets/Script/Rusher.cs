@@ -17,6 +17,12 @@ public class Rusher : Enemy
     [Auto]
     public Animator Animator { get; protected set; }
 
+    [SerializeField]
+    private AudioSource audioSource = null;
+
+    [SerializeField]
+    private AudioClip bite = null;
+
     private IHpable bitter = null;
 	protected new void Start()
 	{
@@ -72,6 +78,7 @@ public class Rusher : Enemy
 		if (cooldown.Try())
 		{
 			entity.Hp.TakeHp(Dmg, "Rusher");
+            audioSource.PlayOneShot(bite);
 		}
 	}
 }
