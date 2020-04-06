@@ -114,7 +114,12 @@ public class Bridge : MonoBehaviourPlus
         audioSource.PlayOneShot(bridgeBuilt);
     }
 
-    private void OnResourceChange (uint currentResources)
+	private void OnDestroy()
+	{
+		OnBridgeBuilt -= Bridge_OnBridgeBuilt;
+	}
+
+	private void OnResourceChange (uint currentResources)
     {
         if (IsFixed)
         {

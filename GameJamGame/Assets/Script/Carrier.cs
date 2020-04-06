@@ -96,7 +96,13 @@ public class Carrier : MonoBehaviourPlus, IHpable
 
     }
 
-    private void Hp_OnValueChanged(object sender, Hp.HpChangedArgs e)
+	private void OnDestroy()
+	{
+		if(PhaseController.Instance)
+		PhaseController.Instance.OnPhaseChanged -= Instance_OnPhaseChanged;
+	}
+
+	private void Hp_OnValueChanged(object sender, Hp.HpChangedArgs e)
     {
         if (dmgEffect != null)
         {

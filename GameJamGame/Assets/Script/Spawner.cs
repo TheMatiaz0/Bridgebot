@@ -46,6 +46,12 @@ public class Spawner : AutoInstanceBehaviour<Spawner>
 		PhaseController.Instance.OnPhaseChanged += OnPhaseChanged;
 	}
 
+	protected virtual void OnDestroy()
+	{
+		if(PhaseController.Instance)
+			PhaseController.Instance.OnPhaseChanged -= OnPhaseChanged;
+	}
+
 	private void OnPhaseChanged(object sender, PhaseController.Phase e)
 	{
 		switch (e)

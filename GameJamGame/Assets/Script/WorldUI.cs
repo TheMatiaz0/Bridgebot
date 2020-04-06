@@ -32,6 +32,12 @@ public class WorldUI : MonoBehaviour
         Destroy(objectToLaunch.gameObject);
     }
 
+	protected virtual void OnDestroy()
+	{
+		if(Player.Instance)
+			Player.Instance.OnCorrectEnds -= Instance_OnCorrectEnds;
+	}
+
     public void FirstActivate(bool isTrue, string val = "")
     {
         if (objectToLaunch == false)
