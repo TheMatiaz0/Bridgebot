@@ -6,13 +6,6 @@ using UnityEngine;
 
 public class TurretItem : Item
 {
-    public TurretItem(TimeSpan delay)
-    {
-        Delay = delay;
-    }
-
-    public TimeSpan Delay { get; }
-
     public override void OnUse()
     {
         base.OnUse();

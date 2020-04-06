@@ -71,8 +71,8 @@ public sealed class Equipment : AutoInstanceBehaviour<Equipment>
     }
     private void Start()
     {
-        AddItem(new Pistol(pistolDelay.TimeSpan).Apply(pistol));
-        AddItem(new TurretItem(turretDelay.TimeSpan).Apply(turret));
+        AddItem(new Pistol().Apply(pistol));
+        AddItem(new TurretItem().Apply(turret));
     }
     private void Update()
     {

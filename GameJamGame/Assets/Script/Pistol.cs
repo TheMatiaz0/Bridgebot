@@ -9,14 +9,16 @@ using System.Threading.Tasks;
 using UnityEngine;
 public class Pistol : Item
 {
-    public Pistol(TimeSpan delay)
+
+    private readonly TimeSpan delay = TimeSpan.FromSeconds(1);
+    private readonly CooldownController cooldownController;
+
+    public Pistol()
     {
-        Delay = delay;
         cooldownController = new CooldownController(Equipment.Instance, delay);
     }
 
-    public TimeSpan Delay { get; }
-    private readonly CooldownController cooldownController;
+
 
     public override void OnUse()
     {

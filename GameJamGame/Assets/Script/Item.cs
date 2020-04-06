@@ -15,6 +15,7 @@ public abstract class Item
     public virtual void OnStartSelect() { }
     public virtual void OnUse() { }
     public virtual void OnEndSelect() { }
+
     public Item Apply(ItemAsset asset)
     {
         if (asset is null)
@@ -24,8 +25,8 @@ public abstract class Item
         Name = asset.name;
         Icon = asset.Icon;
         Prefab = asset.Prefab;
+
         return this;
     }
-    
-
+   
 }
