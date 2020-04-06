@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4296070527466825630
 Transform:
@@ -51,7 +51,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5520089231851418066
 Transform:
@@ -81,7 +81,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5675596797721130450
 Transform:
@@ -314,7 +314,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5675596798811624364
 Transform:
@@ -344,7 +344,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5675596799189252588
 Transform:
@@ -374,7 +374,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5675596799523349950
 Transform:
@@ -404,7 +404,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5675596799659449352
 Transform:
@@ -434,7 +434,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5675596799694985927
 Transform:
@@ -464,7 +464,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4679175000816822875
 Transform:
@@ -499,7 +499,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &796374205715341174
 Transform:
@@ -527,6 +527,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: levelDecor_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957929294519068247, guid: 0e891adaa5bbc6747b47be161dce2609,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 5957929294519068249, guid: 0e891adaa5bbc6747b47be161dce2609,
         type: 3}
@@ -5417,6 +5422,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: levelDecor_0 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3306999974586249658, guid: 0a00efaa61af9e7489a22940056c7e77,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a00efaa61af9e7489a22940056c7e77, type: 3}
 --- !u!4 &7144705462239361324 stripped
@@ -8187,6 +8197,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: levelDecor_0
       objectReference: {fileID: 0}
+    - target: {fileID: 3306999974586249658, guid: 0a00efaa61af9e7489a22940056c7e77,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a00efaa61af9e7489a22940056c7e77, type: 3}
 --- !u!4 &5675596797912311028 stripped
@@ -8206,6 +8221,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: levelDecor_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2644922875578364489, guid: 574ed13923ab5fd4491a77370c41670d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2644922875578364495, guid: 574ed13923ab5fd4491a77370c41670d,
         type: 3}
@@ -8336,6 +8356,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: levelDecor_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3829658124032955526, guid: b3f77436db9bda7489583aaf8dccd9ca,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3f77436db9bda7489583aaf8dccd9ca, type: 3}

@@ -9269,7 +9269,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &983663492
 Transform:
@@ -11433,41 +11433,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1297472562}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1307286391 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1094478692685630487, guid: 479bcefca210f1e4097c93647cdba66f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1830351964}
-  m_PrefabAsset: {fileID: 0}
---- !u!68 &1307286392
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1307286391}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: 6.233733, y: -3.3333864}
-  - {x: 6.2131643, y: 3.1445277}
-  - {x: -1.6217923, y: 3.3812559}
-  - {x: -1.7563643, y: 6.1632333}
-  - {x: -7.3085647, y: 6.2410345}
-  - {x: -7.3899484, y: -0.69789886}
-  - {x: -10.270763, y: -0.84144783}
-  - {x: -10.441292, y: -5.313655}
-  - {x: -9.292641, y: -5.3230124}
-  - {x: -9.398167, y: -6.2424107}
-  - {x: -2.8167596, y: -6.290473}
-  - {x: -2.681501, y: -3.2311049}
-  - {x: 6.288232, y: -3.3276834}
 --- !u!1 &1325689635
 GameObject:
   m_ObjectHideFlags: 0
