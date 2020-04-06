@@ -27,6 +27,8 @@ public class BridgeSelection : MonoBehaviour
 	private float firstSizeValue;
 
 	private IslandEnterTrigger lastIsland = null;
+	[SerializeField]
+	private float timeAnimation = 2;
 
 	public void Activate(IslandEnterTrigger island)
 	{
@@ -38,7 +40,7 @@ public class BridgeSelection : MonoBehaviour
 	{
 		Player.Instance.LockMovement = true;
 		firstSizeValue = virtualCam.m_Lens.OrthographicSize;
-		LeanTween.value(firstSizeValue, maxPoint, 3).setOnUpdate((f) => virtualCam.m_Lens.OrthographicSize = f).setEase(cameraLeanTweenType);
+		LeanTween.value(firstSizeValue, maxPoint, timeAnimation).setOnUpdate((f) => virtualCam.m_Lens.OrthographicSize = f).setEase(cameraLeanTweenType);
 		chooseBridgeUI.SetActive(true);
 	}
 
