@@ -55,7 +55,8 @@ public class Bridge : MonoBehaviourPlus
         if (IsFixed)
             return;
 
-        worldUI.FirstActivate(true);
+
+        worldUI.FirstActivate(true, ResourceNumbers());
     }
 
 
@@ -97,7 +98,7 @@ public class Bridge : MonoBehaviourPlus
         spriteRender.sprite = totallyBroken;
         fullyFixedTrigger.SetActive(false);
 
-        worldUI.ResourceCounter.text = ResourceNumbers();
+       
     }
 
     private void OnResourceChange (uint currentResources)

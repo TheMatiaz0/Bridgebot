@@ -26,6 +26,7 @@ public class GameOver : MonoBehaviour
 
 	public void OnMenu()
 	{
+		gameOverManager.EnableMenuWithPause(false);
 		SceneManager.LoadScene("MainMenu");
 	}
 }

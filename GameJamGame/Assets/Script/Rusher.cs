@@ -17,10 +17,10 @@ public class Rusher : Enemy
     [Auto]
     public Animator Animator { get; protected set; }
 
+    private IHpable bitter = null;
 	protected new void Start()
 	{
 		base.Start();
-		cooldown = new CooldownController(this, attackCooldown.TimeSpan);
 		cooldown = new CooldownController(this, attackCooldown.TimeSpan);
       
 
@@ -29,28 +29,45 @@ public class Rusher : Enemy
     {
         base.Update();
         Animator.SetBool("Move", !Path.reachedEndOfPath);
+        if (bitter != null)
+            TryBite(bitter);
 
     }
 
-    protected override void OnTriggerEnter2D(Collider2D collider)
-	{
-		base.OnTriggerEnter2D(collider);
+    protected override void OnTriggerEnter2D(Collider2D collision)
+    {
+        base.OnTriggerEnter2D(collision);
+        IHpable entity;
+        if (Check(collision, out entity))
+            bitter = entity;
+    }
+    protected override void OnTriggerExit2D(Collider2D collision)
+    {
+        base.OnTriggerExit2D(collision);
+        if(Check(collision,out IHpable entity))
+        {
+            if (entity == bitter)
+                bitter = null;
+        }
+    }
+    private bool Check(Collider2D col, out IHpable entity)
+    {
+        IHpable moment;
+        if ((moment = col.GetComponent<IHpable>()) != null && moment is Enemy == false)
+        {
+            entity = moment;
+            return true;
+        }
+        entity = null;
+        return false;
+          
 
-		Player player = null;
-		Carrier carrier = null;
+    }
+   
 
-		if (player = collider.GetComponent<Player>())
-		{
-			Bite(player);
-		}
 
-		if (carrier = collider.GetComponent<Carrier>())
-		{
-			Bite(carrier);
-		}
-	}
 
-	private void Bite (IHpable entity)
+    private void TryBite (IHpable entity)
 	{
 		if (cooldown.Try())
 		{

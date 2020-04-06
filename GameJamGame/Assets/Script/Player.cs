@@ -27,7 +27,7 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
     public Rigidbody2D Rigidbody2D { get; private set; }
 
     public Team CurrentTeam { get; private set; } = Team.Good;
-
+    bool end = false;
     public Hp Hp { get; private set; }
 
     [SerializeField]
@@ -63,7 +63,7 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
 
     private Direction lastDirection = Direction.Right;
     private ItemOnTrigger itemTrigger = null;
-
+    public event EventHandler OnCorrectEnds = delegate { };
     private void SetDefCamera()
     {
         cam = Camera.main;
@@ -124,8 +124,7 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
 
     private void Hp_OnValueChangeToMin(object sender, Hp.HpChangedArgs e)
     {
-        Debug.Log("You are dead");
-        Destroy(this.gameObject);
+        LaunchGameOver();
     }
 
     protected void OnEnable()
@@ -281,9 +280,15 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
         itemTrigger?.Interaction();
     }
 
+   
     public void LaunchGameOver ()
     {
-        gameOver.EnableMenuWithPause(true);
+        if (end)
+            return;
+        end = true;
+        OnCorrectEnds(this, EventArgs.Empty);
+        Invoke((_) => gameOver.EnableMenuWithPause(true),0.2f);
+    
         LockMovement = true;
     }
 

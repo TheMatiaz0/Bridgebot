@@ -9,6 +9,7 @@ public class PlacementController : AutoInstanceBehaviour<PlacementController>
 	private GameObject currentObject = null;
 	private SpriteRenderer spriteRender = null;
 	private Collider2D col2D = null;
+	private Building building = null;
 
 	private RaycastHit2D hit;
 
@@ -20,6 +21,7 @@ public class PlacementController : AutoInstanceBehaviour<PlacementController>
 		currentObject = Instantiate(prefab,	Vector2.zero, Quaternion.identity);
 		spriteRender = currentObject.GetComponent<SpriteRenderer>();
 		col2D = currentObject.GetComponent<Collider2D>();
+		building = currentObject.GetComponent<Building>();
 		col2D.isTrigger = true;
 		spriteRender.color = Color.red;
 	}
@@ -50,6 +52,7 @@ public class PlacementController : AutoInstanceBehaviour<PlacementController>
 
 	public void OnPlace ()
 	{
+		building.OnPlace();
 		spriteRender.color = Color.white;
 		hit.collider.tag = "Untagged";
 		col2D.isTrigger = false;

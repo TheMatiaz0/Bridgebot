@@ -55,17 +55,23 @@ public class Carrier : MonoBehaviourPlus, IHpable
     [SerializeField]
     private SerializedTimeSpan fixCooldown;
 
+    [Auto]
+    public Animator Animator { get; private set; }
     [SerializeField]
-    private Animator animator;
+    private GameObject dmgEffect;
+    [SerializeField]
+    private Color coloringColor = Color.red;
 
     [SerializeField]
     private HpManager hpManager = null;
 
     private WorldUI carrierUI = null;
+    private bool isGoingToResource;
 
-    private void OnResourceChange (uint newValue)
+    private void OnResourceChange(uint newValue)
     {
-        carrierUI.ResourceCounter.text = newValue.ToString();
+        if (carrierUI != null)
+            carrierUI.ResourceCounter.text = newValue.ToString();
     }
 
     protected void Start()
@@ -77,12 +83,19 @@ public class Carrier : MonoBehaviourPlus, IHpable
         hpManager.Refresh();
         PhaseController.Instance.OnPhaseChanged += Instance_OnPhaseChanged;
         carrierUI = GameObject.FindGameObjectWithTag("CarrierUI").GetComponent<WorldUI>();
-        carrierUI.ResourceCounter.text = 0.ToString();
+
     }
 
     private void Hp_OnValueChanged(object sender, Hp.HpChangedArgs e)
     {
-        
+        if (dmgEffect != null)
+        {
+            Instantiate(dmgEffect).transform.position = this.transform.position;
+            LeanTween.cancel(this.gameObject);
+            LeanTween.color(this.gameObject, Color.red, 1f)
+                .setOnComplete(() => LeanTween.color(this.gameObject, Color.white, 1f));
+        }
+
     }
 
     protected void OnEnable()
@@ -131,7 +144,7 @@ public class Carrier : MonoBehaviourPlus, IHpable
     {
         if (currentTarget == null)
         {
-            animator.SetBool("Walk", false);
+            Animator.SetBool("Walk", false);
             return;
         }
 
@@ -146,14 +159,14 @@ public class Carrier : MonoBehaviourPlus, IHpable
         }
 
         transform.position = Vector2.MoveTowards(transform.position, currentTarget.position, speed * Time.deltaTime);
-        animator.SetBool("Walk", true);
+        Animator.SetBool("Walk", true);
 
         //rb2D.MovePosition((Vector2)transform.position + (Vector2)currentTarget.position * speed * Time.fixedDeltaTime);
     }
 
     protected void OnMouseEnter()
     {
-        carrierUI.FirstActivate(true);
+        carrierUI.FirstActivate(true, CurrentResources.ToString());
         // WorldUI.Instance.FirstActivate(true);
     }
 
@@ -174,18 +187,23 @@ public class Carrier : MonoBehaviourPlus, IHpable
     {
         while (true)
         {
+            isGoingToResource = true;
+
             yield return GoToResource();
+            isGoingToResource = false;
 
             // gather resources
-            animator.SetBool("ChopChop", true);
+            Animator.SetBool("ChopChop", true);
             yield return GatherResources(Current);
             woodSpriteRender.sprite = fullWood;
-            animator.SetBool("ChopChop", false);
+            Animator.SetBool("ChopChop", false);
 
             yield return GoPoints();
 
             // fix the bridge
+
             yield return FixBridge(selectedBridge);
+
 
         }
     }
@@ -197,6 +215,7 @@ public class Carrier : MonoBehaviourPlus, IHpable
     private IEnumerator GoToResource()
     {
         Current = Resource.GetClosestResource(this.transform.position, gatherRange);
+        currentTarget = Current.transform;
 
         if (Current == null)
         {
@@ -248,18 +267,22 @@ public class Carrier : MonoBehaviourPlus, IHpable
 
     private IEnumerator FixBridge(Bridge bridge)
     {
+
         while (CurrentResources > 0)
         {
+            Animator.SetBool("ChopChop", true);
             bridge.ResourcesAddedToBuild += 1;
             CurrentResources -= 1;
             // Debug.Log($"I added to the bridge {bridge.ResourcesAddedToBuild} resources. I have {CurrentResources} now");
 
             yield return Async.Wait(fixCooldown.TimeSpan);
+            Animator.SetBool("ChopChop", false);
         }
 
         woodSpriteRender.sprite = null;
 
         yield return GoPoints(true);
+
         yield break;
     }
 
