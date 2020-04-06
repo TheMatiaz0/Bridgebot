@@ -13,6 +13,12 @@ public class Shooter : Enemy
 	[SerializeField]
 	private float bulletSpeed = 5;
 
+	[SerializeField]
+	private AudioSource audioSource = null;
+
+	[SerializeField]
+	private AudioClip shootSound = null;
+
 	protected override void Update()
 	{
 		base.Update();
@@ -35,6 +41,7 @@ public class Shooter : Enemy
 	private void Shoot (Transform target)
 	{
 		BulletManager.Instance.Shoot(bulletSpeed, Dmg, ((Vector2)(target.position - this.transform.position)).ToDirection(), this.transform.position, CurrentTeam);
+		audioSource.PlayOneShot(shootSound);
 	}
 	
 	protected override void Start()
