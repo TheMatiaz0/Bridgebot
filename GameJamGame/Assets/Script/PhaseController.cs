@@ -60,7 +60,7 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 
 			case Phase.EXPLORING:
 				InfoManager.Instance.InfoObject.SetActive(true);
-				InfoManager.Instance.InfoText.text = "Exploring phase. Easy... you can relax now.";
+				InfoManager.Instance.InfoText.text = "Exploring phase. You can relax now.";
 				spawnEnemies = null;
 				Spawner.Instance.KillAllEnemies();
 				enableUpdate = false;
@@ -71,7 +71,7 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 
 			case Phase.PREPARATION:
 				InfoManager.Instance.InfoObject.SetActive(true);
-				InfoManager.Instance.InfoText.text = "Preparation phase. Better buckle your pants and hurry!";
+				InfoManager.Instance.InfoText.text = "Preparation phase. Get ready!";
 				spawnEnemies = null;
 				CurrentTimer = timeToEndPreparation.TimeSpan;
 				enableUpdate = true;
