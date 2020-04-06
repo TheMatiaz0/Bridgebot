@@ -57,6 +57,10 @@ public class Carrier : MonoBehaviourPlus, IHpable
 
     [SerializeField]
     private Animator animator;
+    [SerializeField]
+    private GameObject dmgEffect;
+    [SerializeField]
+    private Color coloringColor = Color.red;
 
     [SerializeField]
     private HpManager hpManager = null;
@@ -82,7 +86,14 @@ public class Carrier : MonoBehaviourPlus, IHpable
 
     private void Hp_OnValueChanged(object sender, Hp.HpChangedArgs e)
     {
-        
+        if (dmgEffect != null)
+        {
+            Instantiate(dmgEffect).transform.position = this.transform.position;
+            LeanTween.cancel(this.gameObject);
+            LeanTween.color(this.gameObject, Color.red, 1f)
+                .setOnComplete(() => LeanTween.color(this.gameObject, Color.white, 1f));
+        }
+            
     }
 
     protected void OnEnable()

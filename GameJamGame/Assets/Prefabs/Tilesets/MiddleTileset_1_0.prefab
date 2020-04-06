@@ -10,7 +10,12 @@ PrefabInstance:
     - target: {fileID: 394982327309255127, guid: 1ab77dbe4cdeae6488f83aefe845974d,
         type: 3}
       propertyPath: m_Name
-      value: tilesetBasic_1_7
+      value: MiddleTileset_1_0 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 394982327309255127, guid: 1ab77dbe4cdeae6488f83aefe845974d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 976957366261443603, guid: 1ab77dbe4cdeae6488f83aefe845974d,
         type: 3}
@@ -21,12 +26,12 @@ PrefabInstance:
     - target: {fileID: 1686459126088482916, guid: 1ab77dbe4cdeae6488f83aefe845974d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 1686459126088482916, guid: 1ab77dbe4cdeae6488f83aefe845974d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 1686459126088482916, guid: 1ab77dbe4cdeae6488f83aefe845974d,
         type: 3}

@@ -130,8 +130,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 2
   radius: 4.2
-  height: 2
-  repathRate: 0.5
+  height: 2.21
+  repathRate: 1.06
   canSearch: 1
   canMove: 1
   maxSpeed: 2
@@ -186,8 +186,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startHp:
-    _Value: 10
+    _Value: 2
   aiBase: {fileID: 1073618881282620597}
+  deathEffect: {fileID: 8702461840096759764, guid: 4ce9aa22f3ab49744a96c8097911661c,
+    type: 3}
   dmg:
     _Value: 1
   minDistance: 5
@@ -249,7 +251,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1928130470648043647}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: cf80719dca03ad74abffcfdbaf8524a5, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
