@@ -20888,6 +20888,26 @@ PrefabInstance:
       propertyPath: hpManager
       value: 
       objectReference: {fileID: 1247886796}
+    - target: {fileID: 1270969954557673367, guid: b5dd9eb753152324bba75ca22ed49bc4,
+        type: 3}
+      propertyPath: gatherCooldown.miliseconds
+      value: 468
+      objectReference: {fileID: 0}
+    - target: {fileID: 1270969954557673367, guid: b5dd9eb753152324bba75ca22ed49bc4,
+        type: 3}
+      propertyPath: fixCooldown.miliseconds
+      value: 736
+      objectReference: {fileID: 0}
+    - target: {fileID: 1270969954557673367, guid: b5dd9eb753152324bba75ca22ed49bc4,
+        type: 3}
+      propertyPath: distanceBetweenPoints
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1270969954557673367, guid: b5dd9eb753152324bba75ca22ed49bc4,
+        type: 3}
+      propertyPath: speed
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8926157502099828153, guid: b5dd9eb753152324bba75ca22ed49bc4,
         type: 3}
       propertyPath: m_LocalPosition.x
