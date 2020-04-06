@@ -9,6 +9,7 @@ TagManager:
   - Carrier
   - BridgeUI
   - CarrierUI
+  - ResourceUI
   layers:
   - Default
   - TransparentFX

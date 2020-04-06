@@ -24,13 +24,26 @@ public class Resource : MonoBehaviourPlus
     [SerializeField]
     private uint resourceCount = 10;
 
-    public uint ResourceCount { get { return _ResourceCount; } set { if (_ResourceCount <= 0) { Destroy(this.gameObject); } _ResourceCount = value; } }
+    [SerializeField]
+    private ResourceUIActivator resourceUIActivator = null;
+
+    public uint ResourceCount { get { return _ResourceCount; } set { if (_ResourceCount != value) { _ResourceCount = value; } OnResourceChange(); } }
     private uint _ResourceCount = 10;
 
     protected void Start()
     {
         ResourceCount = resourceCount;
         ResourceList.Add(this);
+    }
+
+    private void OnResourceChange ()
+    {
+        resourceUIActivator.ResourceUI.ResourceCounter.text = ResourceCount.ToString();
+
+        if (_ResourceCount <= 0) 
+        { 
+            Destroy(this.gameObject);
+        }
     }
 
     public void DrawLine ()
