@@ -9159,17 +9159,28 @@ MonoBehaviour:
   - Remember that you control your movement using the WASD keys.
   - Your drone will follow you automatically, but you need to fire it manually using
     the Left Mouse Button.
-  - Your durability (in HP) is shown in the lower left corner.
+  - We'll lock your movement for now. Your durability (in HP) is shown in the lower
+    left corner.
   - This is Carrier.
   - Carrier will help with gathering materials and rebuilding bridges, while you,
     Fighter, will have to protect Carrier at all cost from anything that you might
     face.
-  - Go through the bridge on your right.
+  - Now press Space and go through the bridge on your right. Your movement will be
+    unlocked.
   - test
-  - test2
+  - After selecting a bridge to rebuild, the preparation phase will begin. During
+    this time you have to prepare for the upcoming fight.
+  - You can place turrets down on the gray spots on the ground. To do that, you have
+    to select a turret in your hotbar by pressing the related number button. Right
+    now your turret is on the 2 key.
+  - The timer on your screen shows you how much time you have left before the fighting
+    phase begins.
+  - As this is a tutorial, you'll have to press Space to begin the phase timer. Good
+    luck Bridgebots!
   arrowObj: {fileID: 202657092}
   player: {fileID: 1336926805}
   carrier: {fileID: 1264788030}
+  phase: {fileID: 0}
 --- !u!1001 &978465433
 PrefabInstance:
   m_ObjectHideFlags: 0
