@@ -33160,11 +33160,6 @@ PrefabInstance:
       propertyPath: hpManager
       value: 
       objectReference: {fileID: 1247886796}
-    - target: {fileID: 1270969954557673367, guid: b5dd9eb753152324bba75ca22ed49bc4,
-        type: 3}
-      propertyPath: startMaxHp
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 8926157502099828153, guid: b5dd9eb753152324bba75ca22ed49bc4,
         type: 3}
       propertyPath: m_LocalPosition.x
