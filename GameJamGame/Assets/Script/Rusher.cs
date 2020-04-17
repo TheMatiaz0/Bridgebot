@@ -12,11 +12,9 @@ public class Rusher : Enemy
 	private SerializedTimeSpan attackCooldown;
 
 	private CooldownController cooldown = null;
-    [Auto]
-    public AIPath Path { get; private set; }
-    [Auto]
-    public Animator Animator { get; protected set; }
+    
 
+  
     [SerializeField]
     private AudioSource audioSource = null;
 
@@ -34,7 +32,7 @@ public class Rusher : Enemy
     protected override void Update()
     {
         base.Update();
-        Animator.SetBool("Move", !Path.reachedEndOfPath);
+       
         if (((UnityEngine.Object)bitter) != null)
             TryBite(bitter);
 

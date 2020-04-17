@@ -189,7 +189,8 @@ MonoBehaviour:
   startHp:
     _Value: 3
   aiBase: {fileID: 1073618881282620597}
-  deathEffect: {fileID: 0}
+  deathEffect: {fileID: 8702461840096759764, guid: 4ce9aa22f3ab49744a96c8097911661c,
+    type: 3}
   dmg:
     _Value: 1
   minDistance: 5
@@ -236,7 +237,7 @@ Animator:
   m_GameObject: {fileID: 1928130470648043647}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1b256519d8e023f4295daec0362860fb, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6ac7640cdc4dfa143b9fd5fd16f0dae6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

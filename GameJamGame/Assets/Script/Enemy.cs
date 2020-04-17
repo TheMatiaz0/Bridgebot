@@ -36,6 +36,11 @@ public class Enemy : MonoBehaviourPlus, IHpable
 	[SerializeField]
 	private SpriteRenderer spriteRender = null;
 
+	[Auto]
+	public Animator Animator { get; private set; }
+	[Auto]
+	public AIPath Path { get; private set; }
+
 
 	protected override void Awake()
 	{
@@ -54,6 +59,7 @@ public class Enemy : MonoBehaviourPlus, IHpable
 		Destroy(this.gameObject);
 	}
 
+
 	protected virtual void Start()
 	{
 		carrierEntity = GameObject.FindGameObjectWithTag("Carrier").transform;
@@ -63,6 +69,7 @@ public class Enemy : MonoBehaviourPlus, IHpable
 
 	protected virtual void Update()
 	{
+		Animator.SetBool("Move", !Path.reachedEndOfPath);
 		if (aiBase.destination.x > 1)
 		{
 			spriteRender.flipX = true;
@@ -94,7 +101,7 @@ public class Enemy : MonoBehaviourPlus, IHpable
 	{
 		if (HpableExtension.IsFromWrongTeam(this, collision, out Bullet bullet))
 		{
-			this.Hp.TakeHp(bullet.Dmg, "Bullet");
+			this.Hp.TakeHp(bullet.Dmg, "Bullet");		
 			bullet.Kill();
 		}
 	}

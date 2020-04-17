@@ -105,8 +105,10 @@ public sealed class Equipment : AutoInstanceBehaviour<Equipment>
     {
         for (int i = 0; i < 3; i++)
         {
-            elements[i].SetSelect(selected == i);
+            if (i != selected)
+                elements[i].SetSelect(false);
         }
+        elements[selected].SetSelect(true);
 
     }
     private void RefreshGroup()

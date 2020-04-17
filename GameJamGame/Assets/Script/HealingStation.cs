@@ -22,22 +22,17 @@ public class HealingStation : Building
 
 	protected override void OnTriggerStay2D(Collider2D collision)
 	{
-		base.OnTriggerStay2D(collision);
-
-		Player player = null;
+		base.OnTriggerStay2D(collision);	
 		Carrier carrier = null;
 
-		if (cooldownController.Try())
+		
+		if (IsPlaced && cooldownController.Try())
 		{
 			if (carrier = collision.GetComponent<Carrier>())
 			{
 				Heal(carrier);
 			}
 
-			else if (player = collision.GetComponent<Player>())
-			{
-				Heal(player);
-			}
 		}
 
 	}

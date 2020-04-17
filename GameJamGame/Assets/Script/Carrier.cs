@@ -77,6 +77,8 @@ public class Carrier : MonoBehaviourPlus, IHpable
 
     [SerializeField]
     private AudioClip fixing = null;
+    [SerializeField]
+    private GameObject healEffect;
 
     private void OnResourceChange(uint newValue)
     {
@@ -106,9 +108,9 @@ public class Carrier : MonoBehaviourPlus, IHpable
     {
         if (dmgEffect != null)
         {
-            Instantiate(dmgEffect).transform.position = this.transform.position;
+            Instantiate((e.Action==Hp.Action.Take)? dmgEffect:healEffect).transform.position = this.transform.position;
             LeanTween.cancel(this.gameObject);
-            LeanTween.color(this.gameObject, Color.red, 1f)
+            LeanTween.color(this.gameObject, (e.Action == Hp.Action.Take) ? Color.red:Color.green, 1f)
                 .setOnComplete(() => LeanTween.color(this.gameObject, Color.white, 1f));
         }
 
@@ -124,6 +126,7 @@ public class Carrier : MonoBehaviourPlus, IHpable
         IsLaunched = false;
         CurrentResources = 0;
         woodSpriteRender.sprite = null;
+        Animator.SetBool("ChopChop", false);
         StopAllCoroutines();
     }
 
@@ -221,6 +224,7 @@ public class Carrier : MonoBehaviourPlus, IHpable
 
             // fix the bridge
             yield return FixBridge(selectedBridge);
+          
 
 
         }
@@ -299,8 +303,9 @@ public class Carrier : MonoBehaviourPlus, IHpable
         }
 
         woodSpriteRender.sprite = null;
-
+     
         yield return GoPoints(true);
+
 
         yield break;
     }

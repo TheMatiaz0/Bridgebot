@@ -274,7 +274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxCapacity: 8
-  startMaxHp: 8
+  startMaxHp: 10
   speed: 4
   spriteRender: {fileID: 1033927115}
   woodSpriteRender: {fileID: 488767042}
@@ -302,6 +302,8 @@ MonoBehaviour:
   gatheringSound: {fileID: 8300000, guid: 45bbea7cccd367e4ca60ef91409914e8, type: 3}
   audioSource: {fileID: 1264788031}
   fixing: {fileID: 8300000, guid: b7159a122126d12498bb69c142b7527e, type: 3}
+  healEffect: {fileID: 887202916652675498, guid: 084a1a591575f1042b45c3535aa6b901,
+    type: 3}
 --- !u!114 &8514928864346537232
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -259,7 +259,8 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
         }
 
         Equipment.Instance?.GetCurrent()?.OnUse();
-        audioSource.PlayOneShot(shoot);
+        if (Equipment.Instance?.GetCurrent() is Pistol)
+            audioSource.PlayOneShot(shoot);
     }
 
     private void OnPause()
