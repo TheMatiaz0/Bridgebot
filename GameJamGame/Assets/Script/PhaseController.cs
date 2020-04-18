@@ -24,19 +24,15 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 	private SerializedTimeSpan timeToEndPreparation;
 
 	private Coroutine spawnEnemies;
-	// [SerializeField]
-	//private AudioSource audioSource1 = null;
+	private Coroutine musicProgress;
 
 	[SerializeField]
-	private AudioSource audioSource2 = null;
-
-	[SerializeField]
-	private AudioSource audioSource3 = null;
+	private AudioSource[] musicTracks = null;
 
 	public TimeSpan CurrentTimer { get { return _CurrentTimer; } private set { if (_CurrentTimer != value) { _CurrentTimer = value; } UpdateText(_CurrentTimer); } }
 	private TimeSpan _CurrentTimer;
 
-	public bool enableUpdate;
+	public bool EnableUpdate { get; set; }
 
 	protected void OnEnable()
 	{
@@ -54,11 +50,37 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 	{
 		switch (e)
 		{
+			case Phase.EXPLORING:
+				StopAllCoroutines();
+				musicTracks[1].Stop();
+				musicTracks[2].Stop();
+				InfoManager.Instance.InfoObject.SetActive(true);
+				InfoManager.Instance.InfoText.text = "Exploring phase. You can relax now.";
+				spawnEnemies = null;
+				Spawner.Instance.KillAllEnemies();
+				EnableUpdate = false;
+				battleUI.SetActive(false);
+				timer.gameObject.SetActive(false);
+				break;
+
+			case Phase.PREPARATION:
+				StopAllCoroutines();
+				AddLayerMusic(1);
+				// musicTracks[1].Play();
+				InfoManager.Instance.InfoObject.SetActive(true);
+				InfoManager.Instance.InfoText.text = "Preparation phase. Get ready!";
+				spawnEnemies = null;
+				CurrentTimer = timeToEndPreparation.TimeSpan;
+				EnableUpdate = true;
+				battleUI.SetActive(false);
+				timer.gameObject.SetActive(true);
+				break;
+
 			case Phase.FIGHTING:
-				audioSource3.Play();
+				AddLayerMusic(2);
 				InfoManager.Instance.InfoObject.SetActive(true);
 				InfoManager.Instance.InfoText.text = "Fighting phase. Monsters are coming!";
-				enableUpdate = false;
+				EnableUpdate = false;
 				battleUI.SetActive(true);
 				timer.gameObject.SetActive(false);
 				if (spawnEnemies == null)
@@ -66,31 +88,35 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 					spawnEnemies = StartCoroutine(Spawner.Instance.StartWave());
 				}
 				break;
+		}
+	}
 
-			case Phase.EXPLORING:
-				audioSource2.Stop();
-				audioSource3.Stop();
-				InfoManager.Instance.InfoObject.SetActive(true);
-				InfoManager.Instance.InfoText.text = "Exploring phase. You can relax now.";
-				spawnEnemies = null;
-				Spawner.Instance.KillAllEnemies();
-				enableUpdate = false;
-				battleUI.SetActive(false);
-				timer.gameObject.SetActive(false);
-				StopAllCoroutines();
-				break;
+	private void AddLayerMusic (int musicTrackNum)
+	{
+		bool restore0 = false;
+		bool restore1 = false;
+		if (musicTracks[0].isPlaying)
+		{
+			musicTracks[0].Stop();
+			restore0 = true;
 
-			case Phase.PREPARATION:
-				audioSource2.Play();
-				InfoManager.Instance.InfoObject.SetActive(true);
-				InfoManager.Instance.InfoText.text = "Preparation phase. Get ready!";
-				spawnEnemies = null;
-				CurrentTimer = timeToEndPreparation.TimeSpan;
-				enableUpdate = true;
-				battleUI.SetActive(false);
-				timer.gameObject.SetActive(true);
-				StopAllCoroutines();
-				break;
+			if (musicTracks[1].isPlaying)
+			{
+				musicTracks[1].Stop();
+				restore1 = true;
+			}
+		}
+
+		musicTracks[musicTrackNum].Play();
+
+		if (restore0)
+		{
+			musicTracks[0].Play();
+		}
+
+		if (restore1)
+		{
+			musicTracks[1].Play();
 		}
 	}
 
@@ -133,7 +159,7 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 
 	protected void Update()
 	{
-		if (enableUpdate == false)
+		if (EnableUpdate == false)
 		{
 			return;
 		}

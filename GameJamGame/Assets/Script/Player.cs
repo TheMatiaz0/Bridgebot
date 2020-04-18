@@ -146,7 +146,7 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
         }
 
         Vector2 mousePos;
-
+        /*
         if (Gamepad.current != null)
         {
             if (lookPosition == Vector2.zero)
@@ -163,6 +163,8 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
         {
             mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         }
+        */
+        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
         gunObj.transform.LookAt2D(mousePos);
 
@@ -206,10 +208,12 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
 
         Animator.SetBool("Move", hasMoved);
 
+#if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+#endif
 
         void Move(Direction dir)
         {

@@ -61,10 +61,10 @@ public class Tutorial : MonoBehaviour
 				break;
 			case 10:
 				arrowObj.SetActive(false);
-				PhaseController.Instance.enableUpdate = false;
+				PhaseController.Instance.EnableUpdate = false;
 				break;
 			case 14:
-				PhaseController.Instance.enableUpdate = true;
+				PhaseController.Instance.EnableUpdate = true;
 				tutorialObj.SetActive(false);
 				Destroy(this);
 				break;
