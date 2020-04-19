@@ -99,7 +99,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1621850692496015636
 RectTransform:
   m_ObjectHideFlags: 0
@@ -221,8 +221,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statText: {fileID: 2632754347338296263}
   gameOverManager: {fileID: 0}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 277902221}
   gameOverSound: {fileID: 8300000, guid: d03df24dd07b7ed4090b019fad4bfe3b, type: 3}
+  mainText: {fileID: 5044526425446379636}
 --- !u!82 &277902221
 AudioSource:
   m_ObjectHideFlags: 0

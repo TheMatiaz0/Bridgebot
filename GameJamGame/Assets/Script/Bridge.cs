@@ -111,6 +111,7 @@ public class Bridge : MonoBehaviourPlus
 
     private void Bridge_OnBridgeBuilt(object sender, SimpleArgs<Bridge> e)
     {
+        worldUI.FirstActivate(false);
         audioSource.PlayOneShot(bridgeBuilt);
     }
 

@@ -77,8 +77,14 @@ public class Carrier : MonoBehaviourPlus, IHpable
 
     [SerializeField]
     private AudioClip fixing = null;
+
+    [SerializeField]
+    private AudioClip warning = null;
+
     [SerializeField]
     private GameObject healEffect;
+
+    private bool collidesWithResource = false;
 
     private void OnResourceChange(uint newValue)
     {
@@ -92,25 +98,34 @@ public class Carrier : MonoBehaviourPlus, IHpable
         hpManager.CurHealth = Hp;
         Hp.OnValueChangeToMin += Hp_OnValueChangeToMin;
         Hp.OnValueChanged += Hp_OnValueChanged;
+        Hp.OnHpTaken += Hp_OnHpTaken;
         hpManager.Refresh();
         PhaseController.Instance.OnPhaseChanged += Instance_OnPhaseChanged;
         carrierUI = GameObject.FindGameObjectWithTag("CarrierUI").GetComponent<WorldUI>();
 
     }
 
-	private void OnDestroy()
-	{
-		if(PhaseController.Instance)
-		PhaseController.Instance.OnPhaseChanged -= Instance_OnPhaseChanged;
-	}
+    private void Hp_OnHpTaken(object sender, Hp.HpChangedArgs e)
+    {
+        if (e.Actual < 4)
+        {
+            audioSource.PlayOneShot(warning);
+        }
+    }
 
-	private void Hp_OnValueChanged(object sender, Hp.HpChangedArgs e)
+    private void OnDestroy()
+    {
+        if (PhaseController.Instance)
+            PhaseController.Instance.OnPhaseChanged -= Instance_OnPhaseChanged;
+    }
+
+    private void Hp_OnValueChanged(object sender, Hp.HpChangedArgs e)
     {
         if (dmgEffect != null)
         {
-            Instantiate((e.Action==Hp.Action.Take)? dmgEffect:healEffect).transform.position = this.transform.position;
+            Instantiate((e.Action == Hp.Action.Take) ? dmgEffect : healEffect).transform.position = this.transform.position;
             LeanTween.cancel(this.gameObject);
-            LeanTween.color(this.gameObject, (e.Action == Hp.Action.Take) ? Color.red:Color.green, 1f)
+            LeanTween.color(this.gameObject, (e.Action == Hp.Action.Take) ? Color.red : Color.green, 1f)
                 .setOnComplete(() => LeanTween.color(this.gameObject, Color.white, 1f));
         }
 
@@ -224,7 +239,7 @@ public class Carrier : MonoBehaviourPlus, IHpable
 
             // fix the bridge
             yield return FixBridge(selectedBridge);
-          
+
 
 
         }
@@ -248,7 +263,7 @@ public class Carrier : MonoBehaviourPlus, IHpable
         AIPath.canSearch = true;
         AIPath.destination = Current.transform.position;
         yield return Async.NextFrame;
-        yield return Async.Until(() => AIPath.reachedEndOfPath);
+        yield return Async.Until(() => collidesWithResource);
     }
 
     private IEnumerator GoPoints(bool reverse = false)
@@ -303,7 +318,7 @@ public class Carrier : MonoBehaviourPlus, IHpable
         }
 
         woodSpriteRender.sprite = null;
-     
+
         yield return GoPoints(true);
 
 
@@ -316,6 +331,19 @@ public class Carrier : MonoBehaviourPlus, IHpable
         {
             this.Hp.TakeHp(bullet.Dmg, "Bullet");
             bullet.Kill();
+        }
+
+        if (collision.GetComponent<Resource>())
+        {
+            collidesWithResource = true;
+        }
+    }
+
+    protected void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.GetComponent<Resource>())
+        {
+            collidesWithResource = false;
         }
     }
 

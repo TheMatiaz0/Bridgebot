@@ -11,6 +11,9 @@ public class MainMenu : MonoBehaviour
 	[SerializeField]
 	private GameObject mainMainMenu = null;
 
+	[SerializeField]
+	private GameObject creditsMenu = null;
+
 	public void StartGameBtn ()
 	{
 		SceneManager.LoadScene("SampleScene");
@@ -19,6 +22,12 @@ public class MainMenu : MonoBehaviour
 	public void Options ()
 	{
 		optionsMenu.SetActive(true);
+		mainMainMenu.SetActive(false);
+	}
+
+	public void CreditsBtn ()
+	{
+		creditsMenu.SetActive(true);
 		mainMainMenu.SetActive(false);
 	}
 

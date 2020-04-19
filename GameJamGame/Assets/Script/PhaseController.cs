@@ -51,7 +51,8 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 		switch (e)
 		{
 			case Phase.EXPLORING:
-				StopAllCoroutines();
+				Spawner.Instance.EnemyCount += 2;
+				Player.Instance.Hp.GiveHp(Player.Instance.Hp.Max, "None");
 				musicTracks[1].Stop();
 				musicTracks[2].Stop();
 				InfoManager.Instance.InfoObject.SetActive(true);
@@ -61,12 +62,11 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 				EnableUpdate = false;
 				battleUI.SetActive(false);
 				timer.gameObject.SetActive(false);
+				StopAllCoroutines();
 				break;
 
 			case Phase.PREPARATION:
-				StopAllCoroutines();
 				AddLayerMusic(1);
-				// musicTracks[1].Play();
 				InfoManager.Instance.InfoObject.SetActive(true);
 				InfoManager.Instance.InfoText.text = "Preparation phase. Get ready!";
 				spawnEnemies = null;
@@ -74,6 +74,7 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 				EnableUpdate = true;
 				battleUI.SetActive(false);
 				timer.gameObject.SetActive(true);
+				StopAllCoroutines();
 				break;
 
 			case Phase.FIGHTING:
@@ -88,6 +89,14 @@ public class PhaseController : AutoInstanceBehaviour<PhaseController>
 					spawnEnemies = StartCoroutine(Spawner.Instance.StartWave());
 				}
 				break;
+		}
+	}
+
+	public void StopAllMusic ()
+	{
+		foreach (AudioSource item in musicTracks)
+		{
+			item.Stop();
 		}
 	}
 

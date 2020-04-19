@@ -71,6 +71,11 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
     [SerializeField]
     private AudioClip shoot = null;
 
+    [SerializeField]
+    private AudioClip playerDmgTaken = null;
+
+    public bool TheEndEnd { get; set; }
+
     private void SetDefCamera()
     {
         cam = Camera.main;
@@ -111,7 +116,13 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
         Hp = new Hp(startMaxHp, 0, startMaxHp);
         hpManager.CurHealth = Hp;
         Hp.OnValueChangeToMin += Hp_OnValueChangeToMin;
+        Hp.OnHpTaken += Hp_OnHpTaken;
         hpManager.Refresh();
+    }
+
+    private void Hp_OnHpTaken(object sender, Hp.HpChangedArgs e)
+    {
+        audioSource.PlayOneShot(playerDmgTaken);
     }
 
     private void Hp_OnValueChangeToMin(object sender, Hp.HpChangedArgs e)
@@ -235,6 +246,7 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
     }
     public Direction GetLookDirection()
     {
+        /*
         if (Gamepad.current != null)
         {
             if (lookPosition == Vector2.zero)
@@ -247,12 +259,16 @@ public class Player : AutoInstanceBehaviour<Player>, IHpable
             return (Vector2)(lookPosition);
         }
 
+
         else
         {
-            return ((Vector2)(Camera.main.ScreenToWorldPoint(
+        }
+                */
+
+        return ((Vector2)(Camera.main.ScreenToWorldPoint(
             Input.mousePosition) - this.gunObj.transform.position))
             .ToDirection();
-        }
+
     }
 
     private void OnShoot()

@@ -7,6 +7,9 @@ public class IslandEnterTrigger : MonoBehaviour
 	private bool hasActivated = false;
 
 	[SerializeField]
+	private bool theEnd = false;
+
+	[SerializeField]
 	private BridgeSelection selection;
 
 	[SerializeField]
@@ -33,9 +36,15 @@ public class IslandEnterTrigger : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-
 		if (collision.GetComponent<Player>())
 		{
+			if (theEnd)
+			{
+				Player.Instance.TheEndEnd = true;
+				Player.Instance.LaunchGameOver();
+				return;
+			}
+
 			inRange = true;
 
 			if (hasActivated == false)

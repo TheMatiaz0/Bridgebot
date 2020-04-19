@@ -228,9 +228,9 @@ MonoBehaviour:
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 360
-  slowdownDistance: 1.2
+  slowdownDistance: 1.5
   pickNextWaypointDist: 30
-  endReachedDistance: 0.9
+  endReachedDistance: 1
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
@@ -302,6 +302,7 @@ MonoBehaviour:
   gatheringSound: {fileID: 8300000, guid: 45bbea7cccd367e4ca60ef91409914e8, type: 3}
   audioSource: {fileID: 1264788031}
   fixing: {fileID: 8300000, guid: b7159a122126d12498bb69c142b7527e, type: 3}
+  warning: {fileID: 8300000, guid: dd835be74614cc447918c0a2b2c3c029, type: 3}
   healEffect: {fileID: 887202916652675498, guid: 084a1a591575f1042b45c3535aa6b901,
     type: 3}
 --- !u!114 &8514928864346537232

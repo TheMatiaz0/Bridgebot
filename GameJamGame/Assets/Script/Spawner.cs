@@ -20,6 +20,8 @@ public class Spawner : AutoInstanceBehaviour<Spawner>
 	[SerializeField]
 	private Cint enemyCount = 1;
 
+	public Cint EnemyCount { get; set; }
+
 	[SerializeField]
 	private SerializedTimeSpan timeInterval;
 
@@ -39,6 +41,7 @@ public class Spawner : AutoInstanceBehaviour<Spawner>
 	{
 		base.Awake();
 		EnemySpawners = enemySpawners;
+		EnemyCount = enemyCount;
 	}
 
 	protected void Start()
@@ -92,7 +95,7 @@ public class Spawner : AutoInstanceBehaviour<Spawner>
 
 	private IEnumerator SpawnWave()
 	{
-		for (int i = 0; i < enemyCount; i++)
+		for (int i = 0; i < EnemyCount; i++)
 		{
 			SpawnEnemy();
 			yield return Async.Wait(timeInterval.TimeSpan);
